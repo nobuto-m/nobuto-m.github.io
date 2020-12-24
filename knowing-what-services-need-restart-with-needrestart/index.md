@@ -26,7 +26,6 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-
 ---
 
 With [Livepatch support in Linux kernel](https://www.kernel.org/doc/Documentation/livepatch/livepatch.txt) and [Livepatch service for Ubuntu](https://www.ubuntu.com/server/livepatch), reboots are no longer necessary even when kernel vulnerabilities are found. You can avoid and postpone unplanned reboots to whenever convenient for you, such as scheduled maintenance windows (Well, there are some corner cases which still require reboots though).
