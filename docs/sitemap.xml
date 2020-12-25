@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://nobuto-m.github.io/post/minimal-dynamic-dns-configuration-for-no-ip-com-with-ddclient/</loc>
+    <lastmod>2020-12-24T22:39:16+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nobuto-m.github.io/</loc>
+    <lastmod>2020-12-25T14:27:41+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nobuto-m.github.io/tag/planet-ubuntu/</loc>
+    <lastmod>2020-12-24T22:39:16+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nobuto-m.github.io/tags/</loc>
+    <lastmod>2020-12-24T22:39:16+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nobuto-m.github.io/post/knowing-what-services-need-restart-with-needrestart/</loc>
+    <lastmod>2020-12-24T17:51:09+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc></loc>
+    <lastmod>2020-12-25T14:27:41+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nobuto-m.github.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc></loc>
+    <lastmod>2020-12-25T13:53:19+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nobuto-m.github.io/post/</loc>
+    <lastmod>2020-12-25T14:27:41+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nobuto-m.github.io/publication_types/</loc>
+  </url>
+  
+</urlset>
