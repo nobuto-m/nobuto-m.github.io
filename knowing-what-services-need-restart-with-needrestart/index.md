@@ -44,7 +44,7 @@ apache2 2299 www-data DEL REG 252,0 260711 /lib/x86_64-linux-gnu/libssl.so.1.0.0
 
 With “lsof”, you have to determine which process belongs to which systemd unit and manually restart those units. There is a helper script called “needrestart”. It is inspired by checkrestart from the debian-goodies package according to their doc. It shows a handy dialogue at the end of `apt upgrade` and prompts service restarts.
 
-![needrestart prompt](needrestart.png)
+![needrestart prompt](featured.png)
 
 To use “needrestart”, you just need to install a package with the same name.
 
