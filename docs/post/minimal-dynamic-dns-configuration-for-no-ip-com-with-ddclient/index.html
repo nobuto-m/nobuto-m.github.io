@@ -661,7 +661,7 @@
     EDIT: I have migrated one of my domains to <a href="https://domains.google/">Google Domains</a> so I&rsquo;m using <a href="https://support.google.com/domains/answer/6147083"><code>protocol=googledomains</code></a> these days.
   </div>
 </div>
-<p>When I searched for a way to configure ddclient for <a href="https://www.noip.com/" target="_blank" rel="noopener">No-IP.com</a>, some pages mention <code>protocol=dyndns2</code> with a custom URL. But actually, ddclient supports <code>protocol=noip</code> out of the box, so minimal steps would be something like:</p>
+<p>When I searched for a way to configure ddclient for <a href="https://www.noip.com/">No-IP.com</a>, some pages mention <code>protocol=dyndns2</code> with a custom URL. But actually, ddclient supports <code>protocol=noip</code> out of the box, so minimal steps would be something like:</p>
 <pre><code class="language-bash">$ sudo apt install ddclient
 
 $ cat &lt;&lt;EOF | sudo tee /etc/ddclient.conf

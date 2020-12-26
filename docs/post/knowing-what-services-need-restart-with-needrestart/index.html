@@ -641,7 +641,7 @@
   <div class="article-container">
 
     <div class="article-style">
-      <p>With <a href="https://www.kernel.org/doc/Documentation/livepatch/livepatch.txt" target="_blank" rel="noopener">Livepatch support in Linux kernel</a> and <a href="https://www.ubuntu.com/server/livepatch" target="_blank" rel="noopener">Livepatch service for Ubuntu</a>, reboots are no longer necessary even when kernel vulnerabilities are found. You can avoid and postpone unplanned reboots to whenever convenient for you, such as scheduled maintenance windows (Well, there are some corner cases which still require reboots though).</p>
+      <p>With <a href="https://www.kernel.org/doc/Documentation/livepatch/livepatch.txt">Livepatch support in Linux kernel</a> and <a href="https://www.ubuntu.com/server/livepatch">Livepatch service for Ubuntu</a>, reboots are no longer necessary even when kernel vulnerabilities are found. You can avoid and postpone unplanned reboots to whenever convenient for you, such as scheduled maintenance windows (Well, there are some corner cases which still require reboots though).</p>
 <p>What about services? After applying security updates of libraries, some services still grab old libraries which may have vulnerabilities. You can list up those processes with “lsof”.</p>
 <pre><code class="language-bash">$ sudo lsof / | egrep -w 'DEL|deleted'
 ...

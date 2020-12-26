@@ -22,7 +22,7 @@
     EDIT: I have migrated one of my domains to &lt;a href=&#34;https://domains.google/&#34;&gt;Google Domains&lt;/a&gt; so I&amp;rsquo;m using &lt;a href=&#34;https://support.google.com/domains/answer/6147083&#34;&gt;&lt;code&gt;protocol=googledomains&lt;/code&gt;&lt;/a&gt; these days.
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;When I searched for a way to configure ddclient for &lt;a href=&#34;https://www.noip.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;No-IP.com&lt;/a&gt;, some pages mention &lt;code&gt;protocol=dyndns2&lt;/code&gt; with a custom URL. But actually, ddclient supports &lt;code&gt;protocol=noip&lt;/code&gt; out of the box, so minimal steps would be something like:&lt;/p&gt;
+&lt;p&gt;When I searched for a way to configure ddclient for &lt;a href=&#34;https://www.noip.com/&#34;&gt;No-IP.com&lt;/a&gt;, some pages mention &lt;code&gt;protocol=dyndns2&lt;/code&gt; with a custom URL. But actually, ddclient supports &lt;code&gt;protocol=noip&lt;/code&gt; out of the box, so minimal steps would be something like:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt install ddclient
 
 $ cat &amp;lt;&amp;lt;EOF | sudo tee /etc/ddclient.conf
@@ -55,7 +55,7 @@ ddclient[24631]: SUCCESS:  updating MY_HOST.redirectme.net: good: IP address set
       <link>https://nobuto-m.github.io/post/knowing-what-services-need-restart-with-needrestart/</link>
       <pubDate>Tue, 04 Jul 2017 00:00:00 +0900</pubDate>
       <guid>https://nobuto-m.github.io/post/knowing-what-services-need-restart-with-needrestart/</guid>
-      <description>&lt;p&gt;With &lt;a href=&#34;https://www.kernel.org/doc/Documentation/livepatch/livepatch.txt&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Livepatch support in Linux kernel&lt;/a&gt; and &lt;a href=&#34;https://www.ubuntu.com/server/livepatch&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Livepatch service for Ubuntu&lt;/a&gt;, reboots are no longer necessary even when kernel vulnerabilities are found. You can avoid and postpone unplanned reboots to whenever convenient for you, such as scheduled maintenance windows (Well, there are some corner cases which still require reboots though).&lt;/p&gt;
+      <description>&lt;p&gt;With &lt;a href=&#34;https://www.kernel.org/doc/Documentation/livepatch/livepatch.txt&#34;&gt;Livepatch support in Linux kernel&lt;/a&gt; and &lt;a href=&#34;https://www.ubuntu.com/server/livepatch&#34;&gt;Livepatch service for Ubuntu&lt;/a&gt;, reboots are no longer necessary even when kernel vulnerabilities are found. You can avoid and postpone unplanned reboots to whenever convenient for you, such as scheduled maintenance windows (Well, there are some corner cases which still require reboots though).&lt;/p&gt;
 &lt;p&gt;What about services? After applying security updates of libraries, some services still grab old libraries which may have vulnerabilities. You can list up those processes with “lsof”.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo lsof / | egrep -w &#39;DEL|deleted&#39;
 ...
