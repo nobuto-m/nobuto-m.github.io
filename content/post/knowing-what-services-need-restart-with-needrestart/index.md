@@ -5,11 +5,14 @@ title: "Knowing what services need restart with “needrestart”"
 subtitle: ""
 summary: ""
 authors: []
+
 tags: [planet-ubuntu]
 categories: []
+
 year: 2017
 date: 2017-07-04T00:00:00+09:00
 lastmod: 2020-12-24T17:51:09+09:00
+
 featured: false
 draft: false
 
