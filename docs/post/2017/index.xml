@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2017 | Nobuto Murata</title>
+    <link>https://nobuto-m.github.io/post/2017/</link>
+      <atom:link href="https://nobuto-m.github.io/post/2017/index.xml" rel="self" type="application/rss+xml" />
+    <description>2017</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2017-2020 Nobuto Murata</copyright><lastBuildDate>Tue, 04 Jul 2017 00:00:00 +0900</lastBuildDate>
+    <image>
+      <url>https://nobuto-m.github.io/images/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_2.png</url>
+      <title>2017</title>
+      <link>https://nobuto-m.github.io/post/2017/</link>
+    </image>
+    
+    <item>
+      <title>Knowing what services need restart with “needrestart”</title>
+      <link>https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/</link>
+      <pubDate>Tue, 04 Jul 2017 00:00:00 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/</guid>
+      <description>&lt;p&gt;With &lt;a href=&#34;https://www.kernel.org/doc/Documentation/livepatch/livepatch.txt&#34;&gt;Livepatch support in Linux kernel&lt;/a&gt; and &lt;a href=&#34;https://www.ubuntu.com/server/livepatch&#34;&gt;Livepatch service for Ubuntu&lt;/a&gt;, reboots are no longer necessary even when kernel vulnerabilities are found. You can avoid and postpone unplanned reboots to whenever convenient for you, such as scheduled maintenance windows (Well, there are some corner cases which still require reboots though).&lt;/p&gt;
+&lt;p&gt;What about services? After applying security updates of libraries, some services still grab old libraries which may have vulnerabilities. You can list up those processes with “lsof”.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo lsof / | egrep -w &#39;DEL|deleted&#39;
+...
+apache2 2296 root DEL REG 252,0 260616 /lib/x86_64-linux-gnu/libcrypto.so.1.0.0
+apache2 2296 root DEL REG 252,0 260711 /lib/x86_64-linux-gnu/libssl.so.1.0.0
+apache2 2299 www-data DEL REG 252,0 260616 /lib/x86_64-linux-gnu/libcrypto.so.1.0.0
+apache2 2299 www-data DEL REG 252,0 260711 /lib/x86_64-linux-gnu/libssl.so.1.0.0
+...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;With “lsof”, you have to determine which process belongs to which systemd unit and manually restart those units. There is a helper script called “needrestart”. It is inspired by checkrestart from the debian-goodies package according to their doc. It shows a handy dialogue at the end of &lt;code&gt;apt upgrade&lt;/code&gt; and prompts service restarts.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;featured.png&#34; alt=&#34;needrestart prompt&#34;&gt;&lt;/p&gt;
+&lt;p&gt;To use “needrestart”, you just need to install a package with the same name.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt install needrestart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can also change the default behavior by editing &lt;code&gt;/etc/needrestart/needrestart.conf&lt;/code&gt;. For example, you can enable automatic restart without asking.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Restart services (l)ist only, (i)nteractive or (a)utomatically.
+#$nrconf{restart} = &#39;i&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Furthermore, it has “nagios” plugin mode(&lt;code&gt;-p&lt;/code&gt;) so that it can be integrated with monitoring systems. With this mode, you might want to skip an obsolete kernel check by adding &lt;code&gt;-l&lt;/code&gt; flag if kernel patching is managed by Livepatch.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo needrestart -p -l
+CRIT — Services: 4 (!), Containers: none, Sessions: 1 (!)|Services=4;;0;0 Containers=0;;0;0 Sessions=1;0;;0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here is an example of Nagios status output.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;nagios.png&#34; alt=&#34;Nagios alert&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

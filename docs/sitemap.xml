@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://nobuto-m.github.io/post/2018/</loc>
+    <lastmod>2020-12-24T22:39:16+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nobuto-m.github.io/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/</loc>
     <lastmod>2020-12-24T22:39:16+09:00</lastmod>
   </url>
@@ -20,6 +25,16 @@
   <url>
     <loc>https://nobuto-m.github.io/tags/</loc>
     <lastmod>2020-12-24T22:39:16+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nobuto-m.github.io/year/</loc>
+    <lastmod>2020-12-24T22:39:16+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nobuto-m.github.io/post/2017/</loc>
+    <lastmod>2020-12-24T17:51:09+09:00</lastmod>
   </url>
   
   <url>

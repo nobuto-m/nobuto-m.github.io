@@ -7,6 +7,7 @@ summary: ""
 authors: []
 tags: [planet-ubuntu]
 categories: []
+year: 2018
 date: 2018-07-21T00:00:00+09:00
 lastmod: 2020-12-24T22:39:16+09:00
 featured: false
