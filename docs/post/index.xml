@@ -37,7 +37,6 @@ EOF
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;And here we go.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ echo &#39;run_daemon=&amp;quot;true&amp;quot;&#39; | sudo tee -a /etc/default/ddclient
-## ^^^ this step may not be necessary any longer
 
 $ sudo service ddclient restart
 

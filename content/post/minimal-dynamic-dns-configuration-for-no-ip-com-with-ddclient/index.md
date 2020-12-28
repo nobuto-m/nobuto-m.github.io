@@ -11,7 +11,7 @@ categories: []
 
 year: 2018
 date: 2018-07-21T00:00:00+09:00
-lastmod: 2020-12-24T22:39:16+09:00
+lastmod: 2020-12-29T03:29:53+09:00
 
 featured: false
 draft: false
@@ -56,7 +56,6 @@ And here we go.
 
 ```bash
 $ echo 'run_daemon="true"' | sudo tee -a /etc/default/ddclient
-## ^^^ this step may not be necessary any longer
 
 $ sudo service ddclient restart
 
