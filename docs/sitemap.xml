@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>https://nobuto-m.github.io/categories/</loc>
+    <lastmod>2020-12-29T03:29:53+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nobuto-m.github.io/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/</loc>
     <lastmod>2020-12-29T03:29:53+09:00</lastmod>
   </url>
@@ -33,6 +38,11 @@
   </url>
   
   <url>
+    <loc>https://nobuto-m.github.io/category/ubuntu/</loc>
+    <lastmod>2020-12-29T03:29:53+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nobuto-m.github.io/post/2017/</loc>
     <lastmod>2020-12-24T17:51:09+09:00</lastmod>
   </url>
@@ -45,10 +55,6 @@
   <url>
     <loc></loc>
     <lastmod>2020-12-25T14:27:41+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://nobuto-m.github.io/categories/</loc>
   </url>
   
   <url>

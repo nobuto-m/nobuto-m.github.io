@@ -7,7 +7,7 @@ summary: ""
 authors: []
 
 tags: [planet-ubuntu]
-categories: []
+categories: [Ubuntu]
 
 year: 2017
 date: 2017-07-04T00:00:00+09:00
