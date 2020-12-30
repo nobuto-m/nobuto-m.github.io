@@ -13,6 +13,66 @@
     </image>
     
     <item>
+      <title>Shortcut key to mute/unmute yourself in Zoom or Google Meet</title>
+      <link>https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/</link>
+      <pubDate>Thu, 31 Dec 2020 03:49:53 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/</guid>
+      <description>&lt;p&gt;Just like everyone else, 2020 was the year of having more and more video-conference calls. How many times did we struggle to find the meeting window during a call, and say &amp;ldquo;Sorry, I was on mute&amp;rdquo;? I tried to address the pain and ended up with the following setup.&lt;/p&gt;
+&lt;h2 id=&#34;xdotool&#34;&gt;xdotool&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;xdotool&lt;/code&gt; is a great automation tool for X, and it can search a window, activate it, and simulate keyboard input. That&amp;rsquo;s a perfect match for the use case here.&lt;/p&gt;
+&lt;p&gt;Here is an example command for Google Meet.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ xdotool search --name &#39;^Meet - .+ - Chromium$&#39; \
+    windowactivate --sync \
+    key ctrl+d
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In the chained commands, it does:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;search windows named like &lt;code&gt;Meet - &amp;lt;MEETING_ID&amp;gt; - Chromium&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;activate the first window passed by the previous line and wait until it gets active (&lt;code&gt;--sync&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;send a keystroke as &lt;code&gt;Ctrl+D&lt;/code&gt;, which is the default shortcut in Meet&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;By the way, my main browser is Firefox, but I have to use Chromium to join Meet calls since it tends to have less CPU utilization.&lt;/p&gt;
+&lt;p&gt;You can do something similar for Zoom with &lt;code&gt;Alt+A&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ xdotool search --name &#39;^Zoom Meeting$&#39; \
+    windowactivate --sync \
+    key alt+a
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Microsoft Teams should work with xdotool and &lt;code&gt;Ctrl+Shift+M&lt;/code&gt; at least for the web version.&lt;/p&gt;
+&lt;h2 id=&#34;gnome-keyboard-shortcuts&#34;&gt;GNOME keyboard shortcuts&lt;/h2&gt;
+&lt;p&gt;The commands above can be mapped to a shortcut key with GNOME.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;gnome-control-center-keyboard.png&#34; alt=&#34;gnome-control-center keyboard&#34;&gt;&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s pretty simple, but some tricks may be required. As far as I see, &lt;code&gt;gsd-media-keys&lt;/code&gt; will invoke a command when a shortcut key is pressed, not released. In my case, I use &lt;code&gt;Ctrl+space&lt;/code&gt; as the shortcut key, so Meet may recognize keys pressed as &lt;code&gt;Ctrl+space&lt;/code&gt; + &lt;code&gt;Ctrl+D&lt;/code&gt; = &lt;code&gt;Ctrl+space+D&lt;/code&gt; which doesn&amp;rsquo;t trigger the mute/unmute behavior actually. Keys can be canceled with &lt;code&gt;keyup&lt;/code&gt;, so the key command was turned into &lt;code&gt;keyup space key ctrl+d&lt;/code&gt; in the end.&lt;/p&gt;
+&lt;p&gt;Also, I wanted to use the same shortcut key for multiple services, and I have the following line which tries Google Meet first, then Zoom if no Meet window is found. It should work most of the cases unless you join multiple meetings at the same time.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sh -c &amp;quot;
+    xdotool search --name &#39;^Meet - .+ - Chromium$&#39;
+        windowactivate --sync
+        keyup space key ctrl+d
+    || xdotool search --name &#39;^Zoom Meeting$&#39;
+        windowactivate --sync
+        keyup ctrl+space key alt+a
+&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;--clearmodifiers&lt;/code&gt; can be used to simplify the whole commands, but when I tried, it sometimes left the Ctrl key pressed depending on the timing I released the key.&lt;/p&gt;
+&lt;h2 id=&#34;hardware-muteunmute-button&#34;&gt;Hardware mute/unmute button&lt;/h2&gt;
+&lt;p&gt;Going further, I wanted to have a dedicated button to mute/unmute myself especially for some relaxed meetings where I don&amp;rsquo;t have to keep my hands on the keyboard all the time.&lt;/p&gt;
+&lt;p&gt;Back in October, I bought a USB volume controller, which is recognized as &amp;ldquo;STMicroelectronics USB Volume Control&amp;rdquo; from the OS. It was around 15 USD.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;usb-volume-controller.jpg&#34; alt=&#34;STMicroelectronics USB Volume Control&#34;&gt;&lt;/p&gt;
+&lt;p&gt;It emits expected events as &lt;code&gt;KEY_VOLUMEUP&lt;/code&gt; and &lt;code&gt;KEY_VOLUMEDOWN&lt;/code&gt; with the dial, and &lt;code&gt;KEY_MUTE&lt;/code&gt; when the knob is pressed.&lt;/p&gt;
+&lt;p&gt;I created a &amp;ldquo;&lt;a href=&#34;https://www.freedesktop.org/software/systemd/man/hwdb.html&#34;&gt;hwdb&lt;/a&gt;&amp;rdquo; file to remap the mute key to something else as follows in &lt;code&gt;/etc/udev/hwdb.d/99-local-remap-usb-volume-control.hwdb&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# STMicroelectronics USB Volume Control
+# Remap the click (Mute) to XF86Launch
+evdev:input:b0003v0483p572D*
+ KEYBOARD_KEY_c00e2=prog4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once the hardware database is updated with &lt;code&gt;systemd-hwdb update&lt;/code&gt; and the device is unplugged and plugged again (if without udevadm commands), I was able to map &lt;code&gt;Launch4&lt;/code&gt;(prog4) to the xdotool commands in GNOME successfully.&lt;/p&gt;
+&lt;p&gt;It looks like everyone had the same idea. There are fancier buttons out there :-)&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Never going to fumble for the mute button on a google meet again. Plus bonus pac man feels. &lt;a href=&#34;https://twitter.com/sparkfun?ref_src=twsrc%5Etfw&#34;&gt;@sparkfun&lt;/a&gt; &lt;a href=&#34;https://t.co/2oG7U2EcoR&#34;&gt;pic.twitter.com/2oG7U2EcoR&lt;/a&gt;&lt;/p&gt;&amp;mdash; joe (@joemcmanus) &lt;a href=&#34;https://twitter.com/joemcmanus/status/1341866233600217088?ref_src=twsrc%5Etfw&#34;&gt;December 23, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+</description>
+    </item>
+    
+    <item>
       <title>Minimal Dynamic DNS configuration for No-IP.com with ddclient</title>
       <link>https://nobuto-m.github.io/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/</link>
       <pubDate>Sat, 21 Jul 2018 00:00:00 +0900</pubDate>
