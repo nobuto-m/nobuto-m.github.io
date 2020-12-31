@@ -106,6 +106,9 @@ systemd[1]: Started LSB: Update dynamic domain name service entries.
 ddclient[24631]: SUCCESS:  updating MY_HOST.redirectme.net: good: IP address set to 118.X.Y.Z
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;For more details, please refer to &lt;code&gt;ddclient -help&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;This post was originally published at &lt;a href=&#34;https://medium.com/@nobuto_m/minimal-dynamic-dns-configuration-for-no-ip-com-with-ddclient-cb7c038a74be&#34;&gt;https://medium.com/@nobuto_m/minimal-dynamic-dns-configuration-for-no-ip-com-with-ddclient-cb7c038a74be&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
     </item>
     
@@ -139,6 +142,9 @@ CRIT — Services: 4 (!), Containers: none, Sessions: 1 (!)|Services=4;;0;0 Cont
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Here is an example of Nagios status output.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;nagios.png&#34; alt=&#34;Nagios alert&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;This post was originally published at &lt;a href=&#34;https://medium.com/@nobuto_m/knowing-what-services-need-restart-with-needrestart-37419f44ed46&#34;&gt;https://medium.com/@nobuto_m/knowing-what-services-need-restart-with-needrestart-37419f44ed46&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
     </item>
     

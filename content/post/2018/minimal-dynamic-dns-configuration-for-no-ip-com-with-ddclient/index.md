@@ -66,3 +66,5 @@ ddclient[24631]: SUCCESS:  updating MY_HOST.redirectme.net: good: IP address set
 ```
 
 For more details, please refer to `ddclient -help`.
+
+> *This post was originally published at https://medium.com/@nobuto_m/minimal-dynamic-dns-configuration-for-no-ip-com-with-ddclient-cb7c038a74be*

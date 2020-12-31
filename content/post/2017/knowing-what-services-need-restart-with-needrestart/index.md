@@ -73,3 +73,5 @@ CRIT — Services: 4 (!), Containers: none, Sessions: 1 (!)|Services=4;;0;0 Cont
 Here is an example of Nagios status output.
 
 ![Nagios alert](nagios.png)
+
+> *This post was originally published at https://medium.com/@nobuto_m/knowing-what-services-need-restart-with-needrestart-37419f44ed46*
