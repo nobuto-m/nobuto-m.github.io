@@ -66,7 +66,7 @@ evdev:input:b0003v0483p572D*
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Once the hardware database is updated with &lt;code&gt;systemd-hwdb update&lt;/code&gt; and the device is unplugged and plugged again (if without udevadm commands), I was able to map &lt;code&gt;Launch4&lt;/code&gt;(prog4) to the xdotool commands in GNOME successfully.&lt;/p&gt;
 &lt;p&gt;It looks like everyone had the same idea. There are fancier buttons out there :-)&lt;/p&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Never going to fumble for the mute button on a google meet again. Plus bonus pac man feels. &lt;a href=&#34;https://twitter.com/sparkfun?ref_src=twsrc%5Etfw&#34;&gt;@sparkfun&lt;/a&gt; &lt;a href=&#34;https://t.co/2oG7U2EcoR&#34;&gt;pic.twitter.com/2oG7U2EcoR&lt;/a&gt;&lt;/p&gt;&amp;mdash; joe (@joemcmanus) &lt;a href=&#34;https://twitter.com/joemcmanus/status/1341866233600217088?ref_src=twsrc%5Etfw&#34;&gt;December 23, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-dnt=&#34;true&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Never going to fumble for the mute button on a google meet again. Plus bonus pac man feels. &lt;a href=&#34;https://twitter.com/sparkfun?ref_src=twsrc%5Etfw&#34;&gt;@sparkfun&lt;/a&gt; &lt;a href=&#34;https://t.co/2oG7U2EcoR&#34;&gt;pic.twitter.com/2oG7U2EcoR&lt;/a&gt;&lt;/p&gt;&amp;mdash; joe (@joemcmanus) &lt;a href=&#34;https://twitter.com/joemcmanus/status/1341866233600217088?ref_src=twsrc%5Etfw&#34;&gt;December 23, 2020&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
 </description>
