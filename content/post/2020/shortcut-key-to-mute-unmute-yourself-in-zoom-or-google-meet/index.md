@@ -21,10 +21,10 @@ draft: false
 # To use, add an image named `featured.jpg/png` to your page's folder.
 # Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
 image:
-  caption: "You can set a custom shortcut key to mute / unmute yourself in Zoom or Google Meet"
+  caption: ""
   focal_point: ""
   # change it to true if it's actually used inside the post
-  preview_only: false
+  preview_only: true
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.
@@ -33,6 +33,8 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 ---
+
+{{< figure src="featured.png" title="You can set a custom shortcut key to mute / unmute yourself in Zoom or Google Meet" >}}
 
 Just like everyone else, 2020 was the year of having more and more video-conference calls. How many times did we struggle to find the meeting window during a call, and say "Sorry, I was on mute"? I tried to address the pain and ended up with the following setup.
 
@@ -70,7 +72,7 @@ Microsoft Teams should work with xdotool and `Ctrl+Shift+M` at least for the web
 
 The commands above can be mapped to a shortcut key with GNOME.
 
-![gnome-control-center keyboard](gnome-control-center-keyboard.png)
+{{< figure src="gnome-control-center-keyboard.png" >}}
 
 It's pretty simple, but some tricks may be required. As far as I see, `gsd-media-keys` will invoke a command when a shortcut key is pressed, not released. In my case, I use `Ctrl+space` as the shortcut key, so Meet may recognize keys pressed as `Ctrl+space` + `Ctrl+D` = `Ctrl+space+D` which doesn't trigger the mute/unmute behavior actually. Keys can be canceled with `keyup`, so the key command was turned into `keyup space key ctrl+d` in the end.
 
@@ -96,7 +98,7 @@ Going further, I wanted to have a dedicated button to mute/unmute myself especia
 
 Back in October, I bought a USB volume controller, which is recognized as "STMicroelectronics USB Volume Control" from the OS. It was around 15 USD.
 
-![STMicroelectronics USB Volume Control](usb-volume-controller.jpg)
+{{< figure src="usb-volume-controller.jpg" >}}
 
 It emits expected events as `KEY_VOLUMEUP` and `KEY_VOLUMEDOWN` with the dial, and `KEY_MUTE` when the knob is pressed.
 

@@ -11,7 +11,7 @@ categories: [Ubuntu]
 
 year: 2018
 date: 2018-07-21T00:00:00+09:00
-lastmod: 2020-12-29T03:29:53+09:00
+lastmod: 2019-06-18T00:00:00+09:00
 
 featured: false
 draft: false
@@ -22,7 +22,7 @@ draft: false
 image:
   caption: ""
   focal_point: ""
-  preview_only: false
+  preview_only: true
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.
@@ -31,6 +31,8 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 ---
+
+{{< figure src="featured.png" >}}
 
 {{% callout note %}}
 EDIT: I have migrated one of my domains to [Google Domains](https://domains.google/) so I'm using [`protocol=googledomains`](https://support.google.com/domains/answer/6147083) these days.
