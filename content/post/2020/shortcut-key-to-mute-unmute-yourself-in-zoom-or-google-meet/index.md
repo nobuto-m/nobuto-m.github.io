@@ -34,7 +34,7 @@ image:
 projects: []
 ---
 
-{{< figure src="featured.png" title="You can set a custom shortcut key to mute / unmute yourself in Zoom or Google Meet" >}}
+{{< figure src="featured.png" title="A custom and global shortcut key to mute / unmute yourself in Zoom or Google Meet" >}}
 
 Just like everyone else, 2020 was the year of having more and more video-conference calls. How many times did we struggle to find the meeting window during a call, and say "Sorry, I was on mute"? I tried to address the pain and ended up with the following setup.
 
