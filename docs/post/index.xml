@@ -13,6 +13,200 @@
     </image>
     
     <item>
+      <title>How I spent year-end holidays</title>
+      <link>https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/</link>
+      <pubDate>Wed, 06 Jan 2021 10:09:02 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/</guid>
+      <description>&lt;p&gt;I intentionally spent the holidays by keeping myself busy with some technical stuff because I knew I would regret it if nothing had been done since there was no trip planned during the period. Those were not that creative, but to follow some tutorials, for example, where I didn&amp;rsquo;t have experience with or to address some day-to-day pains.&lt;/p&gt;
+&lt;h2 id=&#34;immediate-wins&#34;&gt;Immediate wins&lt;/h2&gt;
+&lt;h3 id=&#34;tailscale&#34;&gt;Tailscale&lt;/h3&gt;
+&lt;p&gt;After moving to a new place last year, I lost the ability to assign a global IP address to my router. And it became impossible to access my testbed machine from outside with direct SSH forwarded by a router. There are multiple workarounds, including setting up a VPN like OpenVPN, Wireguard, etc., with a server on the Internet as a hub in the middle, or using a reverse tunnel. But it&amp;rsquo;s still nice if I can have some sort of direct and peer-to-peer connection.&lt;/p&gt;
+&lt;p&gt;I tried both &lt;a href=&#34;https://www.zerotier.com/&#34;&gt;ZeroTier&lt;/a&gt; and &lt;a href=&#34;https://tailscale.com/&#34;&gt;Tailscale&lt;/a&gt;, which offer NAT traversal with VPN. I chose Tailscale in the end for simplicity, and I like their stance trying to explain &lt;a href=&#34;https://tailscale.com/blog/how-tailscale-works/&#34;&gt;everything happening inside&lt;/a&gt; and &lt;a href=&#34;https://tailscale.com/blog/how-nat-traversal-works/&#34;&gt;related technologies&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Not every component of it is open-source, but it&amp;rsquo;s convenient since everything is well managed. There were some other options to set up an &lt;a href=&#34;https://www.jordanwhited.com/posts/wireguard-endpoint-discovery-nat-traversal/&#34;&gt;equivalent&lt;/a&gt; or &lt;a href=&#34;https://github.com/juanfont/headscale&#34;&gt;compatible&lt;/a&gt; server though.&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-tailscale-eases-a-headache-of-nat&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/featured_huf38fa7764604fa33839c8ef016296a77_363145_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Tailscale eases a headache of NAT&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/featured_huf38fa7764604fa33839c8ef016296a77_363145_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;1890&#34; height=&#34;1366&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Tailscale eases a headache of NAT
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Not only for the remote access from my laptop on the go to the testbed machine (the arrow &amp;ldquo;A&amp;rdquo;), I enabled Tailscale for accessing my Grafana dashboard running inside a cloud instance (&amp;ldquo;B&amp;rdquo;) which is not necessary to be exposed to the Internet. I could just use SSH port forwarding or &lt;code&gt;sshuttle&lt;/code&gt; but having a Wireguard-based connection without having a VPN endpoint exposed is like magic. As a bonus, I can reliably access a Raspberry-Pi running somewhere behind three NAT instances (&amp;ldquo;C&amp;rdquo;). I no longer have to worry about the SSH reverse tunnel for it and its retry logic I set up some time ago.&lt;/p&gt;
+&lt;h3 id=&#34;excalidraw&#34;&gt;Excalidraw&lt;/h3&gt;
+&lt;p&gt;As you can see above, the diagram was made with &lt;a href=&#34;https://excalidraw.com/&#34;&gt;Excalidraw&lt;/a&gt;. It&amp;rsquo;s just amazing as turning my ugly diagram into a beautiful one. It&amp;rsquo;s getting &lt;a href=&#34;https://blog.excalidraw.com/one-year-of-excalidraw/&#34;&gt;more and more features&lt;/a&gt; these days. How wonderful it is.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve been using &lt;a href=&#34;http://asciiflow.com/&#34;&gt;ASCIIFlow&lt;/a&gt; for some time since it was all text-based, which is convenient to have a diagram in Markdown text. However, I would use Excalidraw for most of the cases from now on for personal use.&lt;/p&gt;
+&lt;h2 id=&#34;random-stuff&#34;&gt;Random stuff&lt;/h2&gt;
+&lt;h3 id=&#34;setting-up-this-blog&#34;&gt;Setting up this blog&lt;/h3&gt;
+&lt;p&gt;I had some blogs so far on Blogger, Tumblr, and Medium, etc. But I wanted to have another one since Medium is getting annoying, especially when reading something on mobile. I believe this is the 5th one, and I&amp;rsquo;m using Hugo I&amp;rsquo;ve been interested in for some time and found a lovely template, &lt;a href=&#34;https://wowchemy.com/&#34;&gt;Wowchemy&lt;/a&gt;. I published &lt;a href=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/&#34;&gt;the first post in two years&lt;/a&gt;, and I tried to fix the template&amp;rsquo;s corner-case issues. Then the author updated those on top of my &lt;a href=&#34;https://github.com/wowchemy/wowchemy-hugo-modules/pull/2056&#34;&gt;some&lt;/a&gt; pull &lt;a href=&#34;https://github.com/wowchemy/wowchemy-hugo-modules/pull/2054&#34;&gt;requests&lt;/a&gt;. Outstanding customizations are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/wowchemy/wowchemy-hugo-modules/issues/2064&#34;&gt;showing both the original published date and the modified/updated date&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;yearly archive of the posts &lt;a href=&#34;https://discourse.gohugo.io/t/how-to-generate-chronological-blog-archives-in-hugo/13491/6&#34;&gt;by defining a new taxonomy&lt;/a&gt; as &amp;ldquo;year&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What took time to figure out was about the snap package of Hugo. It&amp;rsquo;s currently under strict confinement, but &lt;a href=&#34;https://github.com/gohugoio/hugoDocs/issues/1222&#34;&gt;it doesn&amp;rsquo;t work with a template like Wowchemy with Go modules&lt;/a&gt;. There is &lt;a href=&#34;https://forum.snapcraft.io/t/request-for-classic-confinement-for-hugo-snap/19892&#34;&gt;a request to use classic confinement&lt;/a&gt;, but for now, I have &lt;code&gt;alias hugo=/snap/hugo/current/bin/hugo&lt;/code&gt; as a workaround.&lt;/p&gt;
+&lt;p&gt;I also tried &lt;a href=&#34;https://github.com/marketplace/actions/hugo-setup&#34;&gt;Gihub Action for Hugo&lt;/a&gt; to automate the builds on the Github side. In the end, I prefer building it locally since it&amp;rsquo;s just a matter of seconds. I&amp;rsquo;ve also learned that &lt;code&gt;prefers-color-scheme&lt;/code&gt; in CSS &lt;a href=&#34;https://bugs.chromium.org/p/chromium/issues/detail?id=998903&#34;&gt;doesn&amp;rsquo;t work with Chrome/Chromium on Linux&lt;/a&gt; while working with Firefox.&lt;/p&gt;
+&lt;h3 id=&#34;thinkpad-battery&#34;&gt;Thinkpad battery&lt;/h3&gt;
+&lt;p&gt;Previously, the charge percentage dropped suddenly from 30-40% to nearly zero. I thought the battery was broken. But it was clearly written as &lt;a href=&#34;https://linrunner.de/tlp/faq/battery.html#erratic-battery-behavior-on-thinkpad-t420-s-t520-w520-x220-and-all-later-models&#34;&gt;a known issue&lt;/a&gt; in the TLP documentation so it became sane after setting it back to &lt;code&gt;STOP_CHARGE_THRESH_BAT0=100&lt;/code&gt;.&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/thinkpad-battery_hu556b05f5f4b79c16fbf1e0888ab3c7f1_104990_2000x2000_fit_lanczos_2.png&#34; &gt;
+
+
+  &lt;img data-src=&#34;https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/thinkpad-battery_hu556b05f5f4b79c16fbf1e0888ab3c7f1_104990_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;968&#34; height=&#34;573&#34;&gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;wake-on-lan&#34;&gt;Wake-on-LAN&lt;/h3&gt;
+&lt;p&gt;I haven&amp;rsquo;t used Wake-on-LAN for some time because I relied on a smart plug to power on my testbed machine remotely. Nowadays, I&amp;rsquo;m on the same network with the machine as I have fewer chances to go out. So waking it up with a terminal command is handy without opening a mobile app. Enabling WOL wasn&amp;rsquo;t as straightforward as it sounded. Googling told me that I had to specify the MAC address of the NIC explicitly for Netplan (indirectly for systemd-networkd). I wanted to know it earlier, so I opened &lt;a href=&#34;https://github.com/CanonicalLtd/netplan/pull/180&#34;&gt;a pull request to add the caveat in the doc&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;squid-shutdown-took-time&#34;&gt;Squid shutdown took time&lt;/h3&gt;
+&lt;p&gt;I knew my laptop was taking time to shut down due to a LXD container running squid-deb-proxy. I thought it was inevitable to flush the content on memory to the disk, but &lt;a href=&#34;http://www.squid-cache.org/Doc/config/shutdown_lifetime/&#34;&gt;it&lt;/a&gt; was actually &lt;a href=&#34;http://squid-web-proxy-cache.1019090.n4.nabble.com/Question-about-shutdown-lifetime-behavior-tp4685365p4685366.html&#34;&gt;configurable&lt;/a&gt;. Once setting &lt;code&gt;shutdown_lifetime 3 seconds&lt;/code&gt;, the shutdown starts almost immediately now.&lt;/p&gt;
+&lt;h3 id=&#34;lets-encrypt-wildcard-certs-and-dns-01&#34;&gt;Let&amp;rsquo;s encrypt wildcard certs and DNS-01&lt;/h3&gt;
+&lt;p&gt;I wanted to have a proper TLS certificate for services running behind a firewall and not exposed to the Internet. So far, I only used HTTP-01 challenges for my public web servers. Now that wildcard certs with DNS-01 is available with Let&amp;rsquo;s encrypt, I migrated the nameservers for one of my domains to Cloudflare, which is in &lt;a href=&#34;https://community.letsencrypt.org/t/dns-providers-who-easily-integrate-with-lets-encrypt-dns-validation/86438&#34;&gt;the list of DNS-01 capable providers with certbot&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;One caveat was that API-token based authentication wasn&amp;rsquo;t available with the version of &lt;code&gt;python3-cloudflare&lt;/code&gt; in Ubuntu 20.04 LTS.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://certbot-dns-cloudflare.readthedocs.io/en/stable/&#34;&gt;https://certbot-dns-cloudflare.readthedocs.io/en/stable/&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Using Cloudflare Tokens also requires at least version 2.3.1 of the cloudflare python module.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I tried to backport a newer one to 20.04, but it wasn&amp;rsquo;t straightforward. In the end, I&amp;rsquo;ve migrated from the deb based certbot to the snap one as &lt;a href=&#34;https://github.com/certbot/website/pull/613&#34;&gt;the upstream recommends it&lt;/a&gt;. It&amp;rsquo;s basically with the three commands.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo snap install certbot --classic
+$ sudo snap set certbot trust-plugin-with-root=ok
+$ sudo snap install certbot-dns-cloudflare
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I knew how to redirect access of port 80 with HTTP to 443 with HTTPS. I&amp;rsquo;ve learned that I can also redirect HTTP access to port 3000 of Grafana to HTTPS with the same port with the following &lt;a href=&#34;https://nginx.org/en/docs/http/ngx_http_ssl_module.html#errors&#34;&gt;expression&lt;/a&gt;, which is neat.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;error_page 497 =301 https://$host:$server_port$request_uri;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;grafana--prometheus--node-exporter&#34;&gt;Grafana + Prometheus + node-exporter&lt;/h3&gt;
+&lt;p&gt;I don&amp;rsquo;t need to monitor my personal-use servers closely, but I set up a standard set of Prometheus and Node exporter for starters. Nothing is interesting there, but I used a Let&amp;rsquo;s encrypt cert with DNS-01 as the Grafana&amp;rsquo;s hostname is not associated with a global IP address at all.&lt;/p&gt;
+&lt;p&gt;I have &lt;a href=&#34;https://grafana.com/tutorials/run-grafana-behind-a-proxy/#2&#34;&gt;a reverse proxy using Nginx&lt;/a&gt; not exposed to the Internet either, but once I get certs with DNS-01, I can use HTTPS properly.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo certbot certonly \
+    -i nginx \
+    --dns-cloudflare \
+    --dns-cloudflare-credentials ~/.secrets/certbot/cloudflare.ini \
+    --cert-name grafana-wildcard \
+    -d &#39;&amp;lt;DOMAIN (e.g., *.t.example.com)&amp;gt;&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ curl -sv -o/dev/null https://grafana.t.example.com:3000/
+*   Trying 10.0.0.100):3000...
+* TCP_NODELAY set
+* Connected to grafana.t.example.com (10.0.0.100) port 3000 (#0)
+...
+* Server certificate:
+*  subject: CN=*.t.example.com
+*  start date: Jan  5 06:24:57 2021 GMT
+*  expire date: Apr  5 06:24:57 2021 GMT
+*  subjectAltName: host &amp;quot;grafana.t.example.com&amp;quot; matched cert&#39;s &amp;quot;*.t.example.com&amp;quot;
+*  issuer: C=US; O=Let&#39;s Encrypt; CN=R3
+*  SSL certificate verify ok.
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-prometheus-node-exporter-fullhttpsgrafanacomgrafanadashboards1860-dashboard&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/grafana_hu4bd6cbf4e0a9efbeff3f782df5a14f6b_210461_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;&amp;lt;a href=&amp;#34;https://grafana.com/grafana/dashboards/1860&amp;#34;&amp;gt;Prometheus Node Exporter Full&amp;lt;/a&amp;gt; dashboard&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/grafana_hu4bd6cbf4e0a9efbeff3f782df5a14f6b_210461_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;1910&#34; height=&#34;1140&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    &lt;a href=&#34;https://grafana.com/grafana/dashboards/1860&#34;&gt;Prometheus Node Exporter Full&lt;/a&gt; dashboard
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;closing&#34;&gt;Closing&lt;/h2&gt;
+&lt;p&gt;It was somehwat productive to spend the holidays in this way. I replaced Ubuntu 18.04 LTS with 20.04 LTS for the testbed machine, but didn&amp;rsquo;t have time to upgrade my laptop from 20.04 to 20.10 or discontinue one 16.04 installation of a cloud instance in favor of a new instance with 20.04 already there.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Shortcut key to mute/unmute yourself in Zoom or Google Meet</title>
       <link>https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/</link>
       <pubDate>Thu, 31 Dec 2020 03:49:53 +0900</pubDate>
