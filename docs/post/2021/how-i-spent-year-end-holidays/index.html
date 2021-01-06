@@ -707,7 +707,7 @@
 <p>I&rsquo;ve been using <a href="http://asciiflow.com/">ASCIIFlow</a> for some time since it was all text-based, which is convenient to have a diagram in Markdown text. However, I would use Excalidraw for most of the cases from now on for personal use.</p>
 <h2 id="random-stuff">Random stuff</h2>
 <h3 id="setting-up-this-blog">Setting up this blog</h3>
-<p>I had some blogs so far on Blogger, Tumblr, and Medium, etc. But I wanted to have another one since Medium is getting annoying, especially when reading something on mobile. I believe this is the 5th one, and I&rsquo;m using Hugo I&rsquo;ve been interested in for some time and found a lovely template, <a href="https://wowchemy.com/">Wowchemy</a>. I published <a href="https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/">the first post in two years</a>, and I tried to fix the template&rsquo;s corner-case issues. Then the author updated those on top of my <a href="https://github.com/wowchemy/wowchemy-hugo-modules/pull/2056">some</a> pull <a href="https://github.com/wowchemy/wowchemy-hugo-modules/pull/2054">requests</a>. Outstanding customizations are:</p>
+<p>I had some blogs so far on Blogger, Tumblr, and Medium, etc. But I wanted to have another one since Medium is getting annoying, especially when reading something on mobile. I believe this is the 5th blog. I&rsquo;m using Hugo I&rsquo;ve been interested in for some time, and I&rsquo;ve found a lovely template, <a href="https://wowchemy.com/">Wowchemy</a>. I published <a href="https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/">the first post in two years</a>, and I tried to fix the template&rsquo;s corner-case issues. Then the author updated those on top of my <a href="https://github.com/wowchemy/wowchemy-hugo-modules/pull/2056">some</a> pull <a href="https://github.com/wowchemy/wowchemy-hugo-modules/pull/2054">requests</a>. Outstanding customizations are:</p>
 <ul>
 <li><a href="https://github.com/wowchemy/wowchemy-hugo-modules/issues/2064">showing both the original published date and the modified/updated date</a></li>
 <li>yearly archive of the posts <a href="https://discourse.gohugo.io/t/how-to-generate-chronological-blog-archives-in-hugo/13491/6">by defining a new taxonomy</a> as &ldquo;year&rdquo;</li>
@@ -837,6 +837,8 @@ $ sudo snap install certbot-dns-cloudflare
 
 </figure>
 
+<h3 id="intel-nvme-ssd-firmware-upgrade">Intel NVMe SSD firmware upgrade</h3>
+<p>I struggled with a sympton that NVMe SSD ended up with read-only after suspend and resume. And it claimed that it was write-protected somehow. It rarely happens, but when it does, I had to hard-reboot the machine, which was annoying. After some googling, it looked like the first thing I should try was to upgrade the firmware. Once it&rsquo;s <a href="https://www.intel.com/content/www/us/en/support/articles/000056193/memory-and-storage.html">updated using an ISO image</a> with secure boot disabled temporarily, I haven&rsquo;t seen the original issue so far.</p>
 <h2 id="closing">Closing</h2>
 <p>It was somehwat productive to spend the holidays in this way. I replaced Ubuntu 18.04 LTS with 20.04 LTS for the testbed machine, but didn&rsquo;t have time to upgrade my laptop from 20.04 to 20.10 or discontinue one 16.04 installation of a cloud instance in favor of a new instance with 20.04 already there.</p>
 

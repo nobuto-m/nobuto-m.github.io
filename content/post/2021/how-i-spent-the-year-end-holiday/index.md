@@ -50,7 +50,7 @@ I've been using [ASCIIFlow](http://asciiflow.com/) for some time since it was al
 
 ### Setting up this blog
 
-I had some blogs so far on Blogger, Tumblr, and Medium, etc. But I wanted to have another one since Medium is getting annoying, especially when reading something on mobile. I believe this is the 5th one, and I'm using Hugo I've been interested in for some time and found a lovely template, [Wowchemy](https://wowchemy.com/). I published [the first post in two years]({{< ref "/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/index.md" >}}), and I tried to fix the template's corner-case issues. Then the author updated those on top of my [some](https://github.com/wowchemy/wowchemy-hugo-modules/pull/2056) pull [requests](https://github.com/wowchemy/wowchemy-hugo-modules/pull/2054). Outstanding customizations are:
+I had some blogs so far on Blogger, Tumblr, and Medium, etc. But I wanted to have another one since Medium is getting annoying, especially when reading something on mobile. I believe this is the 5th blog. I'm using Hugo I've been interested in for some time, and I've found a lovely template, [Wowchemy](https://wowchemy.com/). I published [the first post in two years]({{< ref "/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/index.md" >}}), and I tried to fix the template's corner-case issues. Then the author updated those on top of my [some](https://github.com/wowchemy/wowchemy-hugo-modules/pull/2056) pull [requests](https://github.com/wowchemy/wowchemy-hugo-modules/pull/2054). Outstanding customizations are:
 - [showing both the original published date and the modified/updated date](https://github.com/wowchemy/wowchemy-hugo-modules/issues/2064)
 - yearly archive of the posts [by defining a new taxonomy](https://discourse.gohugo.io/t/how-to-generate-chronological-blog-archives-in-hugo/13491/6) as "year"
 
@@ -129,6 +129,11 @@ $ curl -sv -o/dev/null https://grafana.t.example.com:3000/
 ```
 
 {{< figure src="grafana.png" title="[Prometheus Node Exporter Full](https://grafana.com/grafana/dashboards/1860) dashboard" >}}
+
+
+### Intel NVMe SSD firmware upgrade
+
+I struggled with a sympton that NVMe SSD ended up with read-only after suspend and resume. And it claimed that it was write-protected somehow. It rarely happens, but when it does, I had to hard-reboot the machine, which was annoying. After some googling, it looked like the first thing I should try was to upgrade the firmware. Once it's [updated using an ISO image](https://www.intel.com/content/www/us/en/support/articles/000056193/memory-and-storage.html) with secure boot disabled temporarily, I haven't seen the original issue so far.
 
 
 ## Closing
