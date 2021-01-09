@@ -138,4 +138,4 @@ I struggled with a sympton that NVMe SSD ended up with read-only after suspend a
 
 ## Closing
 
-It was somehwat productive to spend the holidays in this way. I replaced Ubuntu 18.04 LTS with 20.04 LTS for the testbed machine, but didn't have time to upgrade my laptop from 20.04 to 20.10 or discontinue one 16.04 installation of a cloud instance in favor of a new instance with 20.04 already there.
+It was somewhat productive to spend the holidays in this way. I replaced Ubuntu 18.04 LTS with 20.04 LTS for the testbed machine, but didn't have time to upgrade my laptop from 20.04 to 20.10 or discontinue one 16.04 installation of a cloud instance in favor of a new instance with 20.04 already there.
