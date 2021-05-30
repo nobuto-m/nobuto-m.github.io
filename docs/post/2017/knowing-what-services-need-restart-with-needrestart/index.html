@@ -11,6 +11,7 @@
   
 
   
+    <meta name="google-site-verification" content="x-WRee-yVqnJs0JQZzIhmu43FqdyIrIKokjOAFhdL4I" />
 
   
   
@@ -268,8 +269,8 @@
 
   
 
-  <link rel="icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_32x32_fill_lanczos_center_2.png" />
-  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_180x180_fill_lanczos_center_2.png" />
+  <link rel="icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_32x32_fill_lanczos_center_2.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_180x180_fill_lanczos_center_2.png" />
 
   <link rel="canonical" href="https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/" />
 
@@ -343,7 +344,7 @@
     "name": "Nobuto Murata",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://nobuto-m.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_2.png"
+      "url": "https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_192x192_fill_lanczos_center_2.png"
     }
   },
   "description": "With Livepatch support in Linux kernel and Livepatch service for Ubuntu, reboots are no longer necessary even when kernel vulnerabilities are found. You can avoid and postpone unplanned reboots to whenever convenient for you, such as scheduled maintenance windows (Well, there are some corner cases which still require reboots though)."
@@ -358,8 +359,6 @@
 
   
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; object-src 'none'; frame-src platform.twitter.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src fonts.gstatic.com cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com platform.twitter.com;">
-
-<meta name="google-site-verification" content="x-WRee-yVqnJs0JQZzIhmu43FqdyIrIKokjOAFhdL4I">
 
 
   <title>Knowing what services need restart with “needrestart” | Nobuto Murata</title>
@@ -381,6 +380,43 @@
 
   
 
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
 
 
 
@@ -509,6 +545,10 @@
 
       
       
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
 
       
       
@@ -595,6 +635,7 @@
   
   
   
+  
 
   
   
@@ -619,7 +660,7 @@
   <div class="article-container">
 
     <div class="article-style">
-      <p>With <a href="https://www.kernel.org/doc/Documentation/livepatch/livepatch.txt">Livepatch support in Linux kernel</a> and <a href="https://www.ubuntu.com/server/livepatch">Livepatch service for Ubuntu</a>, reboots are no longer necessary even when kernel vulnerabilities are found. You can avoid and postpone unplanned reboots to whenever convenient for you, such as scheduled maintenance windows (Well, there are some corner cases which still require reboots though).</p>
+      <p>With <a href="https://www.kernel.org/doc/Documentation/livepatch/livepatch.txt" target="_blank" rel="noopener">Livepatch support in Linux kernel</a> and <a href="https://www.ubuntu.com/server/livepatch" target="_blank" rel="noopener">Livepatch service for Ubuntu</a>, reboots are no longer necessary even when kernel vulnerabilities are found. You can avoid and postpone unplanned reboots to whenever convenient for you, such as scheduled maintenance windows (Well, there are some corner cases which still require reboots though).</p>
 <p>What about services? After applying security updates of libraries, some services still grab old libraries which may have vulnerabilities. You can list up those processes with “lsof”.</p>
 <pre><code class="language-bash">$ sudo lsof / | egrep -w 'DEL|deleted'
 ...
@@ -1008,6 +1049,23 @@ CRIT — Services: 4 (!), Containers: none, Sessions: 1 (!)|Services=4;;0;0 Cont
     
     
     
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+      
+    
 
     
     
@@ -1022,6 +1080,14 @@ CRIT — Services: 4 (!), Containers: none, Sessions: 1 (!)|Services=4;;0;0 Cont
 
     
     
+      
+      
+      
+      
+      
+      
+      
+    
 
     
     
@@ -1031,8 +1097,11 @@ CRIT — Services: 4 (!), Containers: none, Sessions: 1 (!)|Services=4;;0;0 Cont
     
     
     
+      
+      
     
-    <script src="/en/js/wowchemy.min.c7dbcd0a03997d954a216caf59fc7681.js"></script>
+    
+    <script src="/en/js/wowchemy.min.4bba0826db6409c865d2e7b99039d6d0.js"></script>
 
     
 

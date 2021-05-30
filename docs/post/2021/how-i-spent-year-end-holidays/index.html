@@ -11,6 +11,7 @@
   
 
   
+    <meta name="google-site-verification" content="x-WRee-yVqnJs0JQZzIhmu43FqdyIrIKokjOAFhdL4I" />
 
   
   
@@ -268,8 +269,8 @@
 
   
 
-  <link rel="icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_32x32_fill_lanczos_center_2.png" />
-  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_180x180_fill_lanczos_center_2.png" />
+  <link rel="icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_32x32_fill_lanczos_center_2.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_180x180_fill_lanczos_center_2.png" />
 
   <link rel="canonical" href="https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/" />
 
@@ -343,7 +344,7 @@
     "name": "Nobuto Murata",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://nobuto-m.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_2.png"
+      "url": "https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_192x192_fill_lanczos_center_2.png"
     }
   },
   "description": "I intentionally spent the holidays by keeping myself busy with some technical stuff because I knew I would regret it if nothing had been done since there was no trip planned during the period."
@@ -358,8 +359,6 @@
 
   
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; object-src 'none'; frame-src platform.twitter.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src fonts.gstatic.com cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com platform.twitter.com;">
-
-<meta name="google-site-verification" content="x-WRee-yVqnJs0JQZzIhmu43FqdyIrIKokjOAFhdL4I">
 
 
   <title>How I spent year-end holidays | Nobuto Murata</title>
@@ -381,6 +380,43 @@
 
   
 
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
 
 
 
@@ -509,6 +545,10 @@
 
       
       
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
 
       
       
@@ -595,6 +635,7 @@
   
   
   
+  
 
   
   
@@ -623,8 +664,8 @@
 <h2 id="immediate-wins">Immediate wins</h2>
 <h3 id="tailscale">Tailscale</h3>
 <p>After moving to a new place last year, I lost the ability to assign a global IP address to my router. And it became impossible to access my testbed machine from outside with direct SSH forwarded by a router. There are multiple workarounds, including setting up a VPN like OpenVPN, Wireguard, etc., with a server on the Internet as a hub in the middle, or using a reverse tunnel. But it&rsquo;s still nice if I can have some sort of direct and peer-to-peer connection.</p>
-<p>I tried both <a href="https://www.zerotier.com/">ZeroTier</a> and <a href="https://tailscale.com/">Tailscale</a>, which offer NAT traversal with VPN. I chose Tailscale in the end for simplicity, and I like their stance trying to explain <a href="https://tailscale.com/blog/how-tailscale-works/">everything happening inside</a> and <a href="https://tailscale.com/blog/how-nat-traversal-works/">related technologies</a>.</p>
-<p>Not every component of it is open-source, but it&rsquo;s convenient since everything is well managed. There were some other options to set up an <a href="https://www.jordanwhited.com/posts/wireguard-endpoint-discovery-nat-traversal/">equivalent</a> or <a href="https://github.com/juanfont/headscale">compatible</a> server though.</p>
+<p>I tried both <a href="https://www.zerotier.com/" target="_blank" rel="noopener">ZeroTier</a> and <a href="https://tailscale.com/" target="_blank" rel="noopener">Tailscale</a>, which offer NAT traversal with VPN. I chose Tailscale in the end for simplicity, and I like their stance trying to explain <a href="https://tailscale.com/blog/how-tailscale-works/" target="_blank" rel="noopener">everything happening inside</a> and <a href="https://tailscale.com/blog/how-nat-traversal-works/" target="_blank" rel="noopener">related technologies</a>.</p>
+<p>Not every component of it is open-source, but it&rsquo;s convenient since everything is well managed. There were some other options to set up an <a href="https://www.jordanwhited.com/posts/wireguard-endpoint-discovery-nat-traversal/" target="_blank" rel="noopener">equivalent</a> or <a href="https://github.com/juanfont/headscale" target="_blank" rel="noopener">compatible</a> server though.</p>
 
 
 
@@ -655,19 +696,19 @@
     </figcaption></figure>
 <p>Not only for the remote access from my laptop on the go to the testbed machine (the arrow &ldquo;A&rdquo;), I enabled Tailscale for accessing my Grafana dashboard running inside a cloud instance (&ldquo;B&rdquo;) which is not necessary to be exposed to the Internet. I could just use SSH port forwarding or <code>sshuttle</code> but having a Wireguard-based connection without having a VPN endpoint exposed is like magic. As a bonus, I can reliably access a Raspberry-Pi running somewhere behind three NAT instances (&ldquo;C&rdquo;). I no longer have to worry about the SSH reverse tunnel for it and its retry logic I set up some time ago.</p>
 <h3 id="excalidraw">Excalidraw</h3>
-<p>As you can see above, the diagram was made with <a href="https://excalidraw.com/">Excalidraw</a>. It&rsquo;s just amazing as turning my ugly diagram into a beautiful one. It&rsquo;s getting <a href="https://blog.excalidraw.com/one-year-of-excalidraw/">more and more features</a> these days. How wonderful it is.</p>
-<p>I&rsquo;ve been using <a href="http://asciiflow.com/">ASCIIFlow</a> for some time since it was all text-based, which is convenient to have a diagram in Markdown text. However, I would use Excalidraw for most of the cases from now on for personal use.</p>
+<p>As you can see above, the diagram was made with <a href="https://excalidraw.com/" target="_blank" rel="noopener">Excalidraw</a>. It&rsquo;s just amazing as turning my ugly diagram into a beautiful one. It&rsquo;s getting <a href="https://blog.excalidraw.com/one-year-of-excalidraw/" target="_blank" rel="noopener">more and more features</a> these days. How wonderful it is.</p>
+<p>I&rsquo;ve been using <a href="http://asciiflow.com/" target="_blank" rel="noopener">ASCIIFlow</a> for some time since it was all text-based, which is convenient to have a diagram in Markdown text. However, I would use Excalidraw for most of the cases from now on for personal use.</p>
 <h2 id="random-stuff">Random stuff</h2>
 <h3 id="setting-up-this-blog">Setting up this blog</h3>
-<p>I had some blogs so far on Blogger, Tumblr, and Medium, etc. But I wanted to have another one since Medium is getting annoying, especially when reading something on mobile. I believe this is the 5th blog. I&rsquo;m using Hugo I&rsquo;ve been interested in for some time, and I&rsquo;ve found a lovely template, <a href="https://wowchemy.com/">Wowchemy</a>. I published <a href="https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/">the first post in two years</a>, and I tried to fix the template&rsquo;s corner-case issues. Then the author updated those on top of my <a href="https://github.com/wowchemy/wowchemy-hugo-modules/pull/2056">some</a> pull <a href="https://github.com/wowchemy/wowchemy-hugo-modules/pull/2054">requests</a>. Outstanding customizations are:</p>
+<p>I had some blogs so far on Blogger, Tumblr, and Medium, etc. But I wanted to have another one since Medium is getting annoying, especially when reading something on mobile. I believe this is the 5th blog. I&rsquo;m using Hugo I&rsquo;ve been interested in for some time, and I&rsquo;ve found a lovely template, <a href="https://wowchemy.com/" target="_blank" rel="noopener">Wowchemy</a>. I published <a href="https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/">the first post in two years</a>, and I tried to fix the template&rsquo;s corner-case issues. Then the author updated those on top of my <a href="https://github.com/wowchemy/wowchemy-hugo-modules/pull/2056" target="_blank" rel="noopener">some</a> pull <a href="https://github.com/wowchemy/wowchemy-hugo-modules/pull/2054" target="_blank" rel="noopener">requests</a>. Outstanding customizations are:</p>
 <ul>
-<li><a href="https://github.com/wowchemy/wowchemy-hugo-modules/issues/2064">showing both the original published date and the modified/updated date</a></li>
-<li>yearly archive of the posts <a href="https://discourse.gohugo.io/t/how-to-generate-chronological-blog-archives-in-hugo/13491/6">by defining a new taxonomy</a> as &ldquo;year&rdquo;</li>
+<li><a href="https://github.com/wowchemy/wowchemy-hugo-modules/issues/2064" target="_blank" rel="noopener">showing both the original published date and the modified/updated date</a></li>
+<li>yearly archive of the posts <a href="https://discourse.gohugo.io/t/how-to-generate-chronological-blog-archives-in-hugo/13491/6" target="_blank" rel="noopener">by defining a new taxonomy</a> as &ldquo;year&rdquo;</li>
 </ul>
-<p>What took time to figure out was about the snap package of Hugo. It&rsquo;s currently under strict confinement, but <a href="https://github.com/gohugoio/hugoDocs/issues/1222">it doesn&rsquo;t work with a template like Wowchemy with Go modules</a>. There is <a href="https://forum.snapcraft.io/t/request-for-classic-confinement-for-hugo-snap/19892">a request to use classic confinement</a>, but for now, I have <code>alias hugo=/snap/hugo/current/bin/hugo</code> as a workaround.</p>
-<p>I also tried <a href="https://github.com/marketplace/actions/hugo-setup">Gihub Action for Hugo</a> to automate the builds on the Github side. In the end, I prefer building it locally since it&rsquo;s just a matter of seconds. I&rsquo;ve also learned that <code>prefers-color-scheme</code> in CSS <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=998903">doesn&rsquo;t work with Chrome/Chromium on Linux</a> while working with Firefox.</p>
+<p>What took time to figure out was about the snap package of Hugo. It&rsquo;s currently under strict confinement, but <a href="https://github.com/gohugoio/hugoDocs/issues/1222" target="_blank" rel="noopener">it doesn&rsquo;t work with a template like Wowchemy with Go modules</a>. There is <a href="https://forum.snapcraft.io/t/request-for-classic-confinement-for-hugo-snap/19892" target="_blank" rel="noopener">a request to use classic confinement</a>, but for now, I have <code>alias hugo=/snap/hugo/current/bin/hugo</code> as a workaround.</p>
+<p>I also tried <a href="https://github.com/marketplace/actions/hugo-setup" target="_blank" rel="noopener">Gihub Action for Hugo</a> to automate the builds on the Github side. In the end, I prefer building it locally since it&rsquo;s just a matter of seconds. I&rsquo;ve also learned that <code>prefers-color-scheme</code> in CSS <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=998903" target="_blank" rel="noopener">doesn&rsquo;t work with Chrome/Chromium on Linux</a> while working with Firefox.</p>
 <h3 id="thinkpad-battery">Thinkpad battery</h3>
-<p>Previously, the charge percentage dropped suddenly from 30-40% to nearly zero. I thought the battery was broken. But it was clearly written as <a href="https://linrunner.de/tlp/faq/battery.html#erratic-battery-behavior-on-thinkpad-t420-s-t520-w520-x220-and-all-later-models">a known issue</a> in the TLP documentation so it became sane after setting it back to <code>STOP_CHARGE_THRESH_BAT0=100</code>.</p>
+<p>Previously, the charge percentage dropped suddenly from 30-40% to nearly zero. I thought the battery was broken. But it was clearly written as <a href="https://linrunner.de/tlp/faq/battery.html#erratic-battery-behavior-on-thinkpad-t420-s-t520-w520-x220-and-all-later-models" target="_blank" rel="noopener">a known issue</a> in the TLP documentation so it became sane after setting it back to <code>STOP_CHARGE_THRESH_BAT0=100</code>.</p>
 
 
 
@@ -695,27 +736,27 @@
                loading="lazy" data-zoomable /></div>
   </div></figure>
 <h3 id="wake-on-lan">Wake-on-LAN</h3>
-<p>I haven&rsquo;t used Wake-on-LAN for some time because I relied on a smart plug to power on my testbed machine remotely. Nowadays, I&rsquo;m on the same network with the machine as I have fewer chances to go out. So waking it up with a terminal command is handy without opening a mobile app. Enabling WOL wasn&rsquo;t as straightforward as it sounded. Googling told me that I had to specify the MAC address of the NIC explicitly for Netplan (indirectly for systemd-networkd). I wanted to know it earlier, so I opened <a href="https://github.com/CanonicalLtd/netplan/pull/180">a pull request to add the caveat in the doc</a>.</p>
+<p>I haven&rsquo;t used Wake-on-LAN for some time because I relied on a smart plug to power on my testbed machine remotely. Nowadays, I&rsquo;m on the same network with the machine as I have fewer chances to go out. So waking it up with a terminal command is handy without opening a mobile app. Enabling WOL wasn&rsquo;t as straightforward as it sounded. Googling told me that I had to specify the MAC address of the NIC explicitly for Netplan (indirectly for systemd-networkd). I wanted to know it earlier, so I opened <a href="https://github.com/CanonicalLtd/netplan/pull/180" target="_blank" rel="noopener">a pull request to add the caveat in the doc</a>.</p>
 <h3 id="squid-shutdown-took-time">Squid shutdown took time</h3>
-<p>I knew my laptop was taking time to shut down due to a LXD container running squid-deb-proxy. I thought it was inevitable to flush the content on memory to the disk, but <a href="http://www.squid-cache.org/Doc/config/shutdown_lifetime/">it</a> was actually <a href="http://squid-web-proxy-cache.1019090.n4.nabble.com/Question-about-shutdown-lifetime-behavior-tp4685365p4685366.html">configurable</a>. Once setting <code>shutdown_lifetime 3 seconds</code>, the shutdown starts almost immediately now.</p>
+<p>I knew my laptop was taking time to shut down due to a LXD container running squid-deb-proxy. I thought it was inevitable to flush the content on memory to the disk, but <a href="http://www.squid-cache.org/Doc/config/shutdown_lifetime/" target="_blank" rel="noopener">it</a> was actually <a href="http://squid-web-proxy-cache.1019090.n4.nabble.com/Question-about-shutdown-lifetime-behavior-tp4685365p4685366.html" target="_blank" rel="noopener">configurable</a>. Once setting <code>shutdown_lifetime 3 seconds</code>, the shutdown starts almost immediately now.</p>
 <h3 id="lets-encrypt-wildcard-certs-and-dns-01">Let&rsquo;s encrypt wildcard certs and DNS-01</h3>
-<p>I wanted to have a proper TLS certificate for services running behind a firewall and not exposed to the Internet. So far, I only used HTTP-01 challenges for my public web servers. Now that wildcard certs with DNS-01 is available with Let&rsquo;s encrypt, I migrated the nameservers for one of my domains to Cloudflare, which is in <a href="https://community.letsencrypt.org/t/dns-providers-who-easily-integrate-with-lets-encrypt-dns-validation/86438">the list of DNS-01 capable providers with certbot</a>.</p>
+<p>I wanted to have a proper TLS certificate for services running behind a firewall and not exposed to the Internet. So far, I only used HTTP-01 challenges for my public web servers. Now that wildcard certs with DNS-01 is available with Let&rsquo;s encrypt, I migrated the nameservers for one of my domains to Cloudflare, which is in <a href="https://community.letsencrypt.org/t/dns-providers-who-easily-integrate-with-lets-encrypt-dns-validation/86438" target="_blank" rel="noopener">the list of DNS-01 capable providers with certbot</a>.</p>
 <p>One caveat was that API-token based authentication wasn&rsquo;t available with the version of <code>python3-cloudflare</code> in Ubuntu 20.04 LTS.</p>
 <p><a href="https://certbot-dns-cloudflare.readthedocs.io/en/stable/">https://certbot-dns-cloudflare.readthedocs.io/en/stable/</a></p>
 <blockquote>
 <p>Using Cloudflare Tokens also requires at least version 2.3.1 of the cloudflare python module.</p>
 </blockquote>
-<p>I tried to backport a newer one to 20.04, but it wasn&rsquo;t straightforward. In the end, I&rsquo;ve migrated from the deb based certbot to the snap one as <a href="https://github.com/certbot/website/pull/613">the upstream recommends it</a>. It&rsquo;s basically with the three commands.</p>
+<p>I tried to backport a newer one to 20.04, but it wasn&rsquo;t straightforward. In the end, I&rsquo;ve migrated from the deb based certbot to the snap one as <a href="https://github.com/certbot/website/pull/613" target="_blank" rel="noopener">the upstream recommends it</a>. It&rsquo;s basically with the three commands.</p>
 <pre><code class="language-bash">$ sudo snap install certbot --classic
 $ sudo snap set certbot trust-plugin-with-root=ok
 $ sudo snap install certbot-dns-cloudflare
 </code></pre>
-<p>I knew how to redirect access of port 80 with HTTP to 443 with HTTPS. I&rsquo;ve learned that I can also redirect HTTP access to port 3000 of Grafana to HTTPS with the same port with the following <a href="https://nginx.org/en/docs/http/ngx_http_ssl_module.html#errors">expression</a>, which is neat.</p>
+<p>I knew how to redirect access of port 80 with HTTP to 443 with HTTPS. I&rsquo;ve learned that I can also redirect HTTP access to port 3000 of Grafana to HTTPS with the same port with the following <a href="https://nginx.org/en/docs/http/ngx_http_ssl_module.html#errors" target="_blank" rel="noopener">expression</a>, which is neat.</p>
 <pre><code>error_page 497 =301 https://$host:$server_port$request_uri;
 </code></pre>
 <h3 id="grafana--prometheus--node-exporter">Grafana + Prometheus + node-exporter</h3>
 <p>I don&rsquo;t need to monitor my personal-use servers closely, but I set up a standard set of Prometheus and Node exporter for starters. Nothing is interesting there, but I used a Let&rsquo;s encrypt cert with DNS-01 as the Grafana&rsquo;s hostname is not associated with a global IP address at all.</p>
-<p>I have <a href="https://grafana.com/tutorials/run-grafana-behind-a-proxy/#2">a reverse proxy using Nginx</a> not exposed to the Internet either, but once I get certs with DNS-01, I can use HTTPS properly.</p>
+<p>I have <a href="https://grafana.com/tutorials/run-grafana-behind-a-proxy/#2" target="_blank" rel="noopener">a reverse proxy using Nginx</a> not exposed to the Internet either, but once I get certs with DNS-01, I can use HTTPS properly.</p>
 <pre><code class="language-bash">$ sudo certbot certonly \
     -i nginx \
     --dns-cloudflare \
@@ -766,7 +807,7 @@ $ sudo snap install certbot-dns-cloudflare
       <a href="https://grafana.com/grafana/dashboards/1860">Prometheus Node Exporter Full</a> dashboard
     </figcaption></figure>
 <h3 id="intel-nvme-ssd-firmware-upgrade">Intel NVMe SSD firmware upgrade</h3>
-<p>I struggled with a sympton that NVMe SSD ended up with read-only after suspend and resume. And it claimed that it was write-protected somehow. It rarely happens, but when it does, I had to hard-reboot the machine, which was annoying. After some googling, it looked like the first thing I should try was to upgrade the firmware. Once it&rsquo;s <a href="https://www.intel.com/content/www/us/en/support/articles/000056193/memory-and-storage.html">updated using an ISO image</a> with secure boot disabled temporarily, I haven&rsquo;t seen the original issue so far.</p>
+<p>I struggled with a sympton that NVMe SSD ended up with read-only after suspend and resume. And it claimed that it was write-protected somehow. It rarely happens, but when it does, I had to hard-reboot the machine, which was annoying. After some googling, it looked like the first thing I should try was to upgrade the firmware. Once it&rsquo;s <a href="https://www.intel.com/content/www/us/en/support/articles/000056193/memory-and-storage.html" target="_blank" rel="noopener">updated using an ISO image</a> with secure boot disabled temporarily, I haven&rsquo;t seen the original issue so far.</p>
 <h2 id="closing">Closing</h2>
 <p>It was somewhat productive to spend the holidays in this way. I replaced Ubuntu 18.04 LTS with 20.04 LTS for the testbed machine, but didn&rsquo;t have time to upgrade my laptop from 20.04 to 20.10 or discontinue one 16.04 installation of a cloud instance in favor of a new instance with 20.04 already there.</p>
 
@@ -1063,6 +1104,23 @@ $ sudo snap install certbot-dns-cloudflare
     
     
     
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+      
+    
 
     
     
@@ -1077,6 +1135,14 @@ $ sudo snap install certbot-dns-cloudflare
 
     
     
+      
+      
+      
+      
+      
+      
+      
+    
 
     
     
@@ -1086,8 +1152,11 @@ $ sudo snap install certbot-dns-cloudflare
     
     
     
+      
+      
     
-    <script src="/en/js/wowchemy.min.c7dbcd0a03997d954a216caf59fc7681.js"></script>
+    
+    <script src="/en/js/wowchemy.min.4bba0826db6409c865d2e7b99039d6d0.js"></script>
 
     
 

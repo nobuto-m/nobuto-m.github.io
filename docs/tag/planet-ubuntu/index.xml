@@ -7,7 +7,7 @@
     <description>planet-ubuntu</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2017-2021 Nobuto Murata</copyright><lastBuildDate>Thu, 31 Dec 2020 03:49:53 +0900</lastBuildDate>
     <image>
-      <url>https://nobuto-m.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_2.png</url>
+      <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_2.png</url>
       <title>planet-ubuntu</title>
       <link>https://nobuto-m.github.io/tag/planet-ubuntu/</link>
     </image>
@@ -136,7 +136,7 @@
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 &lt;p&gt;It emits expected events as &lt;code&gt;KEY_VOLUMEUP&lt;/code&gt; and &lt;code&gt;KEY_VOLUMEDOWN&lt;/code&gt; with the dial, and &lt;code&gt;KEY_MUTE&lt;/code&gt; when the knob is pressed.&lt;/p&gt;
-&lt;p&gt;I created a &amp;ldquo;&lt;a href=&#34;https://www.freedesktop.org/software/systemd/man/hwdb.html&#34;&gt;hwdb&lt;/a&gt;&amp;rdquo; file to remap the mute key to something else as follows in &lt;code&gt;/etc/udev/hwdb.d/99-local-remap-usb-volume-control.hwdb&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I created a &amp;ldquo;&lt;a href=&#34;https://www.freedesktop.org/software/systemd/man/hwdb.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;hwdb&lt;/a&gt;&amp;rdquo; file to remap the mute key to something else as follows in &lt;code&gt;/etc/udev/hwdb.d/99-local-remap-usb-volume-control.hwdb&lt;/code&gt;.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;# STMicroelectronics USB Volume Control
 # Remap the click (Mute) to XF86Launch
 evdev:input:b0003v0483p572D*
@@ -186,7 +186,7 @@ evdev:input:b0003v0483p572D*
     EDIT: I have migrated one of my domains to &lt;a href=&#34;https://domains.google/&#34;&gt;Google Domains&lt;/a&gt; so I&amp;rsquo;m using &lt;a href=&#34;https://support.google.com/domains/answer/6147083&#34;&gt;&lt;code&gt;protocol=googledomains&lt;/code&gt;&lt;/a&gt; these days.
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;When I searched for a way to configure ddclient for &lt;a href=&#34;https://www.noip.com/&#34;&gt;No-IP.com&lt;/a&gt;, some pages mention &lt;code&gt;protocol=dyndns2&lt;/code&gt; with a custom URL. But actually, ddclient supports &lt;code&gt;protocol=noip&lt;/code&gt; out of the box, so minimal steps would be something like:&lt;/p&gt;
+&lt;p&gt;When I searched for a way to configure ddclient for &lt;a href=&#34;https://www.noip.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;No-IP.com&lt;/a&gt;, some pages mention &lt;code&gt;protocol=dyndns2&lt;/code&gt; with a custom URL. But actually, ddclient supports &lt;code&gt;protocol=noip&lt;/code&gt; out of the box, so minimal steps would be something like:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt install ddclient
 
 $ cat &amp;lt;&amp;lt;EOF | sudo tee /etc/ddclient.conf
@@ -221,7 +221,7 @@ ddclient[24631]: SUCCESS:  updating MY_HOST.redirectme.net: good: IP address set
       <link>https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/</link>
       <pubDate>Tue, 04 Jul 2017 00:00:00 +0900</pubDate>
       <guid>https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/</guid>
-      <description>&lt;p&gt;With &lt;a href=&#34;https://www.kernel.org/doc/Documentation/livepatch/livepatch.txt&#34;&gt;Livepatch support in Linux kernel&lt;/a&gt; and &lt;a href=&#34;https://www.ubuntu.com/server/livepatch&#34;&gt;Livepatch service for Ubuntu&lt;/a&gt;, reboots are no longer necessary even when kernel vulnerabilities are found. You can avoid and postpone unplanned reboots to whenever convenient for you, such as scheduled maintenance windows (Well, there are some corner cases which still require reboots though).&lt;/p&gt;
+      <description>&lt;p&gt;With &lt;a href=&#34;https://www.kernel.org/doc/Documentation/livepatch/livepatch.txt&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Livepatch support in Linux kernel&lt;/a&gt; and &lt;a href=&#34;https://www.ubuntu.com/server/livepatch&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Livepatch service for Ubuntu&lt;/a&gt;, reboots are no longer necessary even when kernel vulnerabilities are found. You can avoid and postpone unplanned reboots to whenever convenient for you, such as scheduled maintenance windows (Well, there are some corner cases which still require reboots though).&lt;/p&gt;
 &lt;p&gt;What about services? After applying security updates of libraries, some services still grab old libraries which may have vulnerabilities. You can list up those processes with “lsof”.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo lsof / | egrep -w &#39;DEL|deleted&#39;
 ...
