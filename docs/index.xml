@@ -7,7 +7,7 @@
     <description>Nobuto Murata</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2017-2021 Nobuto Murata</copyright><lastBuildDate>Wed, 06 Jan 2021 10:09:02 +0900</lastBuildDate>
     <image>
-      <url>https://nobuto-m.github.io/images/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_2.png</url>
+      <url>https://nobuto-m.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_2.png</url>
       <title>Nobuto Murata</title>
       <link>https://nobuto-m.github.io/</link>
     </image>
@@ -29,12 +29,6 @@
 
 
 
-  
-
-
-
-  
-  
 
 
 
@@ -43,28 +37,20 @@
 
 
 
-
-
-
-&lt;figure id=&#34;figure-tailscale-eases-a-headache-of-nat&#34;&gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/featured_huf38fa7764604fa33839c8ef016296a77_363145_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Tailscale eases a headache of NAT&#34;&gt;
-
-
-  &lt;img data-src=&#34;https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/featured_huf38fa7764604fa33839c8ef016296a77_363145_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;1890&#34; height=&#34;1366&#34;&gt;
-&lt;/a&gt;
-
-
-  
-  
-  &lt;figcaption&gt;
-    Tailscale eases a headache of NAT
-  &lt;/figcaption&gt;
-
-
-&lt;/figure&gt;
-
+&lt;figure  id=&#34;figure-tailscale-eases-a-headache-of-nat&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;
+        &lt;img alt=&#34;Tailscale eases a headache of NAT&#34; srcset=&#34;
+               /post/2021/how-i-spent-year-end-holidays/featured_huf38fa7764604fa33839c8ef016296a77_363145_23f08104d0f1452616f7dbb0db42f629.png 400w,
+               /post/2021/how-i-spent-year-end-holidays/featured_huf38fa7764604fa33839c8ef016296a77_363145_dbe87680fcf4ea5dbd45add790143523.png 760w,
+               /post/2021/how-i-spent-year-end-holidays/featured_huf38fa7764604fa33839c8ef016296a77_363145_1200x1200_fit_lanczos_2.png 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/featured_huf38fa7764604fa33839c8ef016296a77_363145_23f08104d0f1452616f7dbb0db42f629.png&#34;
+               width=&#34;760&#34;
+               height=&#34;549&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Tailscale eases a headache of NAT
+    &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;Not only for the remote access from my laptop on the go to the testbed machine (the arrow &amp;ldquo;A&amp;rdquo;), I enabled Tailscale for accessing my Grafana dashboard running inside a cloud instance (&amp;ldquo;B&amp;rdquo;) which is not necessary to be exposed to the Internet. I could just use SSH port forwarding or &lt;code&gt;sshuttle&lt;/code&gt; but having a Wireguard-based connection without having a VPN endpoint exposed is like magic. As a bonus, I can reliably access a Raspberry-Pi running somewhere behind three NAT instances (&amp;ldquo;C&amp;rdquo;). I no longer have to worry about the SSH reverse tunnel for it and its retry logic I set up some time ago.&lt;/p&gt;
 &lt;h3 id=&#34;excalidraw&#34;&gt;Excalidraw&lt;/h3&gt;
 &lt;p&gt;As you can see above, the diagram was made with &lt;a href=&#34;https://excalidraw.com/&#34;&gt;Excalidraw&lt;/a&gt;. It&amp;rsquo;s just amazing as turning my ugly diagram into a beautiful one. It&amp;rsquo;s getting &lt;a href=&#34;https://blog.excalidraw.com/one-year-of-excalidraw/&#34;&gt;more and more features&lt;/a&gt; these days. How wonderful it is.&lt;/p&gt;
@@ -86,12 +72,6 @@
 
 
 
-  
-
-
-
-  
-  
 
 
 
@@ -100,22 +80,18 @@
 
 
 
-
-
-
-&lt;figure &gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/thinkpad-battery_hu556b05f5f4b79c16fbf1e0888ab3c7f1_104990_2000x2000_fit_lanczos_2.png&#34; &gt;
-
-
-  &lt;img data-src=&#34;https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/thinkpad-battery_hu556b05f5f4b79c16fbf1e0888ab3c7f1_104990_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;968&#34; height=&#34;573&#34;&gt;
-&lt;/a&gt;
-
-
-
-&lt;/figure&gt;
-
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;
+        &lt;img alt=&#34;&#34; srcset=&#34;
+               /post/2021/how-i-spent-year-end-holidays/thinkpad-battery_hu556b05f5f4b79c16fbf1e0888ab3c7f1_104990_0e50185c26da20ed5dd2e2efd376130b.png 400w,
+               /post/2021/how-i-spent-year-end-holidays/thinkpad-battery_hu556b05f5f4b79c16fbf1e0888ab3c7f1_104990_a6cec8461cc59617d3cb5ea634a941f1.png 760w,
+               /post/2021/how-i-spent-year-end-holidays/thinkpad-battery_hu556b05f5f4b79c16fbf1e0888ab3c7f1_104990_1200x1200_fit_lanczos_2.png 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/thinkpad-battery_hu556b05f5f4b79c16fbf1e0888ab3c7f1_104990_0e50185c26da20ed5dd2e2efd376130b.png&#34;
+               width=&#34;760&#34;
+               height=&#34;450&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
 &lt;h3 id=&#34;wake-on-lan&#34;&gt;Wake-on-LAN&lt;/h3&gt;
 &lt;p&gt;I haven&amp;rsquo;t used Wake-on-LAN for some time because I relied on a smart plug to power on my testbed machine remotely. Nowadays, I&amp;rsquo;m on the same network with the machine as I have fewer chances to go out. So waking it up with a terminal command is handy without opening a mobile app. Enabling WOL wasn&amp;rsquo;t as straightforward as it sounded. Googling told me that I had to specify the MAC address of the NIC explicitly for Netplan (indirectly for systemd-networkd). I wanted to know it earlier, so I opened &lt;a href=&#34;https://github.com/CanonicalLtd/netplan/pull/180&#34;&gt;a pull request to add the caveat in the doc&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;squid-shutdown-took-time&#34;&gt;Squid shutdown took time&lt;/h3&gt;
@@ -165,12 +141,6 @@ $ sudo snap install certbot-dns-cloudflare
 
 
 
-  
-
-
-
-  
-  
 
 
 
@@ -179,28 +149,20 @@ $ sudo snap install certbot-dns-cloudflare
 
 
 
-
-
-
-&lt;figure id=&#34;figure-prometheus-node-exporter-fullhttpsgrafanacomgrafanadashboards1860-dashboard&#34;&gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/grafana_hu4bd6cbf4e0a9efbeff3f782df5a14f6b_210461_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;&amp;lt;a href=&amp;#34;https://grafana.com/grafana/dashboards/1860&amp;#34;&amp;gt;Prometheus Node Exporter Full&amp;lt;/a&amp;gt; dashboard&#34;&gt;
-
-
-  &lt;img data-src=&#34;https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/grafana_hu4bd6cbf4e0a9efbeff3f782df5a14f6b_210461_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;1910&#34; height=&#34;1140&#34;&gt;
-&lt;/a&gt;
-
-
-  
-  
-  &lt;figcaption&gt;
-    &lt;a href=&#34;https://grafana.com/grafana/dashboards/1860&#34;&gt;Prometheus Node Exporter Full&lt;/a&gt; dashboard
-  &lt;/figcaption&gt;
-
-
-&lt;/figure&gt;
-
+&lt;figure  id=&#34;figure-prometheus-node-exporter-fullhttpsgrafanacomgrafanadashboards1860-dashboard&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;
+        &lt;img alt=&#34;[Prometheus Node Exporter Full](https://grafana.com/grafana/dashboards/1860) dashboard&#34; srcset=&#34;
+               /post/2021/how-i-spent-year-end-holidays/grafana_hu4bd6cbf4e0a9efbeff3f782df5a14f6b_210461_5103b1d12c0cfedc500c62e14536a911.png 400w,
+               /post/2021/how-i-spent-year-end-holidays/grafana_hu4bd6cbf4e0a9efbeff3f782df5a14f6b_210461_6f5a9eab059ce707e0a573a3d8f97a9e.png 760w,
+               /post/2021/how-i-spent-year-end-holidays/grafana_hu4bd6cbf4e0a9efbeff3f782df5a14f6b_210461_1200x1200_fit_lanczos_2.png 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/grafana_hu4bd6cbf4e0a9efbeff3f782df5a14f6b_210461_5103b1d12c0cfedc500c62e14536a911.png&#34;
+               width=&#34;760&#34;
+               height=&#34;453&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      &lt;a href=&#34;https://grafana.com/grafana/dashboards/1860&#34;&gt;Prometheus Node Exporter Full&lt;/a&gt; dashboard
+    &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;h3 id=&#34;intel-nvme-ssd-firmware-upgrade&#34;&gt;Intel NVMe SSD firmware upgrade&lt;/h3&gt;
 &lt;p&gt;I struggled with a sympton that NVMe SSD ended up with read-only after suspend and resume. And it claimed that it was write-protected somehow. It rarely happens, but when it does, I had to hard-reboot the machine, which was annoying. After some googling, it looked like the first thing I should try was to upgrade the firmware. Once it&amp;rsquo;s &lt;a href=&#34;https://www.intel.com/content/www/us/en/support/articles/000056193/memory-and-storage.html&#34;&gt;updated using an ISO image&lt;/a&gt; with secure boot disabled temporarily, I haven&amp;rsquo;t seen the original issue so far.&lt;/p&gt;
 &lt;h2 id=&#34;closing&#34;&gt;Closing&lt;/h2&gt;
@@ -219,12 +181,6 @@ $ sudo snap install certbot-dns-cloudflare
 
 
 
-  
-
-
-
-  
-  
 
 
 
@@ -233,28 +189,20 @@ $ sudo snap install certbot-dns-cloudflare
 
 
 
-
-
-
-&lt;figure id=&#34;figure-a-custom-and-global-shortcut-key-to-mute--unmute-yourself-in-zoom-or-google-meet&#34;&gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hudefa2a51bd143c6afdf2a13fd140d12b_113055_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;A custom and global shortcut key to mute / unmute yourself in Zoom or Google Meet&#34;&gt;
-
-
-  &lt;img data-src=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hudefa2a51bd143c6afdf2a13fd140d12b_113055_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;1074&#34; height=&#34;604&#34;&gt;
-&lt;/a&gt;
-
-
-  
-  
-  &lt;figcaption&gt;
-    A custom and global shortcut key to mute / unmute yourself in Zoom or Google Meet
-  &lt;/figcaption&gt;
-
-
-&lt;/figure&gt;
-
+&lt;figure  id=&#34;figure-a-custom-and-global-shortcut-key-to-mute--unmute-yourself-in-zoom-or-google-meet&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;
+        &lt;img alt=&#34;A custom and global shortcut key to mute / unmute yourself in Zoom or Google Meet&#34; srcset=&#34;
+               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hudefa2a51bd143c6afdf2a13fd140d12b_113055_583fa4e73516295ac3a58e117bc80051.png 400w,
+               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hudefa2a51bd143c6afdf2a13fd140d12b_113055_b94f6d40caa822eea49b266dadd30b80.png 760w,
+               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hudefa2a51bd143c6afdf2a13fd140d12b_113055_1200x1200_fit_lanczos_2.png 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hudefa2a51bd143c6afdf2a13fd140d12b_113055_583fa4e73516295ac3a58e117bc80051.png&#34;
+               width=&#34;760&#34;
+               height=&#34;427&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      A custom and global shortcut key to mute / unmute yourself in Zoom or Google Meet
+    &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;Just like everyone else, 2020 was the year of having more and more video-conference calls. How many times did we struggle to find the meeting window during a call, and say &amp;ldquo;Sorry, I was on mute&amp;rdquo;? I tried to address the pain and ended up with the following setup.&lt;/p&gt;
 &lt;h2 id=&#34;xdotool&#34;&gt;xdotool&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;xdotool&lt;/code&gt; is a great automation tool for X, and it can search a window, activate it, and simulate keyboard input. That&amp;rsquo;s a perfect match for the use case here.&lt;/p&gt;
@@ -284,12 +232,6 @@ $ sudo snap install certbot-dns-cloudflare
 
 
 
-  
-
-
-
-  
-  
 
 
 
@@ -298,22 +240,18 @@ $ sudo snap install certbot-dns-cloudflare
 
 
 
-
-
-
-&lt;figure &gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard_hu89c78ac31ecb6eec4590204f24b1d0e3_299701_2000x2000_fit_lanczos_2.png&#34; &gt;
-
-
-  &lt;img data-src=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard_hu89c78ac31ecb6eec4590204f24b1d0e3_299701_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;1178&#34; height=&#34;885&#34;&gt;
-&lt;/a&gt;
-
-
-
-&lt;/figure&gt;
-
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;
+        &lt;img alt=&#34;&#34; srcset=&#34;
+               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard_hu89c78ac31ecb6eec4590204f24b1d0e3_299701_1ec682118e775554a7109d53d42e50f1.png 400w,
+               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard_hu89c78ac31ecb6eec4590204f24b1d0e3_299701_ec99697e1eb884f25c874434c743ffbd.png 760w,
+               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard_hu89c78ac31ecb6eec4590204f24b1d0e3_299701_1200x1200_fit_lanczos_2.png 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard_hu89c78ac31ecb6eec4590204f24b1d0e3_299701_1ec682118e775554a7109d53d42e50f1.png&#34;
+               width=&#34;760&#34;
+               height=&#34;571&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
 &lt;p&gt;It&amp;rsquo;s pretty simple, but some tricks may be required. As far as I see, &lt;code&gt;gsd-media-keys&lt;/code&gt; will invoke a command when a shortcut key is pressed, not released. In my case, I use &lt;code&gt;Ctrl+space&lt;/code&gt; as the shortcut key, so Meet may recognize keys pressed as &lt;code&gt;Ctrl+space&lt;/code&gt; + &lt;code&gt;Ctrl+D&lt;/code&gt; = &lt;code&gt;Ctrl+space+D&lt;/code&gt; which doesn&amp;rsquo;t trigger the mute/unmute behavior actually. Keys can be canceled with &lt;code&gt;keyup&lt;/code&gt;, so the key command was turned into &lt;code&gt;keyup space key ctrl+d&lt;/code&gt; in the end.&lt;/p&gt;
 &lt;p&gt;Also, I wanted to use the same shortcut key for multiple services, and I have the following line which tries Google Meet first, then Zoom if no Meet window is found. It should work most of the cases unless you join multiple meetings at the same time.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sh -c &amp;quot;
@@ -335,12 +273,6 @@ $ sudo snap install certbot-dns-cloudflare
 
 
 
-  
-
-
-
-  
-  
 
 
 
@@ -349,22 +281,18 @@ $ sudo snap install certbot-dns-cloudflare
 
 
 
-
-
-
-&lt;figure &gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/usb-volume-controller_hudced8bcfe22292ced2a3e4887c9f0f23_307906_2000x2000_fit_q75_lanczos.jpg&#34; &gt;
-
-
-  &lt;img data-src=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/usb-volume-controller_hudced8bcfe22292ced2a3e4887c9f0f23_307906_2000x2000_fit_q75_lanczos.jpg&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;1440&#34; height=&#34;1080&#34;&gt;
-&lt;/a&gt;
-
-
-
-&lt;/figure&gt;
-
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;
+        &lt;img alt=&#34;&#34; srcset=&#34;
+               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/usb-volume-controller_hudced8bcfe22292ced2a3e4887c9f0f23_307906_0a36b404e39eec5f05eae7f2ab747c3b.jpg 400w,
+               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/usb-volume-controller_hudced8bcfe22292ced2a3e4887c9f0f23_307906_531724c47fcf2808ec4a1bb132d2a19e.jpg 760w,
+               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/usb-volume-controller_hudced8bcfe22292ced2a3e4887c9f0f23_307906_1200x1200_fit_q75_lanczos.jpg 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/usb-volume-controller_hudced8bcfe22292ced2a3e4887c9f0f23_307906_0a36b404e39eec5f05eae7f2ab747c3b.jpg&#34;
+               width=&#34;760&#34;
+               height=&#34;570&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
 &lt;p&gt;It emits expected events as &lt;code&gt;KEY_VOLUMEUP&lt;/code&gt; and &lt;code&gt;KEY_VOLUMEDOWN&lt;/code&gt; with the dial, and &lt;code&gt;KEY_MUTE&lt;/code&gt; when the knob is pressed.&lt;/p&gt;
 &lt;p&gt;I created a &amp;ldquo;&lt;a href=&#34;https://www.freedesktop.org/software/systemd/man/hwdb.html&#34;&gt;hwdb&lt;/a&gt;&amp;rdquo; file to remap the mute key to something else as follows in &lt;code&gt;/etc/udev/hwdb.d/99-local-remap-usb-volume-control.hwdb&lt;/code&gt;.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;# STMicroelectronics USB Volume Control
@@ -391,12 +319,6 @@ evdev:input:b0003v0483p572D*
 
 
 
-  
-
-
-
-  
-  
 
 
 
@@ -405,22 +327,18 @@ evdev:input:b0003v0483p572D*
 
 
 
-
-
-
-&lt;figure &gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://nobuto-m.github.io/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_2000x2000_fit_lanczos_2.png&#34; &gt;
-
-
-  &lt;img data-src=&#34;https://nobuto-m.github.io/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;1009&#34; height=&#34;568&#34;&gt;
-&lt;/a&gt;
-
-
-
-&lt;/figure&gt;
-
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;
+        &lt;img alt=&#34;&#34; srcset=&#34;
+               /post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_5a154cb774cd1279895233400b56a143.png 400w,
+               /post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_d23cf63d30fd9e45bc5f2ea589a798e2.png 760w,
+               /post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_1200x1200_fit_lanczos_2.png 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_5a154cb774cd1279895233400b56a143.png&#34;
+               width=&#34;760&#34;
+               height=&#34;428&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     EDIT: I have migrated one of my domains to &lt;a href=&#34;https://domains.google/&#34;&gt;Google Domains&lt;/a&gt; so I&amp;rsquo;m using &lt;a href=&#34;https://support.google.com/domains/answer/6147083&#34;&gt;&lt;code&gt;protocol=googledomains&lt;/code&gt;&lt;/a&gt; these days.
@@ -478,12 +396,6 @@ apache2 2299 www-data DEL REG 252,0 260711 /lib/x86_64-linux-gnu/libssl.so.1.0.0
 
 
 
-  
-
-
-
-  
-  
 
 
 
@@ -492,22 +404,18 @@ apache2 2299 www-data DEL REG 252,0 260711 /lib/x86_64-linux-gnu/libssl.so.1.0.0
 
 
 
-
-
-
-&lt;figure &gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/featured_hua52d71764637683b3142eb4711c08fa6_58682_2000x2000_fit_lanczos_2.png&#34; &gt;
-
-
-  &lt;img data-src=&#34;https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/featured_hua52d71764637683b3142eb4711c08fa6_58682_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;1052&#34; height=&#34;668&#34;&gt;
-&lt;/a&gt;
-
-
-
-&lt;/figure&gt;
-
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;
+        &lt;img alt=&#34;&#34; srcset=&#34;
+               /post/2017/knowing-what-services-need-restart-with-needrestart/featured_hua52d71764637683b3142eb4711c08fa6_58682_0fda1b14bbf6fc158bf87461e0ada8ef.png 400w,
+               /post/2017/knowing-what-services-need-restart-with-needrestart/featured_hua52d71764637683b3142eb4711c08fa6_58682_0870fa13dbaab0787635afe8094684db.png 760w,
+               /post/2017/knowing-what-services-need-restart-with-needrestart/featured_hua52d71764637683b3142eb4711c08fa6_58682_1200x1200_fit_lanczos_2.png 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/featured_hua52d71764637683b3142eb4711c08fa6_58682_0fda1b14bbf6fc158bf87461e0ada8ef.png&#34;
+               width=&#34;760&#34;
+               height=&#34;483&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
 &lt;p&gt;To use “needrestart”, you just need to install a package with the same name.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt install needrestart
 &lt;/code&gt;&lt;/pre&gt;
@@ -526,12 +434,6 @@ CRIT — Services: 4 (!), Containers: none, Sessions: 1 (!)|Services=4;;0;0 Cont
 
 
 
-  
-
-
-
-  
-  
 
 
 
@@ -540,22 +442,18 @@ CRIT — Services: 4 (!), Containers: none, Sessions: 1 (!)|Services=4;;0;0 Cont
 
 
 
-
-
-
-&lt;figure &gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/nagios_hu6d4a84d894f8c84c892a1dc7d6f22d25_103962_2000x2000_fit_lanczos_2.png&#34; &gt;
-
-
-  &lt;img data-src=&#34;https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/nagios_hu6d4a84d894f8c84c892a1dc7d6f22d25_103962_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;1135&#34; height=&#34;244&#34;&gt;
-&lt;/a&gt;
-
-
-
-&lt;/figure&gt;
-
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;
+        &lt;img alt=&#34;&#34; srcset=&#34;
+               /post/2017/knowing-what-services-need-restart-with-needrestart/nagios_hu6d4a84d894f8c84c892a1dc7d6f22d25_103962_059a70ce0e5488e9593da5537af290c6.png 400w,
+               /post/2017/knowing-what-services-need-restart-with-needrestart/nagios_hu6d4a84d894f8c84c892a1dc7d6f22d25_103962_bad0765b7661a5601036eff5f94d9e1b.png 760w,
+               /post/2017/knowing-what-services-need-restart-with-needrestart/nagios_hu6d4a84d894f8c84c892a1dc7d6f22d25_103962_1200x1200_fit_lanczos_2.png 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/nagios_hu6d4a84d894f8c84c892a1dc7d6f22d25_103962_059a70ce0e5488e9593da5537af290c6.png&#34;
+               width=&#34;760&#34;
+               height=&#34;163&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;This post was originally published at &lt;a href=&#34;https://medium.com/@nobuto_m/knowing-what-services-need-restart-with-needrestart-37419f44ed46&#34;&gt;https://medium.com/@nobuto_m/knowing-what-services-need-restart-with-needrestart-37419f44ed46&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
