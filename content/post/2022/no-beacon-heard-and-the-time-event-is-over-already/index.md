@@ -33,6 +33,11 @@ image:
 - pinning to a specific BSSID doesn't make much difference
 - running a single Deco doesn't trigger the issue so it looks like mesh related
 
+https://launchpad.net/~nobuto/+archive/ubuntu/experimental-packages?field.series_filter=jammy
+https://launchpad.net/~nobuto/+archive/ubuntu/experimental-packages/+build/24301259/+files/wpasupplicant_2.10-6ubuntu2.1~ppa1_amd64.deb
+
+https://w1.fi/cgit/hostap/commit/?id=8e0ac53660aaa9691e140156c47fddb7cd8c62b6
+
 
 [2.4GHz]
 ```
@@ -83,7 +88,14 @@ Aug 21 13:23:08 t480 kernel: [136932.392477] wlp3s0: Limiting TX power to 20 (23
 ```
 
 ```
-sudo wpa_cli log_level DEBUG
+$ sudo wpa_cli log_level
+Selected interface 'wlp3s0'
+Current level: INFO
+Timestamp: 0
+
+$ sudo wpa_cli log_level DEBUG
+Selected interface 'wlp3s0'
+OK
 ```
 
 [syslog]
@@ -148,4 +160,21 @@ Aug 21 14:01:54 deco daemon.err nrd[22822] estimatorCmnHandleBeaconReportEvent: 
 Aug 21 14:01:54 t480 wpa_supplicant[1613]: Beacon request: No valid channels
 Aug 21 14:02:00 deco daemon.err nrd[22822] estimatorCmnHandleBeaconReportEvent: Invalid beacon report for D4:3B:04:XX:YY:ZZ
 Aug 21 14:02:00 t480 wpa_supplicant[1613]: Beacon request: No valid channels
+```
+
+
+```
+Sun Aug 21 17:12:05 2022 daemon.notice nrd[22822] estimatorPerformMeasurement: Do 11k measuremrent for D4:3B:04:XX:YY:ZZ on channel 48 from serving BSS APId 255 ChanId 48  ESSId 0
+Sun Aug 21 17:12:05 2022 daemon.err nrd[22822] estimatorCmnHandleBeaconReportEvent: Invalid beacon report for D4:3B:04:XX:YY:ZZ
+```
+
+
+```
+Sun Aug 21 18:15:55 2022 daemon.notice nrd[22822] estimatorPerformMeasurement: Do 11k measuremrent for D4:3B:04:XX:YY:ZZ on channel 48 from serving BSS APId 255 ChanId 48  ESSId 0
+Sun Aug 21 18:15:55 2022 daemon.notice nrd[22822] wlanifBSteerEventsHandleBeaconReport: Beacon report from D4:3B:04:XX:YY:ZZ: APId 1   ChanId 48  ESSId 0  bssid 6C:5A:B0:XX:YY:ZZ rcpi: 104
+Sun Aug 21 18:15:55 2022 daemon.notice nrd[22822] wlanifBSteerEventsHandleBeaconReport: Beacon report from D4:3B:04:XX:YY:ZZ: APId 255 ChanId 48  ESSId 0  bssid 6C:5A:B0:XX:YY:ZZ rcpi: 68
+Sun Aug 21 18:15:55 2022 daemon.notice nrd[22822] stadbEntry_modifyTriggerThreshold: For client D4:3B:04:XX:YY:ZZ RSSI: 16 | RCPI: -76 | threshold RSSI: 35
+Sun Aug 21 18:15:55 2022 daemon.notice nrd[22822] steerexecStartSteer: Starting new steer for D4:3B:04:XX:YY:ZZ(transaction 193)
+Sun Aug 21 18:15:55 2022 daemon.notice nrd[22822] steerexecHandleBTMResponseEvent: Received BTM response from D4:3B:04:XX:YY:ZZ with non-success code (7) (transaction 193)
+Sun Aug 21 18:15:55 2022 daemon.notice nrd[22822] stadbEntry_updateARBtmThreshold: update threshold of client D4:3B:04:XX:YY:ZZ for reason 1
 ```
