@@ -28,7 +28,7 @@ image:
 
 - no Wi-Fi 6 (11ax) capability on the card so it's about 11ac or 11n
 - WPA2 with or without 802.11r / WPA3 - no much difference
-- 2.4GHz / 5GHz - 2.4GHz is stable, but triggers a microcode error from time to time
+- 2.4GHz(11n) vs 5GHz(11ac) - 2.4GHz is stable, but triggers a microcode error from time to time
 - no dynamic channel selection
 - pinning to a specific BSSID doesn't make much difference
 - running a single Deco doesn't trigger the issue so it looks like mesh related
@@ -177,4 +177,107 @@ Sun Aug 21 18:15:55 2022 daemon.notice nrd[22822] stadbEntry_modifyTriggerThresh
 Sun Aug 21 18:15:55 2022 daemon.notice nrd[22822] steerexecStartSteer: Starting new steer for D4:3B:04:XX:YY:ZZ(transaction 193)
 Sun Aug 21 18:15:55 2022 daemon.notice nrd[22822] steerexecHandleBTMResponseEvent: Received BTM response from D4:3B:04:XX:YY:ZZ with non-success code (7) (transaction 193)
 Sun Aug 21 18:15:55 2022 daemon.notice nrd[22822] stadbEntry_updateARBtmThreshold: update threshold of client D4:3B:04:XX:YY:ZZ for reason 1
+```
+
+
+```
+$ sudo wpa_cli preauthenticate 6c:5a:b0:xx:yy:zz (?)
+$ sudo wpa_cli roam 6c:5a:b0:xx:yy:zz
+```
+
+```
+$ iw reg get
+global
+country 00: DFS-UNSET
+	(755 - 928 @ 2), (N/A, 20), (N/A), PASSIVE-SCAN
+	(2402 - 2472 @ 40), (N/A, 20), (N/A)
+	(2457 - 2482 @ 20), (N/A, 20), (N/A), AUTO-BW, PASSIVE-SCAN
+	(2474 - 2494 @ 20), (N/A, 20), (N/A), NO-OFDM, PASSIVE-SCAN
+	(5170 - 5250 @ 80), (N/A, 20), (N/A), AUTO-BW, PASSIVE-SCAN
+	(5250 - 5330 @ 80), (N/A, 20), (0 ms), DFS, AUTO-BW, PASSIVE-SCAN
+	(5490 - 5730 @ 160), (N/A, 20), (0 ms), DFS, PASSIVE-SCAN
+	(5735 - 5835 @ 80), (N/A, 20), (N/A), PASSIVE-SCAN
+	(57240 - 63720 @ 2160), (N/A, 0), (N/A)
+
+phy#0 (self-managed)
+country JP: DFS-UNSET
+	(2402 - 2437 @ 40), (6, 22), (N/A), AUTO-BW, NO-HT40MINUS, NO-80MHZ, NO-160MHZ
+	(2422 - 2462 @ 40), (6, 22), (N/A), AUTO-BW, NO-80MHZ, NO-160MHZ
+	(2447 - 2482 @ 40), (6, 22), (N/A), AUTO-BW, NO-HT40PLUS, NO-80MHZ, NO-160MHZ
+	(5170 - 5190 @ 80), (6, 22), (N/A), NO-OUTDOOR, AUTO-BW, IR-CONCURRENT, NO-HT40MINUS, NO-160MHZ, PASSIVE-SCAN
+	(5190 - 5210 @ 80), (6, 22), (N/A), NO-OUTDOOR, AUTO-BW, IR-CONCURRENT, NO-HT40PLUS, NO-160MHZ, PASSIVE-SCAN
+	(5210 - 5230 @ 80), (6, 22), (N/A), NO-OUTDOOR, AUTO-BW, IR-CONCURRENT, NO-HT40MINUS, NO-160MHZ, PASSIVE-SCAN
+	(5230 - 5250 @ 80), (6, 22), (N/A), NO-OUTDOOR, AUTO-BW, IR-CONCURRENT, NO-HT40PLUS, NO-160MHZ, PASSIVE-SCAN
+	(5250 - 5270 @ 80), (6, 22), (0 ms), DFS, AUTO-BW, NO-HT40MINUS, NO-160MHZ, PASSIVE-SCAN
+	(5270 - 5290 @ 80), (6, 22), (0 ms), DFS, AUTO-BW, NO-HT40PLUS, NO-160MHZ, PASSIVE-SCAN
+	(5290 - 5310 @ 80), (6, 22), (0 ms), DFS, AUTO-BW, NO-HT40MINUS, NO-160MHZ, PASSIVE-SCAN
+	(5310 - 5330 @ 80), (6, 22), (0 ms), DFS, AUTO-BW, NO-HT40PLUS, NO-160MHZ, PASSIVE-SCAN
+	(5490 - 5510 @ 80), (6, 22), (0 ms), DFS, AUTO-BW, NO-HT40MINUS, NO-160MHZ, PASSIVE-SCAN
+	(5510 - 5530 @ 80), (6, 22), (0 ms), DFS, AUTO-BW, NO-HT40PLUS, NO-160MHZ, PASSIVE-SCAN
+	(5530 - 5550 @ 80), (6, 22), (0 ms), DFS, AUTO-BW, NO-HT40MINUS, NO-160MHZ, PASSIVE-SCAN
+	(5550 - 5570 @ 80), (6, 22), (0 ms), DFS, AUTO-BW, NO-HT40PLUS, NO-160MHZ, PASSIVE-SCAN
+	(5570 - 5590 @ 80), (6, 22), (0 ms), DFS, AUTO-BW, NO-HT40MINUS, NO-160MHZ, PASSIVE-SCAN
+	(5590 - 5610 @ 80), (6, 22), (0 ms), DFS, AUTO-BW, NO-HT40PLUS, NO-160MHZ, PASSIVE-SCAN
+	(5610 - 5630 @ 80), (6, 22), (0 ms), DFS, AUTO-BW, NO-HT40MINUS, NO-160MHZ, PASSIVE-SCAN
+	(5630 - 5650 @ 80), (6, 22), (0 ms), DFS, AUTO-BW, NO-HT40PLUS, NO-160MHZ, PASSIVE-SCAN
+	(5650 - 5670 @ 80), (6, 22), (0 ms), DFS, AUTO-BW, NO-HT40MINUS, NO-160MHZ, PASSIVE-SCAN
+	(5670 - 5690 @ 80), (6, 22), (0 ms), DFS, AUTO-BW, NO-HT40PLUS, NO-160MHZ, PASSIVE-SCAN
+	(5690 - 5710 @ 80), (6, 22), (0 ms), DFS, AUTO-BW, NO-HT40MINUS, NO-160MHZ, PASSIVE-SCAN
+	(5710 - 5730 @ 80), (6, 22), (0 ms), DFS, AUTO-BW, NO-HT40PLUS, NO-160MHZ, PASSIVE-SCAN
+```
+
+```
+$ sudo wpa_cli get_capability freq
+Selected interface 'wlp3s0'
+Mode[G] Channels:
+ 1 = 2412 MHz
+ 2 = 2417 MHz
+ 3 = 2422 MHz
+ 4 = 2427 MHz
+ 5 = 2432 MHz
+ 6 = 2437 MHz
+ 7 = 2442 MHz
+ 8 = 2447 MHz
+ 9 = 2452 MHz
+ 10 = 2457 MHz
+ 11 = 2462 MHz
+ 12 = 2467 MHz
+ 13 = 2472 MHz
+
+Mode[A] Channels:
+ 36 = 5180 MHz (NO_IR)
+ 40 = 5200 MHz (NO_IR)
+ 44 = 5220 MHz (NO_IR)
+ 48 = 5240 MHz (NO_IR)
+ 52 = 5260 MHz (NO_IR) (DFS)
+ 56 = 5280 MHz (NO_IR) (DFS)
+ 60 = 5300 MHz (NO_IR) (DFS)
+ 64 = 5320 MHz (NO_IR) (DFS)
+ 100 = 5500 MHz (NO_IR) (DFS)
+ 104 = 5520 MHz (NO_IR) (DFS)
+ 108 = 5540 MHz (NO_IR) (DFS)
+ 112 = 5560 MHz (NO_IR) (DFS)
+ 116 = 5580 MHz (NO_IR) (DFS)
+ 120 = 5600 MHz (NO_IR) (DFS)
+ 124 = 5620 MHz (NO_IR) (DFS)
+ 128 = 5640 MHz (NO_IR) (DFS)
+ 132 = 5660 MHz (NO_IR) (DFS)
+ 136 = 5680 MHz (NO_IR) (DFS)
+ 140 = 5700 MHz (NO_IR) (DFS)
+ 144 = 5720 MHz (NO_IR) (DFS)
+
+Mode[B] Channels:
+ 1 = 2412 MHz
+ 2 = 2417 MHz
+ 3 = 2422 MHz
+ 4 = 2427 MHz
+ 5 = 2432 MHz
+ 6 = 2437 MHz
+ 7 = 2442 MHz
+ 8 = 2447 MHz
+ 9 = 2452 MHz
+ 10 = 2457 MHz
+ 11 = 2462 MHz
+ 12 = 2467 MHz
+ 13 = 2472 MHz
 ```
