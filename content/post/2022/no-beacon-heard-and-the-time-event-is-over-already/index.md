@@ -140,25 +140,54 @@ Aug 21 13:23:07 t480 wpa_supplicant[1613]: wlp3s0: CTRL-EVENT-DISCONNECTED bssid
 
 [combined log of t480 and deco]
 ```
+Aug 21 14:01:06 deco daemon.notice nrd[22822]: estimatorPerformMeasurement: Do 11k measuremrent for D4:3B:04:XX:YY:ZZ on channel 48 from serving BSS APId 255 ChanId 48  ESSId 0
 Aug 21 14:01:06 deco daemon.err nrd[22822] estimatorCmnHandleBeaconReportEvent: Invalid beacon report for D4:3B:04:XX:YY:ZZ
+
 Aug 21 14:01:06 t480 wpa_supplicant[1613]: Beacon request: No valid channels
+
+Aug 21 14:01:12 deco daemon.notice nrd[22822]: estimatorPerformMeasurement: Do 11k measuremrent for D4:3B:04:XX:YY:ZZ on channel 48 from serving BSS APId 255 ChanId 48  ESSId 0
 Aug 21 14:01:12 deco daemon.err nrd[22822] estimatorCmnHandleBeaconReportEvent: Invalid beacon report for D4:3B:04:XX:YY:ZZ
+
 Aug 21 14:01:12 t480 wpa_supplicant[1613]: Beacon request: No valid channels
+
+Aug 21 14:01:18 deco daemon.notice nrd[22822]: estimatorPerformMeasurement: Do 11k measuremrent for D4:3B:04:XX:YY:ZZ on channel 48 from serving BSS APId 255 ChanId 48  ESSId 0
 Aug 21 14:01:18 deco daemon.err nrd[22822] estimatorCmnHandleBeaconReportEvent: Invalid beacon report for D4:3B:04:XX:YY:ZZ
+
 Aug 21 14:01:18 t480 wpa_supplicant[1613]: Beacon request: No valid channels
+
+Aug 21 14:01:24 deco daemon.notice nrd[22822]: estimatorPerformMeasurement: Do 11k measuremrent for D4:3B:04:XX:YY:ZZ on channel 48 from serving BSS APId 255 ChanId 48  ESSId 0
 Aug 21 14:01:24 deco daemon.err nrd[22822] estimatorCmnHandleBeaconReportEvent: Invalid beacon report for D4:3B:04:XX:YY:ZZ
+
 Aug 21 14:01:24 t480 wpa_supplicant[1613]: Beacon request: No valid channels
+
+Aug 21 14:01:30 deco daemon.notice nrd[22822]: estimatorPerformMeasurement: Do 11k measuremrent for D4:3B:04:XX:YY:ZZ on channel 48 from serving BSS APId 255 ChanId 48  ESSId 0
 Aug 21 14:01:30 deco daemon.err nrd[22822] estimatorCmnHandleBeaconReportEvent: Invalid beacon report for D4:3B:04:XX:YY:ZZ
+
 Aug 21 14:01:30 t480 wpa_supplicant[1613]: Beacon request: No valid channels
+
+Aug 21 14:01:36 deco daemon.notice nrd[22822]: estimatorPerformMeasurement: Do 11k measuremrent for D4:3B:04:XX:YY:ZZ on channel 48 from serving BSS APId 255 ChanId 48  ESSId 0
 Aug 21 14:01:36 deco daemon.err nrd[22822] estimatorCmnHandleBeaconReportEvent: Invalid beacon report for D4:3B:04:XX:YY:ZZ
+
 Aug 21 14:01:36 t480 wpa_supplicant[1613]: Beacon request: No valid channels
+
+Aug 21 14:01:42 deco daemon.notice nrd[22822]: estimatorPerformMeasurement: Do 11k measuremrent for D4:3B:04:XX:YY:ZZ on channel 48 from serving BSS APId 255 ChanId 48  ESSId 0
 Aug 21 14:01:42 deco daemon.err nrd[22822] estimatorCmnHandleBeaconReportEvent: Invalid beacon report for D4:3B:04:XX:YY:ZZ
+
 Aug 21 14:01:42 t480 wpa_supplicant[1613]: Beacon request: No valid channels
+
+Aug 21 14:01:48 deco daemon.notice nrd[22822]: estimatorPerformMeasurement: Do 11k measuremrent for D4:3B:04:XX:YY:ZZ on channel 48 from serving BSS APId 255 ChanId 48  ESSId 0
 Aug 21 14:01:48 deco daemon.err nrd[22822] estimatorCmnHandleBeaconReportEvent: Invalid beacon report for D4:3B:04:XX:YY:ZZ
+
 Aug 21 14:01:48 t480 wpa_supplicant[1613]: Beacon request: No valid channels
+
+Aug 21 14:01:54 deco daemon.notice nrd[22822]: estimatorPerformMeasurement: Do 11k measuremrent for D4:3B:04:XX:YY:ZZ on channel 48 from serving BSS APId 255 ChanId 48  ESSId 0
 Aug 21 14:01:54 deco daemon.err nrd[22822] estimatorCmnHandleBeaconReportEvent: Invalid beacon report for D4:3B:04:XX:YY:ZZ
+
 Aug 21 14:01:54 t480 wpa_supplicant[1613]: Beacon request: No valid channels
+
+Aug 21 14:02:00 deco daemon.notice nrd[22822]: estimatorPerformMeasurement: Do 11k measuremrent for D4:3B:04:XX:YY:ZZ on channel 48 from serving BSS APId 255 ChanId 48  ESSId 0
 Aug 21 14:02:00 deco daemon.err nrd[22822] estimatorCmnHandleBeaconReportEvent: Invalid beacon report for D4:3B:04:XX:YY:ZZ
+
 Aug 21 14:02:00 t480 wpa_supplicant[1613]: Beacon request: No valid channels
 ```
 
