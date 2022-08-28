@@ -5,9 +5,9 @@
     <link>https://nobuto-m.github.io/tag/planet-ubuntu/</link>
       <atom:link href="https://nobuto-m.github.io/tag/planet-ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <description>planet-ubuntu</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2017-2021 Nobuto Murata</copyright><lastBuildDate>Thu, 31 Dec 2020 03:49:53 +0900</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 31 Dec 2020 03:49:53 +0900</lastBuildDate>
     <image>
-      <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_2.png</url>
+      <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>planet-ubuntu</title>
       <link>https://nobuto-m.github.io/tag/planet-ubuntu/</link>
     </image>
@@ -31,29 +31,32 @@
 
 
 
+
+
+
+
 &lt;figure  id=&#34;figure-a-custom-and-global-shortcut-key-to-mute--unmute-yourself-in-zoom-or-google-meet&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;
-        &lt;img alt=&#34;A custom and global shortcut key to mute / unmute yourself in Zoom or Google Meet&#34; srcset=&#34;
-               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hudefa2a51bd143c6afdf2a13fd140d12b_113055_583fa4e73516295ac3a58e117bc80051.png 400w,
-               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hudefa2a51bd143c6afdf2a13fd140d12b_113055_b94f6d40caa822eea49b266dadd30b80.png 760w,
-               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hudefa2a51bd143c6afdf2a13fd140d12b_113055_1200x1200_fit_lanczos_2.png 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hudefa2a51bd143c6afdf2a13fd140d12b_113055_583fa4e73516295ac3a58e117bc80051.png&#34;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;A custom and global shortcut key to mute / unmute yourself in Zoom or Google Meet&#34; srcset=&#34;
+               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hudefa2a51bd143c6afdf2a13fd140d12b_113055_83ea44c411b7a9e126cece819dfe70d1.webp 400w,
+               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hudefa2a51bd143c6afdf2a13fd140d12b_113055_6e24913c27f6c166982391ff854dd114.webp 760w,
+               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hudefa2a51bd143c6afdf2a13fd140d12b_113055_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hudefa2a51bd143c6afdf2a13fd140d12b_113055_83ea44c411b7a9e126cece819dfe70d1.webp&#34;
                width=&#34;760&#34;
                height=&#34;427&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       A custom and global shortcut key to mute / unmute yourself in Zoom or Google Meet
     &lt;/figcaption&gt;&lt;/figure&gt;
+
 &lt;p&gt;Just like everyone else, 2020 was the year of having more and more video-conference calls. How many times did we struggle to find the meeting window during a call, and say &amp;ldquo;Sorry, I was on mute&amp;rdquo;? I tried to address the pain and ended up with the following setup.&lt;/p&gt;
 &lt;h2 id=&#34;xdotool&#34;&gt;xdotool&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;xdotool&lt;/code&gt; is a great automation tool for X, and it can search a window, activate it, and simulate keyboard input. That&amp;rsquo;s a perfect match for the use case here.&lt;/p&gt;
 &lt;p&gt;Here is an example command for Google Meet.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ xdotool search --name &#39;^Meet - .+ - Chromium$&#39; \
-    windowactivate --sync \
-    key ctrl+d
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;In the chained commands, it does:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ xdotool search --name &lt;span class=&#34;s1&#34;&gt;&amp;#39;^Meet - .+ - Chromium$&amp;#39;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    windowactivate --sync &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    key ctrl+d
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In the chained commands, it does:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;search windows named like &lt;code&gt;Meet - &amp;lt;MEETING_ID&amp;gt; - Chromium&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;activate the first window passed by the previous line and wait until it gets active (&lt;code&gt;--sync&lt;/code&gt;)&lt;/li&gt;
@@ -61,11 +64,10 @@
 &lt;/ol&gt;
 &lt;p&gt;By the way, my main browser is Firefox, but I have to use Chromium to join Meet calls since it tends to have less CPU utilization.&lt;/p&gt;
 &lt;p&gt;You can do something similar for Zoom with &lt;code&gt;Alt+A&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ xdotool search --name &#39;^Zoom Meeting$&#39; \
-    windowactivate --sync \
-    key alt+a
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Microsoft Teams should work with xdotool and &lt;code&gt;Ctrl+Shift+M&lt;/code&gt; at least for the web version.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ xdotool search --name &lt;span class=&#34;s1&#34;&gt;&amp;#39;^Zoom Meeting$&amp;#39;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    windowactivate --sync &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    key alt+a
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Microsoft Teams should work with xdotool and &lt;code&gt;Ctrl+Shift+M&lt;/code&gt; at least for the web version.&lt;/p&gt;
 &lt;h2 id=&#34;gnome-keyboard-shortcuts&#34;&gt;GNOME keyboard shortcuts&lt;/h2&gt;
 &lt;p&gt;The commands above can be mapped to a shortcut key with GNOME.&lt;/p&gt;
 
@@ -82,30 +84,33 @@
 
 
 
+
+
+
+
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;
-        &lt;img alt=&#34;&#34; srcset=&#34;
-               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard_hu89c78ac31ecb6eec4590204f24b1d0e3_299701_1ec682118e775554a7109d53d42e50f1.png 400w,
-               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard_hu89c78ac31ecb6eec4590204f24b1d0e3_299701_ec99697e1eb884f25c874434c743ffbd.png 760w,
-               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard_hu89c78ac31ecb6eec4590204f24b1d0e3_299701_1200x1200_fit_lanczos_2.png 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard_hu89c78ac31ecb6eec4590204f24b1d0e3_299701_1ec682118e775554a7109d53d42e50f1.png&#34;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard_hu89c78ac31ecb6eec4590204f24b1d0e3_299701_0730c6152124aba3ec84c89b1106816b.webp 400w,
+               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard_hu89c78ac31ecb6eec4590204f24b1d0e3_299701_c852ff9702fc7e85d1e48d95cdb7f827.webp 760w,
+               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard_hu89c78ac31ecb6eec4590204f24b1d0e3_299701_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard_hu89c78ac31ecb6eec4590204f24b1d0e3_299701_0730c6152124aba3ec84c89b1106816b.webp&#34;
                width=&#34;760&#34;
                height=&#34;571&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
+
 &lt;p&gt;It&amp;rsquo;s pretty simple, but some tricks may be required. As far as I see, &lt;code&gt;gsd-media-keys&lt;/code&gt; will invoke a command when a shortcut key is pressed, not released. In my case, I use &lt;code&gt;Ctrl+space&lt;/code&gt; as the shortcut key, so Meet may recognize keys pressed as &lt;code&gt;Ctrl+space&lt;/code&gt; + &lt;code&gt;Ctrl+D&lt;/code&gt; = &lt;code&gt;Ctrl+space+D&lt;/code&gt; which doesn&amp;rsquo;t trigger the mute/unmute behavior actually. Keys can be canceled with &lt;code&gt;keyup&lt;/code&gt;, so the key command was turned into &lt;code&gt;keyup space key ctrl+d&lt;/code&gt; in the end.&lt;/p&gt;
 &lt;p&gt;Also, I wanted to use the same shortcut key for multiple services, and I have the following line which tries Google Meet first, then Zoom if no Meet window is found. It should work most of the cases unless you join multiple meetings at the same time.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sh -c &amp;quot;
-    xdotool search --name &#39;^Meet - .+ - Chromium$&#39;
-        windowactivate --sync
-        keyup space key ctrl+d
-    || xdotool search --name &#39;^Zoom Meeting$&#39;
-        windowactivate --sync
-        keyup ctrl+space key alt+a
-&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;--clearmodifiers&lt;/code&gt; can be used to simplify the whole commands, but when I tried, it sometimes left the Ctrl key pressed depending on the timing I released the key.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sh -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;    xdotool search --name &amp;#39;^Meet - .+ - Chromium&lt;/span&gt;$&lt;span class=&#34;s2&#34;&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;        windowactivate --sync
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;        keyup space key ctrl+d
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;    || xdotool search --name &amp;#39;^Zoom Meeting&lt;/span&gt;$&lt;span class=&#34;s2&#34;&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;        windowactivate --sync
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;        keyup ctrl+space key alt+a
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;--clearmodifiers&lt;/code&gt; can be used to simplify the whole commands, but when I tried, it sometimes left the Ctrl key pressed depending on the timing I released the key.&lt;/p&gt;
 &lt;h2 id=&#34;hardware-muteunmute-button&#34;&gt;Hardware mute/unmute button&lt;/h2&gt;
 &lt;p&gt;Going further, I wanted to have a dedicated button to mute/unmute myself especially for some relaxed meetings where I don&amp;rsquo;t have to keep my hands on the keyboard all the time.&lt;/p&gt;
 &lt;p&gt;Back in October, I bought a USB volume controller, which is recognized as &amp;ldquo;STMicroelectronics USB Volume Control&amp;rdquo; from the OS. It was around 15 USD.&lt;/p&gt;
@@ -123,26 +128,29 @@
 
 
 
+
+
+
+
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;
-        &lt;img alt=&#34;&#34; srcset=&#34;
-               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/usb-volume-controller_hudced8bcfe22292ced2a3e4887c9f0f23_307906_0a36b404e39eec5f05eae7f2ab747c3b.jpg 400w,
-               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/usb-volume-controller_hudced8bcfe22292ced2a3e4887c9f0f23_307906_531724c47fcf2808ec4a1bb132d2a19e.jpg 760w,
-               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/usb-volume-controller_hudced8bcfe22292ced2a3e4887c9f0f23_307906_1200x1200_fit_q75_lanczos.jpg 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/usb-volume-controller_hudced8bcfe22292ced2a3e4887c9f0f23_307906_0a36b404e39eec5f05eae7f2ab747c3b.jpg&#34;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/usb-volume-controller_hudced8bcfe22292ced2a3e4887c9f0f23_307906_589fd22cb6a59d76bb27fa597f2b2dee.webp 400w,
+               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/usb-volume-controller_hudced8bcfe22292ced2a3e4887c9f0f23_307906_d354a730fbcdbdbbc5e728ae93c940a8.webp 760w,
+               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/usb-volume-controller_hudced8bcfe22292ced2a3e4887c9f0f23_307906_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/usb-volume-controller_hudced8bcfe22292ced2a3e4887c9f0f23_307906_589fd22cb6a59d76bb27fa597f2b2dee.webp&#34;
                width=&#34;760&#34;
                height=&#34;570&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
+
 &lt;p&gt;It emits expected events as &lt;code&gt;KEY_VOLUMEUP&lt;/code&gt; and &lt;code&gt;KEY_VOLUMEDOWN&lt;/code&gt; with the dial, and &lt;code&gt;KEY_MUTE&lt;/code&gt; when the knob is pressed.&lt;/p&gt;
 &lt;p&gt;I created a &amp;ldquo;&lt;a href=&#34;https://www.freedesktop.org/software/systemd/man/hwdb.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;hwdb&lt;/a&gt;&amp;rdquo; file to remap the mute key to something else as follows in &lt;code&gt;/etc/udev/hwdb.d/99-local-remap-usb-volume-control.hwdb&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# STMicroelectronics USB Volume Control
-# Remap the click (Mute) to XF86Launch
-evdev:input:b0003v0483p572D*
- KEYBOARD_KEY_c00e2=prog4
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Once the hardware database is updated with &lt;code&gt;systemd-hwdb update&lt;/code&gt; and the device is unplugged and plugged again (if without udevadm commands), I was able to map &lt;code&gt;Launch4&lt;/code&gt;(prog4) to the xdotool commands in GNOME successfully.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# STMicroelectronics USB Volume Control
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Remap the click (Mute) to XF86Launch
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;evdev:input:b0003v0483p572D*
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; KEYBOARD_KEY_c00e2=prog4
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once the hardware database is updated with &lt;code&gt;systemd-hwdb update&lt;/code&gt; and the device is unplugged and plugged again (if without udevadm commands), I was able to map &lt;code&gt;Launch4&lt;/code&gt;(prog4) to the xdotool commands in GNOME successfully.&lt;/p&gt;
 &lt;p&gt;It looks like everyone had the same idea. There are fancier buttons out there :-)&lt;/p&gt;
 &lt;blockquote class=&#34;twitter-tweet&#34; data-dnt=&#34;true&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Never going to fumble for the mute button on a google meet again. Plus bonus pac man feels. &lt;a href=&#34;https://twitter.com/sparkfun?ref_src=twsrc%5Etfw&#34;&gt;@sparkfun&lt;/a&gt; &lt;a href=&#34;https://t.co/2oG7U2EcoR&#34;&gt;pic.twitter.com/2oG7U2EcoR&lt;/a&gt;&lt;/p&gt;&amp;mdash; joe (@joemcmanus) &lt;a href=&#34;https://twitter.com/joemcmanus/status/1341866233600217088?ref_src=twsrc%5Etfw&#34;&gt;December 23, 2020&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
@@ -169,49 +177,51 @@ evdev:input:b0003v0483p572D*
 
 
 
+
+
+
+
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;
-        &lt;img alt=&#34;&#34; srcset=&#34;
-               /post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_5a154cb774cd1279895233400b56a143.png 400w,
-               /post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_d23cf63d30fd9e45bc5f2ea589a798e2.png 760w,
-               /post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_1200x1200_fit_lanczos_2.png 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_5a154cb774cd1279895233400b56a143.png&#34;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_375045eeade988132885028c192a6172.webp 400w,
+               /post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_88e59a2f88c4cb3b42cc4ff89800ff8b.webp 760w,
+               /post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_375045eeade988132885028c192a6172.webp&#34;
                width=&#34;760&#34;
                height=&#34;428&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
+
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
-    EDIT: I have migrated one of my domains to &lt;a href=&#34;https://domains.google/&#34;&gt;Google Domains&lt;/a&gt; so I&amp;rsquo;m using &lt;a href=&#34;https://support.google.com/domains/answer/6147083&#34;&gt;&lt;code&gt;protocol=googledomains&lt;/code&gt;&lt;/a&gt; these days.
+    EDIT: I have migrated one of my domains to &lt;a href=&#34;https://domains.google/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Google Domains&lt;/a&gt; so I&amp;rsquo;m using &lt;a href=&#34;https://support.google.com/domains/answer/6147083&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;protocol=googledomains&lt;/code&gt;&lt;/a&gt; these days.
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;When I searched for a way to configure ddclient for &lt;a href=&#34;https://www.noip.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;No-IP.com&lt;/a&gt;, some pages mention &lt;code&gt;protocol=dyndns2&lt;/code&gt; with a custom URL. But actually, ddclient supports &lt;code&gt;protocol=noip&lt;/code&gt; out of the box, so minimal steps would be something like:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt install ddclient
-
-$ cat &amp;lt;&amp;lt;EOF | sudo tee /etc/ddclient.conf
-use=web
-ssl=yes
-
-protocol=noip
-login=&amp;lt;USERNAME&amp;gt;
-password=&amp;lt;PASSWORD&amp;gt;
-&amp;lt;YOUR_HOSTNAME&amp;gt;
-EOF
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;And here we go.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ echo &#39;run_daemon=&amp;quot;true&amp;quot;&#39; | sudo tee -a /etc/default/ddclient
-
-$ sudo service ddclient restart
-
-$ journalctl -u ddclient.service
-...
-systemd[1]: Started LSB: Update dynamic domain name service entries.
-ddclient[24631]: SUCCESS:  updating MY_HOST.redirectme.net: good: IP address set to 118.X.Y.Z
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;For more details, please refer to &lt;code&gt;ddclient -help&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo apt install ddclient
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ cat &lt;span class=&#34;s&#34;&gt;&amp;lt;&amp;lt;EOF | sudo tee /etc/ddclient.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;use=web
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;ssl=yes
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;protocol=noip
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;login=&amp;lt;USERNAME&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;password=&amp;lt;PASSWORD&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;&amp;lt;YOUR_HOSTNAME&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;EOF&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And here we go.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;run_daemon=&amp;#34;true&amp;#34;&amp;#39;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo tee -a /etc/default/ddclient
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo service ddclient restart
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ journalctl -u ddclient.service
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemd&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;1&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;: Started LSB: Update dynamic domain name service entries.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ddclient&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;24631&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;: SUCCESS:  updating MY_HOST.redirectme.net: good: IP address &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; to 118.X.Y.Z
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For more details, please refer to &lt;code&gt;ddclient -help&lt;/code&gt;.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;This post was originally published at &lt;a href=&#34;https://medium.com/@nobuto_m/minimal-dynamic-dns-configuration-for-no-ip-com-with-ddclient-cb7c038a74be&#34;&gt;https://medium.com/@nobuto_m/minimal-dynamic-dns-configuration-for-no-ip-com-with-ddclient-cb7c038a74be&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This post was originally published at &lt;a href=&#34;https://medium.com/@nobuto_m/minimal-dynamic-dns-configuration-for-no-ip-com-with-ddclient-cb7c038a74be&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://medium.com/@nobuto_m/minimal-dynamic-dns-configuration-for-no-ip-com-with-ddclient-cb7c038a74be&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
     </item>
@@ -223,15 +233,18 @@ ddclient[24631]: SUCCESS:  updating MY_HOST.redirectme.net: good: IP address set
       <guid>https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/</guid>
       <description>&lt;p&gt;With &lt;a href=&#34;https://www.kernel.org/doc/Documentation/livepatch/livepatch.txt&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Livepatch support in Linux kernel&lt;/a&gt; and &lt;a href=&#34;https://www.ubuntu.com/server/livepatch&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Livepatch service for Ubuntu&lt;/a&gt;, reboots are no longer necessary even when kernel vulnerabilities are found. You can avoid and postpone unplanned reboots to whenever convenient for you, such as scheduled maintenance windows (Well, there are some corner cases which still require reboots though).&lt;/p&gt;
 &lt;p&gt;What about services? After applying security updates of libraries, some services still grab old libraries which may have vulnerabilities. You can list up those processes with “lsof”.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo lsof / | egrep -w &#39;DEL|deleted&#39;
-...
-apache2 2296 root DEL REG 252,0 260616 /lib/x86_64-linux-gnu/libcrypto.so.1.0.0
-apache2 2296 root DEL REG 252,0 260711 /lib/x86_64-linux-gnu/libssl.so.1.0.0
-apache2 2299 www-data DEL REG 252,0 260616 /lib/x86_64-linux-gnu/libcrypto.so.1.0.0
-apache2 2299 www-data DEL REG 252,0 260711 /lib/x86_64-linux-gnu/libssl.so.1.0.0
-...
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;With “lsof”, you have to determine which process belongs to which systemd unit and manually restart those units. There is a helper script called “needrestart”. It is inspired by checkrestart from the debian-goodies package according to their doc. It shows a handy dialogue at the end of &lt;code&gt;apt upgrade&lt;/code&gt; and prompts service restarts.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo lsof / &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; egrep -w &lt;span class=&#34;s1&#34;&gt;&amp;#39;DEL|deleted&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apache2 &lt;span class=&#34;m&#34;&gt;2296&lt;/span&gt; root DEL REG 252,0 &lt;span class=&#34;m&#34;&gt;260616&lt;/span&gt; /lib/x86_64-linux-gnu/libcrypto.so.1.0.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apache2 &lt;span class=&#34;m&#34;&gt;2296&lt;/span&gt; root DEL REG 252,0 &lt;span class=&#34;m&#34;&gt;260711&lt;/span&gt; /lib/x86_64-linux-gnu/libssl.so.1.0.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apache2 &lt;span class=&#34;m&#34;&gt;2299&lt;/span&gt; www-data DEL REG 252,0 &lt;span class=&#34;m&#34;&gt;260616&lt;/span&gt; /lib/x86_64-linux-gnu/libcrypto.so.1.0.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apache2 &lt;span class=&#34;m&#34;&gt;2299&lt;/span&gt; www-data DEL REG 252,0 &lt;span class=&#34;m&#34;&gt;260711&lt;/span&gt; /lib/x86_64-linux-gnu/libssl.so.1.0.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With “lsof”, you have to determine which process belongs to which systemd unit and manually restart those units. There is a helper script called “needrestart”. It is inspired by checkrestart from the debian-goodies package according to their doc. It shows a handy dialogue at the end of &lt;code&gt;apt upgrade&lt;/code&gt; and prompts service restarts.&lt;/p&gt;
+
+
+
+
 
 
 
@@ -248,28 +261,29 @@ apache2 2299 www-data DEL REG 252,0 260711 /lib/x86_64-linux-gnu/libssl.so.1.0.0
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;
-        &lt;img alt=&#34;&#34; srcset=&#34;
-               /post/2017/knowing-what-services-need-restart-with-needrestart/featured_hua52d71764637683b3142eb4711c08fa6_58682_0fda1b14bbf6fc158bf87461e0ada8ef.png 400w,
-               /post/2017/knowing-what-services-need-restart-with-needrestart/featured_hua52d71764637683b3142eb4711c08fa6_58682_0870fa13dbaab0787635afe8094684db.png 760w,
-               /post/2017/knowing-what-services-need-restart-with-needrestart/featured_hua52d71764637683b3142eb4711c08fa6_58682_1200x1200_fit_lanczos_2.png 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/featured_hua52d71764637683b3142eb4711c08fa6_58682_0fda1b14bbf6fc158bf87461e0ada8ef.png&#34;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/2017/knowing-what-services-need-restart-with-needrestart/featured_hua52d71764637683b3142eb4711c08fa6_58682_18e1e201f037f52a937fdd8398c25f5a.webp 400w,
+               /post/2017/knowing-what-services-need-restart-with-needrestart/featured_hua52d71764637683b3142eb4711c08fa6_58682_0a2f684bf7b1949d355fc6f9cc83ef97.webp 760w,
+               /post/2017/knowing-what-services-need-restart-with-needrestart/featured_hua52d71764637683b3142eb4711c08fa6_58682_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/featured_hua52d71764637683b3142eb4711c08fa6_58682_18e1e201f037f52a937fdd8398c25f5a.webp&#34;
                width=&#34;760&#34;
                height=&#34;483&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
+
 &lt;p&gt;To use “needrestart”, you just need to install a package with the same name.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt install needrestart
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You can also change the default behavior by editing &lt;code&gt;/etc/needrestart/needrestart.conf&lt;/code&gt;. For example, you can enable automatic restart without asking.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# Restart services (l)ist only, (i)nteractive or (a)utomatically.
-#$nrconf{restart} = &#39;i&#39;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Furthermore, it has “nagios” plugin mode(&lt;code&gt;-p&lt;/code&gt;) so that it can be integrated with monitoring systems. With this mode, you might want to skip an obsolete kernel check by adding &lt;code&gt;-l&lt;/code&gt; flag if kernel patching is managed by Livepatch.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo needrestart -p -l
-CRIT — Services: 4 (!), Containers: none, Sessions: 1 (!)|Services=4;;0;0 Containers=0;;0;0 Sessions=1;0;;0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here is an example of Nagios status output.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo apt install needrestart
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can also change the default behavior by editing &lt;code&gt;/etc/needrestart/needrestart.conf&lt;/code&gt;. For example, you can enable automatic restart without asking.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Restart services (l)ist only, (i)nteractive or (a)utomatically.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#$nrconf{restart} = &amp;#39;i&amp;#39;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Furthermore, it has “nagios” plugin mode(&lt;code&gt;-p&lt;/code&gt;) so that it can be integrated with monitoring systems. With this mode, you might want to skip an obsolete kernel check by adding &lt;code&gt;-l&lt;/code&gt; flag if kernel patching is managed by Livepatch.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo needrestart -p -l
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;CRIT — Services: &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;!&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;, Containers: none, Sessions: &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;!&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;Services&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;4&lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;0&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;Containers&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;0&lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;0&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;Sessions&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;1&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;0&lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here is an example of Nagios status output.&lt;/p&gt;
+
+
+
+
 
 
 
@@ -286,18 +300,18 @@ CRIT — Services: 4 (!), Containers: none, Sessions: 1 (!)|Services=4;;0;0 Cont
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;
-        &lt;img alt=&#34;&#34; srcset=&#34;
-               /post/2017/knowing-what-services-need-restart-with-needrestart/nagios_hu6d4a84d894f8c84c892a1dc7d6f22d25_103962_059a70ce0e5488e9593da5537af290c6.png 400w,
-               /post/2017/knowing-what-services-need-restart-with-needrestart/nagios_hu6d4a84d894f8c84c892a1dc7d6f22d25_103962_bad0765b7661a5601036eff5f94d9e1b.png 760w,
-               /post/2017/knowing-what-services-need-restart-with-needrestart/nagios_hu6d4a84d894f8c84c892a1dc7d6f22d25_103962_1200x1200_fit_lanczos_2.png 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/nagios_hu6d4a84d894f8c84c892a1dc7d6f22d25_103962_059a70ce0e5488e9593da5537af290c6.png&#34;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /post/2017/knowing-what-services-need-restart-with-needrestart/nagios_hu6d4a84d894f8c84c892a1dc7d6f22d25_103962_7c3251b8e520f8d0b892943f64f6a837.webp 400w,
+               /post/2017/knowing-what-services-need-restart-with-needrestart/nagios_hu6d4a84d894f8c84c892a1dc7d6f22d25_103962_79c582d8d170b1b426ec1531f42e4a6b.webp 760w,
+               /post/2017/knowing-what-services-need-restart-with-needrestart/nagios_hu6d4a84d894f8c84c892a1dc7d6f22d25_103962_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/nagios_hu6d4a84d894f8c84c892a1dc7d6f22d25_103962_7c3251b8e520f8d0b892943f64f6a837.webp&#34;
                width=&#34;760&#34;
                height=&#34;163&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
+
 &lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;This post was originally published at &lt;a href=&#34;https://medium.com/@nobuto_m/knowing-what-services-need-restart-with-needrestart-37419f44ed46&#34;&gt;https://medium.com/@nobuto_m/knowing-what-services-need-restart-with-needrestart-37419f44ed46&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This post was originally published at &lt;a href=&#34;https://medium.com/@nobuto_m/knowing-what-services-need-restart-with-needrestart-37419f44ed46&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://medium.com/@nobuto_m/knowing-what-services-need-restart-with-needrestart-37419f44ed46&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
     </item>

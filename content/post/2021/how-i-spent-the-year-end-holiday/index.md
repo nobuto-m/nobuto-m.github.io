@@ -10,6 +10,8 @@ authors: []
 tags: []
 categories: [Miscellaneous]
 
+show_related: true
+
 year: 2021
 date: 2021-01-06T10:09:02+09:00
 lastmod: 2021-01-06T10:09:02+09:00

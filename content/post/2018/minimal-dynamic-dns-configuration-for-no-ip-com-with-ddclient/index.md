@@ -9,6 +9,8 @@ authors: []
 tags: [planet-ubuntu]
 categories: [Ubuntu]
 
+show_related: true
+
 year: 2018
 date: 2018-07-21T00:00:00+09:00
 lastmod: 2019-06-18T00:00:00+09:00

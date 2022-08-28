@@ -10,6 +10,8 @@ authors: []
 tags: []
 categories: []
 
+show_related: true
+
 year: 2022
 date: 2022-08-21T14:20:36+09:00
 lastmod: 2022-08-21T14:20:36+09:00

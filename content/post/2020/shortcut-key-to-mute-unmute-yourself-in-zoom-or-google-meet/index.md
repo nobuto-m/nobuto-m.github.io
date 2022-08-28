@@ -10,6 +10,8 @@ authors: []
 tags: [planet-ubuntu]
 categories: [Ubuntu]
 
+show_related: true
+
 year: 2020
 date: 2020-12-31T03:49:53+09:00
 lastmod: 2020-12-31T03:49:53+09:00
