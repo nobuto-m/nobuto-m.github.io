@@ -10,6 +10,7 @@ authors: []
 tags: []
 categories: [Miscellaneous]
 
+reading_time: false
 show_related: true
 
 year: 2021
