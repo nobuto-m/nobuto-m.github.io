@@ -118,4 +118,4 @@ Once the hardware database is updated with `systemd-hwdb update` and the device 
 
 It looks like everyone had the same idea. There are fancier buttons out there :-)
 
-{{< tweet 1341866233600217088 >}}
+{{< tweet user="joemcmanus" id="1341866233600217088" >}}
