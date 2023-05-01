@@ -13,7 +13,7 @@
     </image>
     
     <item>
-      <title>Shortcut key to mute/unmute yourself in Zoom or Google Meet</title>
+      <title>Shortcut key to mute/unmute yourself in Zoom, Google Meet, or Teams</title>
       <link>https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/</link>
       <pubDate>Thu, 31 Dec 2020 03:49:53 +0900</pubDate>
       <guid>https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/</guid>
@@ -67,8 +67,11 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ xdotool search --name &lt;span class=&#34;s1&#34;&gt;&amp;#39;^Zoom Meeting$&amp;#39;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    windowactivate --sync &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    key alt+a
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Microsoft Teams should work with xdotool and &lt;code&gt;Ctrl+Shift+M&lt;/code&gt; at least for the web version.&lt;/p&gt;
-&lt;h2 id=&#34;gnome-keyboard-shortcuts&#34;&gt;GNOME keyboard shortcuts&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Microsoft Teams should work with &lt;code&gt;Ctrl+Shift+M&lt;/code&gt; at least for the web version.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ xdotool search --name &lt;span class=&#34;s1&#34;&gt;&amp;#39;^.* Microsoft Teams - Chromium$&amp;#39;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    windowactivate --sync &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    key ctrl+shift+m
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;gnome-keyboard-shortcuts&#34;&gt;GNOME keyboard shortcuts&lt;/h2&gt;
 &lt;p&gt;The commands above can be mapped to a shortcut key with GNOME.&lt;/p&gt;
 
 
@@ -100,15 +103,18 @@
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;It&amp;rsquo;s pretty simple, but some tricks may be required. As far as I see, &lt;code&gt;gsd-media-keys&lt;/code&gt; will invoke a command when a shortcut key is pressed, not released. In my case, I use &lt;code&gt;Ctrl+space&lt;/code&gt; as the shortcut key, so Meet may recognize keys pressed as &lt;code&gt;Ctrl+space&lt;/code&gt; + &lt;code&gt;Ctrl+D&lt;/code&gt; = &lt;code&gt;Ctrl+space+D&lt;/code&gt; which doesn&amp;rsquo;t trigger the mute/unmute behavior actually. Keys can be canceled with &lt;code&gt;keyup&lt;/code&gt;, so the key command was turned into &lt;code&gt;keyup space key ctrl+d&lt;/code&gt; in the end.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s pretty simple, but some tricks may be required. As far as I see, &lt;code&gt;gsd-media-keys&lt;/code&gt; will invoke a command when a shortcut key is pressed, not released. In my case, I use &lt;code&gt;Super+Shift+A&lt;/code&gt; as the shortcut key, so Meet may recognize keys pressed as &lt;code&gt;Super+Shift+A&lt;/code&gt; + &lt;code&gt;Ctrl+D&lt;/code&gt; = &lt;code&gt;Super+Shift+Ctrl+A+D&lt;/code&gt; which doesn&amp;rsquo;t trigger the mute/unmute behavior actually. Keys can be canceled with &lt;code&gt;keyup&lt;/code&gt;, so the key command was turned into &lt;code&gt;keyup shift+super+a&lt;/code&gt; in the end.&lt;/p&gt;
 &lt;p&gt;Also, I wanted to use the same shortcut key for multiple services, and I have the following line which tries Google Meet first, then Zoom if no Meet window is found. It should work most of the cases unless you join multiple meetings at the same time.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sh -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;    xdotool search --name &amp;#39;^Meet - .+ - Chromium&lt;/span&gt;$&lt;span class=&#34;s2&#34;&gt;&amp;#39;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;        windowactivate --sync
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;        keyup space key ctrl+d
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;        keyup shift+super+a key ctrl+d
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;    || xdotool search --name &amp;#39;^.* Microsoft Teams - Chromium&lt;/span&gt;$&lt;span class=&#34;s2&#34;&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;        windowactivate --sync
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;        keyup shift+super+a key ctrl+shift+m
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;    || xdotool search --name &amp;#39;^Zoom Meeting&lt;/span&gt;$&lt;span class=&#34;s2&#34;&gt;&amp;#39;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;        windowactivate --sync
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;        keyup ctrl+space key alt+a
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;        keyup shift+super+a key alt+a
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;--clearmodifiers&lt;/code&gt; can be used to simplify the whole commands, but when I tried, it sometimes left the Ctrl key pressed depending on the timing I released the key.&lt;/p&gt;
 &lt;h2 id=&#34;hardware-muteunmute-button&#34;&gt;Hardware mute/unmute button&lt;/h2&gt;

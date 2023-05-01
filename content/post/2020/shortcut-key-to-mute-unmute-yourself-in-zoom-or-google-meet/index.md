@@ -1,7 +1,7 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: "Shortcut key to mute/unmute yourself in Zoom or Google Meet"
+title: "Shortcut key to mute/unmute yourself in Zoom, Google Meet, or Teams"
 slug: shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet
 subtitle: ""
 summary: ""
@@ -15,7 +15,7 @@ show_related: true
 
 year: 2020
 date: 2020-12-31T03:49:53+09:00
-lastmod: 2020-12-31T03:49:53+09:00
+lastmod: 2023-05-01T11:07:44+09:00
 
 featured: false
 draft: false
@@ -68,8 +68,13 @@ $ xdotool search --name '^Zoom Meeting$' \
     key alt+a
 ```
 
-Microsoft Teams should work with xdotool and `Ctrl+Shift+M` at least for the web version.
+Microsoft Teams should work with `Ctrl+Shift+M` at least for the web version.
 
+```bash
+$ xdotool search --name '^.* Microsoft Teams - Chromium$' \
+    windowactivate --sync \
+    key ctrl+shift+m
+```
 
 ## GNOME keyboard shortcuts
 
@@ -77,7 +82,7 @@ The commands above can be mapped to a shortcut key with GNOME.
 
 {{< figure src="gnome-control-center-keyboard.png" >}}
 
-It's pretty simple, but some tricks may be required. As far as I see, `gsd-media-keys` will invoke a command when a shortcut key is pressed, not released. In my case, I use `Ctrl+space` as the shortcut key, so Meet may recognize keys pressed as `Ctrl+space` + `Ctrl+D` = `Ctrl+space+D` which doesn't trigger the mute/unmute behavior actually. Keys can be canceled with `keyup`, so the key command was turned into `keyup space key ctrl+d` in the end.
+It's pretty simple, but some tricks may be required. As far as I see, `gsd-media-keys` will invoke a command when a shortcut key is pressed, not released. In my case, I use `Super+Shift+A` as the shortcut key, so Meet may recognize keys pressed as `Super+Shift+A` + `Ctrl+D` = `Super+Shift+Ctrl+A+D` which doesn't trigger the mute/unmute behavior actually. Keys can be canceled with `keyup`, so the key command was turned into `keyup shift+super+a` in the end.
 
 Also, I wanted to use the same shortcut key for multiple services, and I have the following line which tries Google Meet first, then Zoom if no Meet window is found. It should work most of the cases unless you join multiple meetings at the same time.
 
@@ -85,10 +90,13 @@ Also, I wanted to use the same shortcut key for multiple services, and I have th
 sh -c "
     xdotool search --name '^Meet - .+ - Chromium$'
         windowactivate --sync
-        keyup space key ctrl+d
+        keyup shift+super+a key ctrl+d
+    || xdotool search --name '^.* Microsoft Teams - Chromium$'
+        windowactivate --sync
+        keyup shift+super+a key ctrl+shift+m
     || xdotool search --name '^Zoom Meeting$'
         windowactivate --sync
-        keyup ctrl+space key alt+a
+        keyup shift+super+a key alt+a
 "
 ```
 

@@ -345,7 +345,7 @@
   
   <meta property="og:site_name" content="Nobuto Murata" />
   <meta property="og:url" content="https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/" />
-  <meta property="og:title" content="Shortcut key to mute/unmute yourself in Zoom or Google Meet | Nobuto Murata" />
+  <meta property="og:title" content="Shortcut key to mute/unmute yourself in Zoom, Google Meet, or Teams | Nobuto Murata" />
   <meta property="og:description" content="A custom and global shortcut key to mute / unmute yourself in Zoom or Google Meet Just like everyone else, 2020 was the year of having more and more video-conference calls." /><meta property="og:image" content="https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured.png" />
     <meta property="twitter:image" content="https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured.png" /><meta property="og:locale" content="en-us" />
   
@@ -355,7 +355,7 @@
         content="2020-12-31T03:49:53&#43;09:00"
       />
     
-    <meta property="article:modified_time" content="2020-12-31T03:49:53&#43;09:00">
+    <meta property="article:modified_time" content="2023-05-01T11:07:44&#43;09:00">
   
 
   
@@ -381,14 +381,14 @@
     "@type": "WebPage",
     "@id": "https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/"
   },
-  "headline": "Shortcut key to mute/unmute yourself in Zoom or Google Meet",
+  "headline": "Shortcut key to mute/unmute yourself in Zoom, Google Meet, or Teams",
   
   "image": [
     "https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured.png"
   ],
   
   "datePublished": "2020-12-31T03:49:53+09:00",
-  "dateModified": "2020-12-31T03:49:53+09:00",
+  "dateModified": "2023-05-01T11:07:44+09:00",
   
   "author": {
     "@type": "Person",
@@ -414,7 +414,7 @@
   
 
 
-  <title>Shortcut key to mute/unmute yourself in Zoom or Google Meet | Nobuto Murata</title>
+  <title>Shortcut key to mute/unmute yourself in Zoom, Google Meet, or Teams | Nobuto Murata</title>
 
   
   
@@ -679,7 +679,7 @@
   
   
 <div class="article-container pt-3">
-  <h1>Shortcut key to mute/unmute yourself in Zoom or Google Meet</h1>
+  <h1>Shortcut key to mute/unmute yourself in Zoom, Google Meet, or Teams</h1>
 
   
 
@@ -697,8 +697,10 @@
     
     
       
+          Dec 31, 2020 &middot; Last updated on
+      
     
-    Dec 31, 2020
+    May 1, 2023
   </span>
   
 
@@ -784,8 +786,11 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ xdotool search --name <span class="s1">&#39;^Zoom Meeting$&#39;</span> <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    windowactivate --sync <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    key alt+a
-</span></span></code></pre></div><p>Microsoft Teams should work with xdotool and <code>Ctrl+Shift+M</code> at least for the web version.</p>
-<h2 id="gnome-keyboard-shortcuts">GNOME keyboard shortcuts</h2>
+</span></span></code></pre></div><p>Microsoft Teams should work with <code>Ctrl+Shift+M</code> at least for the web version.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ xdotool search --name <span class="s1">&#39;^.* Microsoft Teams - Chromium$&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    windowactivate --sync <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    key ctrl+shift+m
+</span></span></code></pre></div><h2 id="gnome-keyboard-shortcuts">GNOME keyboard shortcuts</h2>
 <p>The commands above can be mapped to a shortcut key with GNOME.</p>
 
 
@@ -817,15 +822,18 @@
                loading="lazy" data-zoomable /></div>
   </div></figure>
 
-<p>It&rsquo;s pretty simple, but some tricks may be required. As far as I see, <code>gsd-media-keys</code> will invoke a command when a shortcut key is pressed, not released. In my case, I use <code>Ctrl+space</code> as the shortcut key, so Meet may recognize keys pressed as <code>Ctrl+space</code> + <code>Ctrl+D</code> = <code>Ctrl+space+D</code> which doesn&rsquo;t trigger the mute/unmute behavior actually. Keys can be canceled with <code>keyup</code>, so the key command was turned into <code>keyup space key ctrl+d</code> in the end.</p>
+<p>It&rsquo;s pretty simple, but some tricks may be required. As far as I see, <code>gsd-media-keys</code> will invoke a command when a shortcut key is pressed, not released. In my case, I use <code>Super+Shift+A</code> as the shortcut key, so Meet may recognize keys pressed as <code>Super+Shift+A</code> + <code>Ctrl+D</code> = <code>Super+Shift+Ctrl+A+D</code> which doesn&rsquo;t trigger the mute/unmute behavior actually. Keys can be canceled with <code>keyup</code>, so the key command was turned into <code>keyup shift+super+a</code> in the end.</p>
 <p>Also, I wanted to use the same shortcut key for multiple services, and I have the following line which tries Google Meet first, then Zoom if no Meet window is found. It should work most of the cases unless you join multiple meetings at the same time.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sh -c <span class="s2">&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s2">    xdotool search --name &#39;^Meet - .+ - Chromium</span>$<span class="s2">&#39;
 </span></span></span><span class="line"><span class="cl"><span class="s2">        windowactivate --sync
-</span></span></span><span class="line"><span class="cl"><span class="s2">        keyup space key ctrl+d
+</span></span></span><span class="line"><span class="cl"><span class="s2">        keyup shift+super+a key ctrl+d
+</span></span></span><span class="line"><span class="cl"><span class="s2">    || xdotool search --name &#39;^.* Microsoft Teams - Chromium</span>$<span class="s2">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        windowactivate --sync
+</span></span></span><span class="line"><span class="cl"><span class="s2">        keyup shift+super+a key ctrl+shift+m
 </span></span></span><span class="line"><span class="cl"><span class="s2">    || xdotool search --name &#39;^Zoom Meeting</span>$<span class="s2">&#39;
 </span></span></span><span class="line"><span class="cl"><span class="s2">        windowactivate --sync
-</span></span></span><span class="line"><span class="cl"><span class="s2">        keyup ctrl+space key alt+a
+</span></span></span><span class="line"><span class="cl"><span class="s2">        keyup shift+super+a key alt+a
 </span></span></span><span class="line"><span class="cl"><span class="s2">&#34;</span>
 </span></span></code></pre></div><p><code>--clearmodifiers</code> can be used to simplify the whole commands, but when I tried, it sometimes left the Ctrl key pressed depending on the timing I released the key.</p>
 <h2 id="hardware-muteunmute-button">Hardware mute/unmute button</h2>
@@ -904,7 +912,7 @@
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2020%2Fshortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet%2F&amp;text=Shortcut&#43;key&#43;to&#43;mute%2Funmute&#43;yourself&#43;in&#43;Zoom&#43;or&#43;Google&#43;Meet" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2020%2Fshortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet%2F&amp;text=Shortcut&#43;key&#43;to&#43;mute%2Funmute&#43;yourself&#43;in&#43;Zoom%2C&#43;Google&#43;Meet%2C&#43;or&#43;Teams" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -921,7 +929,7 @@
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2020%2Fshortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet%2F&amp;t=Shortcut&#43;key&#43;to&#43;mute%2Funmute&#43;yourself&#43;in&#43;Zoom&#43;or&#43;Google&#43;Meet" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2020%2Fshortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet%2F&amp;t=Shortcut&#43;key&#43;to&#43;mute%2Funmute&#43;yourself&#43;in&#43;Zoom%2C&#43;Google&#43;Meet%2C&#43;or&#43;Teams" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -940,7 +948,7 @@
         
       
       <li>
-        <a href="mailto:?subject=Shortcut%20key%20to%20mute%2Funmute%20yourself%20in%20Zoom%20or%20Google%20Meet&amp;body=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2020%2Fshortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+        <a href="mailto:?subject=Shortcut%20key%20to%20mute%2Funmute%20yourself%20in%20Zoom%2C%20Google%20Meet%2C%20or%20Teams&amp;body=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2020%2Fshortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -957,7 +965,7 @@
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2020%2Fshortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet%2F&amp;title=Shortcut&#43;key&#43;to&#43;mute%2Funmute&#43;yourself&#43;in&#43;Zoom&#43;or&#43;Google&#43;Meet" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+        <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2020%2Fshortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet%2F&amp;title=Shortcut&#43;key&#43;to&#43;mute%2Funmute&#43;yourself&#43;in&#43;Zoom%2C&#43;Google&#43;Meet%2C&#43;or&#43;Teams" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
