@@ -45,6 +45,16 @@
     <loc>https://nobuto-m.github.io/post/</loc>
     <lastmod>2023-05-01T11:07:44+09:00</lastmod>
     <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nobuto-m.github.io/post/"
+                />
   </url><url>
     <loc>https://nobuto-m.github.io/post/2020/</loc>
     <lastmod>2023-05-01T11:07:44+09:00</lastmod>

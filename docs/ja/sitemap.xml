@@ -59,5 +59,18 @@
   </url><url>
     <loc>https://nobuto-m.github.io/ja/year/</loc>
     <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://nobuto-m.github.io/ja/post/</loc>
+    <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nobuto-m.github.io/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/post/"
+                />
   </url>
 </urlset>
