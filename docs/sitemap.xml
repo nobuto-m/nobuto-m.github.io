@@ -1,37 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
+  <sitemap>
+    <loc>https://nobuto-m.github.io/en/sitemap.xml</loc>
+    
+      <lastmod>2023-05-01T11:07:44+09:00</lastmod>
+    
+  </sitemap>
   
-  <url>
-    <loc>https://nobuto-m.github.io/post/2021/</loc><lastmod>2021-01-06T10:09:02+09:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://nobuto-m.github.io/categories/</loc><lastmod>2023-05-01T11:07:44+09:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/</loc><lastmod>2021-01-06T10:09:02+09:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://nobuto-m.github.io/category/miscellaneous/</loc><lastmod>2021-01-06T10:09:02+09:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://nobuto-m.github.io/</loc><lastmod>2023-05-01T11:07:44+09:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://nobuto-m.github.io/post/2020/</loc><lastmod>2023-05-01T11:07:44+09:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://nobuto-m.github.io/tag/planet-ubuntu/</loc><lastmod>2023-05-01T11:07:44+09:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/</loc><lastmod>2023-05-01T11:07:44+09:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://nobuto-m.github.io/tags/</loc><lastmod>2023-05-01T11:07:44+09:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://nobuto-m.github.io/category/ubuntu/</loc><lastmod>2023-05-01T11:07:44+09:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://nobuto-m.github.io/post/2018/</loc><lastmod>2019-06-18T00:00:00+09:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://nobuto-m.github.io/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/</loc><lastmod>2019-06-18T00:00:00+09:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://nobuto-m.github.io/post/2017/</loc><lastmod>2017-07-04T00:00:00+09:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/</loc><lastmod>2017-07-04T00:00:00+09:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://nobuto-m.github.io/post/</loc><lastmod>2020-12-25T14:27:41+09:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://nobuto-m.github.io/publication_types/</loc><changefreq>weekly</changefreq></url></urlset>
+  <sitemap>
+    <loc>https://nobuto-m.github.io/ja/sitemap.xml</loc>
+    
+  </sitemap>
+  
+</sitemapindex>
