@@ -27,7 +27,7 @@
     
       
       
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; object-src 'none'; frame-src https://platform.twitter.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://cdn.jsdelivr.net https://platform.twitter.com;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; object-src 'none'; frame-src https://platform.twitter.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://platform.twitter.com;">
 
       
     
@@ -249,45 +249,6 @@
   <meta name="google-site-verification" content="x-WRee-yVqnJs0JQZzIhmu43FqdyIrIKokjOAFhdL4I" />
 
 
-
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=x-WRee-yVqnJs0JQZzIhmu43FqdyIrIKokjOAFhdL4I"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag() {
-      dataLayer.push(arguments);
-  }
-
-  function trackOutboundLink(url, target) {
-    gtag('event', 'click', {
-         'event_category': 'outbound',
-         'event_label': url,
-         'transport_type': 'beacon',
-         'event_callback': function () {
-           if (target !== '_blank') {
-             document.location = url;
-           }
-         }
-    });
-    console.debug("Outbound link clicked: " + url);
-  }
-
-  function onClickCallback(event) {
-    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
-      return;
-    }
-    trackOutboundLink(event.target, event.target.getAttribute('target'));  
-  }
-
-  gtag('js', new Date());
-  gtag('config', 'x-WRee-yVqnJs0JQZzIhmu43FqdyIrIKokjOAFhdL4I', {});
-  gtag('set', {'cookie_flags': 'SameSite=None;Secure'});
-
-  
-  document.addEventListener('click', onClickCallback, false);
-</script>
 
 
 
