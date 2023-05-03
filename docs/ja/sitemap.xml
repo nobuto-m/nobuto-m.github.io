@@ -2,6 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://nobuto-m.github.io/ja/post/2023/</loc>
+    <lastmod>2023-05-03T10:37:21+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://nobuto-m.github.io/ja/</loc>
+    <lastmod>2023-05-03T10:37:21+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nobuto-m.github.io/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/"
+                />
+  </url><url>
+    <loc>https://nobuto-m.github.io/ja/year/</loc>
+    <lastmod>2023-05-03T10:37:21+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://nobuto-m.github.io/ja/post/2023/1683077841/</loc>
+    <lastmod>2023-05-03T10:37:21+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://nobuto-m.github.io/ja/post/</loc>
+    <lastmod>2023-05-03T10:37:21+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nobuto-m.github.io/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/post/"
+                />
+  </url><url>
     <loc>https://nobuto-m.github.io/ja/authors/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -16,19 +56,6 @@
                 rel="alternate"
                 hreflang="ja"
                 href="https://nobuto-m.github.io/ja/categories/"
-                />
-  </url><url>
-    <loc>https://nobuto-m.github.io/ja/</loc>
-    <changefreq>weekly</changefreq>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://nobuto-m.github.io/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://nobuto-m.github.io/ja/"
                 />
   </url><url>
     <loc>https://nobuto-m.github.io/ja/publication_types/</loc>
@@ -55,22 +82,6 @@
                 rel="alternate"
                 hreflang="ja"
                 href="https://nobuto-m.github.io/ja/tags/"
-                />
-  </url><url>
-    <loc>https://nobuto-m.github.io/ja/year/</loc>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://nobuto-m.github.io/ja/post/</loc>
-    <changefreq>weekly</changefreq>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://nobuto-m.github.io/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://nobuto-m.github.io/ja/post/"
                 />
   </url>
 </urlset>

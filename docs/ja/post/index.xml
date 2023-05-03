@@ -5,12 +5,22 @@
     <link>https://nobuto-m.github.io/ja/post/</link>
       <atom:link href="https://nobuto-m.github.io/ja/post/index.xml" rel="self" type="application/rss+xml" />
     <description>投稿</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Wed, 03 May 2023 10:37:21 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>投稿</title>
       <link>https://nobuto-m.github.io/ja/post/</link>
     </image>
+    
+    <item>
+      <title>マイクロブログ</title>
+      <link>https://nobuto-m.github.io/ja/post/2023/1683077841/</link>
+      <pubDate>Wed, 03 May 2023 10:37:21 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2023/1683077841/</guid>
+      <description>&lt;p&gt;自分が書きたいがために何度目かのマイクロブログを始めてみる。Twitterみたいなサービスが出てきてからそこに書けばいいやってなってしまって、でもやっぱりTwitter以上長文ブログ未満のものが欲しくなって色々なサービスを使うものの結局サービス自体がなくなったりして長続きしない。その間にコツコツと10年以上同じところで書いてる人のものを読むと、映画観に行ったちょっとした感想とかでもなんか充実してるなとうらやましい気持ちになる。ということで私もその時は充実してると認識してなくても、後で見返してなんか充実してたんだなぁという気持ちになれたらいいなと思い書いていく。&lt;/p&gt;
+&lt;p&gt;ここではある程度続くかもしれないし、続かないかもしれない。今日時点の&lt;a href=&#34;https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#prohibited-uses&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Pagesの規約&lt;/a&gt;ではこういった使い方は問題なさそうに読めるけど、いざとなったらデータそのままで自分のサーバーに置く予定。&lt;/p&gt;
+</description>
+    </item>
     
   </channel>
 </rss>
