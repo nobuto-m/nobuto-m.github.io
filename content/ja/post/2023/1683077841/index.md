@@ -1,8 +1,8 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: "マイクロブログ"
-slug: 1683034805
+title: ""
+slug: 1683077841
 subtitle: ""
 summary: ""
 authors: []
@@ -11,11 +11,12 @@ tags: []
 categories: []
 
 reading_time: false
-show_related: true
+show_related: false
+share: false
 
 year: 2023
-date: 2023-05-02T22:40:05+09:00
-lastmod: 2023-05-02T22:40:05+09:00
+date: 2023-05-03T10:37:21+09:00
+lastmod: 2023-05-03T10:37:21+09:00
 
 featured: false
 draft: true
