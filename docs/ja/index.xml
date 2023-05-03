@@ -5,12 +5,36 @@
     <link>https://nobuto-m.github.io/ja/</link>
       <atom:link href="https://nobuto-m.github.io/ja/index.xml" rel="self" type="application/rss+xml" />
     <description>Nobuto Murata</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Wed, 03 May 2023 10:37:21 +0900</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Wed, 03 May 2023 14:33:09 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>Nobuto Murata</title>
       <link>https://nobuto-m.github.io/ja/</link>
     </image>
+    
+    <item>
+      <title>光クロス対応レンタルルーターの解約申請をした</title>
+      <link>https://nobuto-m.github.io/ja/post/2023/1683091989/</link>
+      <pubDate>Wed, 03 May 2023 14:33:09 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2023/1683091989/</guid>
+      <description>&lt;p&gt;光クロスを契約した当初は10Gbps対応uplink/downlinkが1つずつ付いたルーターが⽉額550円で借りられるなんて激安だと思ったけど、この&lt;a href=&#34;https://flets.com/cross/router.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;XG-100NE&lt;/a&gt;は独特の詰まり方をするので耐えられなくなってしまった。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://gihyo.jp/admin/serial/01/ubuntu-recipe/0706&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://gihyo.jp/admin/serial/01/ubuntu-recipe/0706&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;未解決の問題として、Androidスマートフォンの画面スリープからの復帰直後にICMP(IPv4)もTCP(IPv6)も問題なく疎通できるのにも関わらず、数分間だけTCP(IPv4)で再送が多発する場合があります。常に再現するわけではなく、しばらく待ったり、Android側でWi-Fiのオンオフ操作をすると即座に直ってしまうため&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;このように書くとMAP-Eのポートが足りなくなってるだけじゃないの、と読めるし、&lt;code&gt;セキュリティログ(IPv4)&lt;/code&gt;というところに&lt;code&gt;利用可能なポート無し&lt;/code&gt;とも出てくる。確定じゃんと思うけども、不思議なのはクライアント側から送られてくる通信がサーバー側から見えるのでポートの割り当て自体はできているように見えること。あと、クライアントの数が鍵な気がする(15-20台とか）。&lt;code&gt;利用可能なポート無し&lt;/code&gt;は常に出ているので限界な状態をさらに超えると発生するのかも。&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-dnt=&#34;true&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;時々TCP4通信だけが詰まる原因がわからん。このログ(何を意味するかの説明はない)からするとMAP-Eするときのソースポートが足りてないと言わんとしてそうだけど、特に1,000コネクションも張ってないと思うんだよな。 &lt;a href=&#34;https://t.co/2Es0GsLdGv&#34;&gt;pic.twitter.com/2Es0GsLdGv&lt;/a&gt;&lt;/p&gt;&amp;mdash; Nobuto Murata (@nobuto_m) &lt;a href=&#34;https://twitter.com/nobuto_m/status/1487425066338238465?ref_src=twsrc%5Etfw&#34;&gt;January 29, 2022&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;で、発生した場合の通信をよく見てても特にポート枯渇してるようには見えず、&lt;code&gt;TCP Port numbers reused&lt;/code&gt;と&lt;code&gt;TCP Retransmission&lt;/code&gt;が観測されるのでなんとなくNAT/conntrackに相当するところが怪しいけれどもルーター側では詳しいログが出ないので詳細はわからず。&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-dnt=&#34;true&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;やっぱり事象が発生するときはボコボコだな。HTTPはその状態でかろうじてなんとかなってもHTTPSはなんとかはならない。 &lt;a href=&#34;https://t.co/VtaygPYi3a&#34;&gt;pic.twitter.com/VtaygPYi3a&lt;/a&gt;&lt;/p&gt;&amp;mdash; Nobuto Murata (@nobuto_m) &lt;a href=&#34;https://twitter.com/nobuto_m/status/1497959192237572096?ref_src=twsrc%5Etfw&#34;&gt;February 27, 2022&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;現象が発生したらクライアント側から再接続しなきゃいけないのが面倒で、しかも再接続した後からは普通に使えてしまう謎。NEC製なので他のメーカーで切り分けしたくてまずは10Gbps対応していない5千円弱のBuffaloルーターを買ってきて取り替えたら現象がまったく発生しない！&lt;/p&gt;
+&lt;p&gt;もしかしたらNEC製XG-100NEの方が規格に則った正しい動きということがあるのかもしれないけど、やっぱり現象が発生しない方がいいのでNEC製じゃない10Gbps対応かつOCNバーチャルコネクトにしっかり対応したものを探して最終的には&lt;a href=&#34;https://www.buffalo.jp/product/detail/vr-u500x.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BuffaloのVR-U500X&lt;/a&gt;を購入。ある程度値段はするものの10Gbps対応ルーターとして長く動いてくれればそれでよし。無線LAN一体型ではないので、アクセスポイントがルーターとは別に選べることがメリットだと思い込むことにします。&lt;/p&gt;
+&lt;p&gt;肝心のレンタルルーター解約手続きはお電話のみの対応っぽかったので、オペレーターにつながるまで10分、その後15分ぐらいで手続きは完了。工事扱いになるので工事日にMAP-Eでつながらない時間ができないかだけ心配。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>マイクロブログ</title>
