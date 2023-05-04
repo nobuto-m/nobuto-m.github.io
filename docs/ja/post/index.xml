@@ -5,12 +5,183 @@
     <link>https://nobuto-m.github.io/ja/post/</link>
       <atom:link href="https://nobuto-m.github.io/ja/post/index.xml" rel="self" type="application/rss+xml" />
     <description>投稿</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Wed, 03 May 2023 21:02:14 +0900</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Thu, 04 May 2023 13:09:33 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>投稿</title>
       <link>https://nobuto-m.github.io/ja/post/</link>
     </image>
+    
+    <item>
+      <title>REGZAの録画用ドライブをSSD-SCT2.0U3BA/Nに交換した</title>
+      <link>https://nobuto-m.github.io/ja/post/2023/1683173373/</link>
+      <pubDate>Thu, 04 May 2023 13:09:33 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2023/1683173373/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.buffalo.jp/product/detail/ssd-sct2.0u3ba_n.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SSD-SCT2.0U3BA/N&lt;/a&gt;が15,980円と少し安くなっていたので思い切って買った。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /ja/post/2023/1683173373/featured_hud782085a8b6e74700ff35a82a87217cc_380086_f60c5ee5f416cb3cd1c0abda61996f60.webp 400w,
+               /ja/post/2023/1683173373/featured_hud782085a8b6e74700ff35a82a87217cc_380086_26dd5f867c3b29fdaa4972a260fcf989.webp 760w,
+               /ja/post/2023/1683173373/featured_hud782085a8b6e74700ff35a82a87217cc_380086_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1683173373/featured_hud782085a8b6e74700ff35a82a87217cc_380086_f60c5ee5f416cb3cd1c0abda61996f60.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;570&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+
+&lt;p&gt;HDDのガリガリ音と振動の反響音がリビングで聞こえるのが嫌で、今までも2TBのSSDとして&lt;a href=&#34;https://www.westerndigital.com/ja-jp/products/internal-drives/sandisk-ssd-plus-sata-iii-ssd&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SanDisk SDSSDA-2T00-G26&lt;/a&gt;をUSB接続で使っていた。ただこれがREGZAと組み合わせると全然期待通りに動いてくれない。テレビの録画なんて2番組同時録画してもせいぜい2x24Mbps、で同時録画中に他の番組を再生しても24Mbpsなので、6MB/sの書き込みと3MB/sの読み出しというHDDですら楽々こなせるタスクなのに、なぜかこのSanDiskのやつだとテレビ自体がエラーを吐いたり、録画データが破損してブロックノイズが出たりする。熱の影響かと思ってケースから出して裸で運用したり、USBからの電源供給が足りないかと思って補助電源を追加してもダメ。&lt;/p&gt;
+&lt;p&gt;テレビが悪いのかSSDが悪いのか自信がないまま新しいSSDを買ったけど、結果として問題なく動いてくれてよかった。&lt;/p&gt;
+&lt;p&gt;REGZAはXFSを使ってるのでファイルシステムか中身をコピーしてってのは可能かもしれないけど、今回はさくっとまるごと移行。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ lsblk -f /dev/disk/by-id/ata-SanDisk_SSD_PLUS_2000GB_XYZ
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;NAME   FSTYPE FSVER LABEL UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sda
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└─sda1 xfs                d5ea386b-ad90-47fc-9105-383cb0b00eba  118.8G    94% /media/nobuto/d5ea386b-ad90-47fc-9105-383cb0b00eba
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;移行元と移行先のSSDのサイズはピッタリ同じなのでリサイズを考慮しなくていい。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ lsblk &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    /dev/disk/by-id/ata-SanDisk_SSD_PLUS_2000GB_XYZ &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    /dev/disk/by-id/usb-BUFFALO_SSD-SCTU3A_XYZ-0&lt;span class=&#34;se&#34;&gt;\:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sda      8:0    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  1.8T  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; disk
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sdb      8:16   &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  1.8T  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; disk
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ lsblk -b &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    /dev/disk/by-id/ata-SanDisk_SSD_PLUS_2000GB_XYZ &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    /dev/disk/by-id/usb-BUFFALO_SSD-SCTU3A_XYZ-0&lt;span class=&#34;se&#34;&gt;\:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;NAME   MAJ:MIN RM           SIZE RO TYPE MOUNTPOINTS
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sda      8:0    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  &lt;span class=&#34;m&#34;&gt;2000398934016&lt;/span&gt;  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; disk
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sdb      8:16   &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  &lt;span class=&#34;m&#34;&gt;2000398934016&lt;/span&gt;  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; disk
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;で、移行元のドライブも壊れてるわけではないので、&lt;code&gt;ddrescue&lt;/code&gt;ではなくさくっと&lt;code&gt;dd&lt;/code&gt;で。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo dd &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/dev/disk/by-id/ata-SanDisk_SSD_PLUS_2000GB_XYZ &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nv&#34;&gt;of&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/dev/disk/by-id/usb-BUFFALO_SSD-SCTU3A_XYZ-0&lt;span class=&#34;se&#34;&gt;\:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nv&#34;&gt;bs&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;4M &lt;span class=&#34;nv&#34;&gt;status&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;progress &lt;span class=&#34;nv&#34;&gt;oflag&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;sync
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;2000398934016&lt;/span&gt; bytes &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;2.0 TB, 1.8 TiB&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; copied, 18102.6 s, &lt;span class=&#34;m&#34;&gt;111&lt;/span&gt; MB/s
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最初のうちは200-300MB/sとかでコピーされてたけれども徐々に100MB/sぐらいに落ち着いて結局5時間以上かかることに。&lt;/p&gt;
+&lt;p&gt;移行が終わってからSanDiskのSSDをテストすると、新しいSSDの方が全然安定してる。特にレイテンシー。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-旧ssdあんまり安定していない&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;旧SSD、あんまり安定していない&#34; srcset=&#34;
+               /ja/post/2023/1683173373/sandisk_hu1862428a2ff2d9f293d7295696dabacb_118157_c69bfc1be90873ff09a2c5575ae0ac6c.webp 400w,
+               /ja/post/2023/1683173373/sandisk_hu1862428a2ff2d9f293d7295696dabacb_118157_496fa563db59854cc75c485bb2c7bade.webp 760w,
+               /ja/post/2023/1683173373/sandisk_hu1862428a2ff2d9f293d7295696dabacb_118157_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1683173373/sandisk_hu1862428a2ff2d9f293d7295696dabacb_118157_c69bfc1be90873ff09a2c5575ae0ac6c.webp&#34;
+               width=&#34;738&#34;
+               height=&#34;607&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      旧SSD、あんまり安定していない
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-新ssd安定してる&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;新SSD、安定してる&#34; srcset=&#34;
+               /ja/post/2023/1683173373/buffalo_hu517ba07cd6388aee382add711bc94966_128614_b680af407d924b8ddd71e9cf64916adf.webp 400w,
+               /ja/post/2023/1683173373/buffalo_hu517ba07cd6388aee382add711bc94966_128614_8d77963f62220fc6eda6c0857e76776d.webp 760w,
+               /ja/post/2023/1683173373/buffalo_hu517ba07cd6388aee382add711bc94966_128614_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1683173373/buffalo_hu517ba07cd6388aee382add711bc94966_128614_b680af407d924b8ddd71e9cf64916adf.webp&#34;
+               width=&#34;717&#34;
+               height=&#34;607&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      新SSD、安定してる
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;条件を変えてもっと長く書き込みすると、なるほどテレビ録画といえどもこのSSDにはきつかったのかもしれない、という図が出せる。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-旧ssd長く書くと10mbsぐらいまで落ち込むこともある&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;旧SSD、長く書くと10MB/sぐらいまで落ち込むこともある&#34; srcset=&#34;
+               /ja/post/2023/1683173373/sandisk_long_hu2ad33f8cea527ec3c1f943516271461e_124085_b3cd1e2271d853bcc414f9dcfb43d3ea.webp 400w,
+               /ja/post/2023/1683173373/sandisk_long_hu2ad33f8cea527ec3c1f943516271461e_124085_dea56ef5ee93a66a09827c5653fc0fd4.webp 760w,
+               /ja/post/2023/1683173373/sandisk_long_hu2ad33f8cea527ec3c1f943516271461e_124085_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1683173373/sandisk_long_hu2ad33f8cea527ec3c1f943516271461e_124085_b3cd1e2271d853bcc414f9dcfb43d3ea.webp&#34;
+               width=&#34;738&#34;
+               height=&#34;607&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      旧SSD、長く書くと10MB/sぐらいまで落ち込むこともある
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;旧SSDの費用が無駄になった感じがするけど、テレビ自体は悪くなさそうというのがわかっただけでも良しとする。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>ザ・スーパーマリオブラザーズ・ムービーを観た</title>
