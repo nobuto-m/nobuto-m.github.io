@@ -106,7 +106,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;        windowactivate --sync
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;        keyup shift+super+a key alt+a
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;--clearmodifiers&lt;/code&gt; can be used to simplify the whole commands, but when I tried, it sometimes left the Ctrl key pressed depending on the timing I released the key.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;--clearmodifiers&lt;/code&gt; can be used to simplify the whole commands, but when I tried, it sometimes left the &lt;code&gt;Super&lt;/code&gt; or &lt;code&gt;Shift&lt;/code&gt; key pressed depending on the timing I released the key.&lt;/p&gt;
 &lt;h2 id=&#34;hardware-muteunmute-button&#34;&gt;Hardware mute/unmute button&lt;/h2&gt;
 &lt;p&gt;Going further, I wanted to have a dedicated button to mute/unmute myself especially for some relaxed meetings where I don&amp;rsquo;t have to keep my hands on the keyboard all the time.&lt;/p&gt;
 &lt;p&gt;Back in October, I bought a USB volume controller, which is recognized as &amp;ldquo;STMicroelectronics USB Volume Control&amp;rdquo; from the OS. It was around 15 USD.&lt;/p&gt;

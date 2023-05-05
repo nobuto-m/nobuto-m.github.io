@@ -100,7 +100,7 @@ sh -c "
 "
 ```
 
-`--clearmodifiers` can be used to simplify the whole commands, but when I tried, it sometimes left the Ctrl key pressed depending on the timing I released the key.
+`--clearmodifiers` can be used to simplify the whole commands, but when I tried, it sometimes left the `Super` or `Shift` key pressed depending on the timing I released the key.
 
 
 ## Hardware mute/unmute button
