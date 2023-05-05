@@ -9,6 +9,7 @@ authors: []
 
 tags: [planet-ubuntu]
 categories: [Ubuntu]
+keywords: []
 
 reading_time: false
 show_related: true

@@ -9,9 +9,10 @@ authors: []
 
 tags: []
 categories: []
+keywords: []
 
 reading_time: false
-show_related: false
+show_related: true
 share: false
 
 year: 2023
