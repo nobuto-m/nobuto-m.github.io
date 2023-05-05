@@ -5,12 +5,76 @@
     <link>https://nobuto-m.github.io/ja/post/</link>
       <atom:link href="https://nobuto-m.github.io/ja/post/index.xml" rel="self" type="application/rss+xml" />
     <description>投稿</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Thu, 04 May 2023 13:09:33 +0900</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Fri, 05 May 2023 19:01:25 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>投稿</title>
       <link>https://nobuto-m.github.io/ja/post/</link>
     </image>
+    
+    <item>
+      <title>SanDisk SSD Plusシリーズは2TBの方が480GBより遅く見えちゃう</title>
+      <link>https://nobuto-m.github.io/ja/post/2023/1683280885/</link>
+      <pubDate>Fri, 05 May 2023 19:01:25 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2023/1683280885/</guid>
+      <description>&lt;p&gt;前回、&lt;a href=&#34;https://www.westerndigital.com/ja-jp/products/internal-drives/sandisk-ssd-plus-sata-iii-ssd&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SanDisk SDSSDA-2T00-G26&lt;/a&gt;が&lt;a href=&#34;https://nobuto-m.github.io/ja/post/2023/1683173373/&#34;&gt;REGZAの2番組同時録画と別番組再生に追いつけなかった話&lt;/a&gt;で興味が出たので、同じシリーズの480GB(SDSSDA-480G-J26)も持ってたので同じ条件で軽く計測してみた。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-sandisk-ssd-plus-2tb&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;SanDisk SSD Plus 2TB&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/1683280885/sandisk_granular.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      SanDisk SSD Plus 2TB
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-sandisk-ssd-plus-480gb&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;SanDisk SSD Plus 480GB&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/1683280885/featured.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      SanDisk SSD Plus 480GB
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;これを見ると480GBの方がガタガタではあるけれども、予測しやすい理屈に合った動きをしているように見えるし、平均書き込み速度で上回ってて、レイテンシーの面でも優秀。SSDは容量が大きい方がだいたい書き込み速度が上がる印象だけどこういうこともあるんだなと。ファームウェアのリビジョンによる違いなのかもしれないけど。ちなみにTBWは大したことなくて、480GBの方が値が大きかった。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>REGZAの録画用ドライブをSSD-SCT2.0U3BA/Nに交換した</title>
@@ -162,33 +226,6 @@
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       旧SSD、長く書くと10MB/sぐらいまで落ち込むこともある
-    &lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  id=&#34;figure-旧ssdもっと細かくグラフを出したところ&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;旧SSD、もっと細かくグラフを出したところ&#34;
-           src=&#34;https://nobuto-m.github.io/ja/post/2023/1683173373/sandisk_granular.png&#34;
-           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;figcaption&gt;
-      旧SSD、もっと細かくグラフを出したところ
     &lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;旧SSDの費用が無駄になった感じがするけど、テレビ自体は悪くなさそうというのがわかっただけでも良しとする。&lt;/p&gt;

@@ -9,7 +9,7 @@ authors: []
 
 tags: []
 categories: []
-keywords: []
+keywords: ["SSD-SCT2.0U3BA/N", "SDSSDA-2T00-G26"]
 
 reading_time: false
 show_related: true
@@ -90,7 +90,5 @@ $ sudo dd \
 条件を変えてもっと長く書き込みすると、なるほどテレビ録画といえどもこのSSDにはきつかったのかもしれない、という図が出せる。
 
 {{< figure src="sandisk_long.png" title="旧SSD、長く書くと10MB/sぐらいまで落ち込むこともある" >}}
-
-{{< figure src="sandisk_granular.png" title="旧SSD、もっと細かくグラフを出したところ" >}}
 
 旧SSDの費用が無駄になった感じがするけど、テレビ自体は悪くなさそうというのがわかっただけでも良しとする。
