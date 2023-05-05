@@ -37,14 +37,9 @@
 
 &lt;figure  id=&#34;figure-a-custom-and-global-shortcut-key-to-mute--unmute-yourself-in-zoom-or-google-meet&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;A custom and global shortcut key to mute / unmute yourself in Zoom or Google Meet&#34; srcset=&#34;
-               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hub5fb727d7909e14eb08c84e880dd2aff_110324_24636a9094136dbaca49c5dc6d8d7491.webp 400w,
-               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hub5fb727d7909e14eb08c84e880dd2aff_110324_548234dd8a9d82d3b8666d600c5e82e8.webp 760w,
-               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hub5fb727d7909e14eb08c84e880dd2aff_110324_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hub5fb727d7909e14eb08c84e880dd2aff_110324_24636a9094136dbaca49c5dc6d8d7491.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;427&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;A custom and global shortcut key to mute / unmute yourself in Zoom or Google Meet&#34;
+           src=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       A custom and global shortcut key to mute / unmute yourself in Zoom or Google Meet
     &lt;/figcaption&gt;&lt;/figure&gt;
@@ -93,14 +88,9 @@
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard_hu5a11ce99d3a6a850dfdc7472ac66070c_296970_d3751bcaf974a2208ccdea45ae0bb9a1.webp 400w,
-               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard_hu5a11ce99d3a6a850dfdc7472ac66070c_296970_13102b18ff428be1a8a73a5254643c02.webp 760w,
-               /post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard_hu5a11ce99d3a6a850dfdc7472ac66070c_296970_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard_hu5a11ce99d3a6a850dfdc7472ac66070c_296970_d3751bcaf974a2208ccdea45ae0bb9a1.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;571&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34;
+           src=&#34;https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/gnome-control-center-keyboard.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 
 &lt;p&gt;It&amp;rsquo;s pretty simple, but some tricks may be required. As far as I see, &lt;code&gt;gsd-media-keys&lt;/code&gt; will invoke a command when a shortcut key is pressed, not released. In my case, I use &lt;code&gt;Super+Shift+A&lt;/code&gt; as the shortcut key, so Meet may recognize keys pressed as &lt;code&gt;Super+Shift+A&lt;/code&gt; + &lt;code&gt;Ctrl+D&lt;/code&gt; = &lt;code&gt;Super+Shift+Ctrl+A+D&lt;/code&gt; which doesn&amp;rsquo;t trigger the mute/unmute behavior actually. Keys can be canceled with &lt;code&gt;keyup&lt;/code&gt;, so the key command was turned into &lt;code&gt;keyup shift+super+a&lt;/code&gt; in the end.&lt;/p&gt;
@@ -189,14 +179,9 @@
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_375045eeade988132885028c192a6172.webp 400w,
-               /post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_88e59a2f88c4cb3b42cc4ff89800ff8b.webp 760w,
-               /post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_375045eeade988132885028c192a6172.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;428&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34;
+           src=&#34;https://nobuto-m.github.io/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 
 &lt;div class=&#34;alert alert-note&#34;&gt;
@@ -267,14 +252,9 @@
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /post/2017/knowing-what-services-need-restart-with-needrestart/featured_hua52d71764637683b3142eb4711c08fa6_58682_18e1e201f037f52a937fdd8398c25f5a.webp 400w,
-               /post/2017/knowing-what-services-need-restart-with-needrestart/featured_hua52d71764637683b3142eb4711c08fa6_58682_0a2f684bf7b1949d355fc6f9cc83ef97.webp 760w,
-               /post/2017/knowing-what-services-need-restart-with-needrestart/featured_hua52d71764637683b3142eb4711c08fa6_58682_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/featured_hua52d71764637683b3142eb4711c08fa6_58682_18e1e201f037f52a937fdd8398c25f5a.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;483&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34;
+           src=&#34;https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/featured.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 
 &lt;p&gt;To use “needrestart”, you just need to install a package with the same name.&lt;/p&gt;
@@ -306,14 +286,9 @@
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /post/2017/knowing-what-services-need-restart-with-needrestart/nagios_hu6d4a84d894f8c84c892a1dc7d6f22d25_103962_7c3251b8e520f8d0b892943f64f6a837.webp 400w,
-               /post/2017/knowing-what-services-need-restart-with-needrestart/nagios_hu6d4a84d894f8c84c892a1dc7d6f22d25_103962_79c582d8d170b1b426ec1531f42e4a6b.webp 760w,
-               /post/2017/knowing-what-services-need-restart-with-needrestart/nagios_hu6d4a84d894f8c84c892a1dc7d6f22d25_103962_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/nagios_hu6d4a84d894f8c84c892a1dc7d6f22d25_103962_7c3251b8e520f8d0b892943f64f6a837.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;163&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34;
+           src=&#34;https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/nagios.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 
 &lt;blockquote&gt;
