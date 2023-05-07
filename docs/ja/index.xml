@@ -5,12 +5,32 @@
     <link>https://nobuto-m.github.io/ja/</link>
       <atom:link href="https://nobuto-m.github.io/ja/index.xml" rel="self" type="application/rss+xml" />
     <description>Nobuto Murata</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Fri, 05 May 2023 19:01:25 +0900</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Sun, 07 May 2023 13:09:37 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>Nobuto Murata</title>
       <link>https://nobuto-m.github.io/ja/</link>
     </image>
+    
+    <item>
+      <title>眼鏡を買った</title>
+      <link>https://nobuto-m.github.io/ja/post/2023/1683432577/</link>
+      <pubDate>Sun, 07 May 2023 13:09:37 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2023/1683432577/</guid>
+      <description>&lt;p&gt;運転免許の更新に支障はないぐらいだけれども、年齢とともに左目で遠くを見たときに霞むようになってきた。ずっと裸眼で過ごしてきて眼鏡が必要になるのは老眼になる時だけだと思ってたけど、そうはいかなかった。&lt;/p&gt;
+&lt;p&gt;元から左右で見え方が少し違って高校生の時と6年前に眼鏡が欲しくて測定してもらって、多少乱視はあるものの眼鏡が必要なほどじゃないと言われてまあそうか、とあきらめた。ただ数年前から左目の違和感が大きくなってきてついに眼鏡を買うことに。選んだのは1本で運転にも使えるようにパカパカフリップタイプ。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jins.com/jp/switch/#flip_up&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.jins.com/jp/switch/#flip_up&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;パカパカなしで紫外線の量によって色が変わる調光レンズの方がスマートだけど、ドライブに使ったり屋外から屋内に入った時を考えるとパカパカタイプがいいな、と。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jins.com/jp/lens/colorcontrol/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.jins.com/jp/lens/colorcontrol/&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;紫外線カットガラスに覆われた車内などでは、レンズは変色しません。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;濃いレンズが淡く戻るまでに多少の時間を要します。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;結果、左目用に&lt;code&gt;SPH: -0.50&lt;/code&gt;、&lt;code&gt;CYL: -0.50&lt;/code&gt;のレンズを入れてもらった。手元のノートPCを見るぐらいだと元から困ってなかったけど、それ以上の距離を見るときにパリッと見えて幸せ。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>SanDisk SSD Plusシリーズは2TBの方が480GBより遅く見えちゃう</title>
