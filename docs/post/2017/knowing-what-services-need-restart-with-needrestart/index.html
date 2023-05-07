@@ -32,8 +32,8 @@
   <meta property="og:description" content="With Livepatch support in Linux kernel and Livepatch service for Ubuntu, reboots are no longer necessary even when kernel vulnerabilities are found. You can avoid and postpone unplanned reboots to whenever convenient for you, such as scheduled maintenance windows (Well, there are some corner cases which still require reboots though).">
   <meta property="og:image" content="https://nobuto-m.github.io/post/2017/knowing-what-services-need-restart-with-needrestart/featured.png">
   <meta property="og:locale" content="en-US">
-  <meta property="article:published_time" content="2017-07-04T00:00:00+09:00">
-  <meta property="article:modified_time" content="2017-07-04T00:00:00+09:00">
+  <meta property="article:published_time" content="2017-07-04T00:00:00&#43;09:00">
+  <meta property="article:modified_time" content="2017-07-04T00:00:00&#43;09:00">
   <script type="application/ld+json">
   {
   "@context": "https://schema.org",
@@ -154,7 +154,7 @@
           <p>What about services? After applying security updates of libraries, some services still grab old libraries which may have vulnerabilities. You can list up those processes with “lsof”.</p>
 
           <div class="highlight">
-            <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ sudo lsof / <span class="p">|</span> egrep -w <span class="s1">'DEL|deleted'</span>
+            <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ sudo lsof / <span class="p">|</span> egrep -w <span class="s1">&#39;DEL|deleted&#39;</span>
 </span></span><span class="line"><span class="cl">...
 </span></span><span class="line"><span class="cl">apache2 <span class="m">2296</span> root DEL REG 252,0 <span class="m">260616</span> /lib/x86_64-linux-gnu/libcrypto.so.1.0.0
 </span></span><span class="line"><span class="cl">apache2 <span class="m">2296</span> root DEL REG 252,0 <span class="m">260711</span> /lib/x86_64-linux-gnu/libssl.so.1.0.0
@@ -184,7 +184,7 @@
 
           <div class="highlight">
             <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Restart services (l)ist only, (i)nteractive or (a)utomatically.
-</span></span><span class="line"><span class="cl">#$nrconf{restart} = 'i';
+</span></span><span class="line"><span class="cl">#$nrconf{restart} = &#39;i&#39;;
 </span></span></code></pre>
           </div>
 
@@ -218,11 +218,11 @@
         <div class="share-box">
           <ul class="share">
             <li>
-              <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2017%2Fknowing-what-services-need-restart-with-needrestart%2F&amp;text=Knowing+what+services+need+restart+with+%E2%80%9Cneedrestart%E2%80%9D" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter"><i class="fab fa-twitter"></i></a>
+              <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2017%2Fknowing-what-services-need-restart-with-needrestart%2F&amp;text=Knowing&#43;what&#43;services&#43;need&#43;restart&#43;with&#43;%E2%80%9Cneedrestart%E2%80%9D" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter"><i class="fab fa-twitter"></i></a>
             </li>
 
             <li>
-              <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2017%2Fknowing-what-services-need-restart-with-needrestart%2F&amp;t=Knowing+what+services+need+restart+with+%E2%80%9Cneedrestart%E2%80%9D" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook"><i class="fab fa-facebook"></i></a>
+              <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2017%2Fknowing-what-services-need-restart-with-needrestart%2F&amp;t=Knowing&#43;what&#43;services&#43;need&#43;restart&#43;with&#43;%E2%80%9Cneedrestart%E2%80%9D" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook"><i class="fab fa-facebook"></i></a>
             </li>
 
             <li>
@@ -230,7 +230,7 @@
             </li>
 
             <li>
-              <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2017%2Fknowing-what-services-need-restart-with-needrestart%2F&amp;title=Knowing+what+services+need+restart+with+%E2%80%9Cneedrestart%E2%80%9D" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2017%2Fknowing-what-services-need-restart-with-needrestart%2F&amp;title=Knowing&#43;what&#43;services&#43;need&#43;restart&#43;with&#43;%E2%80%9Cneedrestart%E2%80%9D" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in"><i class="fab fa-linkedin-in"></i></a>
             </li>
           </ul>
         </div>

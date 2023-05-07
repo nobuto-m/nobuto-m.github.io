@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
   <meta name="google-site-verification" content="x-WRee-yVqnJs0JQZzIhmu43FqdyIrIKokjOAFhdL4I">
   <meta name="author" content="Nobuto Murata">
-  <meta name="description" content="EDIT: I have migrated one of my domains to Google Domains so I’m using protocol=googledomains these days. When I searched for a way to configure ddclient for No-IP.com, some pages mention protocol=dyndns2 with a custom URL.">
+  <meta name="description" content="EDIT: I have migrated one of my domains to Google Domains so I&rsquo;m using protocol=googledomains these days. When I searched for a way to configure ddclient for No-IP.com, some pages mention protocol=dyndns2 with a custom URL.">
   <link rel="alternate" hreflang="en-US" href="https://nobuto-m.github.io/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/">
   <link rel="canonical" href="https://nobuto-m.github.io/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/">
   <link rel="icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_32x32_fill_lanczos_center_3.png">
@@ -29,11 +29,11 @@
   <meta property="og:site_name" content="Nobuto Murata">
   <meta property="og:url" content="https://nobuto-m.github.io/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/">
   <meta property="og:title" content="Minimal Dynamic DNS configuration for No-IP.com with ddclient | Nobuto Murata">
-  <meta property="og:description" content="EDIT: I have migrated one of my domains to Google Domains so I’m using protocol=googledomains these days. When I searched for a way to configure ddclient for No-IP.com, some pages mention protocol=dyndns2 with a custom URL.">
+  <meta property="og:description" content="EDIT: I have migrated one of my domains to Google Domains so I&rsquo;m using protocol=googledomains these days. When I searched for a way to configure ddclient for No-IP.com, some pages mention protocol=dyndns2 with a custom URL.">
   <meta property="og:image" content="https://nobuto-m.github.io/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured.png">
   <meta property="og:locale" content="en-US">
-  <meta property="article:published_time" content="2018-07-21T00:00:00+09:00">
-  <meta property="article:modified_time" content="2019-06-18T00:00:00+09:00">
+  <meta property="article:published_time" content="2018-07-21T00:00:00&#43;09:00">
+  <meta property="article:modified_time" content="2019-06-18T00:00:00&#43;09:00">
   <script type="application/ld+json">
   {
   "@context": "https://schema.org",
@@ -143,7 +143,7 @@
         <h1>Minimal Dynamic DNS configuration for No-IP.com with ddclient</h1>
 
         <div class="article-metadata">
-          <span class="article-date">Jul 21, 2018 · Last updated on Jun 18, 2019</span> <span class="middot-divider"></span> <span class="article-categories"><i class="fas fa-folder mr-1"></i><a href="/category/ubuntu/">Ubuntu</a></span>
+          <span class="article-date">Jul 21, 2018 &middot; Last updated on Jun 18, 2019</span> <span class="middot-divider"></span> <span class="article-categories"><i class="fas fa-folder mr-1"></i><a href="/category/ubuntu/">Ubuntu</a></span>
         </div>
       </div>
 
@@ -158,7 +158,7 @@
 
           <div class="alert alert-note">
             <div>
-              EDIT: I have migrated one of my domains to <a href="https://domains.google/" target="_blank" rel="noopener">Google Domains</a> so I’m using <a href="https://support.google.com/domains/answer/6147083" target="_blank" rel="noopener"><code>protocol=googledomains</code></a> these days.
+              EDIT: I have migrated one of my domains to <a href="https://domains.google/" target="_blank" rel="noopener">Google Domains</a> so I&rsquo;m using <a href="https://support.google.com/domains/answer/6147083" target="_blank" rel="noopener"><code>protocol=googledomains</code></a> these days.
             </div>
           </div>
 
@@ -182,7 +182,7 @@
           <p>And here we go.</p>
 
           <div class="highlight">
-            <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ <span class="nb">echo</span> <span class="s1">'run_daemon="true"'</span> <span class="p">|</span> sudo tee -a /etc/default/ddclient
+            <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ <span class="nb">echo</span> <span class="s1">&#39;run_daemon=&#34;true&#34;&#39;</span> <span class="p">|</span> sudo tee -a /etc/default/ddclient
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">$ sudo service ddclient restart
 </span></span><span class="line"><span class="cl">
@@ -208,11 +208,11 @@
         <div class="share-box">
           <ul class="share">
             <li>
-              <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2018%2Fminimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient%2F&amp;text=Minimal+Dynamic+DNS+configuration+for+No-IP.com+with+ddclient" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter"><i class="fab fa-twitter"></i></a>
+              <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2018%2Fminimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient%2F&amp;text=Minimal&#43;Dynamic&#43;DNS&#43;configuration&#43;for&#43;No-IP.com&#43;with&#43;ddclient" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter"><i class="fab fa-twitter"></i></a>
             </li>
 
             <li>
-              <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2018%2Fminimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient%2F&amp;t=Minimal+Dynamic+DNS+configuration+for+No-IP.com+with+ddclient" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook"><i class="fab fa-facebook"></i></a>
+              <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2018%2Fminimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient%2F&amp;t=Minimal&#43;Dynamic&#43;DNS&#43;configuration&#43;for&#43;No-IP.com&#43;with&#43;ddclient" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook"><i class="fab fa-facebook"></i></a>
             </li>
 
             <li>
@@ -220,7 +220,7 @@
             </li>
 
             <li>
-              <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2018%2Fminimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient%2F&amp;title=Minimal+Dynamic+DNS+configuration+for+No-IP.com+with+ddclient" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2018%2Fminimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient%2F&amp;title=Minimal&#43;Dynamic&#43;DNS&#43;configuration&#43;for&#43;No-IP.com&#43;with&#43;ddclient" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in"><i class="fab fa-linkedin-in"></i></a>
             </li>
           </ul>
         </div>

@@ -31,8 +31,8 @@
   <meta property="og:description" content="光クロスを契約した当初は10Gbps対応uplink/downlinkが1つずつ付いたルーターが⽉額550円で借りられるなんて激安だと思ったけど、このXG-100NEは独特の詰まり方をするので耐えられなくなってしまった。">
   <meta property="og:image" content="https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png">
   <meta property="og:locale" content="ja">
-  <meta property="article:published_time" content="2023-05-03T14:33:09+09:00">
-  <meta property="article:modified_time" content="2023-05-03T14:33:09+09:00">
+  <meta property="article:published_time" content="2023-05-03T14:33:09&#43;09:00">
+  <meta property="article:modified_time" content="2023-05-03T14:33:09&#43;09:00">
   <script type="application/ld+json">
   {
   "@context": "https://schema.org",
@@ -150,14 +150,14 @@
 
           <blockquote class="twitter-tweet" data-dnt="true">
             <p lang="ja" dir="ltr">時々TCP4通信だけが詰まる原因がわからん。このログ(何を意味するかの説明はない)からするとMAP-Eするときのソースポートが足りてないと言わんとしてそうだけど、特に1,000コネクションも張ってないと思うんだよな。 <a href="https://t.co/2Es0GsLdGv">pic.twitter.com/2Es0GsLdGv</a></p>
-            — Nobuto Murata (@nobuto_m) <a href="https://twitter.com/nobuto_m/status/1487425066338238465?ref_src=twsrc%5Etfw">January 29, 2022</a>
+            &mdash; Nobuto Murata (@nobuto_m) <a href="https://twitter.com/nobuto_m/status/1487425066338238465?ref_src=twsrc%5Etfw">January 29, 2022</a>
           </blockquote>
           <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           <p>で、発生した場合の通信をよく見てても特にポート枯渇してるようには見えず、<code>TCP Port numbers reused</code>と<code>TCP Retransmission</code>が観測されるのでなんとなくNAT/conntrackに相当するところが怪しいけれどもルーター側では詳しいログが出ないので詳細はわからず。</p>
 
           <blockquote class="twitter-tweet" data-dnt="true">
             <p lang="ja" dir="ltr">やっぱり事象が発生するときはボコボコだな。HTTPはその状態でかろうじてなんとかなってもHTTPSはなんとかはならない。 <a href="https://t.co/VtaygPYi3a">pic.twitter.com/VtaygPYi3a</a></p>
-            — Nobuto Murata (@nobuto_m) <a href="https://twitter.com/nobuto_m/status/1497959192237572096?ref_src=twsrc%5Etfw">February 27, 2022</a>
+            &mdash; Nobuto Murata (@nobuto_m) <a href="https://twitter.com/nobuto_m/status/1497959192237572096?ref_src=twsrc%5Etfw">February 27, 2022</a>
           </blockquote>
           <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           <p>現象が発生したらクライアント側から再接続しなきゃいけないのが面倒で、しかも再接続した後からは普通に使えてしまう謎。NEC製なので他のメーカーで切り分けしたくてまずは10Gbps対応していない5千円弱のBuffaloルーターを買ってきて取り替えたら現象がまったく発生しない！</p>
