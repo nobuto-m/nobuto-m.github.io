@@ -32,6 +32,6 @@ image:
 
 {{< figure src="featured.jpg" caption="" >}}
 
-家の外の部分はがっつり水かけられるので[専用のブラシ](https://www.lec-online.com/c/04cleaning/4903320161344)を買った。水切りがついてるのが良い。どうせピカピカな状態は数日も持たないので、ある程度あきらめることが重要。
+家の外の部分はがっつり水がかけられるので[専用のブラシ](https://www.lec-online.com/c/04cleaning/4903320161344)を買った。水切りがついてるのが良い。どうせピカピカな状態は数日も持たないので、ある程度あきらめることが重要。
 
 {{< figure src="before-after.jpg" caption="" >}}
