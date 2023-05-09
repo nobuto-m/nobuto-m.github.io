@@ -9,7 +9,7 @@ authors: []
 
 tags: []
 categories: []
-keywords: []
+keywords: ["XG-100NE", "VR-U500X"]
 
 reading_time: false
 show_related: true

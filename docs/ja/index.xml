@@ -5,12 +5,30 @@
     <link>https://nobuto-m.github.io/ja/</link>
       <atom:link href="https://nobuto-m.github.io/ja/index.xml" rel="self" type="application/rss+xml" />
     <description>Nobuto Murata</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Mon, 08 May 2023 21:25:04 +0900</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Tue, 09 May 2023 20:11:05 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>Nobuto Murata</title>
       <link>https://nobuto-m.github.io/ja/</link>
     </image>
+    
+    <item>
+      <title>レンタルルーターのファームウェアアップデート待ち</title>
+      <link>https://nobuto-m.github.io/ja/post/2023/1683630665/</link>
+      <pubDate>Tue, 09 May 2023 20:11:05 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2023/1683630665/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.ntt-east.co.jp/release/detail/20230508_01.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;フレッツ光クロスのひかり電話対応&lt;/a&gt;がアナウンスされた。提供開始日は2023年5月31日となっていて、それまでにひかり電話対応用のファームウェアアップデートが来ないといけないはずだけど、まだ&lt;a href=&#34;https://web116.jp/ced/support/version/broadband/xg_100ne/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;東日本&lt;/a&gt;は&lt;code&gt;ver.02.00.0005&lt;/code&gt;(2021/02/24日付)が最新との表示。&lt;/p&gt;
+&lt;p&gt;西日本の方は、ひかり電話対応のアナウンスの一足先に&lt;code&gt;Version 03.00.0001&lt;/code&gt;(2023/04/11日付)が出ている。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.ntt-west.co.jp/kiki/download/flets/xg100ne/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.ntt-west.co.jp/kiki/download/flets/xg100ne/&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;今後のサービス拡張において必要な基本機能を追加しました。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一部動作の改善を行いました。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;レンタルルーターなのでこれを無理やり適用するのはまずいので、ルーターの返却期限までに東日本公式のアップデートが来てくれれば&lt;a href=&#34;https://nobuto-m.github.io/ja/post/2023/1683091989/&#34;&gt;通信が詰まる現象&lt;/a&gt;が解消されたかどうかだけでも確認できるのでいいなぁと期待。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>メリーゴーラウンドに乗った</title>
