@@ -5,12 +5,149 @@
     <link>https://nobuto-m.github.io/ja/</link>
       <atom:link href="https://nobuto-m.github.io/ja/index.xml" rel="self" type="application/rss+xml" />
     <description>Nobuto Murata</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Sun, 14 May 2023 13:27:23 +0900</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Sat, 20 May 2023 23:56:07 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>Nobuto Murata</title>
       <link>https://nobuto-m.github.io/ja/</link>
     </image>
+    
+    <item>
+      <title>ネットワーク配線の整理をした</title>
+      <link>https://nobuto-m.github.io/ja/post/2023/1684594567/</link>
+      <pubDate>Sat, 20 May 2023 23:56:07 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2023/1684594567/</guid>
+      <description>&lt;p&gt;ONU、ルーターなどのネットワーク機器はクローゼットというか物置きというか、というところに置いてあるのだが、そのままだとケーブル類がぐちゃぐちゃになってしまうので整理してみた。本格的な19インチラックは導入せず、あくまで家庭用っぽくする方針で。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-整理前&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;整理前&#34; srcset=&#34;
+               /ja/post/2023/1684594567/before_hu793588ecaae455bc464a46fed24374d8_186525_15e496d93fd70a039026ece45fe86a0a.webp 400w,
+               /ja/post/2023/1684594567/before_hu793588ecaae455bc464a46fed24374d8_186525_63258b9a6865249dfba7ae87eca0e552.webp 760w,
+               /ja/post/2023/1684594567/before_hu793588ecaae455bc464a46fed24374d8_186525_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1684594567/before_hu793588ecaae455bc464a46fed24374d8_186525_15e496d93fd70a039026ece45fe86a0a.webp&#34;
+               width=&#34;570&#34;
+               height=&#34;760&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      整理前
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;3月に複合機を買ったときに同時にIKEAのテーブルを買っておいて、テーブルの上を複合機、下をネットワーク機器とまずは空間を分けておいた。必要になった段階でIKEAのテーブルを&lt;a href=&#34;https://wiki.eth0.nl/index.php/LackRack&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;LackRack&amp;rdquo;&lt;/a&gt;として使って1Uだけ使うつもりだった。で、ルーターを乗せるためだけに棚板の値段を調べたりして、結構高いななんて思いながら4月に買って最上段に取り付けて完成。とはならずに、棚板の落下防止の返し部分があることで、ルーターが入らなかった。毎回ネジを緩めたりすれば出し入れできるけれどもそれは果たして家庭用なのかなと。&lt;/p&gt;
+&lt;p&gt;結局はルーター用の棚板を2段目にして空間を確保し、空いた一段目をそのままにしておくのはあれなので、特に必要のなかったケーブルオーガナイザーも買った。圧迫感を与えないように白色で探したので、配線が丸見えになる魚の骨タイプしかなかった。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-整理後&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;整理後&#34; srcset=&#34;
+               /ja/post/2023/1684594567/featured_hu4f56622101efebae6f42aba9f612c3c5_184446_a112631759019ef866f2060c66814af1.webp 400w,
+               /ja/post/2023/1684594567/featured_hu4f56622101efebae6f42aba9f612c3c5_184446_3d97fe7ea1585f5d924d73f9db7c1b5c.webp 760w,
+               /ja/post/2023/1684594567/featured_hu4f56622101efebae6f42aba9f612c3c5_184446_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1684594567/featured_hu4f56622101efebae6f42aba9f612c3c5_184446_a112631759019ef866f2060c66814af1.webp&#34;
+               width=&#34;571&#34;
+               height=&#34;760&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      整理後
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;出来栄えとしては決して美しくはないけれども、当初の目的である床部分から配線を持ち上げる、ということは達成したのでよし。LackRackを初めてやってみた感想としては1U以上はやっぱり普通にメタルラック買った方がいいんじゃないでしょうか。使ったネジはM6の六角フランジタッピング。当然のことながらIKEAのテーブルは穴を開けられることを想定してないし、チップ材なのでドリルで穴開けると手応えなかったりネジ打ち込んでも最後の方空転したりする箇所がちらほらあるので。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-ドリルで下穴も開けた&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;ドリルで下穴も開けた&#34; srcset=&#34;
+               /ja/post/2023/1684594567/screw_hole_hu4414aed6e4a1b01b5462ef433bcd97e9_78980_5dc51dc947b981bfb787679e5c6fa4be.webp 400w,
+               /ja/post/2023/1684594567/screw_hole_hu4414aed6e4a1b01b5462ef433bcd97e9_78980_9c90258582ae4c793032fd4e23899b88.webp 760w,
+               /ja/post/2023/1684594567/screw_hole_hu4414aed6e4a1b01b5462ef433bcd97e9_78980_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1684594567/screw_hole_hu4414aed6e4a1b01b5462ef433bcd97e9_78980_5dc51dc947b981bfb787679e5c6fa4be.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;570&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      ドリルで下穴も開けた
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;あと最近光クロスの上りが最速の計測値でも2.5Gbpsを超えなくなってきたので、ちょっとはONUの温度下がらないかなと思ってあえて速度を落とすように設定してみた。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-あえて速度を落として運用してみる&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;あえて速度を落として運用してみる&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/1684594567/ports.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      あえて速度を落として運用してみる
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;インターネット側は10Gbpsから5Gbpsへ、LAN側は検証機を10Gbpsから2.5Gbps、他のポートとの合計で4.5Gbpsになるように。でもこれをやるとなぜ10Gbpsを契約しているのだろうという気持ちになるので、まずは様子見。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>スーツケースの補修をした</title>
