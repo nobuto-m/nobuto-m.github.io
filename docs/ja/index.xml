@@ -5,12 +5,149 @@
     <link>https://nobuto-m.github.io/ja/</link>
       <atom:link href="https://nobuto-m.github.io/ja/index.xml" rel="self" type="application/rss+xml" />
     <description>Nobuto Murata</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Sat, 20 May 2023 23:56:07 +0900</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Sat, 27 May 2023 16:31:14 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>Nobuto Murata</title>
       <link>https://nobuto-m.github.io/ja/</link>
     </image>
+    
+    <item>
+      <title>Windows用に使ってるSSD-CK500N3G2/Nもテストしてみた</title>
+      <link>https://nobuto-m.github.io/ja/post/2023/1684645587/</link>
+      <pubDate>Sat, 27 May 2023 16:31:14 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2023/1684645587/</guid>
+      <description>&lt;p&gt;基本はノートPCと検証機のどっちともUbuntuを常用してて、ごくごくたまーにWindowsが必要になることもあるので、&lt;a href=&#34;https://rufus.ie/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Rufus&lt;/a&gt;で外付けSSDにWindowsをインストールしてある。で、この用途で使ってる&lt;a href=&#34;https://www.buffalo.jp/product/detail/ssd-ck500n3g2_n.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KIOXIA EXCERIA G2 SSD-CK500N3G2/N&lt;/a&gt;は値段で選んだので特に性能は気にしたことはなかったので、この機会に測ってみた。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-キャッシュ溢れみたいな変な落ち込みがない&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;キャッシュ溢れみたいな変な落ち込みがない&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/1684645587/KIOXIA-EXCERIA_G2_SSD.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      キャッシュ溢れみたいな変な落ち込みがない
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;シーケンシャルアクセスはNVMeのSSDをUSBにケースで変換して接続していることを考慮してまったく文句なし。最初は測定しようと思ったときに、あーWindowsが入っちゃってるから書き込みテストできないじゃん、書き込みテストした後にもう一回Windowsインストールしてもいいけど面倒だなと思ったところにGNOME Disksの説明を読んで驚いた。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-書き込みテストはすでにデータがあるドライブにも実行可&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;書き込みテストはすでにデータがあるドライブにも実行可&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/1684645587/featured.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      書き込みテストはすでにデータがあるドライブにも実行可
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Benchmarking the write-rate of a disk requires exclusive access to the
+disk (e.g. the disk or its partitions cannot be mounted or in use) and
+involves reading data and then writing it back. As a result, the
+contents of the disk is not changed.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;GNOME Disksだけが独占的にドライブにアクセスしている前提で、読んだデータをそのまま書き直すのでベンチマークが完走する限りはデータ破壊がないので、確かに頭いいなぁと。読んだデータしか使えないので、しっかりとランダムなデータを生成して書き込むタイプのベンチマークに比べると色んなレイヤーの影響で変に良い値が出てしまう懸念があるけどまあ簡易ベンチマークとしては本当に頭がいい。&lt;/p&gt;
+&lt;p&gt;あとはUSB経由でつないでいても、ちゃんと色々な値が取れてすごいなぁと。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo smartctl -a /dev/sda
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;smartctl 7.2 2020-12-30 r5155 [x86_64-linux-6.1.0-1012-oem] (local build)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Copyright (C) 2002-20, Bruce Allen, Christian Franke, www.smartmontools.org
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;=== START OF INFORMATION SECTION ===
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Model Number:                       KIOXIA-EXCERIA G2 SSD
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Serial Number:                      XYZ
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Firmware Version:                   ECFA17.1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PCI Vendor/Subsystem ID:            0x1e0f
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;IEEE OUI Identifier:                0x8ce38e
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Total NVM Capacity:                 500,107,862,016 [500 GB]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Unallocated NVM Capacity:           0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Controller ID:                      1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;NVMe Version:                       1.3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Number of Namespaces:               1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Namespace 1 Size/Capacity:          500,107,862,016 [500 GB]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Namespace 1 Formatted LBA Size:     512
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Namespace 1 IEEE EUI-64:            8ce38e 0500bbcc25
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Local Time is:                      Sun May 21 14:06:49 2023 JST
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Firmware Updates (0x12):            1 Slot, no Reset required
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Optional Admin Commands (0x0017):   Security Format Frmw_DL Self_Test
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Optional NVM Commands (0x005f):     Comp Wr_Unc DS_Mngmt Wr_Zero Sav/Sel_Feat Timestmp
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Log Page Attributes (0x0a):         Cmd_Eff_Lg Telmtry_Lg
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Maximum Data Transfer Size:         512 Pages
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Warning  Comp. Temp. Threshold:     72 Celsius
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Critical Comp. Temp. Threshold:     90 Celsius
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Supported Power States
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;St Op     Max   Active     Idle   RL RT WL WT  Ent_Lat  Ex_Lat
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 0 +     7.69W       -        -    0  0  0  0        1       1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 1 +     6.18W       -        -    1  1  1  1        1       1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 2 +     5.42W       -        -    2  2  2  2        1       1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 3 -   0.0500W       -        -    3  3  3  3     7000    5000
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 4 -   0.0050W       -        -    4  4  4  4    13000   36000
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Supported LBA Sizes (NSID 0x1)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Id Fmt  Data  Metadt  Rel_Perf
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 0 +     512       0         2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 1 -    4096       0         1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;=== START OF SMART DATA SECTION ===
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;SMART overall-health self-assessment test result: PASSED
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;SMART/Health Information (NVMe Log 0x02)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Critical Warning:                   0x00
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Temperature:                        34 Celsius
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Available Spare:                    100%
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Available Spare Threshold:          5%
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Percentage Used:                    0%
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Data Units Read:                    337,687 [172 GB]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Data Units Written:                 314,483 [161 GB]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Host Read Commands:                 12,348,912
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Host Write Commands:                13,616,612
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Controller Busy Time:               17
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Power Cycles:                       26
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Power On Hours:                     10
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Unsafe Shutdowns:                   24
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Media and Data Integrity Errors:    0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Error Information Log Entries:      0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Warning  Comp. Temperature Time:    0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Critical Comp. Temperature Time:    0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Warning: NVMe Get Log truncated to 0x200 bytes, 0x200 bytes zero filled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Error Information (NVMe Log 0x01, 16 of 63 entries)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;No Errors Logged
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
     
     <item>
       <title>ネットワーク配線の整理をした</title>
