@@ -5,12 +5,51 @@
     <link>https://nobuto-m.github.io/ja/post/</link>
       <atom:link href="https://nobuto-m.github.io/ja/post/index.xml" rel="self" type="application/rss+xml" />
     <description>投稿</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Sun, 28 May 2023 21:01:51 +0900</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Fri, 02 Jun 2023 20:33:08 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>投稿</title>
       <link>https://nobuto-m.github.io/ja/post/</link>
     </image>
+    
+    <item>
+      <title>XG-100NEの新ファームウェアのテストが結局できなかった話</title>
+      <link>https://nobuto-m.github.io/ja/post/2023/1685705588/</link>
+      <pubDate>Fri, 02 Jun 2023 20:33:08 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2023/1685705588/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://nobuto-m.github.io/ja/post/2023/1683091989/&#34;&gt;光クロスのレンタルルーターであるXG-100NEの動作に耐えられなくて解約申請をして&lt;/a&gt;、そしたらその後にファームウェアのアップデートがリリースされた。返却前の週末に今使ってるルーターからレンタルルーターに切り戻して、まだ不具合が出るか出ないかだけでも確認して気持ちをはっきりさせたかったけど、結局単純な理由で確認できなかった。&lt;/p&gt;
+&lt;p&gt;手順としては単純で、&lt;a href=&#34;https://web116.jp/ced/support/version/broadband/xg_100ne/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ダウンロードページ&lt;/a&gt;からファームウェア&lt;code&gt;ver.03.00.0002&lt;/code&gt;を落としてルーターのWebUIから適用するだけ。で、そのまま使えばテストできたのに、何か魔が差したんですよね。不具合と言うからにはちゃんと初期状態で再現できるか確認しないと意味がないかな、と。そう思ったので、まずは使う前に工場出荷時の状態に戻すみたいな初期化ボタンを押したんです。で、再起動してIPv6はつながってIPv4がつながらなくなったときに、あっ、と。&lt;/p&gt;
+&lt;p&gt;XG-100NEはIPv4接続のためのMAP-Eバンドルというソフトウェアを&lt;a href=&#34;https://business.ntt-east.co.jp/service/joint/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;フレッツ・ジョイント&lt;/a&gt;の仕組みを通じて受け取って初めてMAP-Eで通信できるはずなので、初期化したことでこのすでに受け取り済みのソフトウェアも消えてしまった。で、解約申請を出してこのソフトウェア配信もちょうど止まったところだったので、このソフトウェアが再度ダウンロードされることはなく。はい、ここで手詰まり、テストできず。初期化しよう、とかさえ思わなければ。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-httpnttsetup8888tにアクセスしてあっと思った瞬間何もない&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;`http://ntt.setup:8888/t`にアクセスして、あっ、と思った瞬間。何もない。&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/1685705588/featured.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      &lt;code&gt;http://ntt.setup:8888/t&lt;/code&gt;にアクセスして、あっ、と思った瞬間。何もない。
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;おとなしくすぐに梱包して期限内にレンタルルーターを返送しました。これで我が家でXG-100NEについて脳みそを使う時間を割くのは完全に終了です。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>子どもがルイージマンション3をクリアした</title>
