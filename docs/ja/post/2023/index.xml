@@ -5,12 +5,57 @@
     <link>https://nobuto-m.github.io/ja/post/2023/</link>
       <atom:link href="https://nobuto-m.github.io/ja/post/2023/index.xml" rel="self" type="application/rss+xml" />
     <description>2023</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Fri, 02 Jun 2023 20:33:08 +0900</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Sun, 11 Jun 2023 14:48:21 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>2023</title>
       <link>https://nobuto-m.github.io/ja/post/2023/</link>
     </image>
+    
+    <item>
+      <title>ミニミニ手術を受けた</title>
+      <link>https://nobuto-m.github.io/ja/post/2023/1686462501/</link>
+      <pubDate>Sun, 11 Jun 2023 14:48:21 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2023/1686462501/</guid>
+      <description>&lt;p&gt;手術といっても滞在時間は1時間もいかないぐらい。ずっと前（たぶん高校生ぐらい）から耳の上にホクロが変化してBB弾がくっついたぐらいの大きさの出っ張りがあって、今までは髪切ったときに丸見えになるぐらいで生活に支障はなかった。ただ、こないだから眼鏡をかけるようになったら眼鏡のツルと干渉するので思い切って取ってみるか、と。&lt;/p&gt;
+&lt;p&gt;診療明細書上は「皮膚、皮下腫瘍摘出術（露出部）（直径2cm未満）」という扱いで健康保険適用対象、当日の支払額は合計で8,420円。&lt;/p&gt;
+&lt;p&gt;病院によっては当日に取ってくれるところもあるみたいだけど、一番近そうなところの院長はGoogleマップのレビュー上でずーっと患者とバトルしてて不安だったので、妻が行ったことのある皮膚科に行った。そこもそこで保険適用外のいろんな注射がメニューにあるところで不安だったけど、結果的には説明もしっかりしてくれてよかった。&lt;/p&gt;
+&lt;p&gt;最初の日は写真を撮って説明するだけですぐ終わり、手術当日までに周りの髪の毛をジョリジョリしてきてください、次の日に消毒のために来てもらいます、その後は軟膏塗ってテープ自分で貼ってもらって1週間後に抜糸です、と。なるほど、手術後に貼るテープみたいなのを買っとかなきゃと物色して、2種類の太さと一応防水のも買ってみた。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-初めてなのでいろいろ買ってみた&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;初めてなのでいろいろ買ってみた&#34; srcset=&#34;
+               /ja/post/2023/1686462501/featured_hud45291a1bf35d5486565e3d34453bfb5_325625_0a768b7f360063b1c947200ebcd091a3.webp 400w,
+               /ja/post/2023/1686462501/featured_hud45291a1bf35d5486565e3d34453bfb5_325625_8e1e9214373ebf25e8c86eadfdfbe634.webp 760w,
+               /ja/post/2023/1686462501/featured_hud45291a1bf35d5486565e3d34453bfb5_325625_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1686462501/featured_hud45291a1bf35d5486565e3d34453bfb5_325625_0a768b7f360063b1c947200ebcd091a3.webp&#34;
+               width=&#34;721&#34;
+               height=&#34;760&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      初めてなのでいろいろ買ってみた
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;で、当日は麻酔注射を打たれて、その注射自体がちょっと痛いぐらいで手術中の痛みは無し、縫ってる時の糸の振動が伝わるぐらい。結果5針縫ったみたい。次の日消毒に行った時に、どんなテープ貼られるのかな、買ったテープはちゃんと合ってるのかなと思いながら診察受けてて、先生も耳の周りの曲線で貼るの苦労してるなと思って帰って来たら絆創膏が貼ってあった。はい、もったいないので買ったテープは積極的に使っていこうと思います。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>XG-100NEの新ファームウェアのテストが結局できなかった話</title>
