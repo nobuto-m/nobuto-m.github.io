@@ -3,11 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://nobuto-m.github.io/ja/post/2023/</loc>
-    <lastmod>2023-06-11T14:48:21+09:00</lastmod>
+    <lastmod>2023-06-17T23:26:29+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://nobuto-m.github.io/ja/</loc>
-    <lastmod>2023-06-11T14:48:21+09:00</lastmod>
+    <lastmod>2023-06-17T23:26:29+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
@@ -20,16 +20,16 @@
                 href="https://nobuto-m.github.io/ja/"
                 />
   </url><url>
-    <loc>https://nobuto-m.github.io/ja/year/</loc>
-    <lastmod>2023-06-11T14:48:21+09:00</lastmod>
+    <loc>https://nobuto-m.github.io/ja/post/2023/1687011989/</loc>
+    <lastmod>2023-06-17T23:26:29+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://nobuto-m.github.io/ja/post/2023/1686462501/</loc>
-    <lastmod>2023-06-11T14:48:21+09:00</lastmod>
+    <loc>https://nobuto-m.github.io/ja/year/</loc>
+    <lastmod>2023-06-17T23:26:29+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://nobuto-m.github.io/ja/post/</loc>
-    <lastmod>2023-06-11T14:48:21+09:00</lastmod>
+    <lastmod>2023-06-17T23:26:29+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
@@ -41,6 +41,10 @@
                 hreflang="ja"
                 href="https://nobuto-m.github.io/ja/post/"
                 />
+  </url><url>
+    <loc>https://nobuto-m.github.io/ja/post/2023/1686462501/</loc>
+    <lastmod>2023-06-11T14:48:21+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://nobuto-m.github.io/ja/post/2023/1685705588/</loc>
     <lastmod>2023-06-02T20:33:08+09:00</lastmod>

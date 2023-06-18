@@ -1,0 +1,585 @@
+ubuntu
+    description: Desktop Computer
+    product: NucBox3
+    vendor: GMKtec
+    version: Default string
+    serial: Default string
+    width: 64 bits
+    capabilities: smbios-3.2.0 dmi-3.2.0 smp vsyscall32
+    configuration: boot=normal chassis=desktop family=Default string uuid=03000200-0400-0500-0006-000700080009
+  *-core
+       description: Motherboard
+       product: GMKtec
+       vendor: GMKtec
+       physical id: 0
+       version: Default string
+       serial: Default string
+       slot: Default string
+     *-firmware
+          description: BIOS
+          vendor: American Megatrends Inc.
+          physical id: 0
+          version: GB08_SVID_V400_GMKtec_0_05
+          date: 08/12/2022
+          size: 64KiB
+          capacity: 4416KiB
+          capabilities: pci upgrade shadowing cdboot bootselect socketedrom edd int13floppy1200 int13floppy720 int13floppy2880 int5printscreen int14serial int17printer acpi usb biosbootspecification uefi
+     *-memory
+          description: System Memory
+          physical id: 23
+          slot: System board or motherboard
+          size: 8GiB
+        *-bank:0
+             description: DIMM DDR4 Synchronous 2400 MHz (0.4 ns)
+             product: 123456789012345678
+             vendor: ABCD
+             physical id: 0
+             serial: 1234
+             slot: A1_DIMM0
+             size: 8GiB
+             width: 64 bits
+             clock: 2400MHz (0.4ns)
+        *-bank:1
+             description: Synchronous [empty]
+             product: Array1_PartNumber1
+             vendor: A1_Manufacturer1
+             physical id: 1
+             serial: A1_SerNum1
+             slot: A1_DIMM1
+        *-bank:2
+             description: Synchronous [empty]
+             product: Array1_PartNumber2
+             vendor: A1_Manufacturer2
+             physical id: 2
+             serial: A1_SerNum2
+             slot: A1_DIMM2
+        *-bank:3
+             description: Synchronous [empty]
+             product: Array1_PartNumber3
+             vendor: A1_Manufacturer3
+             physical id: 3
+             serial: A1_SerNum3
+             slot: A1_DIMM3
+     *-cache:0
+          description: L1 cache
+          physical id: 32
+          slot: CPU Internal L1
+          size: 224KiB
+          capacity: 224KiB
+          capabilities: synchronous internal write-back
+          configuration: level=1
+     *-cache:1
+          description: L2 cache
+          physical id: 33
+          slot: CPU Internal L2
+          size: 4MiB
+          capacity: 4MiB
+          capabilities: synchronous internal write-back unified
+          configuration: level=2
+     *-cpu
+          description: CPU
+          product: Intel(R) Celeron(R) J4125 CPU @ 2.00GHz
+          vendor: Intel Corp.
+          physical id: 34
+          bus info: cpu@0
+          version: 6.122.8
+          slot: SOCKET 0
+          size: 2595MHz
+          capacity: 2700MHz
+          width: 64 bits
+          clock: 100MHz
+          capabilities: lm fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp x86-64 constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg cx16 xtpr pdcm sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave rdrand lahf_lm 3dnowprefetch cpuid_fault cat_l2 cdp_l2 ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust smep erms mpx rdt_a rdseed smap clflushopt intel_pt sha_ni xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts umip rdpid md_clear arch_capabilities cpufreq
+          configuration: cores=4 enabledcores=4 microcode=32 threads=4
+     *-pci
+          description: Host bridge
+          product: Gemini Lake Host Bridge
+          vendor: Intel Corporation
+          physical id: 100
+          bus info: pci@0000:00:00.0
+          version: 06
+          width: 32 bits
+          clock: 33MHz
+        *-generic:0
+             description: Signal processing controller
+             product: Celeron/Pentium Silver Processor Dynamic Platform and Thermal Framework Processor Participant
+             vendor: Intel Corporation
+             physical id: 0.1
+             bus info: pci@0000:00:00.1
+             version: 06
+             width: 64 bits
+             clock: 33MHz
+             capabilities: pm bus_master cap_list
+             configuration: driver=proc_thermal latency=0
+             resources: irq:24 memory:80000000-80007fff
+        *-display
+             description: VGA compatible controller
+             product: GeminiLake [UHD Graphics 600]
+             vendor: Intel Corporation
+             physical id: 2
+             bus info: pci@0000:00:02.0
+             logical name: /dev/fb0
+             version: 06
+             width: 64 bits
+             clock: 33MHz
+             capabilities: pciexpress msi pm vga_controller bus_master cap_list rom fb
+             configuration: depth=32 driver=i915 latency=0 resolution=3840,2160
+             resources: irq:130 memory:a0000000-a0ffffff memory:90000000-9fffffff ioport:f000(size=64) memory:c0000-dffff
+        *-multimedia
+             description: Multimedia audio controller
+             product: Celeron/Pentium Silver Processor High Definition Audio
+             vendor: Intel Corporation
+             physical id: e
+             bus info: pci@0000:00:0e.0
+             version: 06
+             width: 64 bits
+             clock: 33MHz
+             capabilities: pm msi pciexpress bus_master cap_list
+             configuration: driver=sof-audio-pci-intel-apl latency=0
+             resources: irq:134 memory:a1310000-a1313fff memory:a1000000-a10fffff
+        *-communication
+             description: Communication controller
+             product: Celeron/Pentium Silver Processor Trusted Execution Engine Interface
+             vendor: Intel Corporation
+             physical id: f
+             bus info: pci@0000:00:0f.0
+             version: 06
+             width: 64 bits
+             clock: 33MHz
+             capabilities: pm msi bus_master cap_list
+             configuration: driver=mei_me latency=0
+             resources: irq:131 memory:a1329000-a1329fff
+        *-sata
+             description: SATA controller
+             product: Celeron/Pentium Silver Processor SATA Controller
+             vendor: Intel Corporation
+             physical id: 12
+             bus info: pci@0000:00:12.0
+             logical name: scsi1
+             version: 06
+             width: 32 bits
+             clock: 66MHz
+             capabilities: sata msi pm ahci_1.0 bus_master cap_list emulated
+             configuration: driver=ahci latency=0
+             resources: irq:128 memory:a1314000-a1315fff memory:a1328000-a13280ff ioport:f090(size=8) ioport:f080(size=4) ioport:f060(size=32) memory:a1327000-a13277ff
+           *-disk
+                description: ATA Disk
+                product: 128GB SSD
+                physical id: 0.0.0
+                bus info: scsi@1:0.0.0
+                logical name: /dev/sda
+                version: 521
+                serial: CM53CBH2500107
+                size: 119GiB (128GB)
+                capabilities: gpt-1.00 partitioned partitioned:gpt
+                configuration: ansiversion=5 guid=932e1bbe-a50f-4db7-ab01-dcd62ca166fe logicalsectorsize=512 sectorsize=512
+              *-volume:0
+                   description: Windows FAT volume
+                   vendor: MSDOS5.0
+                   physical id: 1
+                   bus info: scsi@1:0.0.0,1
+                   logical name: /dev/sda1
+                   version: FAT32
+                   serial: b83d-b9ed
+                   size: 95MiB
+                   capacity: 99MiB
+                   capabilities: boot fat initialized
+                   configuration: FATs=2 filesystem=fat label=SYSTEM name=EFI system partition
+              *-volume:1
+                   description: reserved partition
+                   vendor: Windows
+                   physical id: 2
+                   bus info: scsi@1:0.0.0,2
+                   logical name: /dev/sda2
+                   serial: 2042b23f-fbfc-4d6f-9b17-4d087b06c5f1
+                   capacity: 15MiB
+                   capabilities: nofs
+                   configuration: name=Microsoft reserved partition
+              *-volume:2
+                   description: Windows NTFS volume
+                   vendor: Windows
+                   physical id: 3
+                   bus info: scsi@1:0.0.0,3
+                   logical name: /dev/sda3
+                   version: 3.1
+                   serial: f42951a6-7b85-2d4e-a0ce-1933063e46b4
+                   size: 118GiB
+                   capacity: 118GiB
+                   capabilities: ntfs initialized
+                   configuration: clustersize=4096 created=2022-10-10 21:57:08 filesystem=ntfs label=Windows name=Basic data partition state=clean
+              *-volume:3
+                   description: Windows NTFS volume
+                   vendor: Windows
+                   physical id: 4
+                   bus info: scsi@1:0.0.0,4
+                   logical name: /dev/sda4
+                   version: 3.1
+                   serial: 1a3f-0c2b
+                   size: 983MiB
+                   capacity: 999MiB
+                   capabilities: boot precious nomount ntfs initialized
+                   configuration: clustersize=4096 created=2022-10-10 21:57:10 filesystem=ntfs label=Recovery name=Basic data partition state=clean
+        *-pci:0
+             description: PCI bridge
+             product: Gemini Lake PCI Express Root Port
+             vendor: Intel Corporation
+             physical id: 13
+             bus info: pci@0000:00:13.0
+             version: f6
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci pciexpress msi pm normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:122
+        *-pci:1
+             description: PCI bridge
+             product: Gemini Lake PCI Express Root Port
+             vendor: Intel Corporation
+             physical id: 13.2
+             bus info: pci@0000:00:13.2
+             version: f6
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci pciexpress msi pm normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:123 memory:a1200000-a12fffff
+           *-network
+                description: Wireless interface
+                product: Wireless 7265
+                vendor: Intel Corporation
+                physical id: 0
+                bus info: pci@0000:02:00.0
+                logical name: wlo1
+                version: 59
+                serial: 80:b6:55:61:a5:b7
+                width: 64 bits
+                clock: 33MHz
+                capabilities: pm msi pciexpress bus_master cap_list ethernet physical wireless
+                configuration: broadcast=yes driver=iwlwifi driverversion=5.19.0-32-generic firmware=29.4063824552.0 7265D-29.ucode ip=192.168.12.36 latency=0 link=yes multicast=yes wireless=IEEE 802.11
+                resources: irq:132 memory:a1200000-a1201fff
+        *-pci:2
+             description: PCI bridge
+             product: Gemini Lake PCI Express Root Port
+             vendor: Intel Corporation
+             physical id: 13.3
+             bus info: pci@0000:00:13.3
+             version: f6
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci pciexpress msi pm normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:124 ioport:e000(size=4096) memory:a1100000-a11fffff
+           *-network
+                description: Ethernet interface
+                product: RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller
+                vendor: Realtek Semiconductor Co., Ltd.
+                physical id: 0
+                bus info: pci@0000:03:00.0
+                logical name: enp3s0
+                version: 15
+                serial: 00:e0:4c:38:68:1b
+                capacity: 1Gbit/s
+                width: 64 bits
+                clock: 33MHz
+                capabilities: pm msi pciexpress msix bus_master cap_list ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
+                configuration: autonegotiation=on broadcast=yes driver=r8169 driverversion=5.19.0-32-generic firmware=rtl8168h-2_0.0.2 02/26/15 latency=0 link=no multicast=yes port=twisted pair
+                resources: irq:21 ioport:e000(size=256) memory:a1104000-a1104fff memory:a1100000-a1103fff
+        *-pci:3
+             description: PCI bridge
+             product: Gemini Lake PCI Express Root Port
+             vendor: Intel Corporation
+             physical id: 14
+             bus info: pci@0000:00:14.0
+             version: f6
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci pciexpress msi pm normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:125
+        *-pci:4
+             description: PCI bridge
+             product: Gemini Lake PCI Express Root Port
+             vendor: Intel Corporation
+             physical id: 14.1
+             bus info: pci@0000:00:14.1
+             version: f6
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci pciexpress msi pm normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:126
+        *-usb
+             description: USB controller
+             product: Celeron/Pentium Silver Processor USB 3.0 xHCI Controller
+             vendor: Intel Corporation
+             physical id: 15
+             bus info: pci@0000:00:15.0
+             version: 06
+             width: 64 bits
+             clock: 33MHz
+             capabilities: pm msi xhci bus_master cap_list
+             configuration: driver=xhci_hcd latency=0
+             resources: irq:127 memory:a1300000-a130ffff
+           *-usbhost:0
+                product: xHCI Host Controller
+                vendor: Linux 5.19.0-32-generic xhci-hcd
+                physical id: 0
+                bus info: usb@1
+                logical name: usb1
+                version: 5.19
+                capabilities: usb-2.00
+                configuration: driver=hub slots=9 speed=480Mbit/s
+              *-usb:0
+                   description: Bluetooth wireless interface
+                   product: Bluetooth wireless interface
+                   vendor: Intel Corp.
+                   physical id: 4
+                   bus info: usb@1:4
+                   version: 0.03
+                   capabilities: bluetooth usb-2.00
+                   configuration: driver=btusb maxpower=100mA speed=12Mbit/s
+              *-usb:1
+                   description: Keyboard
+                   product: Lenovo TrackPoint Keyboard II
+                   vendor: Lenovo
+                   physical id: 7
+                   bus info: usb@1:7
+                   logical name: input10
+                   logical name: /dev/input/event3
+                   logical name: /dev/input/mouse0
+                   logical name: input9
+                   logical name: /dev/input/event1
+                   logical name: input9::capslock
+                   logical name: input9::compose
+                   logical name: input9::kana
+                   logical name: input9::numlock
+                   logical name: input9::scrolllock
+                   version: 1.27
+                   capabilities: usb-2.00 usb
+                   configuration: driver=usbhid maxpower=100mA speed=12Mbit/s
+           *-usbhost:1
+                product: xHCI Host Controller
+                vendor: Linux 5.19.0-32-generic xhci-hcd
+                physical id: 1
+                bus info: usb@2
+                logical name: usb2
+                version: 5.19
+                capabilities: usb-3.00
+                configuration: driver=hub slots=7 speed=5000Mbit/s
+              *-usb
+                   description: Mass storage device
+                   product: Mass Storage Device
+                   vendor: JetFlash
+                   physical id: 1
+                   bus info: usb@2:1
+                   logical name: scsi2
+                   version: 11.00
+                   serial: AAOJK4FQJKH0JUP9
+                   capabilities: usb-3.10 scsi emulated scsi-host
+                   configuration: driver=usb-storage maxpower=304mA speed=5000Mbit/s
+                 *-disk
+                      description: SCSI Disk
+                      product: Transcend 32GB
+                      vendor: JetFlash
+                      physical id: 0.0.0
+                      bus info: scsi@2:0.0.0
+                      logical name: /dev/sdb
+                      version: 1100
+                      serial: AA00000000000489
+                      size: 29GiB (31GB)
+                      capabilities: removable
+                      configuration: ansiversion=6 logicalsectorsize=512 sectorsize=512
+                    *-medium
+                         physical id: 0
+                         logical name: /dev/sdb
+                         size: 29GiB (31GB)
+                         capabilities: gpt-1.00 partitioned partitioned:gpt
+                         configuration: guid=a0891d7e-b930-4513-94d9-f629dbd637b2
+                       *-volume:0
+                            description: data partition
+                            vendor: Windows
+                            physical id: 1
+                            logical name: /dev/sdb1
+                            logical name: /cdrom
+                            serial: a0891d7e-b930-4513-94d8-f629dbd637b2
+                            capacity: 4694MiB
+                            capabilities: precious readonly
+                            configuration: mount.fstype=iso9660 mount.options=ro,noatime,nojoliet,check=s,map=n,blocksize=2048,iocharset=utf8 name=ISO9660 state=mounted
+                       *-volume:1
+                            description: Windows FAT volume
+                            vendor: mkfs.fat
+                            physical id: 2
+                            logical name: /dev/sdb2
+                            version: FAT12
+                            serial: f7db-4d56
+                            size: 15EiB
+                            capabilities: boot fat initialized
+                            configuration: FATs=2 filesystem=fat label=ESP name=Appended2
+                       *-volume:2
+                            description: data partition
+                            vendor: Windows
+                            physical id: 3
+                            logical name: /dev/sdb3
+                            serial: a0891d7e-b930-4513-94da-f629dbd637b2
+                            capacity: 299KiB
+                            capabilities: precious readonly
+                            configuration: name=Gap1
+                       *-volume:3
+                            description: EXT4 volume
+                            vendor: Linux
+                            physical id: 4
+                            logical name: /dev/sdb4
+                            logical name: /var/log
+                            logical name: /var/crash
+                            version: 1.0
+                            serial: 50d1cbbc-136a-4317-9f78-2f63aac9b01b
+                            size: 24GiB
+                            capacity: 24GiB
+                            capabilities: journaled extended_attributes large_files huge_files dir_nlink recover 64bit extents ext4 ext2 initialized
+                            configuration: created=2023-06-17 22:59:09 filesystem=ext4 label=writable lastmountpoint=/root/var/crash modified=2023-06-17 22:59:15 mount.fstype=ext4 mount.options=rw,relatime mounted=2023-06-17 22:59:15 state=mounted
+        *-generic:1
+             description: Signal processing controller
+             product: Celeron/Pentium Silver Processor Serial IO I2C Host Controller
+             vendor: Intel Corporation
+             physical id: 16
+             bus info: pci@0000:00:16.0
+             version: 06
+             width: 64 bits
+             clock: 33MHz
+             capabilities: pm bus_master cap_list
+             configuration: driver=intel-lpss latency=0
+             resources: irq:27 memory:a1326000-a1326fff memory:a1325000-a1325fff
+        *-generic:2
+             description: Signal processing controller
+             product: Celeron/Pentium Silver Processor Serial IO I2C Host Controller
+             vendor: Intel Corporation
+             physical id: 16.1
+             bus info: pci@0000:00:16.1
+             version: 06
+             width: 64 bits
+             clock: 33MHz
+             capabilities: pm bus_master cap_list
+             configuration: driver=intel-lpss latency=0
+             resources: irq:28 memory:a1324000-a1324fff memory:a1323000-a1323fff
+        *-generic:3
+             description: Signal processing controller
+             product: Intel Corporation
+             vendor: Intel Corporation
+             physical id: 16.2
+             bus info: pci@0000:00:16.2
+             version: 06
+             width: 64 bits
+             clock: 33MHz
+             capabilities: pm bus_master cap_list
+             configuration: driver=intel-lpss latency=0
+             resources: irq:29 memory:a1322000-a1322fff memory:a1321000-a1321fff
+        *-generic:4
+             description: Signal processing controller
+             product: Intel Corporation
+             vendor: Intel Corporation
+             physical id: 16.3
+             bus info: pci@0000:00:16.3
+             version: 06
+             width: 64 bits
+             clock: 33MHz
+             capabilities: pm bus_master cap_list
+             configuration: driver=intel-lpss latency=0
+             resources: irq:30 memory:a1320000-a1320fff memory:a131f000-a131ffff
+        *-generic:5
+             description: Signal processing controller
+             product: Intel Corporation
+             vendor: Intel Corporation
+             physical id: 17
+             bus info: pci@0000:00:17.0
+             version: 06
+             width: 64 bits
+             clock: 33MHz
+             capabilities: pm bus_master cap_list
+             configuration: driver=intel-lpss latency=0
+             resources: irq:31 memory:a131e000-a131efff memory:a131d000-a131dfff
+        *-generic:6
+             description: Signal processing controller
+             product: Intel Corporation
+             vendor: Intel Corporation
+             physical id: 17.1
+             bus info: pci@0000:00:17.1
+             version: 06
+             width: 64 bits
+             clock: 33MHz
+             capabilities: pm bus_master cap_list
+             configuration: driver=intel-lpss latency=0
+             resources: irq:32 memory:a131c000-a131cfff memory:a131b000-a131bfff
+        *-generic:7
+             description: MMC Host
+             product: Celeron/Pentium Silver Processor SDA Standard Compliant SD Host Controller
+             vendor: Intel Corporation
+             physical id: 1c
+             bus info: pci@0000:00:1c.0
+             logical name: mmc0
+             version: 06
+             width: 64 bits
+             clock: 33MHz
+             capabilities: pm bus_master cap_list
+             configuration: driver=sdhci-pci latency=0
+             resources: irq:39 memory:a131a000-a131afff memory:a1319000-a1319fff
+        *-generic:8
+             description: MMC Host
+             product: Intel Corporation
+             vendor: Intel Corporation
+             physical id: 1e
+             bus info: pci@0000:00:1e.0
+             logical name: mmc1
+             version: 06
+             width: 64 bits
+             clock: 33MHz
+             capabilities: pm bus_master cap_list
+             configuration: driver=sdhci-pci latency=0
+             resources: irq:42 memory:a1318000-a1318fff memory:a1317000-a1317fff
+        *-isa
+             description: ISA bridge
+             product: Celeron/Pentium Silver Processor LPC Controller
+             vendor: Intel Corporation
+             physical id: 1f
+             bus info: pci@0000:00:1f.0
+             version: 06
+             width: 32 bits
+             clock: 33MHz
+             capabilities: isa bus_master
+             configuration: latency=0
+           *-pnp00:00
+                product: PnP device PNP0c02
+                physical id: 0
+                capabilities: pnp
+                configuration: driver=system
+           *-pnp00:01
+                product: PnP device PNP0c02
+                physical id: 1
+                capabilities: pnp
+                configuration: driver=system
+           *-pnp00:02
+                product: PnP device PNP0b00
+                physical id: 2
+                capabilities: pnp
+                configuration: driver=rtc_cmos
+        *-serial
+             description: SMBus
+             product: Celeron/Pentium Silver Processor Gaussian Mixture Model
+             vendor: Intel Corporation
+             physical id: 1f.1
+             bus info: pci@0000:00:1f.1
+             version: 06
+             width: 64 bits
+             clock: 33MHz
+             configuration: driver=i801_smbus latency=0
+             resources: irq:20 memory:a1316000-a13160ff ioport:f040(size=32)
+  *-input:0
+       product: Power Button
+       physical id: 1
+       logical name: input0
+       logical name: /dev/input/event0
+       capabilities: platform
+  *-input:1
+       product: Video Bus
+       physical id: 2
+       logical name: input2
+       logical name: /dev/input/event2
+       capabilities: platform

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<!-- This site was created with Wowchemy. https://www.wowchemy.com -->
+<!-- Last Published: 2023年6月18日 -->
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Wowchemy 5.7.0 for Hugo">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; object-src 'none'; frame-src https://platform.twitter.com https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://platform.twitter.com;">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/vendor-bundle.min.16f785cdb553c8c4431db6775122af35.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css" integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg==" crossorigin="anonymous" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/wowchemy.f94f26ef6427b410ce6718cb42faf4d2.css">
+  <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  <meta name="google-site-verification" content="x-WRee-yVqnJs0JQZzIhmu43FqdyIrIKokjOAFhdL4I">
+  <meta name="description" content="NucBox3はファンレスで安いところが良さそうだと思って、Raspberry Piを置き換える用途でしばらく前に買ってあった。とにかく値段が安い（今日時点で実売12,383円）。それとは別に流行りのIntel N100と2.">
+  <link rel="alternate" hreflang="ja" href="https://nobuto-m.github.io/ja/post/2023/1687011989/">
+  <link rel="canonical" href="https://nobuto-m.github.io/ja/post/2023/1687011989/">
+  <link rel="icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_180x180_fill_lanczos_center_3.png">
+  <meta name="theme-color" content="#1565c0">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:image" content="https://nobuto-m.github.io/ja/post/2023/1687011989/featured.png">
+  <meta property="og:site_name" content="Nobuto Murata">
+  <meta property="og:url" content="https://nobuto-m.github.io/ja/post/2023/1687011989/">
+  <meta property="og:title" content="NucBox3でTrueNAS SCALEを試してみた | Nobuto Murata">
+  <meta property="og:description" content="NucBox3はファンレスで安いところが良さそうだと思って、Raspberry Piを置き換える用途でしばらく前に買ってあった。とにかく値段が安い（今日時点で実売12,383円）。それとは別に流行りのIntel N100と2.">
+  <meta property="og:image" content="https://nobuto-m.github.io/ja/post/2023/1687011989/featured.png">
+  <meta property="og:locale" content="ja">
+  <meta property="article:published_time" content="2023-06-17T23:26:29&#43;09:00">
+  <meta property="article:modified_time" content="2023-06-17T23:26:29&#43;09:00">
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nobuto-m.github.io/ja/post/2023/1687011989/"
+  },
+  "headline": "NucBox3でTrueNAS SCALEを試してみた",
+
+  "image": [
+    "https://nobuto-m.github.io/ja/post/2023/1687011989/featured.png"
+  ],
+
+  "datePublished": "2023-06-17T23:26:29+09:00",
+  "dateModified": "2023-06-17T23:26:29+09:00",
+
+  "author": {
+    "@type": "Person",
+    "name": "Authors"
+  },
+
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nobuto Murata",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "NucBox3はファンレスで安いところが良さそうだと思って、Raspberry Piを置き換える用途でしばらく前に買ってあった。とにかく値段が安い（今日時点で実売12,383円）。それとは別に流行りのIntel N100と2."
+  }
+  </script>
+  <title>NucBox3でTrueNAS SCALEを試してみた | Nobuto Murata</title>
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper" data-wc-page-id="2baa9a818dfd780a136ee29d4561bfa1">
+  <script src="/js/wowchemy-init.min.ec9d49ca50e4b80bdb08f0417a28ed84.js"></script>
+  <aside class="search-modal" id="search">
+    <div class="container">
+      <section class="search-header">
+        <div class="row no-gutters justify-content-between mb-3">
+          <div class="col-6">
+            <h1>検索</h1>
+          </div>
+
+          <div class="col-6 col-search-close">
+            <a class="js-search" href="#" aria-label="閉じる"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div id="search-box">
+          <input name="q" id="search-query" placeholder="検索..." autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control" aria-label="検索...">
+        </div>
+      </section>
+
+      <section class="section-search-results">
+        <div id="search-hits">
+        </div>
+      </section>
+    </div>
+  </aside>
+
+  <div class="page-header header--fixed">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+        <div class="container-xl">
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="ナビゲーションの切り替え"><span><i class="fas fa-bars"></i></span></button>
+          <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+            <ul class="navbar-nav d-md-inline-flex">
+              <li class="nav-item">
+                <a class="nav-link" href="/"><span>Home</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" href="/ja/post/"><span>投稿</span></a>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+            <li class="nav-item">
+              <a class="nav-link js-search" href="#" aria-label="検索"><i class="fas fa-search" aria-hidden="true"></i></a>
+            </li>
+
+            <li class="nav-item dropdown theme-dropdown">
+              <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="表示設定"><i class="fas fa-moon" aria-hidden="true"></i></a>
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-item js-set-theme-light"><span>ライト</span></a> <a href="#" class="dropdown-item js-set-theme-dark"><span>ダーク</span></a> <a href="#" class="dropdown-item js-set-theme-auto"><span>自動</span></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+      <div class="article-container pt-3">
+        <h1>NucBox3でTrueNAS SCALEを試してみた</h1>
+
+        <div class="article-metadata">
+          <span class="article-date">6月 17, 2023</span>
+        </div>
+      </div>
+
+      <div class="article-container">
+        <div class="article-style">
+          <p><a href="https://www.gmktec.com/products/nucbox-3-mini-pc-windows-11-home-os" target="_blank" rel="noopener">NucBox3</a>はファンレスで安いところが良さそうだと思って、Raspberry Piを置き換える用途でしばらく前に買ってあった。とにかく値段が安い（今日時点で実売12,383円）。それとは別に流行りのIntel N100と2.5G NICが搭載されてるもっと高めのものを家庭用NASを置き換える用途で買いたいなぁと思ってて、予行演習のためにまずはIntel Celeron J4125と1G NICのNucBox3に<a href="https://www.truenas.com/truenas-scale/" target="_blank" rel="noopener">TrueNAS SCALE</a>をインストールしてみた。</p>
+
+          <p>まず、NucBox3は最大限にコスパ重視って感じ。噂に聞く、全くuniqueではないUUID <code>03000200-0400-0500-0006-000700080009</code>は健在。</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ubuntu
+</span></span><span class="line"><span class="cl">    description: Desktop Computer
+</span></span><span class="line"><span class="cl">    product: NucBox3
+</span></span><span class="line"><span class="cl">    vendor: GMKtec
+</span></span><span class="line"><span class="cl">    version: Default string
+</span></span><span class="line"><span class="cl">    serial: Default string
+</span></span><span class="line"><span class="cl">    width: <span class="m">64</span> bits
+</span></span><span class="line"><span class="cl">    capabilities: smbios-3.2.0 dmi-3.2.0 smp vsyscall32
+</span></span><span class="line"><span class="cl">    configuration: <span class="nv">boot</span><span class="o">=</span>normal <span class="nv">chassis</span><span class="o">=</span>desktop <span class="nv">family</span><span class="o">=</span>Default string <span class="nv">uuid</span><span class="o">=</span>03000200-0400-0500-0006-000700080009
+</span></span></code></pre>
+          </div>
+
+          <p>DDR4の8GBメモリもvendor <code>ABCD</code>のproduct <code>123456789012345678</code>、シリアル番号は<code>1234</code>。</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">     *-memory
+</span></span><span class="line"><span class="cl">          description: System Memory
+</span></span><span class="line"><span class="cl">          physical id: <span class="m">23</span>
+</span></span><span class="line"><span class="cl">          slot: System board or motherboard
+</span></span><span class="line"><span class="cl">          size: 8GiB
+</span></span><span class="line"><span class="cl">        *-bank:0
+</span></span><span class="line"><span class="cl">             description: DIMM DDR4 Synchronous <span class="m">2400</span> MHz <span class="o">(</span>0.4 ns<span class="o">)</span>
+</span></span><span class="line"><span class="cl">             product: <span class="m">123456789012345678</span>
+</span></span><span class="line"><span class="cl">             vendor: ABCD
+</span></span><span class="line"><span class="cl">             physical id: <span class="m">0</span>
+</span></span><span class="line"><span class="cl">             serial: <span class="m">1234</span>
+</span></span><span class="line"><span class="cl">             slot: A1_DIMM0
+</span></span><span class="line"><span class="cl">             size: 8GiB
+</span></span><span class="line"><span class="cl">             width: <span class="m">64</span> bits
+</span></span><span class="line"><span class="cl">             clock: 2400MHz <span class="o">(</span>0.4ns<span class="o">)</span>
+</span></span></code></pre>
+          </div>
+
+          <p>全部こんな感じなんでしょと思いきや、M.2 SATAの128GB SSDは製品名は入ってなかったけどシリアル番号っぽいものは入ってる。ちなみに簡易ベンチマークはこんな感じ。</p>
+
+          <figure id="figure-ssdはそれなり可もなく不可もなく">
+            <div class="d-flex justify-content-center">
+              <div class="w-100"><img alt="SSDはそれなり。可もなく不可もなく。" src="/ja/post/2023/1687011989/gnome-disks.png" loading="lazy" data-zoomable="">
+              </div>
+            </div>
+
+            <figcaption>
+              SSDはそれなり。可もなく不可もなく。
+            </figcaption>
+          </figure>
+
+          <figure id="figure-lstopoの出力">
+            <div class="d-flex justify-content-center">
+              <div class="w-100"><img alt="`lstopo`の出力" src="/ja/post/2023/1687011989/lstopo.png" loading="lazy" data-zoomable="">
+              </div>
+            </div>
+
+            <figcaption>
+              <code>lstopo</code>の出力
+            </figcaption>
+          </figure>
+
+          <p>さくっと情報を確認したので、こっからはTrueNAS SCALEのインストールテスト。<a href="https://www.truenas.com/compare/" target="_blank" rel="noopener">SCALEの方はDebianベース</a>なのがいいなと思って選んだんですが、インストーラーもアプライアンスとしてカスタマイズされているので特に迷うところはなし。</p>
+
+          <figure>
+            <div class="d-flex justify-content-center">
+              <div class="w-100"><img alt="" src="/ja/post/2023/1687011989/featured.png" loading="lazy" data-zoomable="">
+              </div>
+            </div>
+          </figure>
+
+          <p>Shellアクセスもあるけども、<a href="https://www.truenas.com/community/threads/no-apt-after-update-to-release.99579/#post-686801" target="_blank" rel="noopener">アプライアンスとして使われるのを意図しているので</a>aptやdpkgコマンドはPermission deniedが返る。どんな方法で制限してるんだろうと思ったけど、executableフラグを落としてあるだけだった。</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">admin@truenas<span class="o">[</span>~<span class="o">]</span>$ find /usr/bin ! -executable
+</span></span><span class="line"><span class="cl">/usr/bin/docker-compose
+</span></span><span class="line"><span class="cl">/usr/bin/dpkg
+</span></span><span class="line"><span class="cl">/usr/bin/apt-get
+</span></span><span class="line"><span class="cl">/usr/bin/apt-extracttemplates
+</span></span><span class="line"><span class="cl">/usr/bin/apt-mark
+</span></span><span class="line"><span class="cl">/usr/bin/apt-sortpkgs
+</span></span><span class="line"><span class="cl">/usr/bin/apt-key
+</span></span><span class="line"><span class="cl">/usr/bin/apt
+</span></span><span class="line"><span class="cl">/usr/bin/apt-cache
+</span></span><span class="line"><span class="cl">/usr/bin/apt-ftparchive
+</span></span><span class="line"><span class="cl">/usr/bin/apt-config
+</span></span><span class="line"><span class="cl">/usr/bin/apt-cdrom
+</span></span></code></pre>
+          </div>
+
+          <p>まったくもって推奨されてないけど、ちょっとiperfでも実行してみるかと思って一時的にaptを使えるようにしたけど、iperf3はデフォルトで入っているというオチでした。TrueNAS SCALEのインストールしたバージョン<code>“Bluefin” 22.12</code>はDebian 11 bullseyeベースなんだけど、アプライアンスなので結構手が入ってる。opensslのバージョンとかも。</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">admin@truenas<span class="o">[</span>~<span class="o">]</span>$ apt policy openssl
+</span></span><span class="line"><span class="cl">openssl:
+</span></span><span class="line"><span class="cl">  Installed: 1.1.1t-001+deb11u4
+</span></span><span class="line"><span class="cl">  Candidate: 1.1.1n-0+deb11u4
+</span></span><span class="line"><span class="cl">  Version table:
+</span></span><span class="line"><span class="cl"> *** 1.1.1t-001+deb11u4 <span class="m">100</span>
+</span></span><span class="line"><span class="cl">        <span class="m">100</span> /var/lib/dpkg/status
+</span></span><span class="line"><span class="cl">     1.1.1n-0+deb11u4 <span class="m">1000</span>
+</span></span><span class="line"><span class="cl">        <span class="m">500</span> http://apt.tn.ixsystems.com/apt-direct/bluefin/22.12.3/debian-security bullseye-security/main amd64 Packages
+</span></span><span class="line"><span class="cl">     1.1.1n-0+deb11u3 <span class="m">900</span>
+</span></span><span class="line"><span class="cl">        <span class="m">900</span> http://apt.tn.ixsystems.com/apt-direct/bluefin/22.12.3/debian bullseye/main amd64 Packages
+</span></span></code></pre>
+          </div>
+
+          <p>NUCの形状からしてNASとして使う時のデータ置き場はUSB接続の外部HDDになる予定で、USB接続は推奨はされていないもののZFS用のデバイスとしてちゃんと使える。</p>
+
+          <figure id="figure-usbストレージはnot-recommendedでwarning扱い">
+            <div class="d-flex justify-content-center">
+              <div class="w-100"><img alt="USBストレージはnot recommendedでwarning扱い" src="/ja/post/2023/1687011989/usb_not_recommended.png" loading="lazy" data-zoomable="">
+              </div>
+            </div>
+
+            <figcaption>
+              USBストレージはnot recommendedでwarning扱い
+            </figcaption>
+          </figure>
+
+          <p>で、ここまでいろいろ見てきて、TrueNAS SCALEはうちの家庭用NASとしてピッタリじゃね、と。最初はDebianベースだからっていう理由で触り始めたけど、NASとしてこれこそが求めていたものでは。</p>
+
+          <p>ただ、<a href="https://www.truenas.com/apps/" target="_blank" rel="noopener">TrueNAS SCALEのアプリストア</a>を使う時に、SCALE自体がインストールされているドライブとは別のドライブを必要とする。ので、SCALE自体を内蔵SSDに入れるとして、アプリ（Kubernetes上で動く)が外付けHDDで動作するのもなんだかなと。一般にNASにアプリストアってあるあるだけど、んーでも結局そんなに使うことになるのかしら。将来のために、デフォルトで全領域を使う<code>boot-pool</code>を何とかサイズ指定したり後から縮小したりできるかを調べることからかな、と。</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ lsblk -f
+</span></span><span class="line"><span class="cl">NAME     FSTYPE     FSVER LABEL     UUID                                 FSAVAIL FSUSE% MOUNTPOINT
+</span></span><span class="line"><span class="cl">sda
+</span></span><span class="line"><span class="cl">├─sda1
+</span></span><span class="line"><span class="cl">├─sda2   vfat       FAT32 EFI       2D4A-EDB1
+</span></span><span class="line"><span class="cl">├─sda3   zfs_member 5000  boot-pool 572534033895956289
+</span></span><span class="line"><span class="cl">└─sda4
+</span></span><span class="line"><span class="cl">  └─sda4 swap       1               9a1c0394-e549-4ef5-a15b-dc69f9a39e41                [SWAP]
+</span></span><span class="line"><span class="cl">sdb
+</span></span><span class="line"><span class="cl">├─sdb1
+</span></span><span class="line"><span class="cl">└─sdb2   zfs_member 5000  external  9260921456295045295
+</span></span></code></pre>
+          </div>
+
+          <p>Intel Celeron J4125と1G NICでテストしててさくさく動いてしまうので、N100と2.5Gとか要らないような気がしてくる。現状で十分というかアプリ、コンテナ、VMをそんなに動かすのかなと。ちょっと悩んだ後に、安いのは正義ということでNucBox3をまずはもう一個買いました。ので、これでしばらく運用してみて本当に必要だったらスペックを考え直すことにする。</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <footer class="site-footer">
+        <p class="powered-by copyright-license-text">© 2017-2023 Nobuto Murata</p>
+
+        <p class="powered-by">Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.</p>
+      </footer>
+    </div>
+  </div>
+  <script src="/js/vendor-bundle.min.2621b0c3d1130efc0b22bddd510b0848.js"></script> 
+  <script id="search-hit-fuse-template" type="text/x-template">
+
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script> 
+  <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script> 
+  <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script> 
+  <script id="page-data" type="application/json">
+  {"use_headroom":true}
+  </script> 
+  <script src="/js/wowchemy-headroom.db4755770454eb63685f8de785c0a172.js" type="module"></script> 
+  <script src="/ja/js/wowchemy.min.76fdfd14718a145dd8911e215198018c.js"></script>
+</body>
+</html>

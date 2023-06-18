@@ -5,12 +5,196 @@
     <link>https://nobuto-m.github.io/ja/post/2023/</link>
       <atom:link href="https://nobuto-m.github.io/ja/post/2023/index.xml" rel="self" type="application/rss+xml" />
     <description>2023</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Sun, 11 Jun 2023 14:48:21 +0900</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Sat, 17 Jun 2023 23:26:29 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>2023</title>
       <link>https://nobuto-m.github.io/ja/post/2023/</link>
     </image>
+    
+    <item>
+      <title>NucBox3でTrueNAS SCALEを試してみた</title>
+      <link>https://nobuto-m.github.io/ja/post/2023/1687011989/</link>
+      <pubDate>Sat, 17 Jun 2023 23:26:29 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2023/1687011989/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.gmktec.com/products/nucbox-3-mini-pc-windows-11-home-os&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;NucBox3&lt;/a&gt;はファンレスで安いところが良さそうだと思って、Raspberry Piを置き換える用途でしばらく前に買ってあった。とにかく値段が安い（今日時点で実売12,383円）。それとは別に流行りのIntel N100と2.5G NICが搭載されてるもっと高めのものを家庭用NASを置き換える用途で買いたいなぁと思ってて、予行演習のためにまずはIntel Celeron J4125と1G NICのNucBox3に&lt;a href=&#34;https://www.truenas.com/truenas-scale/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TrueNAS SCALE&lt;/a&gt;をインストールしてみた。&lt;/p&gt;
+&lt;p&gt;まず、NucBox3は最大限にコスパ重視って感じ。噂に聞く、全くuniqueではないUUID &lt;code&gt;03000200-0400-0500-0006-000700080009&lt;/code&gt;は健在。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ubuntu
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    description: Desktop Computer
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    product: NucBox3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    vendor: GMKtec
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    version: Default string
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    serial: Default string
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    width: &lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; bits
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    capabilities: smbios-3.2.0 dmi-3.2.0 smp vsyscall32
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    configuration: &lt;span class=&#34;nv&#34;&gt;boot&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;normal &lt;span class=&#34;nv&#34;&gt;chassis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;desktop &lt;span class=&#34;nv&#34;&gt;family&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Default string &lt;span class=&#34;nv&#34;&gt;uuid&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;03000200-0400-0500-0006-000700080009
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;DDR4の8GBメモリもvendor &lt;code&gt;ABCD&lt;/code&gt;のproduct &lt;code&gt;123456789012345678&lt;/code&gt;、シリアル番号は&lt;code&gt;1234&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;     *-memory
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          description: System Memory
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          physical id: &lt;span class=&#34;m&#34;&gt;23&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          slot: System board or motherboard
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          size: 8GiB
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        *-bank:0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;             description: DIMM DDR4 Synchronous &lt;span class=&#34;m&#34;&gt;2400&lt;/span&gt; MHz &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;0.4 ns&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;             product: &lt;span class=&#34;m&#34;&gt;123456789012345678&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;             vendor: ABCD
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;             physical id: &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;             serial: &lt;span class=&#34;m&#34;&gt;1234&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;             slot: A1_DIMM0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;             size: 8GiB
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;             width: &lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; bits
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;             clock: 2400MHz &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;0.4ns&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;全部こんな感じなんでしょと思いきや、M.2 SATAの128GB SSDは製品名は入ってなかったけどシリアル番号っぽいものは入ってる。ちなみに簡易ベンチマークはこんな感じ。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-ssdはそれなり可もなく不可もなく&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;SSDはそれなり。可もなく不可もなく。&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/1687011989/gnome-disks.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      SSDはそれなり。可もなく不可もなく。
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-lstopoの出力&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;`lstopo`の出力&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/1687011989/lstopo.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      &lt;code&gt;lstopo&lt;/code&gt;の出力
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;さくっと情報を確認したので、こっからはTrueNAS SCALEのインストールテスト。&lt;a href=&#34;https://www.truenas.com/compare/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SCALEの方はDebianベース&lt;/a&gt;なのがいいなと思って選んだんですが、インストーラーもアプライアンスとしてカスタマイズされているので特に迷うところはなし。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/1687011989/featured.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+
+&lt;p&gt;Shellアクセスもあるけども、&lt;a href=&#34;https://www.truenas.com/community/threads/no-apt-after-update-to-release.99579/#post-686801&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;アプライアンスとして使われるのを意図しているので&lt;/a&gt;aptやdpkgコマンドはPermission deniedが返る。どんな方法で制限してるんだろうと思ったけど、executableフラグを落としてあるだけだった。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;admin@truenas&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;$ find /usr/bin ! -executable
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/usr/bin/docker-compose
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/usr/bin/dpkg
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/usr/bin/apt-get
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/usr/bin/apt-extracttemplates
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/usr/bin/apt-mark
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/usr/bin/apt-sortpkgs
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/usr/bin/apt-key
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/usr/bin/apt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/usr/bin/apt-cache
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/usr/bin/apt-ftparchive
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/usr/bin/apt-config
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/usr/bin/apt-cdrom
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;まったくもって推奨されてないけど、ちょっとiperfでも実行してみるかと思って一時的にaptを使えるようにしたけど、iperf3はデフォルトで入っているというオチでした。TrueNAS SCALEのインストールしたバージョン&lt;code&gt;“Bluefin” 22.12&lt;/code&gt;はDebian 11 bullseyeベースなんだけど、アプライアンスなので結構手が入ってる。opensslのバージョンとかも。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;admin@truenas&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;$ apt policy openssl
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;openssl:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Installed: 1.1.1t-001+deb11u4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Candidate: 1.1.1n-0+deb11u4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Version table:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; *** 1.1.1t-001+deb11u4 &lt;span class=&#34;m&#34;&gt;100&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;m&#34;&gt;100&lt;/span&gt; /var/lib/dpkg/status
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;     1.1.1n-0+deb11u4 &lt;span class=&#34;m&#34;&gt;1000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;m&#34;&gt;500&lt;/span&gt; http://apt.tn.ixsystems.com/apt-direct/bluefin/22.12.3/debian-security bullseye-security/main amd64 Packages
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;     1.1.1n-0+deb11u3 &lt;span class=&#34;m&#34;&gt;900&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;m&#34;&gt;900&lt;/span&gt; http://apt.tn.ixsystems.com/apt-direct/bluefin/22.12.3/debian bullseye/main amd64 Packages
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;NUCの形状からしてNASとして使う時のデータ置き場はUSB接続の外部HDDになる予定で、USB接続は推奨はされていないもののZFS用のデバイスとしてちゃんと使える。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-usbストレージはnot-recommendedでwarning扱い&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;USBストレージはnot recommendedでwarning扱い&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/1687011989/usb_not_recommended.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      USBストレージはnot recommendedでwarning扱い
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;で、ここまでいろいろ見てきて、TrueNAS SCALEはうちの家庭用NASとしてピッタリじゃね、と。最初はDebianベースだからっていう理由で触り始めたけど、NASとしてこれこそが求めていたものでは。&lt;/p&gt;
+&lt;p&gt;ただ、&lt;a href=&#34;https://www.truenas.com/apps/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TrueNAS SCALEのアプリストア&lt;/a&gt;を使う時に、SCALE自体がインストールされているドライブとは別のドライブを必要とする。ので、SCALE自体を内蔵SSDに入れるとして、アプリ（Kubernetes上で動く)が外付けHDDで動作するのもなんだかなと。一般にNASにアプリストアってあるあるだけど、んーでも結局そんなに使うことになるのかしら。将来のために、デフォルトで全領域を使う&lt;code&gt;boot-pool&lt;/code&gt;を何とかサイズ指定したり後から縮小したりできるかを調べることからかな、と。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ lsblk -f
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;NAME     FSTYPE     FSVER LABEL     UUID                                 FSAVAIL FSUSE% MOUNTPOINT
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sda
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├─sda1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├─sda2   vfat       FAT32 EFI       2D4A-EDB1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├─sda3   zfs_member 5000  boot-pool 572534033895956289
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└─sda4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  └─sda4 swap       1               9a1c0394-e549-4ef5-a15b-dc69f9a39e41                [SWAP]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sdb
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├─sdb1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└─sdb2   zfs_member 5000  external  9260921456295045295
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Intel Celeron J4125と1G NICでテストしててさくさく動いてしまうので、N100と2.5Gとか要らないような気がしてくる。現状で十分というかアプリ、コンテナ、VMをそんなに動かすのかなと。ちょっと悩んだ後に、安いのは正義ということでNucBox3をまずはもう一個買いました。ので、これでしばらく運用してみて本当に必要だったらスペックを考え直すことにする。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>ミニミニ手術を受けた</title>
