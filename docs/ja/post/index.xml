@@ -5,12 +5,47 @@
     <link>https://nobuto-m.github.io/ja/post/</link>
       <atom:link href="https://nobuto-m.github.io/ja/post/index.xml" rel="self" type="application/rss+xml" />
     <description>投稿</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Sat, 17 Jun 2023 23:26:29 +0900</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Sat, 01 Jul 2023 23:03:22 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>投稿</title>
       <link>https://nobuto-m.github.io/ja/post/</link>
     </image>
+    
+    <item>
+      <title>Hugo snapが fatal: unable to find remote helper for &#39;https&#39; のエラーを出すようになった</title>
+      <link>https://nobuto-m.github.io/ja/post/2023/1688220202/</link>
+      <pubDate>Sat, 01 Jul 2023 23:03:22 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2023/1688220202/</guid>
+      <description>&lt;p&gt;一個新規記事ファイルを作って、Hugoのプレビューを開こうとしたらエラーになる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ hugo
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go: github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy-plugin-netlify@v1.0.0: invalid version: git ls-remote -q origin in /tmp/hugo_cache_nobuto/modules/filecache/modules/pkg/mod/cache/vcs/0c88995f39c54fe356dd74460b6359b56b0fb376c52289c9656c86270b2c006d: &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; status 128:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	fatal: unable to find remote helper &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;https&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go: github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy-plugin-netlify-cms@v1.0.0: invalid version: git ls-remote -q origin in /tmp/hugo_cache_nobuto/modules/filecache/modules/pkg/mod/cache/vcs/0c88995f39c54fe356dd74460b6359b56b0fb376c52289c9656c86270b2c006d: &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; status 128:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	fatal: unable to find remote helper &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;https&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go: github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy-plugin-reveal@v1.0.0: invalid version: git ls-remote -q origin in /tmp/hugo_cache_nobuto/modules/filecache/modules/pkg/mod/cache/vcs/0c88995f39c54fe356dd74460b6359b56b0fb376c52289c9656c86270b2c006d: &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; status 128:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	fatal: unable to find remote helper &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;https&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go: github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy/v5@v5.7.1-0.20230420205746-951c7b6f709d: invalid version: git ls-remote -q origin in /tmp/hugo_cache_nobuto/modules/filecache/modules/pkg/mod/cache/vcs/0c88995f39c54fe356dd74460b6359b56b0fb376c52289c9656c86270b2c006d: &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; status 128:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	fatal: unable to find remote helper &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;https&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo: collected modules in &lt;span class=&#34;m&#34;&gt;897&lt;/span&gt; ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Total in &lt;span class=&#34;m&#34;&gt;906&lt;/span&gt; ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Error: failed to load modules: failed to download modules: failed to execute &lt;span class=&#34;s1&#34;&gt;&amp;#39;go [mod download]&amp;#39;&lt;/span&gt;: failed to execute binary &lt;span class=&#34;s2&#34;&gt;&amp;#34;go&amp;#34;&lt;/span&gt; with args &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;mod download&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;: go: github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy-plugin-netlify@v1.0.0: invalid version: git ls-remote -q origin in /tmp/hugo_cache_nobuto/modules/filecache/modules/pkg/mod/cache/vcs/0c88995f39c54fe356dd74460b6359b56b0fb376c52289c9656c86270b2c006d: &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; status 128:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	fatal: unable to find remote helper &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;https&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go: github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy-plugin-netlify-cms@v1.0.0: invalid version: git ls-remote -q origin in /tmp/hugo_cache_nobuto/modules/filecache/modules/pkg/mod/cache/vcs/0c88995f39c54fe356dd74460b6359b56b0fb376c52289c9656c86270b2c006d: &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; status 128:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	fatal: unable to find remote helper &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;https&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go: github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy-plugin-reveal@v1.0.0: invalid version: git ls-remote -q origin in /tmp/hugo_cache_nobuto/modules/filecache/modules/pkg/mod/cache/vcs/0c88995f39c54fe356dd74460b6359b56b0fb376c52289c9656c86270b2c006d: &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; status 128:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	fatal: unable to find remote helper &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;https&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go: github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy/v5@v5.7.1-0.20230420205746-951c7b6f709d: invalid version: git ls-remote -q origin in /tmp/hugo_cache_nobuto/modules/filecache/modules/pkg/mod/cache/vcs/0c88995f39c54fe356dd74460b6359b56b0fb376c52289c9656c86270b2c006d: &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; status 128:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	fatal: unable to find remote helper &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;https&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; *errors.errorString
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;snap版特有の問題っぽかったので、一応Hugoプロジェクトにバグ報告。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/gohugoio/hugo/issues/11195&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/gohugoio/hugo/issues/11195&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;なぜsnap版なのにHugoプロジェクトかというと、&lt;a href=&#34;https://github.com/gohugoio/hugo/blob/master/snap/snapcraft.yaml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;snapcraft.yaml&lt;/a&gt;はHugoプロジェクト側でメンテされていて、これはこれですごくありがたい。&lt;/p&gt;
+&lt;p&gt;現状の回避策は、こないだまで動いていたrevisionを指定してインストールする形。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo snap refresh --channel extended/stable --revision &lt;span class=&#34;m&#34;&gt;16307&lt;/span&gt; hugo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;パッと見はなんで名前解決がブロックされるのかよくわからず。&lt;code&gt;/snap/hugo/{16307,16457}&lt;/code&gt;を比べてもバイナリ以外大きな差分はないし、リビジョンごとに生成されるAppArmorのプロファイルも特に差分は見えない。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>NucBox3でTrueNAS SCALEを試してみた</title>
