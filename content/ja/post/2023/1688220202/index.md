@@ -65,4 +65,15 @@ https://github.com/gohugoio/hugo/issues/11195
 $ sudo snap refresh --channel extended/stable --revision 16307 hugo
 ```
 
-パッと見はなんで名前解決がブロックされるのかよくわからず。`/snap/hugo/{16307,16457}`を比べてもバイナリ以外大きな差分はないし、リビジョンごとに生成されるAppArmorのプロファイルも特に差分は見えない。
+~~パッと見はなんで名前解決がブロックされるのかよくわからず~~。`/snap/hugo/{16307,16457}`を比べてもバイナリ以外大きな差分はないし、リビジョンごとに生成されるAppArmorのプロファイルも特に差分は見えない。
+
+追記: AppArmor上は新しいリビジョンでだけ2つ追加でブロックされたログが出るので名前解決かと思ったけど、名前解決まではできてるみたい。
+```bash
+[pid 95517] 15:50:23.307119 openat(AT_FDCWD, "/snap/core20/current/lib/x86_64-linux-gnu/libresolv.so.2", O_RDONLY|O_CLOEXEC) = -1 EACCES (Permission denied)
+
+[pid 95517] 15:50:23.310260 openat(AT_FDCWD, "/snap/core20/current/lib/x86_64-linux-gnu/libnss_dns.so.2", O_RDONLY|O_CLOEXEC) = -1 EACCES (Permission denied)
+
+[pid 95517] 15:50:23.311317 connect(3, {sa_family=AF_INET, sin_port=htons(53), sin_addr=inet_addr("127.0.0.53")}, 16) = 0
+
+[pid 95517] 15:50:23.313023 connect(3, {sa_family=AF_INET, sin_port=htons(443), sin_addr=inet_addr("20.27.177.113")}, 16) = -1 EINPROGRESS (Operation now in progress)
+```
