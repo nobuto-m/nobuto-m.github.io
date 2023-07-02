@@ -67,7 +67,7 @@ $ sudo snap refresh --channel extended/stable --revision 16307 hugo
 
 ~~パッと見はなんで名前解決がブロックされるのかよくわからず~~。`/snap/hugo/{16307,16457}`を比べてもバイナリ以外大きな差分はないし、リビジョンごとに生成されるAppArmorのプロファイルも特に差分は見えない。
 
-追記: AppArmor上は新しいリビジョンでだけ2つ追加でブロックされたログが出るので名前解決かと思ったけど、名前解決まではできてるみたい。
+**追記:** AppArmor上は新しいリビジョンでだけ2つ追加でブロックされたログが出るので名前解決かと思ったけど、名前解決まではできてるみたい。
 ```bash
 [pid 95517] 15:50:23.307119 openat(AT_FDCWD, "/snap/core20/current/lib/x86_64-linux-gnu/libresolv.so.2", O_RDONLY|O_CLOEXEC) = -1 EACCES (Permission denied)
 
@@ -77,3 +77,5 @@ $ sudo snap refresh --channel extended/stable --revision 16307 hugo
 
 [pid 95517] 15:50:23.313023 connect(3, {sa_family=AF_INET, sin_port=htons(443), sin_addr=inet_addr("20.27.177.113")}, 16) = -1 EINPROGRESS (Operation now in progress)
 ```
+
+**追記2:** 結局はAppArmorではなくて、Hugo本体のセキュリティ機構だった。snapのビルド時に`sed`を走らせてsnap用の設定を入れてるけど、[本体側で加えた変更](https://github.com/gohugoio/hugo/commit/7f698c89346acb5e5116736d25325a046652ba81#diff-eb691e23a4a8e810b5e9237690d327af133c5dde0a29dec2e1beed426b3d35dfL45-R45)が[snapcraft.yamlには反映されていなかった](https://github.com/gohugoio/hugo/pull/11198/files)。さらに進めて最終的には[sedを使わなくなって](https://github.com/gohugoio/hugo/pull/11200/files)一件落着。素晴らしい。
