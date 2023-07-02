@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://nobuto-m.github.io/ja/post/2023/</loc>
-    <lastmod>2023-07-01T23:03:22+09:00</lastmod>
+    <lastmod>2023-07-02T16:29:52+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
@@ -16,12 +16,8 @@
                 href="https://nobuto-m.github.io/ja/post/2023/"
                 />
   </url><url>
-    <loc>https://nobuto-m.github.io/ja/post/2023/1688220202/</loc>
-    <lastmod>2023-07-01T23:03:22+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
     <loc>https://nobuto-m.github.io/ja/</loc>
-    <lastmod>2023-07-01T23:03:22+09:00</lastmod>
+    <lastmod>2023-07-02T16:29:52+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
@@ -35,11 +31,11 @@
                 />
   </url><url>
     <loc>https://nobuto-m.github.io/ja/year/</loc>
-    <lastmod>2023-07-01T23:03:22+09:00</lastmod>
+    <lastmod>2023-07-02T16:29:52+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://nobuto-m.github.io/ja/post/</loc>
-    <lastmod>2023-07-01T23:03:22+09:00</lastmod>
+    <lastmod>2023-07-02T16:29:52+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
@@ -51,6 +47,24 @@
                 hreflang="ja"
                 href="https://nobuto-m.github.io/ja/post/"
                 />
+  </url><url>
+    <loc>https://nobuto-m.github.io/ja/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/</loc>
+    <lastmod>2023-07-02T16:29:52+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://nobuto-m.github.io/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/"
+                />
+  </url><url>
+    <loc>https://nobuto-m.github.io/ja/post/2023/1688220202/</loc>
+    <lastmod>2023-07-01T23:03:22+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://nobuto-m.github.io/ja/post/2023/1687011989/</loc>
     <lastmod>2023-06-17T23:26:29+09:00</lastmod>

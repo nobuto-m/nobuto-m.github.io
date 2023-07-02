@@ -83,6 +83,16 @@
     <loc>https://nobuto-m.github.io/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/</loc>
     <lastmod>2023-07-02T16:29:52+09:00</lastmod>
     <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://nobuto-m.github.io/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/"
+                />
   </url><url>
     <loc>https://nobuto-m.github.io/post/2021/</loc>
     <lastmod>2021-01-06T10:09:02+09:00</lastmod>

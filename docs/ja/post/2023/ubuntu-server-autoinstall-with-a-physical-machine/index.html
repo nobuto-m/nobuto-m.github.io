@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- This site was created with Wowchemy. https://www.wowchemy.com -->
-<!-- Last Published: July 2, 2023 -->
-<html lang="en-US">
+<!-- Last Published: 2023年7月2日 -->
+<html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,22 +17,21 @@
   <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
   <meta name="google-site-verification" content="x-WRee-yVqnJs0JQZzIhmu43FqdyIrIKokjOAFhdL4I">
-  <meta name="author" content="Nobuto Murata">
-  <meta name="description" content="There is a great set of articles in the Ubuntu Server guide about how to achieve an unattended installation of Ubuntu Server: Automated Server installation Automated Server install quickstart Automated Server installer config file reference And I followed those to test my minimal autoinstall file as follows.">
+  <meta name="description" content="Ubuntu Serverを自動インストールする方法については、Ubuntu Serverガイドにすでにちゃんとした記事がある。">
+  <link rel="alternate" hreflang="en" href="https://nobuto-m.github.io/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/">
   <link rel="alternate" hreflang="ja" href="https://nobuto-m.github.io/ja/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/">
-  <link rel="alternate" hreflang="en-US" href="https://nobuto-m.github.io/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/">
-  <link rel="canonical" href="https://nobuto-m.github.io/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/">
+  <link rel="canonical" href="https://nobuto-m.github.io/ja/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/">
   <link rel="icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_32x32_fill_lanczos_center_3.png">
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_180x180_fill_lanczos_center_3.png">
   <meta name="theme-color" content="#1565c0">
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:image" content="https://nobuto-m.github.io/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/featured.png">
+  <meta property="twitter:image" content="https://nobuto-m.github.io/ja/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/featured.png">
   <meta property="og:site_name" content="Nobuto Murata">
-  <meta property="og:url" content="https://nobuto-m.github.io/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/">
-  <meta property="og:title" content="Ubuntu Server autoinstall with a physical machine | Nobuto Murata">
-  <meta property="og:description" content="There is a great set of articles in the Ubuntu Server guide about how to achieve an unattended installation of Ubuntu Server: Automated Server installation Automated Server install quickstart Automated Server installer config file reference And I followed those to test my minimal autoinstall file as follows.">
-  <meta property="og:image" content="https://nobuto-m.github.io/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/featured.png">
-  <meta property="og:locale" content="en-US">
+  <meta property="og:url" content="https://nobuto-m.github.io/ja/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/">
+  <meta property="og:title" content="物理マシンでUbuntu Serverのautoinstall | Nobuto Murata">
+  <meta property="og:description" content="Ubuntu Serverを自動インストールする方法については、Ubuntu Serverガイドにすでにちゃんとした記事がある。">
+  <meta property="og:image" content="https://nobuto-m.github.io/ja/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/featured.png">
+  <meta property="og:locale" content="ja">
   <meta property="article:published_time" content="2023-07-02T16:29:52&#43;09:00">
   <meta property="article:modified_time" content="2023-07-02T16:29:52&#43;09:00">
   <script type="application/ld+json">
@@ -41,12 +40,12 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://nobuto-m.github.io/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/"
+    "@id": "https://nobuto-m.github.io/ja/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/"
   },
-  "headline": "Ubuntu Server autoinstall with a physical machine",
+  "headline": "物理マシンでUbuntu Serverのautoinstall",
 
   "image": [
-    "https://nobuto-m.github.io/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/featured.png"
+    "https://nobuto-m.github.io/ja/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/featured.png"
   ],
 
   "datePublished": "2023-07-02T16:29:52+09:00",
@@ -54,7 +53,7 @@
 
   "author": {
     "@type": "Person",
-    "name": "Nobuto Murata"
+    "name": "Authors"
   },
 
   "publisher": {
@@ -65,10 +64,10 @@
       "url": "https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "There is a great set of articles in the Ubuntu Server guide about how to achieve an unattended installation of Ubuntu Server:\nAutomated Server installation Automated Server install quickstart Automated Server installer config file reference And I followed those to test my minimal autoinstall file as follows."
+  "description": "Ubuntu Serverを自動インストールする方法については、Ubuntu Serverガイドにすでにちゃんとした記事がある。"
   }
   </script>
-  <title>Ubuntu Server autoinstall with a physical machine | Nobuto Murata</title>
+  <title>物理マシンでUbuntu Serverのautoinstall | Nobuto Murata</title>
 </head>
 <body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper" data-wc-page-id="d6ce7ea91d3f16a2fc3e21bbc38d98dc">
   <script src="/js/wowchemy-init.min.ec9d49ca50e4b80bdb08f0417a28ed84.js"></script>
@@ -77,16 +76,16 @@
       <section class="search-header">
         <div class="row no-gutters justify-content-between mb-3">
           <div class="col-6">
-            <h1>Search</h1>
+            <h1>検索</h1>
           </div>
 
           <div class="col-6 col-search-close">
-            <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+            <a class="js-search" href="#" aria-label="閉じる"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
           </div>
         </div>
 
         <div id="search-box">
-          <input name="q" id="search-query" placeholder="Search..." autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control" aria-label="Search...">
+          <input name="q" id="search-query" placeholder="検索..." autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control" aria-label="検索...">
         </div>
       </section>
 
@@ -101,35 +100,28 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
         <div class="container-xl">
-          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span><i class="fas fa-bars"></i></span></button>
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="ナビゲーションの切り替え"><span><i class="fas fa-bars"></i></span></button>
           <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
             <ul class="navbar-nav d-md-inline-flex">
               <li class="nav-item">
-                <a class="nav-link" href="/#about"><span>Home</span></a>
+                <a class="nav-link" href="/"><span>Home</span></a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="/#posts"><span>Posts</span></a>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Language</span><span class="caret"></span></a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="/ja/post/"><span>日本語</span></a>
-                </div>
+                <a class="nav-link active" href="/ja/post/"><span>投稿</span></a>
               </li>
             </ul>
           </div>
 
           <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
             <li class="nav-item">
-              <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+              <a class="nav-link js-search" href="#" aria-label="検索"><i class="fas fa-search" aria-hidden="true"></i></a>
             </li>
 
             <li class="nav-item dropdown theme-dropdown">
-              <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences"><i class="fas fa-moon" aria-hidden="true"></i></a>
+              <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="表示設定"><i class="fas fa-moon" aria-hidden="true"></i></a>
               <div class="dropdown-menu">
-                <a href="#" class="dropdown-item js-set-theme-light"><span>Light</span></a> <a href="#" class="dropdown-item js-set-theme-dark"><span>Dark</span></a> <a href="#" class="dropdown-item js-set-theme-auto"><span>Automatic</span></a>
+                <a href="#" class="dropdown-item js-set-theme-light"><span>ライト</span></a> <a href="#" class="dropdown-item js-set-theme-dark"><span>ダーク</span></a> <a href="#" class="dropdown-item js-set-theme-auto"><span>自動</span></a>
               </div>
             </li>
 
@@ -137,9 +129,9 @@
               <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Languages"><i class="fas fa-globe mr-1" aria-hidden="true"></i></a>
               <div class="dropdown-menu">
                 <div class="dropdown-item dropdown-item-active">
-                  <span>English</span>
+                  <span>日本語</span>
                 </div>
-                <a class="dropdown-item" href="https://nobuto-m.github.io/ja/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/"><span>日本語</span></a>
+                <a class="dropdown-item" href="https://nobuto-m.github.io/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/"><span>English</span></a>
               </div>
             </li>
           </ul>
@@ -151,16 +143,16 @@
   <div class="page-body">
     <article class="article">
       <div class="article-container pt-3">
-        <h1>Ubuntu Server autoinstall with a physical machine</h1>
+        <h1>物理マシンでUbuntu Serverのautoinstall</h1>
 
         <div class="article-metadata">
-          <span class="article-date">Jul 2, 2023</span> <span class="middot-divider"></span> <span class="article-categories"><i class="fas fa-folder mr-1"></i><a href="/category/ubuntu/">Ubuntu</a></span>
+          <span class="article-date">7月 2, 2023</span>
         </div>
       </div>
 
       <div class="article-container">
         <div class="article-style">
-          <p>There is a great set of articles in the Ubuntu Server guide about how to achieve an unattended installation of Ubuntu Server:</p>
+          <p>Ubuntu Serverを自動インストールする方法については、Ubuntu Serverガイドにすでにちゃんとした記事がある。</p>
 
           <ul>
             <li>
@@ -176,7 +168,9 @@
             </li>
           </ul>
 
-          <p>And I followed those to test my minimal autoinstall file as follows.</p>
+          <p>あとは<a href="https://gihyo.jp/admin/serial/01/ubuntu-recipe/0615" target="_blank" rel="noopener">柴田さんのgihyo.jp記事</a>もあるので日本語でも解説されている。</p>
+
+          <p>Ubuntu Serverガイドにしたがって、自分用に最小のautoinstallファイルを作ってやってみた。</p>
 
           <div class="highlight">
             <pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c">#cloud-config</span><span class="w">
@@ -197,91 +191,27 @@
 </span></span></span></code></pre>
           </div>
 
-          <p>It works flawlessly with the <code>kvm</code> command with:</p>
+          <p>ドキュメントにあるように、<code>kvm</code>コマンドと下記カーネルコマンドラインパラメーターを使うと完璧に動作する。</p>
 
           <div class="highlight">
             <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">-append <span class="s1">&#39;autoinstall ds=nocloud-net;s=http://_gateway:3003/&#39;</span>
 </span></span></code></pre>
           </div>
 
-          <p>as per the document. However, when it comes to a physical machine installation with the vanilla 22.04 LTS ISO, the installer just stopped at the initial language selection step.</p>
+          <p>けれども、カスタマイズしてない普通の22.04 LTSのISOだとうまくいかなくて、最初の言語選択の画面で止まってしまう。</p>
 
-          <p>In the end, it was a subtle difference. <a href="https://www.gnu.org/software/grub/manual/grub/grub.html#Simple-commands" target="_blank" rel="noopener">Without escaping the semicolon</a>, the URL to the autoinstall file is ignored. One missing backslash cost me more than an hour. I <a href="https://discourse.ubuntu.com/t/automated-server-install-quickstart/16614/50" target="_blank" rel="noopener">provided feedback to the document</a> and I hope it&rsquo;s a time saver for somebody.</p>
+          <p>結局はすごく小さなところが問題で、<a href="https://www.gnu.org/software/grub/manual/grub/grub.html#Simple-commands" target="_blank" rel="noopener">セミコロンをエスケープしておかないと</a>、autoinstallファイルをインストールするためのURLが無視されて渡らない。これだけの話で1時間以上悩んだ。<a href="https://discourse.ubuntu.com/t/automated-server-install-quickstart/16614/50" target="_blank" rel="noopener">ドキュメントへのフィードバックはしたので</a>、将来的に誰かの役に立てればと。</p>
 
-          <figure id="figure-the-semicolon-must-be-escaped-in-grub">
+          <figure id="figure-grubの時はセミコロンのエスケープが必須">
             <div class="d-flex justify-content-center">
-              <div class="w-100"><img alt="The semicolon must be escaped in GRUB" src="/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/featured.png" loading="lazy" data-zoomable="">
+              <div class="w-100"><img alt="GRUBの時はセミコロンのエスケープが必須" src="/ja/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/featured.png" loading="lazy" data-zoomable="">
               </div>
             </div>
 
             <figcaption>
-              The semicolon must be escaped in GRUB
+              GRUBの時はセミコロンのエスケープが必須
             </figcaption>
           </figure>
-        </div>
-
-        <div class="article-tags">
-          <a class="badge badge-light" href="/tag/planet-ubuntu/">planet-ubuntu</a>
-        </div>
-
-        <div class="share-box">
-          <ul class="share">
-            <li>
-              <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2023%2Fubuntu-server-autoinstall-with-a-physical-machine%2F&amp;text=Ubuntu&#43;Server&#43;autoinstall&#43;with&#43;a&#43;physical&#43;machine" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter"><i class="fab fa-twitter"></i></a>
-            </li>
-
-            <li>
-              <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2023%2Fubuntu-server-autoinstall-with-a-physical-machine%2F&amp;t=Ubuntu&#43;Server&#43;autoinstall&#43;with&#43;a&#43;physical&#43;machine" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook"><i class="fab fa-facebook"></i></a>
-            </li>
-
-            <li>
-              <a href="mailto:?subject=Ubuntu%20Server%20autoinstall%20with%20a%20physical%20machine&amp;body=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2023%2Fubuntu-server-autoinstall-with-a-physical-machine%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope"><i class="fas fa-envelope"></i></a>
-            </li>
-
-            <li>
-              <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2023%2Fubuntu-server-autoinstall-with-a-physical-machine%2F&amp;title=Ubuntu&#43;Server&#43;autoinstall&#43;with&#43;a&#43;physical&#43;machine" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in"><i class="fab fa-linkedin-in"></i></a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="media author-card content-widget-hr">
-          <a href="https://nobuto-m.github.io/"><img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_hu78a952caf143c499a0d44484a3185536_20286_270x270_fill_q75_lanczos_center.jpg" alt="Nobuto Murata"></a>
-          <div class="media-body">
-            <h5 class="card-title"><a href="https://nobuto-m.github.io/">Nobuto Murata</a>
-            </h5>
-
-            <ul class="network-icon" aria-hidden="true">
-              <li>
-                <a href="https://twitter.com/nobuto_m" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-              </li>
-
-              <li>
-                <a href="https://github.com/nobuto-m" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-              </li>
-
-              <li>
-                <a href="https://nobuto-murata.org/" target="_blank" rel="noopener"><i class="fas fa-globe"></i></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="article-widget content-widget-hr">
-          <h3>Related</h3>
-
-          <ul>
-            <li>
-              <a href="/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/">Shortcut key to mute/unmute yourself in Zoom, Google Meet, or Teams</a>
-            </li>
-
-            <li>
-              <a href="/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/">Minimal Dynamic DNS configuration for No-IP.com with ddclient</a>
-            </li>
-
-            <li>
-              <a href="/post/2017/knowing-what-services-need-restart-with-needrestart/">Knowing what services need restart with “needrestart”</a>
-            </li>
-          </ul>
         </div>
       </div>
     </article>
@@ -315,6 +245,6 @@
   {"use_headroom":true}
   </script> 
   <script src="/js/wowchemy-headroom.db4755770454eb63685f8de785c0a172.js" type="module"></script> 
-  <script src="/en/js/wowchemy.min.91534f6cb18c3621254d412c69186d7c.js"></script>
+  <script src="/ja/js/wowchemy.min.76fdfd14718a145dd8911e215198018c.js"></script>
 </body>
 </html>
