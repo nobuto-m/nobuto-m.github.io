@@ -2,12 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nobuto-m.github.io/post/2021/</loc>
-    <lastmod>2021-01-06T10:09:02+09:00</lastmod>
+    <loc>https://nobuto-m.github.io/post/2023/</loc>
+    <lastmod>2023-07-02T16:29:52+09:00</lastmod>
     <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/post/2023/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://nobuto-m.github.io/post/2023/"
+                />
   </url><url>
     <loc>https://nobuto-m.github.io/categories/</loc>
-    <lastmod>2023-05-01T11:07:44+09:00</lastmod>
+    <lastmod>2023-07-02T16:29:52+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
@@ -20,16 +30,8 @@
                 href="https://nobuto-m.github.io/categories/"
                 />
   </url><url>
-    <loc>https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/</loc>
-    <lastmod>2021-01-06T10:09:02+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://nobuto-m.github.io/category/miscellaneous/</loc>
-    <lastmod>2021-01-06T10:09:02+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
     <loc>https://nobuto-m.github.io/</loc>
-    <lastmod>2023-05-01T11:07:44+09:00</lastmod>
+    <lastmod>2023-07-02T16:29:52+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
@@ -42,8 +44,12 @@
                 href="https://nobuto-m.github.io/"
                 />
   </url><url>
+    <loc>https://nobuto-m.github.io/tag/planet-ubuntu/</loc>
+    <lastmod>2023-07-02T16:29:52+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>https://nobuto-m.github.io/post/</loc>
-    <lastmod>2023-05-01T11:07:44+09:00</lastmod>
+    <lastmod>2023-07-02T16:29:52+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
@@ -56,20 +62,8 @@
                 href="https://nobuto-m.github.io/post/"
                 />
   </url><url>
-    <loc>https://nobuto-m.github.io/post/2020/</loc>
-    <lastmod>2023-05-01T11:07:44+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://nobuto-m.github.io/tag/planet-ubuntu/</loc>
-    <lastmod>2023-05-01T11:07:44+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/</loc>
-    <lastmod>2023-05-01T11:07:44+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
     <loc>https://nobuto-m.github.io/tags/</loc>
-    <lastmod>2023-05-01T11:07:44+09:00</lastmod>
+    <lastmod>2023-07-02T16:29:52+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
@@ -83,6 +77,30 @@
                 />
   </url><url>
     <loc>https://nobuto-m.github.io/category/ubuntu/</loc>
+    <lastmod>2023-07-02T16:29:52+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://nobuto-m.github.io/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/</loc>
+    <lastmod>2023-07-02T16:29:52+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://nobuto-m.github.io/post/2021/</loc>
+    <lastmod>2021-01-06T10:09:02+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://nobuto-m.github.io/post/2021/how-i-spent-year-end-holidays/</loc>
+    <lastmod>2021-01-06T10:09:02+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://nobuto-m.github.io/category/miscellaneous/</loc>
+    <lastmod>2021-01-06T10:09:02+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://nobuto-m.github.io/post/2020/</loc>
+    <lastmod>2023-05-01T11:07:44+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://nobuto-m.github.io/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/</loc>
     <lastmod>2023-05-01T11:07:44+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>

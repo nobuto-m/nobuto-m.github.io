@@ -5,6 +5,16 @@
     <loc>https://nobuto-m.github.io/ja/post/2023/</loc>
     <lastmod>2023-07-01T23:03:22+09:00</lastmod>
     <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://nobuto-m.github.io/post/2023/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/post/2023/"
+                />
   </url><url>
     <loc>https://nobuto-m.github.io/ja/post/2023/1688220202/</loc>
     <lastmod>2023-07-01T23:03:22+09:00</lastmod>
