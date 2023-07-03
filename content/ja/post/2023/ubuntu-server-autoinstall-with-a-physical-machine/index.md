@@ -62,6 +62,6 @@ autoinstall:
 ```
 けれども、カスタマイズしてない普通の22.04 LTSのISOだとうまくいかなくて、最初の言語選択の画面で止まってしまう。
 
-結局はすごく小さなところが問題で、[セミコロンをエスケープしておかないと](https://www.gnu.org/software/grub/manual/grub/grub.html#Simple-commands)、autoinstallファイルをインストールするためのURLが無視されて渡らない。これだけの話で1時間以上悩んだ。[ドキュメントへのフィードバックはしたので](https://discourse.ubuntu.com/t/automated-server-install-quickstart/16614/50)、将来的に誰かの役に立てればと。
+結局はすごく小さなところが問題で、[セミコロンをエスケープしておかないと](https://www.gnu.org/software/grub/manual/grub/grub.html#Simple-commands)、autoinstallファイルを取得するためのURLが無視されて渡らない。これだけの話で1時間以上悩んだ。[ドキュメントへのフィードバックはしたので](https://discourse.ubuntu.com/t/automated-server-install-quickstart/16614/50)、将来的に誰かの役に立てればと。
 
 {{< figure src="featured.png" caption="GRUBの時はセミコロンのエスケープが必須" >}}
