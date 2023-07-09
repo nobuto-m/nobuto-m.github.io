@@ -34,7 +34,7 @@ image:
 
 最初はすんなりいくかとおもって、特にメモを書くこともないなぁと思ってたけど、しっかりあったので書いておく。
 
-まず、[RSSフィードをを扱ってくれるRSS Readノード](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.rssfeedread/)は、RSSのURLを1個しか受け取ってくれない。なので複数サイトのフィードを一気に扱いたいときは、さっそく他のノードとの連携が必要になってくる。幸い[このトピックそのものの公式ドキュメントがあるので](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.splitinbatches/#example-usage-read-rss-feed-from-two-different-sources)、`Split In Batches`ノードでループを作ればいいことがわかるのだが、このループを作成するときにフィードのリストを渡すための「リストを定義する」みたいなノードが存在しない。
+まず、[RSSフィードを扱ってくれるRSS Readノード](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.rssfeedread/)は、RSSのURLを1個しか受け取ってくれない。なので複数サイトのフィードを一気に扱いたいときは、さっそく他のノードとの連携が必要になってくる。幸い[このトピックそのものの公式ドキュメントがあるので](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.splitinbatches/#example-usage-read-rss-feed-from-two-different-sources)、`Split In Batches`ノードでループを作ればいいことがわかるのだが、このループを作成するときにフィードのリストを渡すための「リストを定義する」みたいなノードが存在しない。
 
 仕方がないので、先ほどの公式ドキュメントにあるように、別途任意のJavascriptコードを書ける[Codeノード](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/)を用意して、下記のようにして次に実行されるノードにリストが渡るようにする。
 
