@@ -197,7 +197,7 @@
             </figcaption>
           </figure>
 
-          <p>ここで、RSS内のアイテムに紐付いている日時<code>{{ $json.isoDate }}</code>と、現在時刻から157分前の日時<code>{{$now.minus({minutes:157}).toISO()}}</code>を比べて、記事が前回の実行時より新しいかどうかを無理やり判定する。</p>
+          <p>ここで、RSS内のアイテムに紐付いている日時<code>{{$json.isoDate}}</code>と、現在時刻から157分前の日時<code>{{$now.minus({minutes:157}).toISO()}}</code>を比べて、記事が前回の実行時より新しいかどうかを無理やり判定する。</p>
 
           <p>これ以外にいい方法がないか調べたけども、公式のノードだけではこれが限界っぽい。157分をハードコードすると、後々間隔を変更したときにこの部分を変更し忘れそうなので変数を使って<br>
           <code>$('Schedule Trigger').params[&quot;rule&quot;][&quot;interval&quot;][0][&quot;minutesInterval&quot;]</code><br>

@@ -111,7 +111,7 @@
       現在時刻から157分前を指定
     &lt;/figcaption&gt;&lt;/figure&gt;
 
-&lt;p&gt;ここで、RSS内のアイテムに紐付いている日時&lt;code&gt;{{ $json.isoDate }}&lt;/code&gt;と、現在時刻から157分前の日時&lt;code&gt;{{$now.minus({minutes:157}).toISO()}}&lt;/code&gt;を比べて、記事が前回の実行時より新しいかどうかを無理やり判定する。&lt;/p&gt;
+&lt;p&gt;ここで、RSS内のアイテムに紐付いている日時&lt;code&gt;{{$json.isoDate}}&lt;/code&gt;と、現在時刻から157分前の日時&lt;code&gt;{{$now.minus({minutes:157}).toISO()}}&lt;/code&gt;を比べて、記事が前回の実行時より新しいかどうかを無理やり判定する。&lt;/p&gt;
 &lt;p&gt;これ以外にいい方法がないか調べたけども、公式のノードだけではこれが限界っぽい。157分をハードコードすると、後々間隔を変更したときにこの部分を変更し忘れそうなので変数を使って&lt;br&gt;
 &lt;code&gt;$(&#39;Schedule Trigger&#39;).params[&amp;quot;rule&amp;quot;][&amp;quot;interval&amp;quot;][0][&amp;quot;minutesInterval&amp;quot;]&lt;/code&gt;&lt;br&gt;
 に変更しておくとよさそう。後は&lt;code&gt;$now&lt;/code&gt;を使うとワークフロー全体が開始された日時ではなくて、&lt;a href=&#34;https://docs.n8n.io/code-examples/expressions/luxon/#variables&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;コード自体が呼び出された日時が入りそうなので&lt;/a&gt;、フィードの取得に時間がかかったときなどは空白の時間が生まれて新着判定が上手くいかなそうなので、ここも変数を使ってワークフローが開始された日時そのものを使うために&lt;br&gt;
