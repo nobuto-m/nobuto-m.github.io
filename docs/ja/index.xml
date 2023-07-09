@@ -5,12 +5,190 @@
     <link>https://nobuto-m.github.io/ja/</link>
       <atom:link href="https://nobuto-m.github.io/ja/index.xml" rel="self" type="application/rss+xml" />
     <description>Nobuto Murata</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Sun, 02 Jul 2023 16:29:52 +0900</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Sun, 09 Jul 2023 15:46:05 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>Nobuto Murata</title>
       <link>https://nobuto-m.github.io/ja/</link>
     </image>
+    
+    <item>
+      <title>n8nでRSSの新着アイテムをwebhookに投げる</title>
+      <link>https://nobuto-m.github.io/ja/post/2023/1688885165/</link>
+      <pubDate>Sun, 09 Jul 2023 15:46:05 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2023/1688885165/</guid>
+      <description>&lt;p&gt;昔は&lt;a href=&#34;https://internet.watch.impress.co.jp/cda/news/2006/03/27/11384.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SleipnirのRSSリーダー&lt;/a&gt;とかGoogle Readerとかを使っていて、Feedlyもちょっとは使っていた。けれどもいつのまにかTwitterで話題になったやつとか、&lt;a href=&#34;https://developers.google.com/search/docs/appearance/google-discover&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Google Discover&lt;/a&gt;で出てきたニュースをちょろっと読むだけになってしまった。もうちょっと能動的にキーワードで引っ掛けたりして自分にとって重要そうなニュースを早めに読みたいという気持ちはあり、&lt;a href=&#34;https://n8n.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;n8n&lt;/a&gt;のself-hostingコミュニティ版を使ってチャットに流すことにした。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-ピタゴラスイッチっぽさ&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;ピタゴラスイッチっぽさ&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/1688885165/featured.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      ピタゴラスイッチっぽさ
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;最初はすんなりいくかとおもって、特にメモを書くこともないなぁと思ってたけど、しっかりあったので書いておく。&lt;/p&gt;
+&lt;p&gt;まず、&lt;a href=&#34;https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.rssfeedread/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;RSSフィードをを扱ってくれるRSS Readノード&lt;/a&gt;は、RSSのURLを1個しか受け取ってくれない。なので複数サイトのフィードを一気に扱いたいときは、さっそく他のノードとの連携が必要になってくる。幸い&lt;a href=&#34;https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.splitinbatches/#example-usage-read-rss-feed-from-two-different-sources&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;このトピックそのものの公式ドキュメントがあるので&lt;/a&gt;、&lt;code&gt;Split In Batches&lt;/code&gt;ノードでループを作ればいいことがわかるのだが、このループを作成するときにフィードのリストを渡すための「リストを定義する」みたいなノードが存在しない。&lt;/p&gt;
+&lt;p&gt;仕方がないので、先ほどの公式ドキュメントにあるように、別途任意のJavascriptコードを書ける&lt;a href=&#34;https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Codeノード&lt;/a&gt;を用意して、下記のようにして次に実行されるノードにリストが渡るようにする。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;https://news1.example.com/feed&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;https://news2.example.com/feed&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;https://news3.example.com/feed&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;https://news4.example.com/feed&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;https://news5.example.com/feed&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ここまでで、ワークフローが実行されたときに全部のサイトを巡回して、RSS内のアイテムを取ってきてくれるのだが、ここから「前回実行時からの新着アイテム」に絞り込むことがRSSノードではできない。このままWebhookへのPOSTにつなげてしまうと、ワークフローが実行されるたびに古い記事も含めて全部のアイテムがチャットに投げられてしまうので悲劇。そこでまずはワークフローの実行間隔を、cronに相当する&lt;a href=&#34;https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Schedule trigger&lt;/a&gt;ノードで設定する。ここでは例として157分間隔に設定。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-実行間隔の設定&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;実行間隔の設定&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/1688885165/schedule_trigger.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      実行間隔の設定
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;続いて、&lt;code&gt;Split In Batches&lt;/code&gt;ノードの後ろに&lt;a href=&#34;https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.filter/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Filterノード&lt;/a&gt;をつなげて、次のようなフィルターを設定する。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-現在時刻から157分前を指定&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;現在時刻から157分前を指定&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/1688885165/filter_by_date.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      現在時刻から157分前を指定
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;ここで、RSS内のアイテムに紐付いている日時&lt;code&gt;{{ $json.isoDate }}&lt;/code&gt;と、現在時刻から157分前の日時&lt;code&gt;{{$now.minus({minutes:157}).toISO()}}&lt;/code&gt;を比べて、記事が前回の実行時より新しいかどうかを無理やり判定する。&lt;/p&gt;
+&lt;p&gt;これ以外にいい方法がないか調べたけども、公式のノードだけではこれが限界っぽい。157分をハードコードすると、後々間隔を変更したときにこの部分を変更し忘れそうなので変数を使って&lt;br&gt;
+&lt;code&gt;$(&#39;Schedule Trigger&#39;).params[&amp;quot;rule&amp;quot;][&amp;quot;interval&amp;quot;][0][&amp;quot;minutesInterval&amp;quot;]&lt;/code&gt;&lt;br&gt;
+に変更しておくとよさそう。後は&lt;code&gt;$now&lt;/code&gt;を使うとワークフロー全体が開始された日時ではなくて、&lt;a href=&#34;https://docs.n8n.io/code-examples/expressions/luxon/#variables&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;コード自体が呼び出された日時が入りそうなので&lt;/a&gt;、フィードの取得に時間がかかったときなどは空白の時間が生まれて新着判定が上手くいかなそうなので、ここも変数を使ってワークフローが開始された日時そのものを使うために&lt;br&gt;
+&lt;code&gt;$(&#39;Schedule Trigger&#39;).item.json.timestamp&lt;/code&gt;&lt;br&gt;
+としておく。&lt;/p&gt;
+&lt;p&gt;最終的には新着判定のために使う基準日時は&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;DateTime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fromISO&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Schedule Trigger&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;item&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;timestamp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;minus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nx&#34;&gt;minutes&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nx&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Schedule Trigger&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;rule&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;interval&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          &lt;span class=&#34;s2&#34;&gt;&amp;#34;minutesInterval&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;toISO&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;となる、けど読みにくいですね。&lt;/p&gt;
+&lt;p&gt;このあたりは、何分間隔という指定ではなくて、毎時決まった時間に、とした方がすっきりすると思う。だけど、毎時決まった時間にフィードを取りに行くのはなんかしっくりこないんですよね。&lt;/p&gt;
+&lt;p&gt;ここまでで新着判定はできているはずなので、後はWebhookに向かって情報を投げるだけ。&lt;a href=&#34;https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;HTTP Requestノード&lt;/a&gt;を使って、サービスに合わせて整形した上で投げる。例えば&lt;a href=&#34;https://developers.mattermost.com/integrate/webhooks/incoming/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mattermostの場合は&lt;/a&gt;、&lt;code&gt;text&lt;/code&gt;にリンクを入れてあげれば自動でプレビューされるので十分。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-リンクやタイトルを整形して投げる&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;リンクやタイトルを整形して投げる&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/1688885165/webhook.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      リンクやタイトルを整形して投げる
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;新着アイテムを全部投稿するのではなくて、特定のキーワードに合致するものだけに絞りたければ、POSTする前にもう一つFilterノードを追加してRegexが書ける。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-タイトルと概要がキーワードを含むものだけに絞れる&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;タイトルと概要がキーワードを含むものだけに絞れる&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/1688885165/filter_keywords.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      タイトルと概要がキーワードを含むものだけに絞れる
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;「RSSの新着アイテムをキーワードで絞ってからPOSTしておいて」っていう簡単ぽく聞こえる作業が、ここまでの長文になってしまった。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>物理マシンでUbuntu Serverのautoinstall</title>
