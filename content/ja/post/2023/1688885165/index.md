@@ -87,6 +87,6 @@ return [
 
 新着アイテムを全部投稿するのではなくて、特定のキーワードに合致するものだけに絞りたければ、POSTする前にもう一つFilterノードを追加してRegexが書ける。
 
-{{< figure src="filter_keywords.png" caption="タイトルと概要がキーワードを含むものだけに絞れる" >}}
+{{< figure src="filter_keywords.png" caption="タイトルか概要がキーワードを含むものだけに絞れる" >}}
 
 「RSSの新着アイテムをキーワードで絞ってからPOSTしておいて」っていう簡単ぽく聞こえる作業が、ここまでの長文になってしまった。
