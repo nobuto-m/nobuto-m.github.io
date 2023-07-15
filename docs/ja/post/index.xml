@@ -5,12 +5,59 @@
     <link>https://nobuto-m.github.io/ja/post/</link>
       <atom:link href="https://nobuto-m.github.io/ja/post/index.xml" rel="self" type="application/rss+xml" />
     <description>投稿</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Sun, 09 Jul 2023 15:46:05 +0900</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Sat, 15 Jul 2023 19:53:18 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>投稿</title>
       <link>https://nobuto-m.github.io/ja/post/</link>
     </image>
+    
+    <item>
+      <title>ドラマ『トリリオンゲーム』にUbuntuがちらっと映った</title>
+      <link>https://nobuto-m.github.io/ja/post/2023/1689418398/</link>
+      <pubDate>Sat, 15 Jul 2023 19:53:18 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2023/1689418398/</guid>
+      <description>&lt;p&gt;会社に何か話が来ていたことは知っていて、ただ本当に映るのか観るまでは知らなかったので無事に映っててよかった。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-ubuntuのロゴも美術協力の一覧の中に&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Ubuntuのロゴも美術協力の一覧の中に&#34; srcset=&#34;
+               /ja/post/2023/1689418398/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_437f53d046a2a28b35bb2790405da1c2.webp 400w,
+               /ja/post/2023/1689418398/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_3485d4257c548076dde653918ff5a5d9.webp 760w,
+               /ja/post/2023/1689418398/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1689418398/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_437f53d046a2a28b35bb2790405da1c2.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;428&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Ubuntuのロゴも美術協力の一覧の中に
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.tbs.co.jp/trilliongame_tbs/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;『トリリオンゲーム』のドラマ&lt;/a&gt;自体はいくつかの会社が技術監修やってますっていう記事を出していて、うちの会社（もちろん私は会社を代表するものではないですが）としては特にこれといったことはしてないと思います。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ricsec.co.jp/news/tbs-trilliongame/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TBS金曜ドラマ『トリリオンゲーム』のハッキングシーン舞台裏 - 株式会社リチェルカセキュリティ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://flatt.tech/magazine/entry/20230714_trillion_game_drama&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;「セキュリティコンテストは本当にあるの？」「具体的な技術的設定は？」ドラマ『トリリオンゲーム』第1話 技術監修の裏側を解説します！&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;外野の感想としては、コマンドラインで操作するところはカッコよく作り込まれているなと。あと芸が細かいなと思ったのは、主人公たちの学生時代にノートPCを開いた場面では、UnityのLauncherが映っていたところでしょうか。「その時代のUbuntuは今の画面じゃなくてUnityだからちゃんとUnity使わなきゃ」って言った人がいたのかしら。実際のシーンがどんな感じだったかは、TVerとかNetflixとかで確認していただければと。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>n8nでRSSの新着アイテムをwebhookに投げる</title>
