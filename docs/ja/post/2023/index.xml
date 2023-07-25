@@ -5,12 +5,78 @@
     <link>https://nobuto-m.github.io/ja/post/2023/</link>
       <atom:link href="https://nobuto-m.github.io/ja/post/2023/index.xml" rel="self" type="application/rss+xml" />
     <description>2023</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Sat, 15 Jul 2023 19:53:18 +0900</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Tue, 25 Jul 2023 21:16:10 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>2023</title>
       <link>https://nobuto-m.github.io/ja/post/2023/</link>
     </image>
+    
+    <item>
+      <title>NucBox3での運用一筋縄ではいかないかも</title>
+      <link>https://nobuto-m.github.io/ja/post/2023/1690287370/</link>
+      <pubDate>Tue, 25 Jul 2023 21:16:10 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2023/1690287370/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://nobuto-m.github.io/ja/post/2023/1687011989/&#34;&gt;Raspberry Pi 2Bの代用として買ったNucBox3&lt;/a&gt;を数週間運用してて、ある程度いい感じに動いてくれてると思ってたけど急に手がかかるようになった。マシンの上で動かしていたのは&lt;a href=&#34;https://nobuto-m.github.io/ja/post/2023/1688885165/&#34;&gt;n8nでの定期タスク&lt;/a&gt;で、それ自体は負荷がかからないけどそれをわざわざsingle-node Kubernetesの上で動かしていたのでそれなりにディスクアクセスはあった。それでもまあ大したものじゃなかったけど、急にfilesystemがread-onlyに。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-30-iosからの突然のread-only&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;~30 IO/sからの突然のread-only&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/1690287370/featured.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      ~30 IO/sからの突然のread-only
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;こういうのが嫌だったので、SDカード運用のRaspberry Pi 2Bから離れたのに結局は同じ状況に。再起動してもすぐにread-onlyになってしまって、なぜかSSHも鍵認証で弾かれる。ただ、node-exporterだけはしっかり動いていて状況だけは詳細にわかる謎。&lt;/p&gt;
+&lt;p&gt;とりあえず、ファイルシステムの復旧か再インストールかを現地でして様子見するしかないけど、もしファンレスで温度が高めであることが原因だったらこのマシンという選択自体が間違いということになるので悲しいですね。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-温度はむしろ最近落ち着いていた&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;温度はむしろ最近落ち着いていた&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/1690287370/temperature.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      温度はむしろ最近落ち着いていた
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;一応、昼間は冷房のかかっている部屋に置いてあるのでそんなに想定温度とは違わないはずなんだけど。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>ドラマ『トリリオンゲーム』にUbuntuがちらっと映った</title>
