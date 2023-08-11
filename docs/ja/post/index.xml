@@ -5,12 +5,22 @@
     <link>https://nobuto-m.github.io/ja/post/</link>
       <atom:link href="https://nobuto-m.github.io/ja/post/index.xml" rel="self" type="application/rss+xml" />
     <description>投稿</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Sun, 30 Jul 2023 14:28:19 +0900</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Fri, 11 Aug 2023 11:52:49 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>投稿</title>
       <link>https://nobuto-m.github.io/ja/post/</link>
     </image>
+    
+    <item>
+      <title>『クイーンズ・ギャンビット』と『ボディガード －守るべきもの－』を観終わった</title>
+      <link>https://nobuto-m.github.io/ja/post/2023/1691722369/</link>
+      <pubDate>Fri, 11 Aug 2023 11:52:49 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2023/1691722369/</guid>
+      <description>&lt;p&gt;『&lt;a href=&#34;https://www.netflix.com/title/80234304&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;クイーンズ・ギャンビット&lt;/a&gt;』と『&lt;a href=&#34;https://www.netflix.com/title/80235864&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ボディガード －守るべきもの－&lt;/a&gt;』を観終わった。7話、6話とどちらもコンパクトな作りなのに観終わるまで数年かかってしまった。話題になって第1話を観てみてお気に入りに入れたまま数年というものがよくある。休日に一気見は子どもとの関連でなかなか難しく、平日の夜に寝る前に一話ってのもこれはこれで難しく。今回は飛行機の中に持ち込んでうまくいった。&lt;/p&gt;
+&lt;p&gt;『&lt;a href=&#34;https://www.netflix.com/title/70143836&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ブレイキング・バッド&lt;/a&gt;』なんていつ観終わることやら。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>TailscaleのACLを設定した</title>
