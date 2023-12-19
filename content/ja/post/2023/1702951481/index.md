@@ -1,0 +1,98 @@
+---
+# Documentation: https://wowchemy.com/docs/managing-content/
+
+title: "使っているクレジットカードまとめ 2023冬"
+slug: 1702951481
+subtitle: ""
+summary: ""
+authors: []
+
+tags: []
+categories: []
+keywords: []
+
+reading_time: false
+show_related: true
+share: false
+
+year: 2023
+date: 2023-12-19T11:04:41+09:00
+lastmod: 2023-12-19T11:04:41+09:00
+
+featured: false
+draft: false
+
+# Featured image
+# To use, add an image named "featured.jpg/png" to your page's folder.
+image:
+  preview_only: true
+---
+
+{{< figure src="featured.png" caption="" >}}
+
+現状がベストの感じが全然しないので、たぶん誰の参考にもならない気がする。ので自分用のメモとして。
+
+方針はシンプルに次の通り。
+
+- 細かい使い分けをしたくないので、枚数はなるべく少なく
+- 目先の高還元率に惑わされない
+
+
+### メイン
+
+- [ANAスーパーフライヤーズ ゴールドカード VISA](https://www.ana.co.jp/ja/jp/amc/premium/sfc/)
+
+一時期海外出張に頻繁に行っていた時に作ったカード。子どもを持ってからは海外出張の数もなるべく抑えめにしているのであまり意味もないような気がするけれども、とりあえずこれに全部寄せてマイルに変換している。
+
+年会費が24,750円(本人 16,500 + 家族1名 8,250)と高い。マイルに変換する時のレートのためにゴールドにしているけれども、将来的なステータス維持のためだけだったら家族会員を解約してさらにゴールドじゃない一般カードに戻して、別のクレジットカードをメインにすべきな気がするぐらい気持ちは揺らいでいる。以前は[「マイ・ペイすリボ」を登録してさえいればリボ払いを使わなくても年会費が安くなる制度があったがそれも廃止されている](https://www.smbc-card.com/mem/cardinfo/cardinfo4020279.jsp)。
+
+注意点としてはANAの名を冠して海外出張や海外旅行で使えます感が出てますが、発行会社は三井住友カードで、海外で[「一部のお取引で、不正利用から守るため利用を停止」](https://www.smbc-card.com/mem/info/unavailable.jsp?id=shop)されたり、店によって使えなかったりするのがちょこちょこ発生するのでこれ1枚で海外行くのは危険。このメインカードが使えなかった場合でもサブは使えるので積極的にブロックしにいく方針っぽい。海外出張時に事前にコールセンターに電話して制限がかかりにくくしておく、とかあるのかもしれないけど、そんなことは一々やってられない。
+
+[提携カード扱いなので三井住友カードの高還元率キャンペーンも対象外](https://qa.smbc-card.com/mem/detail?site=4H4A00IO&id=1508)だけれども、[ANAカード独自のポイント還元が多少はある](https://www.ana.co.jp/ja/jp/shoppingandlife/supermarket/tameru_seveneleven/)。
+
+
+#### 付帯カード
+
+- ETCカード 年会費550円（1年間に1回以上ETC利用のご請求があれば無料）
+- JR東海エクスプレス予約サービス（プラスEX会員） 年会費1,100円
+
+昔は[年会費無料のスマートEX](https://jr-central.co.jp/ex/point/smart-difference/)なんてなかったし、プラスEXがエクスプレス予約に統合されて年会費が上がったのも含めお得感が薄れてきたのでエクスプレス予約は解約予定。
+
+
+### サブ
+
+- [MUFGカード ゴールド MasterCard](https://www.cr.mufg.jp/landing/mufgcard/fc/071/gold/index.html)
+
+メインの三井住友カード以外の発行会社、かつVISAとは別の国際ブランドとして持っておくための予備カード。これもゴールドにしているのは利用限度額をメインと同じぐらいに維持して、万が一のために機能させるため。
+
+年会費は2,095円(本人 2,095 + 家族1名 0)。
+
+
+### Suicaオートチャージ用
+
+- [ビックカメラ Suicaカード Visa](https://www.jreast.co.jp/card/first/bic/)
+
+年会費は524円だけれども、[オートチャージを含む年1回の利用があれば無料](https://faq.viewcard.co.jp/faq/show/2943)。
+
+以前は[キャッシュカード一体型のスーパーICカードSuica 三菱UFJ-VISAを使っていたけどもサービス終了になってしまったので](https://www.bk.mufg.jp/tsukau/credit/kaiin_minasama/syuuryou_suica/index.html)乗り換え先を探し、唯一年会費が無料になる可能性があるビックカメラSuicaカードに。
+
+
+
+### 海外ATM用デビットカード
+
+- [ANAマイレージクラブ / Sony Bank WALLET VISA](https://www.ana.co.jp/ja/jp/amc/anasbw/)
+- [Wise MasterCard](https://wise.com/jp/card/)
+
+ここ数年はまったく現金を持たずに海外出張を完了させることもあるけども、国によっては現金を持っていないと立ち行かないので都度ATMから引き出している。今までは[三井住友銀行キャッシュカード一体型のVISAデビット](https://www.smbc.co.jp/kojin/debit/)を使っていたけど、[おそらくOliveに統合する前段階として新規受付を停止しているし](https://www.smbc.co.jp/notice/20231020_suspension.html)、海外ATMを使うときは、
+
+- 所定のレート
+  - Visaの定める為替レート
+  - 海外事務手数料 3.05％
+- ATM利用手数料 110円
+- 海外ATM設置機関所定の手数料
+
+みたいに[色々なものが乗っかってくる](https://qa.smbc.co.jp/faq/show/2141)。[Sony Bank WALLET](https://moneykit.net/visitor/sbw/sbw09.html)と[Wise](https://wise.com/ja/help/articles/2935769/atm%E3%81%A6%E3%81%AE%E7%8F%BE%E9%87%91%E3%81%AE%E5%87%BA%E9%87%91%E6%89%8B%E6%95%B0%E6%96%99%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)だとこのあたりが少しだけマシになるかなという目論見。
+
+[海外でクレジットカードを使う時の事務処理手数料 2.20%](https://www.smbc-card.com/mem/service/sec/kaigai01.jsp)を嫌って海外ではデポジット時を除いて常にデビットカードを使うっていう選択肢もあるけど、ポイント還元されなくなる分差額は微妙なところ。
+
+結局はメインのカードをどこにするかがすべてて、それ以外は誤差程度な気がする。
