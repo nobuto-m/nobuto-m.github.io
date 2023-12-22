@@ -38,7 +38,7 @@ image:
 - 目先の高還元率に惑わされない
 
 
-### メイン
+## メイン
 
 - [ANAスーパーフライヤーズ ゴールドカード VISA](https://www.ana.co.jp/ja/jp/amc/premium/sfc/)
 
@@ -51,7 +51,7 @@ image:
 [提携カード扱いなので三井住友カードの高還元率キャンペーンも対象外](https://qa.smbc-card.com/mem/detail?site=4H4A00IO&id=1508)だけれども、[ANAカード独自のポイント還元が多少はある](https://www.ana.co.jp/ja/jp/shoppingandlife/supermarket/tameru_seveneleven/)。
 
 
-#### 付帯カード
+### 付帯カード
 
 - ETCカード 年会費550円（1年間に1回以上ETC利用のご請求があれば無料）
 - JR東海エクスプレス予約サービス（プラスEX会員） 年会費1,100円
@@ -59,7 +59,7 @@ image:
 昔は[年会費無料のスマートEX](https://jr-central.co.jp/ex/point/smart-difference/)なんてなかったし、プラスEXがエクスプレス予約に統合されて年会費が上がったのも含めお得感が薄れてきたのでエクスプレス予約は解約予定。
 
 
-### サブ
+## サブ
 
 - [MUFGカード ゴールド MasterCard](https://www.cr.mufg.jp/landing/mufgcard/fc/071/gold/index.html)
 
@@ -68,7 +68,7 @@ image:
 年会費は2,095円(本人2,095 + 家族1名0)。
 
 
-### Suicaオートチャージ用
+## Suicaオートチャージ用
 
 - [ビックカメラ Suicaカード Visa](https://www.jreast.co.jp/card/first/bic/)
 
@@ -78,7 +78,7 @@ image:
 
 
 
-### 海外ATM用デビットカード
+## 海外ATM用デビットカード
 
 - [ANAマイレージクラブ / Sony Bank WALLET VISA](https://www.ana.co.jp/ja/jp/amc/anasbw/)
 - [Wise MasterCard](https://wise.com/jp/card/)
