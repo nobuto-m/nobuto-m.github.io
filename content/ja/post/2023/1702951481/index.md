@@ -9,7 +9,7 @@ authors: []
 
 tags: []
 categories: []
-keywords: []
+keywords: ["finance"]
 
 reading_time: false
 show_related: true
