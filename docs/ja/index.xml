@@ -5,12 +5,184 @@
     <link>https://nobuto-m.github.io/ja/</link>
       <atom:link href="https://nobuto-m.github.io/ja/index.xml" rel="self" type="application/rss+xml" />
     <description>Nobuto Murata</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Fri, 22 Dec 2023 09:40:52 +0900</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Tue, 09 Jan 2024 00:25:18 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>Nobuto Murata</title>
       <link>https://nobuto-m.github.io/ja/</link>
     </image>
+    
+    <item>
+      <title>表示されないFlutter版ubuntu-desktop-installerをgit版で無理やり動かす</title>
+      <link>https://nobuto-m.github.io/ja/post/2024/1704727518/</link>
+      <pubDate>Tue, 09 Jan 2024 00:25:18 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2024/1704727518/</guid>
+      <description>&lt;p&gt;Ubuntu開発版のインストールイメージのスナップショットが置いてある&lt;a href=&#34;https://cdimages.ubuntu.com/daily-live/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;daily-live&amp;rdquo;&lt;/a&gt;を使う人はほぼいないと思うけど（正式版でもないし）、昨年末ぐらいからまた画面が真っ白になっちゃう問題が発生しているみたい。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://bugs.launchpad.net/ubuntu-desktop-installer/&amp;#43;bug/2043915&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://bugs.launchpad.net/ubuntu-desktop-installer/+bug/2043915&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/canonical/ubuntu-desktop-installer/issues/2391&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/canonical/ubuntu-desktop-installer/issues/2391&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/canonical/ubuntu-desktop-installer/issues/2407&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/canonical/ubuntu-desktop-installer/issues/2407&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-インストーラーを起動しても画面が真っ白&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;インストーラーを起動しても画面が真っ白&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2024/1704727518/featured.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      インストーラーを起動しても画面が真っ白
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;エラーとしてはLibGLまわりで、snap化されてるFlutterアプリケーションで起こっているみたい。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ ubuntu-desktop-installer
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;ubuntu_desktop_installer:10370&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;: Gtk-WARNING **: 07:10:37.648: /usr/lib/x86_64-linux-gnu/gtk-3.0/3.0.0/immodules/im-ibus.so: undefined symbol: ibus_input_context_set_post_process_key_event
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;ubuntu_desktop_installer:10370&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;: Gtk-WARNING **: 07:10:37.648: Loading IM context &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;ibus&amp;#39;&lt;/span&gt; failed
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;libGL error: No matching fbConfigs or visuals found
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;libGL error: failed to load driver: radeonsi
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;libGL error: No matching fbConfigs or visuals found
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;libGL error: failed to load driver: radeonsi
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;libGL error: No matching fbConfigs or visuals found
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;libGL error: failed to load driver: swrast
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;** &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;ubuntu_desktop_installer:10370&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;: WARNING **: 07:10:37.791: Failed to start Flutter renderer: Unable to create a GL context
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;** &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;ubuntu_desktop_installer:10370&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;: WARNING **: 07:10:40.793: Unable to retrieve framework response: No engine to send to
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これといった回避策はなくて、23.10をインストールしてから&lt;code&gt;do-release-upgrade -d&lt;/code&gt;すればインストール直後だしすぐにnoble開発版に追いつけるんだけどまあちょっと無理やり動かしてみたメモ。たぶん今後一切使うことがないと思う。&lt;/p&gt;
+&lt;h2 id=&#34;インストーラーを一旦終了する&#34;&gt;インストーラーを一旦終了する&lt;/h2&gt;
+&lt;p&gt;Liveセッション立ち上げると、画面の真ん中に真っ白なウィンドウが出てきて何もできないので、まずはこのインストーラーを終了する。ウィンドウが閉じらればよくて、&lt;code&gt;Alt + F4&lt;/code&gt;とか、&lt;code&gt;Alt + Space&lt;/code&gt;でメニューを出して&lt;code&gt;Close&lt;/code&gt;を押すとかそんな感じ。&lt;/p&gt;
+&lt;h2 id=&#34;flutterのインストール&#34;&gt;Flutterのインストール&lt;/h2&gt;
+&lt;p&gt;次にFlutterのインストール。Snap版とそうじゃない2パターンがドキュメントにあって今回はSnap版じゃない方を使う。CIでもSnap版使ってなさそうですし。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/canonical/ubuntu-desktop-installer/blob/4edfab2b3cd4fb18ab95c79ffa16040fa57449b9/.github/workflows/installer.yaml#L31-L35&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/canonical/ubuntu-desktop-installer/blob/4edfab2b3cd4fb18ab95c79ffa16040fa57449b9/.github/workflows/installer.yaml#L31-L35&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Install Flutter&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;uses&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;subosito/flutter-action@v2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;with&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;          &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;channel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;stable&amp;#39;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;          &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;flutter-version&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;${{env.FLUTTER_VERSION}}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;p&gt;ちなみにインストールするバージョンは最新では自分で色々と変更する必要がありそうで、インストーラーが想定している&lt;code&gt;3.10.6&lt;/code&gt;を明示的に使う。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/canonical/ubuntu-desktop-installer/blob/4edfab2b3cd4fb18ab95c79ffa16040fa57449b9/snap/snapcraft.yaml#L130-L132&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/canonical/ubuntu-desktop-installer/blob/4edfab2b3cd4fb18ab95c79ffa16040fa57449b9/snap/snapcraft.yaml#L130-L132&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;flutter-git&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;source&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;https://github.com/flutter/flutter.git&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;source-tag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3.10.6&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;p&gt;インストール手順としてはFlutterの公式ドキュメントの&lt;code&gt;Method 2: Manual installation&lt;/code&gt;を少し変えて&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.flutter.dev/get-started/install/linux#method-2-manual-installation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://docs.flutter.dev/get-started/install/linux#method-2-manual-installation&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.10.6-stable.tar.xz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tar xf flutter_linux_3.10.6-stable.tar.xz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;:`pwd`/flutter/bin&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;とした後に、&lt;code&gt;flutter doctor&lt;/code&gt;でインストール自体ができてるかの確認。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ flutter doctor
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;┌─────────────────────────────────────────────────────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│ A new version of Flutter is available!                  │
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│                                                         │
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│ To update to the latest version, run &lt;span class=&#34;s2&#34;&gt;&amp;#34;flutter upgrade&amp;#34;&lt;/span&gt;. │
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└─────────────────────────────────────────────────────────┘
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Doctor summary &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;to see all details, run flutter doctor -v&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;✓&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Flutter &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;Channel stable, 3.10.6, on Ubuntu Noble Numbat &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;development branch&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; 6.5.0-9-generic, locale C.UTF-8&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;✗&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Android toolchain - develop &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; Android devices
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ✗ Unable to locate Android SDK.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      Install Android Studio from: https://developer.android.com/studio/index.html
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      On first launch it will assist you in installing the Android SDK components.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;or visit https://flutter.dev/docs/get-started/install/linux#android-setup &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; detailed instructions&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      If the Android SDK has been installed to a custom location, please use
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;flutter config --android-sdk&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt; to update to that location.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;✗&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Chrome - develop &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; the web &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;Cannot find Chrome executable at google-chrome&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ! Cannot find Chrome. Try setting CHROME_EXECUTABLE to a Chrome executable.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;✗&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Linux toolchain - develop &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; Linux desktop
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ✗ clang++ is required &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; Linux development.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      It is likely available from your distribution &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;e.g.: apt install clang&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;, or can be downloaded from https://releases.llvm.org/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ✗ CMake is required &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; Linux development.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      It is likely available from your distribution &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;e.g.: apt install cmake&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;, or can be downloaded from https://cmake.org/download/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ✗ ninja is required &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; Linux development.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      It is likely available from your distribution &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;e.g.: apt install ninja-build&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;, or can be downloaded from https://github.com/ninja-build/ninja/releases
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ✗ pkg-config is required &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; Linux development.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      It is likely available from your distribution &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;e.g.: apt install pkg-config&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;, or can be downloaded from https://www.freedesktop.org/wiki/Software/pkg-config/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;!&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Android Studio &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;not installed&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;✓&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Connected device &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; available&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;✓&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Network resources
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;! Doctor found issues in &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; categories.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;Linux toolchain&lt;/code&gt;のところで足りないものがあるよと言われるので、これもまた公式ドキュメントの&lt;code&gt;Linux prerequisites&lt;/code&gt;の通り&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.flutter.dev/get-started/install/linux#linux-prerequisites&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://docs.flutter.dev/get-started/install/linux#linux-prerequisites&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install clang cmake git ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;p&gt;とすれば、&lt;code&gt;flutter doctor&lt;/code&gt;でインストール自体と&lt;code&gt;Linux toolchain&lt;/code&gt;のところのチェックが通るようになる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ flutter doctor
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Doctor summary &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;to see all details, run flutter doctor -v&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;✓&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Flutter &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;Channel stable, 3.10.6, on Ubuntu Noble Numbat &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;development branch&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; 6.5.0-9-generic, locale C.UTF-8&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;✗&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Android toolchain - develop &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; Android devices
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ✗ Unable to locate Android SDK.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      Install Android Studio from: https://developer.android.com/studio/index.html
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      On first launch it will assist you in installing the Android SDK components.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;or visit https://flutter.dev/docs/get-started/install/linux#android-setup &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; detailed instructions&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      If the Android SDK has been installed to a custom location, please use
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;flutter config --android-sdk&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt; to update to that location.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;✗&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Chrome - develop &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; the web &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;Cannot find Chrome executable at google-chrome&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ! Cannot find Chrome. Try setting CHROME_EXECUTABLE to a Chrome executable.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;✓&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Linux toolchain - develop &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; Linux desktop
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;!&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Android Studio &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;not installed&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;✓&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Connected device &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; available&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;✓&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Network resources
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;! Doctor found issues in &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt; categories.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;git版ubuntu-desktop-installerの実行&#34;&gt;Git版ubuntu-desktop-installerの実行&lt;/h2&gt;
+&lt;p&gt;Flutterがインストールできたので、今度はubuntu-desktop-installerの実行。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/canonical/ubuntu-desktop-installer/blob/4edfab2b3cd4fb18ab95c79ffa16040fa57449b9/README.md#build-and-dry-run-the-installer&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/canonical/ubuntu-desktop-installer/blob/4edfab2b3cd4fb18ab95c79ffa16040fa57449b9/README.md#build-and-dry-run-the-installer&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Githubから引っ張ってくるところはそのままでよくて、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/canonical/ubuntu-desktop-installer.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ubuntu-desktop-installer
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git submodule update --init --recursive
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;依存するものをインストールして&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make install_deps
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;で、実際のディレクトリに移動して実行するところで、このまま実行するとドキュメントに書いてある通り&lt;code&gt;Dry-run&lt;/code&gt;モードになるので実機にはUbuntuをインストールできない（テスト用の仮想ドライブが使われる）。&lt;/p&gt;
+&lt;p&gt;Dry-runをやめるには&lt;code&gt;LIVE_RUN=1&lt;/code&gt;が肝で、&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/canonical/ubuntu-desktop-installer/blob/4edfab2b3cd4fb18ab95c79ffa16040fa57449b9/snap/snapcraft.yaml#L34&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/canonical/ubuntu-desktop-installer/blob/4edfab2b3cd4fb18ab95c79ffa16040fa57449b9/snap/snapcraft.yaml#L34&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;LIVE_RUN&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;p&gt;これを渡してあげるとGit版から実機インストールできる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; packages/ubuntu_desktop_installer
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;env &lt;span class=&#34;nv&#34;&gt;LIVE_RUN&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; flutter run
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;どっからどう読んでも無理やりなので、正式なインストールイメージを使うか、どうしても&lt;code&gt;daily-live&lt;/code&gt;がいいっていう場合は待つのが正解。&lt;/p&gt;
+&lt;p&gt;ちなみに、&lt;code&gt;ubuntu-desktop-installer&lt;/code&gt; snapは消してしまってはダメで、&lt;code&gt;flutter run&lt;/code&gt;するだけだとDry-runモード用の&lt;code&gt;subiquity-server&lt;/code&gt;が立ち上がって、もちろん実機を想定してない。実機インストールの場合はサーバープロセスはもちろん高い権限が必要なので、最初から入ってるSnap版から&lt;code&gt;snap.ubuntu-desktop-installer.subiquity-server.service&lt;/code&gt;を使った。問題があったのはフロントエンドの表示部分だけなので。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>使っている銀行口座まとめ 2023冬</title>
