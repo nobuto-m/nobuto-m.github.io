@@ -37,8 +37,9 @@ image:
 - 細かい使い分けをしたくないので、枚数はなるべく少なく
 - 目先の高還元率に惑わされない
 
+{{< toc >}}
 
-## メイン
+## メイン - ANAスーパーフライヤーズ
 
 - [ANAスーパーフライヤーズ ゴールドカード VISA](https://www.ana.co.jp/ja/jp/amc/premium/sfc/)
 
@@ -59,7 +60,7 @@ image:
 昔は[年会費無料のスマートEX](https://jr-central.co.jp/ex/point/smart-difference/)なんてなかったし、プラスEXがエクスプレス予約に統合されて年会費が上がったのも含めお得感が薄れてきたのでエクスプレス予約は解約予定。
 
 
-## サブ
+## サブ - MUFGカード
 
 - [MUFGカード ゴールド MasterCard](https://www.cr.mufg.jp/landing/mufgcard/fc/071/gold/index.html)
 
@@ -68,7 +69,7 @@ image:
 **年会費2,095円**(本人2,095 + 家族1名0)。
 
 
-## Suicaオートチャージ用
+## Suicaオートチャージ用 - ビックカメラ Suicaカード
 
 - [ビックカメラ Suicaカード Visa](https://www.jreast.co.jp/card/first/bic/)
 
@@ -80,9 +81,6 @@ image:
 
 ## 海外ATM用デビットカード
 
-- [ANAマイレージクラブ / Sony Bank WALLET VISA](https://www.ana.co.jp/ja/jp/amc/anasbw/)
-- [Wise MasterCard](https://wise.com/jp/card/)
-
 ここ数年はまったく現金を持たずに海外出張を完了させることもあるけども、国によっては現金を持っていないと立ち行かないので現地ATMから引き出している。今までは[三井住友銀行キャッシュカード一体型のVISAデビット](https://www.smbc.co.jp/kojin/debit/)を使っていたけど、[おそらくOliveに統合する前段階として新規受付を停止](https://www.smbc.co.jp/notice/20231020_suspension.html)しているし、[海外ATMを使うとき](https://qa.smbc.co.jp/faq/show/2141)は、
 
 - 所定のレート
@@ -91,20 +89,29 @@ image:
 - ATM利用手数料 110円
 - 海外ATM設置機関所定の手数料
 
-みたいに色々なものが乗っかってくる。このあたりが少しだけマシになるかなという目論見で、
+みたいに色々なものが乗っかってくる。このあたりが少しだけマシになるかなという目論見で、2つ選択肢を用意してある。
 
-- [Sony Bank WALLET](https://moneykit.net/visitor/sbw/sbw09.html)
+### Sony Bank WALLET
+
+[ANAマイレージクラブ / Sony Bank WALLET VISA](https://www.ana.co.jp/ja/jp/amc/anasbw/)
+
+- [海外ATMで現地通貨を引き出す場合](https://moneykit.net/visitor/sbw/sbw09.html)
   - ソニー銀行為替コスト
   - 事務処理経費 1.79％
   - 海外ATM利用料 220円（対象通貨の口座がない場合のみ発生。[ステージによって無料枠あり](https://moneykit.net/visitor/fx/fx28.html)。）
   - 現地ATM設置機関利用手数料
-- [Wise](https://wise.com/jp/pricing/card-fees)
-  - カード取得時初回 1,200円
+
+### Wise
+
+[Wise MasterCard](https://wise.com/jp/card/)
+
+- カード取得時初回 1,200円
+- [ATMからの出金](https://wise.com/jp/pricing/card-fees)
   - 両替手数料 0.62%ぐらい
   - ATMからの出金手数料 1.75% + 1回あたり70円（月2回かつ手数料を含む合計3万円までの無料枠あり）
   - 現地ATM設置機関利用手数料
 
-の選択肢を用意している。
+## まとめ
 
 [海外でクレジットカードを使う時の事務処理手数料 2.20%](https://www.smbc-card.com/mem/service/sec/kaigai01.jsp)を嫌って、手数料が安くなるどちらかのデビットカードを常に使うっていう選択肢もあるけど、クレジットカードのポイント還元がされなくなる分差額は微妙なところ。
 
