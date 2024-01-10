@@ -68,7 +68,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;** &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;ubuntu_desktop_installer:10370&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;: WARNING **: 07:10:40.793: Unable to retrieve framework response: No engine to send to
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これといった回避策はなくて、23.10をインストールしてから&lt;code&gt;do-release-upgrade -d&lt;/code&gt;すればインストール直後だしすぐにnoble開発版に追いつけるんだけどまあちょっと無理やり動かしてみたメモ。たぶん今後一切使うことがないと思う。&lt;/p&gt;
 &lt;h2 id=&#34;インストーラーを一旦終了する&#34;&gt;インストーラーを一旦終了する&lt;/h2&gt;
-&lt;p&gt;Liveセッション立ち上げると、画面の真ん中に真っ白なウィンドウが出てきて何もできないので、まずはこのインストーラーを終了する。ウィンドウが閉じらればよくて、&lt;code&gt;Alt + F4&lt;/code&gt;とか、&lt;code&gt;Alt + Space&lt;/code&gt;でメニューを出して&lt;code&gt;Close&lt;/code&gt;を押すとかそんな感じ。&lt;/p&gt;
+&lt;p&gt;Liveセッションを立ち上げると、画面の真ん中に真っ白なウィンドウが出てきて何もできないので、まずはこのインストーラーを終了する。ウィンドウが閉じられればよくて、&lt;code&gt;Alt + F4&lt;/code&gt;とか、&lt;code&gt;Alt + Space&lt;/code&gt;でメニューを出して&lt;code&gt;Close&lt;/code&gt;を押すとかそんな感じ。&lt;/p&gt;
 &lt;h2 id=&#34;flutterのインストール&#34;&gt;Flutterのインストール&lt;/h2&gt;
 &lt;p&gt;次にFlutterのインストール。Snap版とそうじゃない2パターンがドキュメントにあって今回はSnap版じゃない方を使う。CIでもSnap版使ってなさそうですし。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/canonical/ubuntu-desktop-installer/blob/4edfab2b3cd4fb18ab95c79ffa16040fa57449b9/.github/workflows/installer.yaml#L31-L35&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/canonical/ubuntu-desktop-installer/blob/4edfab2b3cd4fb18ab95c79ffa16040fa57449b9/.github/workflows/installer.yaml#L31-L35&lt;/a&gt;&lt;/p&gt;
