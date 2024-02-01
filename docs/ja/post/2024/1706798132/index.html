@@ -144,7 +144,7 @@
         <div class="article-style">
           <figure id="figure-絶望の場面">
             <div class="d-flex justify-content-center">
-              <div class="w-100"><img alt="絶望の場面" srcset="/ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1940cb2668779567d62903a33a5906ab.webp 400w, /ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_2b1b3eea13c1d873c69639f5ebda885e.webp 760w, /ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1200x1200_fit_q75_h2_lanczos.webp 1200w" src="/ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1940cb2668779567d62903a33a5906ab.webp" width="760" height="428" loading="lazy" data-zoomable="">
+              <div class="w-100"><img alt="絶望の場面" srcset="/ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_8f786f99630d2aa335ccc224ccc486c1.webp 400w, /ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_2b1b3eea13c1d873c69639f5ebda885e.webp 760w, /ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1200x1200_fit_q75_h2_lanczos.webp 1200w" src="/ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_8f786f99630d2aa335ccc224ccc486c1.webp" width="760" height="428" loading="lazy" data-zoomable="">
               </div>
             </div>
 
@@ -176,13 +176,13 @@
 </span></span><span class="line"><span class="cl">    sudo mount --bind /<span class="nv">$name</span> /mnt/<span class="nv">$name</span>
 </span></span><span class="line"><span class="cl"><span class="k">done</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">$ chroot /mnt/
+</span></span><span class="line"><span class="cl">$ sudo chroot /mnt/
 </span></span></code></pre>
           </div>
 
-          <p>と感じで<a href="https://wiki.debian.org/RescueLive" target="_blank" rel="noopener">Debian Wiki</a>を見ながらchrootした。ここでの鍵はopenするときに<code>dm_crypt-0</code>という名前でなければ後々不都合があり、なぜならそれは<code>/etc/crypttab</code>に<code>dm_crypt-0</code>と書かれているから。ただ、<code>crypttab</code>はopenした後にしか読めないので名前を覚えてなくて何回かやり直した。</p>
+          <p>という感じで<a href="https://wiki.debian.org/RescueLive" target="_blank" rel="noopener">Debian Wiki</a>を見ながらchrootした。ここでの鍵はopenするときに<code>dm_crypt-0</code>という名前でなければ後々不都合があり、なぜならそれは<code>/etc/crypttab</code>に<code>dm_crypt-0</code>と書かれているから。ただ、<code>crypttab</code>はopenした後にしか読めないので名前を覚えてなくて何回かやり直した。</p>
 
-          <p>ここまでくれば、パッケージのダウンロードやダウングレードも簡単で、initramfsの再生成も</p>
+          <p>ここまでくればパッケージのダウンロードやダウングレードも簡単で、initramfsの再生成も</p>
 
           <div class="highlight">
             <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ sudo update-initramfs -u -k all

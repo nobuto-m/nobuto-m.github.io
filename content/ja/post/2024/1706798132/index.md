@@ -51,12 +51,12 @@ $ for name in proc sys dev run; do
     sudo mount --bind /$name /mnt/$name
 done
 
-$ chroot /mnt/
+$ sudo chroot /mnt/
 ```
 
-と感じで[Debian Wiki](https://wiki.debian.org/RescueLive)を見ながらchrootした。ここでの鍵はopenするときに`dm_crypt-0`という名前でなければ後々不都合があり、なぜならそれは`/etc/crypttab`に`dm_crypt-0`と書かれているから。ただ、`crypttab`はopenした後にしか読めないので名前を覚えてなくて何回かやり直した。
+という感じで[Debian Wiki](https://wiki.debian.org/RescueLive)を見ながらchrootした。ここでの鍵はopenするときに`dm_crypt-0`という名前でなければ後々不都合があり、なぜならそれは`/etc/crypttab`に`dm_crypt-0`と書かれているから。ただ、`crypttab`はopenした後にしか読めないので名前を覚えてなくて何回かやり直した。
 
-ここまでくれば、パッケージのダウンロードやダウングレードも簡単で、initramfsの再生成も
+ここまでくればパッケージのダウンロードやダウングレードも簡単で、initramfsの再生成も
 ```bash
 $ sudo update-initramfs -u -k all
 ```
