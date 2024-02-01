@@ -5,12 +5,100 @@
     <link>https://nobuto-m.github.io/ja/post/2024/</link>
       <atom:link href="https://nobuto-m.github.io/ja/post/2024/index.xml" rel="self" type="application/rss+xml" />
     <description>2024</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Sat, 13 Jan 2024 17:27:09 +0900</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Thu, 01 Feb 2024 23:35:32 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>2024</title>
       <link>https://nobuto-m.github.io/ja/post/2024/</link>
     </image>
+    
+    <item>
+      <title>突然LUKS(dm-crypt)起動ドライブの暗号化が解除できなくなった話</title>
+      <link>https://nobuto-m.github.io/ja/post/2024/1706798132/</link>
+      <pubDate>Thu, 01 Feb 2024 23:35:32 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2024/1706798132/</guid>
+      <description>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-絶望の場面&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;絶望の場面&#34; srcset=&#34;
+               /ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1940cb2668779567d62903a33a5906ab.webp 400w,
+               /ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_2b1b3eea13c1d873c69639f5ebda885e.webp 760w,
+               /ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1940cb2668779567d62903a33a5906ab.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;428&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      絶望の場面
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;仕事に使ってるメインのマシンでもnobleの開発版を使ってるんですが、月曜日の昼飯前に再起動かけたら暗号化ドライブの解除パスワードを何度入力しても&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cryptsetup: ERROR: dm_crypt-0: cryptsetup failed, bad password or options?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;と言われてしまってデスクトップまでたどり着けない。何かしらのリグレッションで暗号化ドライブのヘッダが壊れたのではと思い、これは再インストールしてバックアップから切り戻すしかないのではと絶望。簡単にできるようにしてあるとは言え1時間以上はかかるので。&lt;/p&gt;
+&lt;p&gt;すぐには諦めきれなかったのでまずはUSBメモリでUbuntuのLive sessionを立ち上げると、暗号化ドライブがあっさりマウントできてしまった。ということはドライブ自体が破損しているわけではないので、パッケージのリグレッションで暗号化が解除できない状況に陥っているのでは、と&lt;code&gt;/var/log/apt/history.log&lt;/code&gt;とにらめっこ。いかんせん開発版なので、前回正常に起動できたときからのアップデートはバイナリパッケージの単位で412個。それなのに、&lt;code&gt;cryptsetup&lt;/code&gt;とかそれっぽいパッケージのアップデートはないし、カーネルを一個前のにしてもダメ。かろうじて&lt;code&gt;libgcrypt20&lt;/code&gt;というinitramfsにも入る、かつcrypt関連のパッケージのアップデートがあったので、これをダウングレードしてみることに。&lt;/p&gt;
+&lt;p&gt;USB起動中に、元のマシンのinitramfsの再生成ってどうやるんだっけと調べつつ&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo cryptsetup open /dev/nvme0n1p3 dm_crypt-0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo mount /dev/mapper/ubuntu--vg-ubuntu--lv /mnt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo mount /dev/nvme0n1p2 /mnt/boot
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo mount /dev/nvme0n1p1 /mnt/boot/efi
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; name in proc sys dev run&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    sudo mount --bind /&lt;span class=&#34;nv&#34;&gt;$name&lt;/span&gt; /mnt/&lt;span class=&#34;nv&#34;&gt;$name&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ chroot /mnt/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;と感じで&lt;a href=&#34;https://wiki.debian.org/RescueLive&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Debian Wiki&lt;/a&gt;を見ながらchrootした。ここでの鍵はopenするときに&lt;code&gt;dm_crypt-0&lt;/code&gt;という名前でなければ後々不都合があり、なぜならそれは&lt;code&gt;/etc/crypttab&lt;/code&gt;に&lt;code&gt;dm_crypt-0&lt;/code&gt;と書かれているから。ただ、&lt;code&gt;crypttab&lt;/code&gt;はopenした後にしか読めないので名前を覚えてなくて何回かやり直した。&lt;/p&gt;
+&lt;p&gt;ここまでくれば、パッケージのダウンロードやダウングレードも簡単で、initramfsの再生成も&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo update-initramfs -u -k all
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;とするだけ。&lt;/p&gt;
+&lt;p&gt;でも再起動しても問題は解決していない。。。&lt;code&gt;libgcrypt20&lt;/code&gt;が違うんだったら412個全部のパッケージをダウングレードして切り分けするのもしんどいので諦めようかと思ったそのとき、ネット上でリカバリーモード（シングルユーザーモード）なら解除できる時あるよっていう情報を見かけて、そんなはずはないでしょと思ってリカバリーモードで起動したら解除できた！crypt関連のモジュール関係ないじゃん！Plymouthじゃん！そこは考えてなかったよ！&lt;/p&gt;
+&lt;p&gt;ということで&lt;code&gt;/etc/default/grub&lt;/code&gt;から&lt;code&gt;splash&lt;/code&gt;を除いてPlymouthなしで起動するようにして応急処置完了。&lt;/p&gt;
+&lt;p&gt;ただ、重要そうな問題のような気がしたので再現環境を作りたかったけど、シンプルなパスワードを設定すると100%解除に成功してしまって再現できない。何がトリガーなのかよくわからないまま、PlymouthをダウングレードしてPlymouthのリグレッションであることを確認したりしていた。&lt;/p&gt;
+&lt;p&gt;ふと、Yubikeyがコンマ何秒の間に30文字以上を一気にタイプするからではと思い、Yubikeyを再フォーマットしてクリーンな状態でやったら無事再現できた。ただここで自分のYubikeyの使い方に関して補足しておくと、LUKSのパスフレーズ打つときにYubikeyから出力される文字列だけで解除しているわけではなくて（それだとYubikeyとノートPCを強奪されたらだれでも解除できちゃうので）、自分でパスフレーズを手打ちしてそれを打ち終わったらYubikeyのボタンをタッチして続けて打ち込む、という一つのパスフレーズボックスでなんちゃって二要素認証っぽいことにしている。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;自分で打った文字列 + Yubikeyから出力される文字列(30文字以上) + &amp;lt;ENTER&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;もうちょっとちゃんとやるなら毎回同じ文字列をYubikeyから出すんじゃなくて、Challenge-response形式にする&lt;a href=&#34;https://launchpad.net/ubuntu/&amp;#43;source/yubikey-luks&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;yubikey-luks&lt;/a&gt;とかを使うのもあるけど今のところは固定文字列で落ち着いてる。&lt;/p&gt;
+&lt;p&gt;とにかく再現手順がはっきりしたのでupstreamへ。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&amp;ldquo;Typing passphrase pretty quickly using Yubikey fails to unlock a LUKS partition&amp;rdquo;&lt;/strong&gt;&lt;br&gt;
+&lt;a href=&#34;https://gitlab.freedesktop.org/plymouth/plymouth/-/issues/243&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://gitlab.freedesktop.org/plymouth/plymouth/-/issues/243&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;そこでありがたいことに&lt;a href=&#34;https://gitlab.freedesktop.org/plymouth/plymouth/-/commit/6e411c7dcb77b69d7d4e897f6a5676f8bfb1c516&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;このコミット&lt;/a&gt;で直った問題じゃない？って教えてくれて、&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;That leads to keystrokes getting eaten.&lt;/p&gt;
+&lt;p&gt;This commit makes the terminal more careful about setting the
+keyboard mode. It now only changes it when plymouth thinks its
+necessary to do so.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;コミットメッセージ見てもキーストロークがどっかいっちゃうってのは納得。&lt;/p&gt;
+&lt;p&gt;カーネルパラメーターに&lt;code&gt;plymouth.debug&lt;/code&gt;つけて&lt;code&gt;/var/log/plymouth-debug.log&lt;/code&gt;を提供したら色々フィードバックをくれて、今のところの理解だと、&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;splash&lt;/code&gt;をつけなければPlymouthがそもそも使われないので回避される&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;23.360.11&lt;/code&gt;じゃなくて&lt;code&gt;24.004.60&lt;/code&gt;なら今回の問題（リグレッション）が修正されているので問題なくなる&lt;/li&gt;
+&lt;li&gt;UbuntuとかDebianがまだinitramfsに入れてない&lt;code&gt;/usr/share/X11/xkb&lt;/code&gt;を入れるようにすれば、今までのvt consoleじゃなくてxkb consoleを使うようになるからそれでも回避される&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;ちなみにdownstreamレポートはここ。&lt;br&gt;
+&lt;a href=&#34;https://bugs.launchpad.net/ubuntu/&amp;#43;source/plymouth/&amp;#43;bug/2051478&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://bugs.launchpad.net/ubuntu/+source/plymouth/+bug/2051478&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;それにしてもPlymouth高機能になりすぎててすごい。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>ThinkPad T14 Gen 3 AMDのBIOSを1.49/1.32(R23ET73W)に上げる</title>
