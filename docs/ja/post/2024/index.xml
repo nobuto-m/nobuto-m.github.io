@@ -5,12 +5,83 @@
     <link>https://nobuto-m.github.io/ja/post/2024/</link>
       <atom:link href="https://nobuto-m.github.io/ja/post/2024/index.xml" rel="self" type="application/rss+xml" />
     <description>2024</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Thu, 01 Feb 2024 23:35:32 +0900</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Sun, 04 Feb 2024 18:26:53 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>2024</title>
       <link>https://nobuto-m.github.io/ja/post/2024/</link>
     </image>
+    
+    <item>
+      <title>SlideShareからSpeaker Deckに移行した</title>
+      <link>https://nobuto-m.github.io/ja/post/2024/1707038813/</link>
+      <pubDate>Sun, 04 Feb 2024 18:26:53 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2024/1707038813/</guid>
+      <description>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-結局は使わなかったimport-from-slideshareメニュー&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;結局は使わなかった“Import from SlideShare”メニュー&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2024/1707038813/featured.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      結局は使わなかった“Import from SlideShare”メニュー
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;今さらも今さらながら。SlideShareを使い出したのは、当時LinkedInが買収して所有してた時期でなんか継続性が期待できそうとかそんな理由だった気がする（&lt;a href=&#34;https://www.linkedin.com/help/linkedin/answer/a518820/scribd-slideshare&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;その後Scribdが買収し現在に至る&lt;/a&gt;）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;移行前: &lt;a href=&#34;https://www.slideshare.net/nobuto_m&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.slideshare.net/nobuto_m&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;移行後: &lt;a href=&#34;https://speakerdeck.com/nobutomurata&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://speakerdeck.com/nobutomurata&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;移行にあたって、&lt;a href=&#34;https://help.speakerdeck.com/help/how-do-i-import-decks-from-slideshare&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SlideShareからのインポートツール(Beta)&lt;/a&gt;があるのは知っていて、書かれているようにサポートチームにメール出したりして有効にしてもらった。ツールに移行したいURLを入力してボタンを押して数週間待ってみたけど特に何も起こらなかったので、結局は手動で元のPDFをアップロードした。Betaだし、ツールが出てからSlideshare側のUIも変わってる気がするしまあそんなもんかと。そもそも数が多くないので全然困らなかった。&lt;/p&gt;
+&lt;p&gt;移行してもいいことばかりというわけではなくて、日本語太字部分のレンダリングがおかしかったり、スライドの中のリンクがクリックできない、という既知の問題には引っかかる。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-日本語太字部分だけ中に色がつかない&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;日本語太字部分だけ中に色がつかない&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2024/1707038813/ja_font.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      日本語太字部分だけ中に色がつかない
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;あとこれを機にSlideShare側でリンクを知っている人のみ公開だったのが2つあったのを全部を公開にした。&lt;a href=&#34;https://speakerdeck.com/nobutomurata/ubuntu-phonetoconvergencezhen-rifan-rihui-2017-05-13&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ubuntu Phoneのやつ&lt;/a&gt;とか懐かしい。&lt;/p&gt;
+&lt;p&gt;あんまり関係ないけど、ついでにこのサイトのソーシャルメディアアイコンを&amp;quot;twitter&amp;quot;から&amp;quot;x-twitter&amp;quot;にアップデートした。心の中では&amp;quot;X&amp;quot;ではなくて&amp;quot;X Twitter&amp;quot;と呼び続けます。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>突然LUKS(dm-crypt)起動ドライブの暗号化が解除できなくなった話</title>
