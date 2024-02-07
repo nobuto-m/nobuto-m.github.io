@@ -120,6 +120,28 @@ systemd-inhibit bench-fio \
     --entire-device \
     --iodepth 1 --numjobs 1 \
     --mode write -b 4M \
-    --output output/usb-BUFFALO_SSD-PUTU3C \
+    --output ../fio-plot_output/usb-BUFFALO_SSD-PUTU3C \
     --destructive
+```
+
+```
+systemd-inhibit bench-fio \
+    --type device \
+    --target "$(readlink -f /dev/disk/by-id/usb-ELECOM_ESD-EMA_13CF00101477-0\:0)" \
+    --size 128G \
+    --runtime 0 \
+    --iodepth 1 --numjobs 1 \
+    --mode write -b 4M \
+    --output ../fio-plot_output/usb-ELECOM_ESD-EMA_128G \
+    --destructive
+```
+
+```
+$ fio-plot -i \
+    */sda/4M/ \
+    -g -t bw -r write \
+    -T 'Sequential write bandwidth over time' \
+    --xlabel-depth 2 --xlabel-parent 0 \
+    --xlabel-single-column \
+    -w 0.5
 ```
