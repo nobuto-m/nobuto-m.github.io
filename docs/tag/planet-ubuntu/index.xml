@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>planet-ubuntu | Nobuto Murata</title>
+    <title>Planet-Ubuntu | Nobuto Murata</title>
     <link>https://nobuto-m.github.io/tag/planet-ubuntu/</link>
       <atom:link href="https://nobuto-m.github.io/tag/planet-ubuntu/index.xml" rel="self" type="application/rss+xml" />
-    <description>planet-ubuntu</description>
+    <description>Planet-Ubuntu</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-US</language><lastBuildDate>Sun, 02 Jul 2023 16:29:52 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
-      <title>planet-ubuntu</title>
+      <title>Planet-Ubuntu</title>
       <link>https://nobuto-m.github.io/tag/planet-ubuntu/</link>
     </image>
     
