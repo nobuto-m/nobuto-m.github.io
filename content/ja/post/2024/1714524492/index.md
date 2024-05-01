@@ -92,23 +92,23 @@ Runtime Suffix -!
 ✘ Linux kernel:                  Tainted
 ```
 
-VERSION INFORMATION
-
-  The following versions of UEFI BIOS and ECP (Embedded Controller Program) have
-  been released to date.
-
-  Package  (ID)            UEFI BIOS  (BIOS ID)        ECP  (ECP ID)           Rev.       Issue Date
-  ----------------         --------------------        ----------------        ----       -------------
-  R23UJ70WD                 1.40  (R23ET70W)            1.30  (R23HT64W)        01         2023/09/07
-  R23UJ66WD                 1.35  (R23ET65W)            1.28  (R23HT62W)        01         2023/07/20
-  R23UJ65WD                 1.35  (R23ET65W)            1.25  (R23HT59W)        01         2023/04/06
-  R23UJ64WD                 1.34  (R23ET64W)            1.25  (R23HT59W)        01         2023/03/06
-  R23UJ62WD                 1.32  (R23ET62W)            1.24  (R23HT58W)        02         2022/12/07
-  R23UJ62WD                 1.32  (R23ET62W)            1.24  (R23HT58W)        01         2022/12/01
-  R23UJ60WD_V2              1.30  (R23ET60W)            1.23  (R23HT57W)        02         2022/11/10
-  R23UJ60WD                 1.30  (R23ET60W)            1.21  (R23HT55W)        01         2022/10/13
-  R23UJ59WD                 1.29  (R23ET59W)            1.21  (R23HT55W)        01         2022/09/22
-  R23UJ47WD                 1.17  (R23ET47W)            1.11  (R23HT45W)        01         2022/06/17
+> VERSION INFORMATION
+> 
+> The following versions of UEFI BIOS and ECP (Embedded Controller Program) have been released to date.
+> 
+>   Package  (ID)            UEFI BIOS  (BIOS ID)        ECP  (ECP ID)           Rev.       Issue Date
+>   ----------------         --------------------        ----------------        ----       -------------
+>   R23UJ73WD                 1.49  (R23ET73W)            1.32  (R23HT66W)        01         2024/01/05
+>   R23UJ70WD                 1.40  (R23ET70W)            1.30  (R23HT64W)        01         2023/09/07
+>   R23UJ66WD                 1.35  (R23ET65W)            1.28  (R23HT62W)        01         2023/07/20
+>   R23UJ65WD                 1.35  (R23ET65W)            1.25  (R23HT59W)        01         2023/04/06
+>   R23UJ64WD                 1.34  (R23ET64W)            1.25  (R23HT59W)        01         2023/03/06
+>   R23UJ62WD                 1.32  (R23ET62W)            1.24  (R23HT58W)        02         2022/12/07
+>   R23UJ62WD                 1.32  (R23ET62W)            1.24  (R23HT58W)        01         2022/12/01
+>   R23UJ60WD_V2              1.30  (R23ET60W)            1.23  (R23HT57W)        02         2022/11/10
+>   R23UJ60WD                 1.30  (R23ET60W)            1.21  (R23HT55W)        01         2022/10/13
+>   R23UJ59WD                 1.29  (R23ET59W)            1.21  (R23HT55W)        01         2022/09/22
+>   R23UJ47WD                 1.17  (R23ET47W)            1.11  (R23HT45W)        01         2022/06/17
 
 
 https://download.lenovo.com/pccbbs/mobiles/r23uj73wd.txt
