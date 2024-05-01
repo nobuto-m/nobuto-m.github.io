@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://nobuto-m.github.io/</loc>
+    <lastmod>2024-04-11T11:25:38+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://nobuto-m.github.io/"
+                />
+  </url><url>
+    <loc>https://nobuto-m.github.io/post/</loc>
+    <lastmod>2024-04-11T11:25:38+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://nobuto-m.github.io/post/"
+                />
+  </url><url>
     <loc>https://nobuto-m.github.io/post/2023/</loc>
     <lastmod>2023-07-02T16:29:52+09:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -30,37 +58,9 @@
                 href="https://nobuto-m.github.io/categories/"
                 />
   </url><url>
-    <loc>https://nobuto-m.github.io/</loc>
-    <lastmod>2023-07-02T16:29:52+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://nobuto-m.github.io/ja/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://nobuto-m.github.io/"
-                />
-  </url><url>
     <loc>https://nobuto-m.github.io/tag/planet-ubuntu/</loc>
     <lastmod>2023-07-02T16:29:52+09:00</lastmod>
     <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://nobuto-m.github.io/post/</loc>
-    <lastmod>2023-07-02T16:29:52+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://nobuto-m.github.io/ja/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://nobuto-m.github.io/post/"
-                />
   </url><url>
     <loc>https://nobuto-m.github.io/tags/</loc>
     <lastmod>2023-07-02T16:29:52+09:00</lastmod>
