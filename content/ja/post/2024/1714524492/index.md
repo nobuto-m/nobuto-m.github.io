@@ -112,8 +112,22 @@ Runtime Suffix -!
 
 
 https://download.lenovo.com/pccbbs/mobiles/r23uj73wd.txt
+
+> CHANGES IN THIS RELEASE
+> 
+> Version 1.49 (UEFI BIOS)
+>          1.32 (ECP)
+> 
 > [Important updates]
 > - Notice that BIOS can't be downgraded to older BIOS version after upgrade to r23uj73w(1.49).
+> 
+> [New functions or enhancements]
+> - Enhancement to address security vulnerability, CVE-2023-5058,LEN-123535,LEN-128083,LEN-115697,LEN-123534,LEN-118373,LEN-119523,LEN-123536.
+> - Change to permit fan rotation after fan error happen.
+> 
+> [Problem fixes]
+> - Fixed non-bootable issue when Absolute Persistence Module Activation is disabled permanently.
+> - Fixed an issue that boot time is long when system is attached with DisplayLink Dock.
 
 
 https://github.com/fwupd/fwupd/commit/52d6c3cb78ab8ebfd432949995e5d4437569aaa6
