@@ -16,11 +16,11 @@ show_related: true
 share: false
 
 year: 2024
-date: 2024-05-01T09:48:12+09:00
-lastmod: 2024-05-01T09:48:12+09:00
+date: 2024-05-02T12:45:39+09:00
+lastmod: 2024-05-02T12:45:39+09:00
 
 featured: false
-draft: true
+draft: false
 
 # Featured image
 # To use, add an image named "featured.jpg/png" to your page's folder.
@@ -37,7 +37,7 @@ https://fwupd.github.io/libfwupdplugin/hsi.html#org.fwupd.hsi.Amd.RollbackProtec
 > [...]  
 > End users are not able to directly modify rollback protection, this is controlled by the manufacturer.
 
-[以前BIOSバージョンを1.49に上げた]({{< ref "../1705134429/index.md" >}})ものの、この`1.49(R23ET73W)`が[公式ページ](https://pcsupport.lenovo.com/jp/ja/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t14-gen-3-type-21cf-21cg/21cf/21cfcto1ww/downloads/driver-list/component?name=BIOS%2FUEFI)から取り下げられてしまっていて何かしらの不具合があるはずなので現時点で最新である`1.40(R23ET70W)`に戻しておきたかったのと、ファームウェアが原因なんじゃないかと思われる症状に悩まされているので色々なバージョンに戻ってテストしたかったので試行錯誤するはめに。
+[以前BIOSバージョンを1.49に上げた]({{< ref "../1705134429/index.md" >}})ものの、この`1.49(R23ET73W)`が[公式ページ](https://pcsupport.lenovo.com/jp/ja/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t14-gen-3-type-21cf-21cg/21cf/21cfcto1ww/downloads/driver-list/component?name=BIOS%2FUEFI)から取り下げられてしまっている。何かしらの不具合があったということなので現時点で最新である`1.40(R23ET70W)`に戻しておきたかったのと、ファームウェアが原因なんじゃないかと思われる症状に悩まされているので色々なバージョンに戻ってテストしたかったので試行錯誤するはめに。
 
 まず`Secure Rollback Prevention`をオフにしてから、次のように`fwupdmgr`でダウングレードを選択するも再起動時に`Secure Flash Authentication Failed`で適用されず。
 
@@ -68,20 +68,6 @@ Choose release [0-5]:
 > The system program file is not correct for this system.
 
 仕方なくWindowsからも適用を試みるがこれもダメ。このあたりで本当に無理な感じがしてきて、でもなんでダメなのかがよくわからず。そして`fwupdmgr`の便利コマンドを知る。
-
-
-
-
-
-
-
-
-{{< figure src="os-optimized-defaults.jpg" caption="" >}}
-
-https://github.com/fwupd/fwupd/commit/52d6c3cb78ab8ebfd432949995e5d4437569aaa6
-> Update documentation to indicate that loading "OS Optimized Defaults"
-> 
-> may enable security processor rollback protection on Lenovo systems.
 
 ```bash
 $ fwupdmgr security
@@ -119,52 +105,51 @@ HSI-4
 Runtime Suffix -!
 ✔ fwupd plugins:                 Untainted
 ✔ Linux kernel lockdown:         Enabled
+✔ Linux kernel:                  Untainted
 ✘ CET OS Support:                Not supported
 ✘ Linux swap:                    Unencrypted
-✘ Linux kernel:                  Tainted
+
+This system has HSI runtime issues.
+ » https://fwupd.github.io/hsi.html#hsi-runtime-suffix
+
+Host Security Events
+  2024-05-01 15:06:29:  ✘ BIOS rollback protection changed: Enabled → Disabled
 ```
+
+`HSI-2`の中で`BIOS rollback protection`は意図通りDisabledになっているものの、`HSI-4`セクションの`Processor rollback protection`はEnabledになっている。色々見てると、ここがDisabledのまま出荷されて、`OS Optimized Defaults`を読み込むとEnabledになるものもあるという記述を見つける。
+
+https://github.com/fwupd/fwupd/commit/52d6c3cb78ab8ebfd432949995e5d4437569aaa6
+> Update documentation to indicate that loading "OS Optimized Defaults"
+> 
+> may enable security processor rollback protection on Lenovo systems.
+
+`OS Optimized Defaults`をオフにしたらもしかしたら`Processor rollback protection`もオフになってくれるかも、と試す。
+
+{{< figure src="os-optimized-defaults.jpg" caption="OS Optimized Defaultsをオフにしてみるも変化なし" >}}
 
 ```bash
 $ fwupdmgr security
 Host Security ID: HSI:1! (v1.9.16)
 
-HSI-1
-✔ BIOS firmware updates:         Enabled
-✔ Fused platform:                Locked
-✔ Supported CPU:                 Valid
-✔ TPM empty PCRs:                Valid
-✔ TPM v2.0:                      Found
-✔ UEFI bootservice variables:    Locked
-✔ UEFI platform key:             Valid
+...
 
-HSI-2
-✔ SPI write protection:          Enabled
-✔ IOMMU:                         Enabled
-✔ Platform debugging:            Locked
-✔ TPM PCR0 reconstruction:       Valid
 ✘ BIOS rollback protection:      Disabled
 
-HSI-3
-✔ SPI replay protection:         Enabled
-✔ CET Platform:                  Supported
-✔ Suspend-to-idle:               Enabled
-✔ Suspend-to-ram:                Disabled
-✘ Pre-boot DMA protection:       Disabled
+...
 
 HSI-4
 ✔ Processor rollback protection: Enabled
-✔ SMAP:                          Enabled
-✘ Encrypted RAM:                 Not supported
 
-Runtime Suffix -!
-✔ fwupd plugins:                 Untainted
-✘ CET OS Support:                Not supported
-✘ Linux kernel lockdown:         Disabled
-✘ Linux swap:                    Unencrypted
-✘ Linux kernel:                  Tainted
-✘ UEFI secure boot:              Disabled
+...
+
+Host Security Events
+  2024-05-02 03:24:45:  ✘ Kernel lockdown disabled
+  2024-05-02 03:24:45:  ✘ Secure Boot disabled
+  2024-05-02 03:24:45:  ✘ Pre-boot DMA protection is disabled
+  2024-05-02 03:24:45:  ✘ Encrypted RAM changed: Encrypted → Not supported
 ```
 
+いくつかの項目が無効化されるけれども`Processor rollback protection`は変わらず、脆弱性対応が含まれていると本当にダウングレードできない。リリースノートにもしっかり書いてあるけど、よくある「ダウングレードはサポートされていないよ」じゃなくて「できないよ」の意味を身を持って理解した。
 
 https://download.lenovo.com/pccbbs/mobiles/r23uj73wd.txt
 > CHANGES IN THIS RELEASE
@@ -178,3 +163,6 @@ https://download.lenovo.com/pccbbs/mobiles/r23uj73wd.txt
 > [New functions or enhancements]
 > - Enhancement to address security vulnerability, CVE-2023-5058,LEN-123535,LEN-128083,LEN-115697,LEN-123534,LEN-118373,LEN-119523,LEN-123536.
 > - Change to permit fan rotation after fan error happen.
+
+
+より完璧なファームウェアアップデートが来るまでこのまま待ちます。

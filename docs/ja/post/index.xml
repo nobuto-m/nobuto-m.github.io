@@ -5,12 +5,203 @@
     <link>https://nobuto-m.github.io/ja/post/</link>
       <atom:link href="https://nobuto-m.github.io/ja/post/index.xml" rel="self" type="application/rss+xml" />
     <description>投稿</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Wed, 01 May 2024 09:48:12 +0900</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Thu, 02 May 2024 12:45:39 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>投稿</title>
       <link>https://nobuto-m.github.io/ja/post/</link>
     </image>
+    
+    <item>
+      <title>T14 Gen 3 AMDではSecure Rollback Preventionを無効化してもUEFI BIOSはダウングレードできない</title>
+      <link>https://nobuto-m.github.io/ja/post/2024/1714524492/</link>
+      <pubDate>Thu, 02 May 2024 12:45:39 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2024/1714524492/</guid>
+      <description>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-uefi-bios上のsecure-rollback-preventionの項目&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;UEFI BIOS上の&amp;#34;Secure Rollback Prevention&amp;#34;の項目&#34; srcset=&#34;
+               /ja/post/2024/1714524492/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_c2d7185df841491637ff67fb62136203.webp 400w,
+               /ja/post/2024/1714524492/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_82fa2891a30ab0fe0a0b491ec67f6d81.webp 760w,
+               /ja/post/2024/1714524492/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2024/1714524492/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_c2d7185df841491637ff67fb62136203.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;570&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      UEFI BIOS上の&amp;quot;Secure Rollback Prevention&amp;quot;の項目
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;結論として、最近のAMDシステムでは &amp;ldquo;Secure Rollback Prevention&amp;rdquo; (BIOS rollback protection)とは別に &amp;ldquo;AMD Secure &lt;strong&gt;Processor&lt;/strong&gt; Rollback protection&amp;rdquo; があり、これがベンダー側で有効にされている場合は一旦脆弱性対応を含むUEFI BIOSバージョンに上げてしまうとダウングレード（ロールバック）できなくなる。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://fwupd.github.io/libfwupdplugin/hsi.html#org.fwupd.hsi.Amd.RollbackProtection&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://fwupd.github.io/libfwupdplugin/hsi.html#org.fwupd.hsi.Amd.RollbackProtection&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This feature prevents an attacker from loading an older firmware onto the part after a security vulnerability has been fixed.&lt;br&gt;
+[&amp;hellip;]&lt;br&gt;
+End users are not able to directly modify rollback protection, this is controlled by the manufacturer.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://nobuto-m.github.io/ja/post/2024/1705134429/&#34;&gt;以前BIOSバージョンを1.49に上げた&lt;/a&gt;ものの、この&lt;code&gt;1.49(R23ET73W)&lt;/code&gt;が&lt;a href=&#34;https://pcsupport.lenovo.com/jp/ja/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t14-gen-3-type-21cf-21cg/21cf/21cfcto1ww/downloads/driver-list/component?name=BIOS%2FUEFI&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;公式ページ&lt;/a&gt;から取り下げられてしまっている。何かしらの不具合があったということなので現時点で最新である&lt;code&gt;1.40(R23ET70W)&lt;/code&gt;に戻しておきたかったのと、ファームウェアが原因なんじゃないかと思われる症状に悩まされているので色々なバージョンに戻ってテストしたかったので試行錯誤するはめに。&lt;/p&gt;
+&lt;p&gt;まず&lt;code&gt;Secure Rollback Prevention&lt;/code&gt;をオフにしてから、次のように&lt;code&gt;fwupdmgr&lt;/code&gt;でダウングレードを選択するも再起動時に&lt;code&gt;Secure Flash Authentication Failed&lt;/code&gt;で適用されず。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ fwupdmgr downgrade
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;0.	Cancel
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1.	b0fb0282929536060857f3bd5f80b319233340fd &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;Battery&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2.	6fd62cb954242863ea4a184c560eebd729c76101 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;Embedded Controller&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3.	0d5d05911800242bb1f35287012cdcbd9b381148 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;Prometheus&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;4.	3743975ad7f64f8d6575a9ae49fb3a8856fe186f &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;SKHynix HFS256GDE9X081N&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;5.	d77c38c163257a2c2b0c0b921b185f481d9c1e0c &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;System Firmware&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;6.	6df01b2df47b1b08190f1acac54486deb0b4c645 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;TPM&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;7.	362301da643102b9f38477387e2193e57abaa590 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;UEFI dbx&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Choose device &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0-7&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;: &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;0.	Cancel
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1.	0.1.46
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2.	0.1.41
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3.	0.1.38
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;4.	0.1.36
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;5.	0.1.23
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Choose release &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0-5&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;: 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;次に&lt;code&gt;r23uj70wd.iso&lt;/code&gt;をダウンロードしてきて起動するも別のエラーで適用できず。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Error&lt;/p&gt;
+&lt;p&gt;The system program file is not correct for this system.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;仕方なくWindowsからも適用を試みるがこれもダメ。このあたりで本当に無理な感じがしてきて、でもなんでダメなのかがよくわからず。そして&lt;code&gt;fwupdmgr&lt;/code&gt;の便利コマンドを知る。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ fwupdmgr security
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Host Security ID: HSI:1! &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;v1.9.16&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;HSI-1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ BIOS firmware updates:         Enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ Fused platform:                Locked
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ Supported CPU:                 Valid
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ TPM empty PCRs:                Valid
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ TPM v2.0:                      Found
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ UEFI bootservice variables:    Locked
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ UEFI platform key:             Valid
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ UEFI secure boot:              Enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;HSI-2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ SPI write protection:          Enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ IOMMU:                         Enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ Platform debugging:            Locked
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ TPM PCR0 reconstruction:       Valid
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✘ BIOS rollback protection:      Disabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;HSI-3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ SPI replay protection:         Enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ CET Platform:                  Supported
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ Pre-boot DMA protection:       Enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ Suspend-to-idle:               Enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ Suspend-to-ram:                Disabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;HSI-4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ Processor rollback protection: Enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ Encrypted RAM:                 Encrypted
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ SMAP:                          Enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Runtime Suffix -!
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ fwupd plugins:                 Untainted
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ Linux kernel lockdown:         Enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ Linux kernel:                  Untainted
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✘ CET OS Support:                Not supported
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✘ Linux swap:                    Unencrypted
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;This system has HSI runtime issues.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; » https://fwupd.github.io/hsi.html#hsi-runtime-suffix
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Host Security Events
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  2024-05-01 15:06:29:  ✘ BIOS rollback protection changed: Enabled → Disabled
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;HSI-2&lt;/code&gt;の中で&lt;code&gt;BIOS rollback protection&lt;/code&gt;は意図通りDisabledになっているものの、&lt;code&gt;HSI-4&lt;/code&gt;セクションの&lt;code&gt;Processor rollback protection&lt;/code&gt;はEnabledになっている。色々見てると、ここがDisabledのまま出荷されて、&lt;code&gt;OS Optimized Defaults&lt;/code&gt;を読み込むとEnabledになるものもあるという記述を見つける。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/fwupd/fwupd/commit/52d6c3cb78ab8ebfd432949995e5d4437569aaa6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/fwupd/fwupd/commit/52d6c3cb78ab8ebfd432949995e5d4437569aaa6&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Update documentation to indicate that loading &amp;ldquo;OS Optimized Defaults&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;may enable security processor rollback protection on Lenovo systems.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;OS Optimized Defaults&lt;/code&gt;をオフにしたらもしかしたら&lt;code&gt;Processor rollback protection&lt;/code&gt;もオフになってくれるかも、と試す。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-os-optimized-defaultsをオフにしてみるも変化なし&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;OS Optimized Defaultsをオフにしてみるも変化なし&#34; srcset=&#34;
+               /ja/post/2024/1714524492/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_481f36679004d555b0b4cba9ba90520a.webp 400w,
+               /ja/post/2024/1714524492/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_21a7706214242b47ca4b8bdcb32cb5d4.webp 760w,
+               /ja/post/2024/1714524492/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2024/1714524492/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_481f36679004d555b0b4cba9ba90520a.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;428&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      OS Optimized Defaultsをオフにしてみるも変化なし
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ fwupdmgr security
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Host Security ID: HSI:1! &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;v1.9.16&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✘ BIOS rollback protection:      Disabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;HSI-4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✔ Processor rollback protection: Enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Host Security Events
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  2024-05-02 03:24:45:  ✘ Kernel lockdown disabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  2024-05-02 03:24:45:  ✘ Secure Boot disabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  2024-05-02 03:24:45:  ✘ Pre-boot DMA protection is disabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  2024-05-02 03:24:45:  ✘ Encrypted RAM changed: Encrypted → Not supported
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;いくつかの項目が無効化されるけれども&lt;code&gt;Processor rollback protection&lt;/code&gt;は変わらず、脆弱性対応が含まれていると本当にダウングレードできない。リリースノートにもしっかり書いてあるけど、よくある「ダウングレードはサポートされていないよ」じゃなくて「できないよ」の意味を身を持って理解した。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://download.lenovo.com/pccbbs/mobiles/r23uj73wd.txt&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://download.lenovo.com/pccbbs/mobiles/r23uj73wd.txt&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;CHANGES IN THIS RELEASE&lt;/p&gt;
+&lt;p&gt;Version 1.49 (UEFI BIOS)
+1.32 (ECP)&lt;/p&gt;
+&lt;p&gt;[Important updates]&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Notice that BIOS can&amp;rsquo;t be downgraded to older BIOS version after upgrade to r23uj73w(1.49).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;[New functions or enhancements]&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Enhancement to address security vulnerability, CVE-2023-5058,LEN-123535,LEN-128083,LEN-115697,LEN-123534,LEN-118373,LEN-119523,LEN-123536.&lt;/li&gt;
+&lt;li&gt;Change to permit fan rotation after fan error happen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;より完璧なファームウェアアップデートが来るまでこのまま待ちます。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>SlideShareからSpeaker Deckに移行した</title>
@@ -109,10 +300,10 @@
 &lt;figure  id=&#34;figure-絶望の場面&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;絶望の場面&#34; srcset=&#34;
-               /ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1ec817b7f545770f51c33e7c4fc67410.webp 400w,
-               /ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_07c0552269bd6291a7efa1da420fa786.webp 760w,
+               /ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1940cb2668779567d62903a33a5906ab.webp 400w,
+               /ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_2b1b3eea13c1d873c69639f5ebda885e.webp 760w,
                /ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1ec817b7f545770f51c33e7c4fc67410.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1940cb2668779567d62903a33a5906ab.webp&#34;
                width=&#34;760&#34;
                height=&#34;428&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -467,10 +658,10 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /ja/post/2023/1703205652/featured_hu6f83d88413371a50e37ac8cde68031e6_378654_da7b1415d6068f70d76e98ed0af78bd9.webp 400w,
-               /ja/post/2023/1703205652/featured_hu6f83d88413371a50e37ac8cde68031e6_378654_a89817dce9dc5943067cdfc4ea1b9a19.webp 760w,
+               /ja/post/2023/1703205652/featured_hu6f83d88413371a50e37ac8cde68031e6_378654_48df857b8fe919f34eb316f5a730734b.webp 400w,
+               /ja/post/2023/1703205652/featured_hu6f83d88413371a50e37ac8cde68031e6_378654_72a91f54d47837340e239788dc815c22.webp 760w,
                /ja/post/2023/1703205652/featured_hu6f83d88413371a50e37ac8cde68031e6_378654_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1703205652/featured_hu6f83d88413371a50e37ac8cde68031e6_378654_da7b1415d6068f70d76e98ed0af78bd9.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1703205652/featured_hu6f83d88413371a50e37ac8cde68031e6_378654_48df857b8fe919f34eb316f5a730734b.webp&#34;
                width=&#34;760&#34;
                height=&#34;570&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -784,10 +975,10 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-文京シビックセンターからの眺め無償開放されているのも良い&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;文京シビックセンターからの眺め。無償開放されているのも良い。&#34; srcset=&#34;
-               /ja/post/2023/1692017377/featured_hud0e3f1a35b2446af20cbceba9f05cb1d_399904_c63be012a319ffcc1f8d960a100b62cc.webp 400w,
-               /ja/post/2023/1692017377/featured_hud0e3f1a35b2446af20cbceba9f05cb1d_399904_0f6b86721cd1d863bd9eb602a4cdfe40.webp 760w,
+               /ja/post/2023/1692017377/featured_hud0e3f1a35b2446af20cbceba9f05cb1d_399904_ac1ccf9a0c5a3c27c42191b23adb6e58.webp 400w,
+               /ja/post/2023/1692017377/featured_hud0e3f1a35b2446af20cbceba9f05cb1d_399904_f377be26b17081615d88bcfe75588264.webp 760w,
                /ja/post/2023/1692017377/featured_hud0e3f1a35b2446af20cbceba9f05cb1d_399904_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1692017377/featured_hud0e3f1a35b2446af20cbceba9f05cb1d_399904_c63be012a319ffcc1f8d960a100b62cc.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1692017377/featured_hud0e3f1a35b2446af20cbceba9f05cb1d_399904_ac1ccf9a0c5a3c27c42191b23adb6e58.webp&#34;
                width=&#34;760&#34;
                height=&#34;570&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -817,10 +1008,10 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-ささやかな花火&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;ささやかな花火&#34; srcset=&#34;
-               /ja/post/2023/1692017377/firework_hu01397909c51226fff23f7cf4179a4e7e_171444_c8ec63cdb862d4379392cea4c3ace72b.webp 400w,
-               /ja/post/2023/1692017377/firework_hu01397909c51226fff23f7cf4179a4e7e_171444_eae9bd306043301935ebd2f4b81217c2.webp 760w,
+               /ja/post/2023/1692017377/firework_hu01397909c51226fff23f7cf4179a4e7e_171444_1e0ff11152a3870495396e6130c4decf.webp 400w,
+               /ja/post/2023/1692017377/firework_hu01397909c51226fff23f7cf4179a4e7e_171444_b3894fc5e00cd3d3fbc65e68d6b70a15.webp 760w,
                /ja/post/2023/1692017377/firework_hu01397909c51226fff23f7cf4179a4e7e_171444_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1692017377/firework_hu01397909c51226fff23f7cf4179a4e7e_171444_c8ec63cdb862d4379392cea4c3ace72b.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1692017377/firework_hu01397909c51226fff23f7cf4179a4e7e_171444_1e0ff11152a3870495396e6130c4decf.webp&#34;
                width=&#34;760&#34;
                height=&#34;570&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -858,10 +1049,10 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-aukey-pa-d4-60w-126gと5000mahモバイルバッテリー-135gの合計で261g&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;AUKEY PA-D4 60W 126gと5000mAhモバイルバッテリー 135gの合計で261g&#34; srcset=&#34;
-               /ja/post/2023/1691725878/featured_hue8582b75b8b1763140b848c429efeacd_183933_a3d73f19e0c5465d718068eb16be6589.webp 400w,
-               /ja/post/2023/1691725878/featured_hue8582b75b8b1763140b848c429efeacd_183933_d172ec83d17692ddd63f6af4061dc13f.webp 760w,
+               /ja/post/2023/1691725878/featured_hue8582b75b8b1763140b848c429efeacd_183933_75de4cb977d5df8236429fe0f7c48f3c.webp 400w,
+               /ja/post/2023/1691725878/featured_hue8582b75b8b1763140b848c429efeacd_183933_bc90e5d28ab0a90756ea436a6ca9458e.webp 760w,
                /ja/post/2023/1691725878/featured_hue8582b75b8b1763140b848c429efeacd_183933_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1691725878/featured_hue8582b75b8b1763140b848c429efeacd_183933_a3d73f19e0c5465d718068eb16be6589.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1691725878/featured_hue8582b75b8b1763140b848c429efeacd_183933_75de4cb977d5df8236429fe0f7c48f3c.webp&#34;
                width=&#34;760&#34;
                height=&#34;570&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -891,10 +1082,10 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-anker-521-power-bank-45wは209g&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Anker 521 Power Bank 45Wは209g&#34; srcset=&#34;
-               /ja/post/2023/1691725878/anker_521_power_bank_huca47add64f0f8a31d7d37a1948c42c17_141472_a7d55727ac06553eff877c40096d8917.webp 400w,
-               /ja/post/2023/1691725878/anker_521_power_bank_huca47add64f0f8a31d7d37a1948c42c17_141472_5a187b930fe84f3c2afbc52301a22760.webp 760w,
+               /ja/post/2023/1691725878/anker_521_power_bank_huca47add64f0f8a31d7d37a1948c42c17_141472_a2deb882aabc5ba9d27b2129422bd736.webp 400w,
+               /ja/post/2023/1691725878/anker_521_power_bank_huca47add64f0f8a31d7d37a1948c42c17_141472_cefd38f904494ff41601326f9820800f.webp 760w,
                /ja/post/2023/1691725878/anker_521_power_bank_huca47add64f0f8a31d7d37a1948c42c17_141472_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1691725878/anker_521_power_bank_huca47add64f0f8a31d7d37a1948c42c17_141472_a7d55727ac06553eff877c40096d8917.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1691725878/anker_521_power_bank_huca47add64f0f8a31d7d37a1948c42c17_141472_a2deb882aabc5ba9d27b2129422bd736.webp&#34;
                width=&#34;760&#34;
                height=&#34;571&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1108,10 +1299,10 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-ubuntuのロゴも美術協力の一覧の中に&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Ubuntuのロゴも美術協力の一覧の中に&#34; srcset=&#34;
-               /ja/post/2023/1689418398/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_3a1c179ba5cfe9a3121c09ba2bbcfe8b.webp 400w,
-               /ja/post/2023/1689418398/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_1746c4890e2088a338ce4696e85512af.webp 760w,
+               /ja/post/2023/1689418398/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_f05d418763a2ee01b341e23ecb450e82.webp 400w,
+               /ja/post/2023/1689418398/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_3485d4257c548076dde653918ff5a5d9.webp 760w,
                /ja/post/2023/1689418398/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1689418398/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_3a1c179ba5cfe9a3121c09ba2bbcfe8b.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1689418398/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_f05d418763a2ee01b341e23ecb450e82.webp&#34;
                width=&#34;760&#34;
                height=&#34;428&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1626,10 +1817,10 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-初めてなのでいろいろ買ってみた&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;初めてなのでいろいろ買ってみた&#34; srcset=&#34;
-               /ja/post/2023/1686462501/featured_hud45291a1bf35d5486565e3d34453bfb5_325625_a82d79008d02ce5d7216fe6a71839cf0.webp 400w,
-               /ja/post/2023/1686462501/featured_hud45291a1bf35d5486565e3d34453bfb5_325625_9f4c25d5e8cb6d4cc0b198a4433ca2d1.webp 760w,
+               /ja/post/2023/1686462501/featured_hud45291a1bf35d5486565e3d34453bfb5_325625_a7f5f949d96ad918e90816152a77997c.webp 400w,
+               /ja/post/2023/1686462501/featured_hud45291a1bf35d5486565e3d34453bfb5_325625_8e1e9214373ebf25e8c86eadfdfbe634.webp 760w,
                /ja/post/2023/1686462501/featured_hud45291a1bf35d5486565e3d34453bfb5_325625_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1686462501/featured_hud45291a1bf35d5486565e3d34453bfb5_325625_a82d79008d02ce5d7216fe6a71839cf0.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1686462501/featured_hud45291a1bf35d5486565e3d34453bfb5_325625_a7f5f949d96ad918e90816152a77997c.webp&#34;
                width=&#34;721&#34;
                height=&#34;760&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1916,10 +2107,10 @@ contents of the disk is not changed.&lt;/p&gt;
 &lt;figure  id=&#34;figure-整理前&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;整理前&#34; srcset=&#34;
-               /ja/post/2023/1684594567/before_hu793588ecaae455bc464a46fed24374d8_186525_7794484f5a8fc0fd9fd48ea00b901a3b.webp 400w,
-               /ja/post/2023/1684594567/before_hu793588ecaae455bc464a46fed24374d8_186525_7872ea1f7a8732de5b2c4311661a64e7.webp 760w,
+               /ja/post/2023/1684594567/before_hu793588ecaae455bc464a46fed24374d8_186525_c393afe9bd290ffbd75b0a6ed4650114.webp 400w,
+               /ja/post/2023/1684594567/before_hu793588ecaae455bc464a46fed24374d8_186525_63258b9a6865249dfba7ae87eca0e552.webp 760w,
                /ja/post/2023/1684594567/before_hu793588ecaae455bc464a46fed24374d8_186525_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1684594567/before_hu793588ecaae455bc464a46fed24374d8_186525_7794484f5a8fc0fd9fd48ea00b901a3b.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1684594567/before_hu793588ecaae455bc464a46fed24374d8_186525_c393afe9bd290ffbd75b0a6ed4650114.webp&#34;
                width=&#34;570&#34;
                height=&#34;760&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1950,10 +2141,10 @@ contents of the disk is not changed.&lt;/p&gt;
 &lt;figure  id=&#34;figure-整理後&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;整理後&#34; srcset=&#34;
-               /ja/post/2023/1684594567/featured_hu4f56622101efebae6f42aba9f612c3c5_184446_010b06c0bbe83bd5661821051a34f41e.webp 400w,
-               /ja/post/2023/1684594567/featured_hu4f56622101efebae6f42aba9f612c3c5_184446_90eee5abf44fabe7924814d4c4498f5e.webp 760w,
+               /ja/post/2023/1684594567/featured_hu4f56622101efebae6f42aba9f612c3c5_184446_4375c5713428fcc7f7bc94452671a0b4.webp 400w,
+               /ja/post/2023/1684594567/featured_hu4f56622101efebae6f42aba9f612c3c5_184446_3d97fe7ea1585f5d924d73f9db7c1b5c.webp 760w,
                /ja/post/2023/1684594567/featured_hu4f56622101efebae6f42aba9f612c3c5_184446_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1684594567/featured_hu4f56622101efebae6f42aba9f612c3c5_184446_010b06c0bbe83bd5661821051a34f41e.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1684594567/featured_hu4f56622101efebae6f42aba9f612c3c5_184446_4375c5713428fcc7f7bc94452671a0b4.webp&#34;
                width=&#34;571&#34;
                height=&#34;760&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1983,10 +2174,10 @@ contents of the disk is not changed.&lt;/p&gt;
 &lt;figure  id=&#34;figure-ドリルで下穴も開けた&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;ドリルで下穴も開けた&#34; srcset=&#34;
-               /ja/post/2023/1684594567/screw_hole_hu4414aed6e4a1b01b5462ef433bcd97e9_78980_070f8b31ba7185f22b1efd8766df594b.webp 400w,
-               /ja/post/2023/1684594567/screw_hole_hu4414aed6e4a1b01b5462ef433bcd97e9_78980_0f11202d5f687bc68c9af5291a38a6b8.webp 760w,
+               /ja/post/2023/1684594567/screw_hole_hu4414aed6e4a1b01b5462ef433bcd97e9_78980_9ab9c020ff874be0f5c52e299ec59d76.webp 400w,
+               /ja/post/2023/1684594567/screw_hole_hu4414aed6e4a1b01b5462ef433bcd97e9_78980_9c90258582ae4c793032fd4e23899b88.webp 760w,
                /ja/post/2023/1684594567/screw_hole_hu4414aed6e4a1b01b5462ef433bcd97e9_78980_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1684594567/screw_hole_hu4414aed6e4a1b01b5462ef433bcd97e9_78980_070f8b31ba7185f22b1efd8766df594b.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1684594567/screw_hole_hu4414aed6e4a1b01b5462ef433bcd97e9_78980_9ab9c020ff874be0f5c52e299ec59d76.webp&#34;
                width=&#34;760&#34;
                height=&#34;570&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -2053,10 +2244,10 @@ contents of the disk is not changed.&lt;/p&gt;
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /ja/post/2023/1684038443/featured_hu893342b4907d133f918f9bdc57fe4296_352479_f410efba14bcb62f766edb764de7475a.webp 400w,
-               /ja/post/2023/1684038443/featured_hu893342b4907d133f918f9bdc57fe4296_352479_1126ac06aeb748a39d021bc2d842bcdc.webp 760w,
+               /ja/post/2023/1684038443/featured_hu893342b4907d133f918f9bdc57fe4296_352479_85fbfa0ad83a19792160cd7a53b73fd3.webp 400w,
+               /ja/post/2023/1684038443/featured_hu893342b4907d133f918f9bdc57fe4296_352479_711574aabe38e8946ee6ce4c7f538faf.webp 760w,
                /ja/post/2023/1684038443/featured_hu893342b4907d133f918f9bdc57fe4296_352479_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1684038443/featured_hu893342b4907d133f918f9bdc57fe4296_352479_f410efba14bcb62f766edb764de7475a.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1684038443/featured_hu893342b4907d133f918f9bdc57fe4296_352479_85fbfa0ad83a19792160cd7a53b73fd3.webp&#34;
                width=&#34;567&#34;
                height=&#34;760&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -2084,10 +2275,10 @@ contents of the disk is not changed.&lt;/p&gt;
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /ja/post/2023/1684038443/adhesives_hued14ede69ba875a35b361c508f8cb079_357430_1401680578ad3652845878678ada0fcd.webp 400w,
-               /ja/post/2023/1684038443/adhesives_hued14ede69ba875a35b361c508f8cb079_357430_3eb66fc077f89796826d755789fbe5df.webp 760w,
+               /ja/post/2023/1684038443/adhesives_hued14ede69ba875a35b361c508f8cb079_357430_ad5905dd4ba9189f1a02a93980b029b0.webp 400w,
+               /ja/post/2023/1684038443/adhesives_hued14ede69ba875a35b361c508f8cb079_357430_5b5223bb80e6020d71be44277a7fbdb3.webp 760w,
                /ja/post/2023/1684038443/adhesives_hued14ede69ba875a35b361c508f8cb079_357430_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1684038443/adhesives_hued14ede69ba875a35b361c508f8cb079_357430_1401680578ad3652845878678ada0fcd.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1684038443/adhesives_hued14ede69ba875a35b361c508f8cb079_357430_ad5905dd4ba9189f1a02a93980b029b0.webp&#34;
                width=&#34;760&#34;
                height=&#34;570&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -2160,10 +2351,10 @@ contents of the disk is not changed.&lt;/p&gt;
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /ja/post/2023/1683448276/featured_hu1e20fc0de76511c87a05eec57cef78ad_348301_3183b80901d632e85cf848fc899c543a.webp 400w,
-               /ja/post/2023/1683448276/featured_hu1e20fc0de76511c87a05eec57cef78ad_348301_7f8a6f319469945e437911f7cf6cb743.webp 760w,
+               /ja/post/2023/1683448276/featured_hu1e20fc0de76511c87a05eec57cef78ad_348301_d40b811c891490689ea0a6800dc7e1f6.webp 400w,
+               /ja/post/2023/1683448276/featured_hu1e20fc0de76511c87a05eec57cef78ad_348301_a3fcc1147b6e2e363c135e11aa8775e9.webp 760w,
                /ja/post/2023/1683448276/featured_hu1e20fc0de76511c87a05eec57cef78ad_348301_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1683448276/featured_hu1e20fc0de76511c87a05eec57cef78ad_348301_3183b80901d632e85cf848fc899c543a.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1683448276/featured_hu1e20fc0de76511c87a05eec57cef78ad_348301_d40b811c891490689ea0a6800dc7e1f6.webp&#34;
                width=&#34;759&#34;
                height=&#34;760&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -2191,10 +2382,10 @@ contents of the disk is not changed.&lt;/p&gt;
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /ja/post/2023/1683448276/before-after_hu4f37e83986afead55eae55118d8dbba2_158015_978c76aa0db1b6445eec51feffb239df.webp 400w,
-               /ja/post/2023/1683448276/before-after_hu4f37e83986afead55eae55118d8dbba2_158015_f4569ae1761820b7abef13ade85c9c18.webp 760w,
+               /ja/post/2023/1683448276/before-after_hu4f37e83986afead55eae55118d8dbba2_158015_ec88b9e327d583d4e707c1bae24d7693.webp 400w,
+               /ja/post/2023/1683448276/before-after_hu4f37e83986afead55eae55118d8dbba2_158015_cdbf7ec5e612e255cdae0ad1b56d899a.webp 760w,
                /ja/post/2023/1683448276/before-after_hu4f37e83986afead55eae55118d8dbba2_158015_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1683448276/before-after_hu4f37e83986afead55eae55118d8dbba2_158015_978c76aa0db1b6445eec51feffb239df.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1683448276/before-after_hu4f37e83986afead55eae55118d8dbba2_158015_ec88b9e327d583d4e707c1bae24d7693.webp&#34;
                width=&#34;760&#34;
                height=&#34;380&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -2398,10 +2589,10 @@ contents of the disk is not changed.&lt;/p&gt;
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /ja/post/2023/1683173373/featured_hud782085a8b6e74700ff35a82a87217cc_380086_9a24982e5760a7da2960877dd48317c5.webp 400w,
-               /ja/post/2023/1683173373/featured_hud782085a8b6e74700ff35a82a87217cc_380086_3ead33757bd558529f0e64a65b118f7e.webp 760w,
+               /ja/post/2023/1683173373/featured_hud782085a8b6e74700ff35a82a87217cc_380086_7f6724af0f3e78007516d87385eb0c2c.webp 400w,
+               /ja/post/2023/1683173373/featured_hud782085a8b6e74700ff35a82a87217cc_380086_26dd5f867c3b29fdaa4972a260fcf989.webp 760w,
                /ja/post/2023/1683173373/featured_hud782085a8b6e74700ff35a82a87217cc_380086_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1683173373/featured_hud782085a8b6e74700ff35a82a87217cc_380086_9a24982e5760a7da2960877dd48317c5.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/1683173373/featured_hud782085a8b6e74700ff35a82a87217cc_380086_7f6724af0f3e78007516d87385eb0c2c.webp&#34;
                width=&#34;760&#34;
                height=&#34;570&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;

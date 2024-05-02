@@ -2,8 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://nobuto-m.github.io/ja/post/2024/</loc>
+    <lastmod>2024-05-02T12:45:39+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>https://nobuto-m.github.io/ja/</loc>
-    <lastmod>2024-05-01T09:48:12+09:00</lastmod>
+    <lastmod>2024-05-02T12:45:39+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
@@ -16,8 +20,16 @@
                 href="https://nobuto-m.github.io/ja/"
                 />
   </url><url>
+    <loc>https://nobuto-m.github.io/ja/post/2024/1714524492/</loc>
+    <lastmod>2024-05-02T12:45:39+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://nobuto-m.github.io/ja/year/</loc>
+    <lastmod>2024-05-02T12:45:39+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>https://nobuto-m.github.io/ja/post/</loc>
-    <lastmod>2024-05-01T09:48:12+09:00</lastmod>
+    <lastmod>2024-05-02T12:45:39+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
@@ -30,15 +42,7 @@
                 href="https://nobuto-m.github.io/ja/post/"
                 />
   </url><url>
-    <loc>https://nobuto-m.github.io/ja/post/2024/</loc>
-    <lastmod>2024-02-04T18:26:53+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
     <loc>https://nobuto-m.github.io/ja/post/2024/1707038813/</loc>
-    <lastmod>2024-02-04T18:26:53+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://nobuto-m.github.io/ja/year/</loc>
     <lastmod>2024-02-04T18:26:53+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
