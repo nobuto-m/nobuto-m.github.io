@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: May 3, 2024 -->
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo Blox Builder 5.9.7">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; object-src 'none'; frame-src https://platform.twitter.com https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://platform.twitter.com;">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/vendor-bundle.min.26c458e6907dc03073573976b7f4044e.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/wowchemy.38ef0f893e880024d12f96952b77d82b.css">
+  <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  <meta name="google-site-verification" content="x-WRee-yVqnJs0JQZzIhmu43FqdyIrIKokjOAFhdL4I">
+  <meta name="author" content="Nobuto Murata">
+  <meta name="description" content="The &ldquo;Secure Rollback Prevention&rdquo; entry in the UEFI BIOS configuration The bottom line is that there is a new configuration called &ldquo;AMD Secure Processor Rollback protection&rdquo; on recent AMD systems in addition to &ldquo;Secure Rollback Prevention&rdquo; (BIOS rollback protection).">
+  <link rel="alternate" hreflang="ja" href="https://nobuto-m.github.io/ja/post/2024/1714524492/">
+  <link rel="alternate" hreflang="en-US" href="https://nobuto-m.github.io/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/">
+  <link rel="canonical" href="https://nobuto-m.github.io/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/">
+  <link rel="icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_180x180_fill_lanczos_center_3.png">
+  <meta name="theme-color" content="#1565c0">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:image" content="https://nobuto-m.github.io/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured.jpg">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Nobuto Murata">
+  <meta property="og:url" content="https://nobuto-m.github.io/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/">
+  <meta property="og:title" content="No, you can&#39;t downgrade T14 Gen 3 AMD&#39;s UEFI BIOS even when Secure Rollback Prevention is turned off | Nobuto Murata">
+  <meta property="og:description" content="The &ldquo;Secure Rollback Prevention&rdquo; entry in the UEFI BIOS configuration The bottom line is that there is a new configuration called &ldquo;AMD Secure Processor Rollback protection&rdquo; on recent AMD systems in addition to &ldquo;Secure Rollback Prevention&rdquo; (BIOS rollback protection).">
+  <meta property="og:image" content="https://nobuto-m.github.io/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured.jpg">
+  <meta property="og:locale" content="en-US">
+  <meta property="article:published_time" content="2024-05-03T12:20:51&#43;09:00">
+  <meta property="article:modified_time" content="2024-05-03T12:20:51&#43;09:00">
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nobuto-m.github.io/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/"
+  },
+  "headline": "No, you can't downgrade T14 Gen 3 AMD's UEFI BIOS even when Secure Rollback Prevention is turned off",
+
+  "image": [
+    "https://nobuto-m.github.io/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured.jpg"
+  ],
+
+  "datePublished": "2024-05-03T12:20:51+09:00",
+  "dateModified": "2024-05-03T12:20:51+09:00",
+
+  "author": {
+    "@type": "Person",
+    "name": "Nobuto Murata"
+  },
+
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nobuto Murata",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "The \u0026ldquo;Secure Rollback Prevention\u0026rdquo; entry in the UEFI BIOS configuration The bottom line is that there is a new configuration called \u0026ldquo;AMD Secure Processor Rollback protection\u0026rdquo; on recent AMD systems in addition to \u0026ldquo;Secure Rollback Prevention\u0026rdquo; (BIOS rollback protection)."
+  }
+  </script>
+  <title>No, you can&#39;t downgrade T14 Gen 3 AMD&#39;s UEFI BIOS even when Secure Rollback Prevention is turned off | Nobuto Murata</title>
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper" data-wc-page-id="ce5493bb61321d5a1f3851a2d6708509">
+  <script src="/js/wowchemy-init.min.9e4214442a7711d35691acd58f6f6361.js"></script>
+  <aside class="search-modal" id="search">
+    <div class="container">
+      <section class="search-header">
+        <div class="row no-gutters justify-content-between mb-3">
+          <div class="col-6">
+            <h1>Search</h1>
+          </div>
+
+          <div class="col-6 col-search-close">
+            <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div id="search-box">
+          <input name="q" id="search-query" placeholder="Search..." autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control" aria-label="Search...">
+        </div>
+      </section>
+
+      <section class="section-search-results">
+        <div id="search-hits">
+        </div>
+      </section>
+    </div>
+  </aside>
+
+  <div class="page-header header--fixed">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+        <div class="container-xl">
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span><i class="fas fa-bars"></i></span></button>
+          <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+            <ul class="navbar-nav d-md-inline-flex">
+              <li class="nav-item">
+                <a class="nav-link" href="/#about"><span>Home</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/#posts"><span>Posts</span></a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Language</span><span class="caret"></span></a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/ja/post/"><span>日本語</span></a>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+            <li class="nav-item">
+              <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+            </li>
+
+            <li class="nav-item dropdown theme-dropdown">
+              <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences"><i class="fas fa-moon" aria-hidden="true"></i></a>
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-item js-set-theme-light"><span>Light</span></a> <a href="#" class="dropdown-item js-set-theme-dark"><span>Dark</span></a> <a href="#" class="dropdown-item js-set-theme-auto"><span>Automatic</span></a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown i18n-dropdown">
+              <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Languages"><i class="fas fa-globe mr-1" aria-hidden="true"></i></a>
+              <div class="dropdown-menu">
+                <div class="dropdown-item dropdown-item-active">
+                  <span>English</span>
+                </div>
+                <a class="dropdown-item" href="https://nobuto-m.github.io/ja/post/2024/1714524492/"><span>日本語</span></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+      <div class="article-container pt-3">
+        <h1>No, you can&#39;t downgrade T14 Gen 3 AMD&#39;s UEFI BIOS even when Secure Rollback Prevention is turned off</h1>
+
+        <div class="article-metadata">
+          <span class="article-date">May 3, 2024</span>
+        </div>
+      </div>
+
+      <div class="article-container">
+        <div class="article-style">
+          <figure id="figure-the-secure-rollback-prevention-entry-in-the-uefi-bios-configuration">
+            <div class="d-flex justify-content-center">
+              <div class="w-100"><img alt="The &#34;Secure Rollback Prevention&#34; entry in the UEFI BIOS configuration" srcset="/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_3cb9670871c00c22c40ea3757e48b4ee.webp 400w, /post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_82fa2891a30ab0fe0a0b491ec67f6d81.webp 760w, /post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_1200x1200_fit_q75_h2_lanczos.webp 1200w" src="/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_3cb9670871c00c22c40ea3757e48b4ee.webp" width="760" height="570" loading="lazy" data-zoomable="">
+              </div>
+            </div>
+
+            <figcaption>
+              The &ldquo;Secure Rollback Prevention&rdquo; entry in the UEFI BIOS configuration
+            </figcaption>
+          </figure>
+
+          <p>The bottom line is that there is a new configuration called &ldquo;AMD Secure <strong>Processor</strong> Rollback protection&rdquo; on recent AMD systems in addition to &ldquo;Secure Rollback Prevention&rdquo; (BIOS rollback protection). If it&rsquo;s enabled by a vendor, you cannot downgrade the UEFI BIOS revisions once you install a one with security vulnerability fixes.</p>
+
+          <p><a href="https://fwupd.github.io/libfwupdplugin/hsi.html#org.fwupd.hsi.Amd.RollbackProtection" target="_blank" rel="noopener">https://fwupd.github.io/libfwupdplugin/hsi.html#org.fwupd.hsi.Amd.RollbackProtection</a>
+          </p>
+
+          <blockquote>
+            <p>This feature prevents an attacker from loading an older firmware onto the part after a security vulnerability has been fixed.<br>
+            [&hellip;]<br>
+            End users are not able to directly modify rollback protection, this is controlled by the manufacturer.</p>
+          </blockquote>
+
+          <p>Previously I installed the revision 1.49 (R23ET73W) but it&rsquo;s gone from <a href="https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t14-gen-3-type-21cf-21cg/21cf/21cfcto1ww/downloads/driver-list/component?name=BIOS%2FUEFI" target="_blank" rel="noopener">Lenovo&rsquo;s official page</a> with the notice below. I&rsquo;ve been annoyed by a symptom which is likely from a firmware so I wanted to try multiple revisions for bisecting, and also I thought I should downgrade it to the latest official revision as 1.40 (R23ET70W) since the withdrawal clearly indicates that there is something wrong with 1.49.</p>
+
+          <blockquote>
+            <p>This BIOS version R23UJ73W is reported Lenovo cloud not working issue, hence it has been withdrawn from support site.</p>
+          </blockquote>
+
+          <p>First, I turned off <code>Secure Rollback Prevention</code> and tried downgrading it with <code>fwupdmgr</code> like the following. However, it failed to be applied with <code>Secure Flash Authentication Failed</code> when rebooted.</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ fwupdmgr downgrade
+</span></span><span class="line"><span class="cl">0.    Cancel
+</span></span><span class="line"><span class="cl">1.    b0fb0282929536060857f3bd5f80b319233340fd <span class="o">(</span>Battery<span class="o">)</span>
+</span></span><span class="line"><span class="cl">2.    6fd62cb954242863ea4a184c560eebd729c76101 <span class="o">(</span>Embedded Controller<span class="o">)</span>
+</span></span><span class="line"><span class="cl">3.    0d5d05911800242bb1f35287012cdcbd9b381148 <span class="o">(</span>Prometheus<span class="o">)</span>
+</span></span><span class="line"><span class="cl">4.    3743975ad7f64f8d6575a9ae49fb3a8856fe186f <span class="o">(</span>SKHynix HFS256GDE9X081N<span class="o">)</span>
+</span></span><span class="line"><span class="cl">5.    d77c38c163257a2c2b0c0b921b185f481d9c1e0c <span class="o">(</span>System Firmware<span class="o">)</span>
+</span></span><span class="line"><span class="cl">6.    6df01b2df47b1b08190f1acac54486deb0b4c645 <span class="o">(</span>TPM<span class="o">)</span>
+</span></span><span class="line"><span class="cl">7.    362301da643102b9f38477387e2193e57abaa590 <span class="o">(</span>UEFI dbx<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Choose device <span class="o">[</span>0-7<span class="o">]</span>: <span class="m">5</span>
+</span></span><span class="line"><span class="cl">0.    Cancel
+</span></span><span class="line"><span class="cl">1.    0.1.46
+</span></span><span class="line"><span class="cl">2.    0.1.41
+</span></span><span class="line"><span class="cl">3.    0.1.38
+</span></span><span class="line"><span class="cl">4.    0.1.36
+</span></span><span class="line"><span class="cl">5.    0.1.23
+</span></span><span class="line"><span class="cl">Choose release <span class="o">[</span>0-5<span class="o">]</span>: 
+</span></span></code></pre>
+          </div>
+
+          <p>Next, I tried their ISO image <code>r23uj70wd.iso</code>, but no luck with another error.</p>
+
+          <blockquote>
+            <p>Error</p>
+
+            <p>The system program file is not correct for this system.</p>
+          </blockquote>
+
+          <p>Also, Windows failed to apply it so I became convinced it was impossible. However, I didn&rsquo;t have a clear idea why at that point and bumped into a handy command in <code>fwupdmgr</code>.</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ fwupdmgr security
+</span></span><span class="line"><span class="cl">Host Security ID: HSI:1! <span class="o">(</span>v1.9.16<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">HSI-1
+</span></span><span class="line"><span class="cl">✔ BIOS firmware updates:         Enabled
+</span></span><span class="line"><span class="cl">✔ Fused platform:                Locked
+</span></span><span class="line"><span class="cl">✔ Supported CPU:                 Valid
+</span></span><span class="line"><span class="cl">✔ TPM empty PCRs:                Valid
+</span></span><span class="line"><span class="cl">✔ TPM v2.0:                      Found
+</span></span><span class="line"><span class="cl">✔ UEFI bootservice variables:    Locked
+</span></span><span class="line"><span class="cl">✔ UEFI platform key:             Valid
+</span></span><span class="line"><span class="cl">✔ UEFI secure boot:              Enabled
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">HSI-2
+</span></span><span class="line"><span class="cl">✔ SPI write protection:          Enabled
+</span></span><span class="line"><span class="cl">✔ IOMMU:                         Enabled
+</span></span><span class="line"><span class="cl">✔ Platform debugging:            Locked
+</span></span><span class="line"><span class="cl">✔ TPM PCR0 reconstruction:       Valid
+</span></span><span class="line"><span class="cl">✘ BIOS rollback protection:      Disabled
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">HSI-3
+</span></span><span class="line"><span class="cl">✔ SPI replay protection:         Enabled
+</span></span><span class="line"><span class="cl">✔ CET Platform:                  Supported
+</span></span><span class="line"><span class="cl">✔ Pre-boot DMA protection:       Enabled
+</span></span><span class="line"><span class="cl">✔ Suspend-to-idle:               Enabled
+</span></span><span class="line"><span class="cl">✔ Suspend-to-ram:                Disabled
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">HSI-4
+</span></span><span class="line"><span class="cl">✔ Processor rollback protection: Enabled
+</span></span><span class="line"><span class="cl">✔ Encrypted RAM:                 Encrypted
+</span></span><span class="line"><span class="cl">✔ SMAP:                          Enabled
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Runtime Suffix -!
+</span></span><span class="line"><span class="cl">✔ fwupd plugins:                 Untainted
+</span></span><span class="line"><span class="cl">✔ Linux kernel lockdown:         Enabled
+</span></span><span class="line"><span class="cl">✔ Linux kernel:                  Untainted
+</span></span><span class="line"><span class="cl">✘ CET OS Support:                Not supported
+</span></span><span class="line"><span class="cl">✘ Linux swap:                    Unencrypted
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">This system has HSI runtime issues.
+</span></span><span class="line"><span class="cl"> » https://fwupd.github.io/hsi.html#hsi-runtime-suffix
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Host Security Events
+</span></span><span class="line"><span class="cl">  2024-05-01 15:06:29:  ✘ BIOS rollback protection changed: Enabled → Disabled
+</span></span></code></pre>
+          </div>
+
+          <p>As you can see, the <code>BIOS rollback protection</code> in the HSI-2 section is &ldquo;Disabled&rdquo; as intended. But <code>Processor rollback protection</code> in HSI-4 is &ldquo;Enabled&rdquo;. I found a commit suggesting that there was a system with the config disabled and it was able to be enabled when <code>OS Optimized Defaults</code> is turned on.</p>
+
+          <p><a href="https://github.com/fwupd/fwupd/commit/52d6c3cb78ab8ebfd432949995e5d4437569aaa6" target="_blank" rel="noopener">https://github.com/fwupd/fwupd/commit/52d6c3cb78ab8ebfd432949995e5d4437569aaa6</a>
+          </p>
+
+          <blockquote>
+            <p>Update documentation to indicate that loading &ldquo;OS Optimized Defaults&rdquo;</p>
+
+            <p>may enable security processor rollback protection on Lenovo systems.</p>
+          </blockquote>
+
+          <p>I hoped that <code>Processor rollback protection</code> might be disabled by turning off <code>OS Optimized Defaults</code> instead.</p>
+
+          <figure id="figure-tried-os-optimized-defaults-turned-off-but-no-luck">
+            <div class="d-flex justify-content-center">
+              <div class="w-100"><img alt="Tried OS Optimized Defaults turned off but no luck" srcset="/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_653d6e7f1be4a9f7ce5da4ac4224f907.webp 400w, /post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_21a7706214242b47ca4b8bdcb32cb5d4.webp 760w, /post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_1200x1200_fit_q75_h2_lanczos.webp 1200w" src="/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_653d6e7f1be4a9f7ce5da4ac4224f907.webp" width="760" height="428" loading="lazy" data-zoomable="">
+              </div>
+            </div>
+
+            <figcaption>
+              Tried OS Optimized Defaults turned off but no luck
+            </figcaption>
+          </figure>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ fwupdmgr security
+</span></span><span class="line"><span class="cl">Host Security ID: HSI:1! <span class="o">(</span>v1.9.16<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">✘ BIOS rollback protection:      Disabled
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">HSI-4
+</span></span><span class="line"><span class="cl">✔ Processor rollback protection: Enabled
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Host Security Events
+</span></span><span class="line"><span class="cl">  2024-05-02 03:24:45:  ✘ Kernel lockdown disabled
+</span></span><span class="line"><span class="cl">  2024-05-02 03:24:45:  ✘ Secure Boot disabled
+</span></span><span class="line"><span class="cl">  2024-05-02 03:24:45:  ✘ Pre-boot DMA protection is disabled
+</span></span><span class="line"><span class="cl">  2024-05-02 03:24:45:  ✘ Encrypted RAM changed: Encrypted → Not supported
+</span></span></code></pre>
+          </div>
+
+          <p>Some configurations were overridden, but the <code>Processor rollback protection</code> stayed the same. It&rsquo;s confirmed that it&rsquo;s really impossible to downgrade the firmware with vulnerability fixes. I learned the hard way that there was a clear difference between &ldquo;a vendor doesn&rsquo;t support downgrading&rdquo; and &ldquo;it can&rsquo;t be downgraded&rdquo; as per the release notes.</p>
+
+          <p><a href="https://download.lenovo.com/pccbbs/mobiles/r23uj73wd.txt" target="_blank" rel="noopener">https://download.lenovo.com/pccbbs/mobiles/r23uj73wd.txt</a>
+          </p>
+
+          <blockquote>
+            <p>CHANGES IN THIS RELEASE</p>
+
+            <p>Version 1.49 (UEFI BIOS) 1.32 (ECP)</p>
+
+            <p>[Important updates]</p>
+
+            <ul>
+              <li>Notice that BIOS can&rsquo;t be downgraded to older BIOS version after upgrade to r23uj73w(1.49).</li>
+            </ul>
+
+            <p>[New functions or enhancements]</p>
+
+            <ul>
+              <li>Enhancement to address security vulnerability, CVE-2023-5058,LEN-123535,LEN-128083,LEN-115697,LEN-123534,LEN-118373,LEN-119523,LEN-123536.</li>
+
+              <li>Change to permit fan rotation after fan error happen.</li>
+            </ul>
+          </blockquote>
+
+          <p>I have to wait for a new and better firmware.</p>
+        </div>
+
+        <div class="article-tags">
+          <a class="badge badge-light" href="/tag/planet-ubuntu/">Planet-Ubuntu</a>
+        </div>
+
+        <div class="share-box">
+          <ul class="share">
+            <li>
+              <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2024%2Fno-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off%2F&amp;text=No%2C&#43;you&#43;can%27t&#43;downgrade&#43;T14&#43;Gen&#43;3&#43;AMD%27s&#43;UEFI&#43;BIOS&#43;even&#43;when&#43;Secure&#43;Rollback&#43;Prevention&#43;is&#43;turned&#43;off" target="_blank" rel="noopener" class="share-btn-x" aria-label="x-twitter"><i class="fab fa-x-twitter"></i></a>
+            </li>
+
+            <li>
+              <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2024%2Fno-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off%2F&amp;t=No%2C&#43;you&#43;can%27t&#43;downgrade&#43;T14&#43;Gen&#43;3&#43;AMD%27s&#43;UEFI&#43;BIOS&#43;even&#43;when&#43;Secure&#43;Rollback&#43;Prevention&#43;is&#43;turned&#43;off" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook"><i class="fab fa-facebook"></i></a>
+            </li>
+
+            <li>
+              <a href="mailto:?subject=No%2C%20you%20can%27t%20downgrade%20T14%20Gen%203%20AMD%27s%20UEFI%20BIOS%20even%20when%20Secure%20Rollback%20Prevention%20is%20turned%20off&amp;body=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2024%2Fno-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope"><i class="fas fa-envelope"></i></a>
+            </li>
+
+            <li>
+              <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2024%2Fno-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off%2F&amp;title=No%2C&#43;you&#43;can%27t&#43;downgrade&#43;T14&#43;Gen&#43;3&#43;AMD%27s&#43;UEFI&#43;BIOS&#43;even&#43;when&#43;Secure&#43;Rollback&#43;Prevention&#43;is&#43;turned&#43;off" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in"><i class="fab fa-linkedin-in"></i></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="media author-card content-widget-hr">
+          <a href="https://nobuto-m.github.io/"><img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_hu78a952caf143c499a0d44484a3185536_20286_270x270_fill_q75_lanczos_center.jpg" alt="Nobuto Murata"></a>
+          <div class="media-body">
+            <h5 class="card-title"><a href="https://nobuto-m.github.io/">Nobuto Murata</a>
+            </h5>
+
+            <ul class="network-icon" aria-hidden="true">
+              <li>
+                <a href="https://twitter.com/nobuto_m" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
+              </li>
+
+              <li>
+                <a href="https://github.com/nobuto-m" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+              </li>
+
+              <li>
+                <a href="https://nobuto-murata.org/" target="_blank" rel="noopener"><i class="fas fa-globe"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="article-widget content-widget-hr">
+          <h3>Related</h3>
+
+          <ul>
+            <li>
+              <a href="/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/">Ubuntu Server autoinstall with a physical machine</a>
+            </li>
+
+            <li>
+              <a href="/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/">Shortcut key to mute/unmute yourself in Zoom, Google Meet, or Teams</a>
+            </li>
+
+            <li>
+              <a href="/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/">Minimal Dynamic DNS configuration for No-IP.com with ddclient</a>
+            </li>
+
+            <li>
+              <a href="/post/2017/knowing-what-services-need-restart-with-needrestart/">Knowing what services need restart with “needrestart”</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <footer class="site-footer">
+        <p class="powered-by copyright-license-text">© 2017-2024 Nobuto Murata</p>
+
+        <p class="powered-by">Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.</p>
+      </footer>
+    </div>
+  </div>
+  <script src="/js/vendor-bundle.min.391d344a129df56f7ad674c2c2ed04e8.js"></script> 
+  <script id="search-hit-fuse-template" type="text/x-template">
+
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script> 
+  <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script> 
+  <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script> 
+  <script id="page-data" type="application/json">
+  {"use_headroom":true}
+  </script> 
+  <script src="/js/wowchemy-headroom.db4755770454eb63685f8de785c0a172.js" type="module"></script> 
+  <script src="/en/js/wowchemy.min.7f5ebaff62ae468cff8bb3dd1337bb9b.js"></script>
+</body>
+</html>

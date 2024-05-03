@@ -22,6 +22,8 @@ lastmod: 2024-05-02T12:45:39+09:00
 featured: false
 draft: false
 
+translationKey: post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off
+
 # Featured image
 # To use, add an image named "featured.jpg/png" to your page's folder.
 image:

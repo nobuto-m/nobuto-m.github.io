@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: 2024年5月2日 -->
+<!-- Last Published: 2024年5月3日 -->
 <html lang="ja">
 <head>
   <meta charset="utf-8">
@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
   <meta name="google-site-verification" content="x-WRee-yVqnJs0JQZzIhmu43FqdyIrIKokjOAFhdL4I">
   <meta name="description" content="UEFI BIOS上の&quot;Secure Rollback Prevention&quot;の項目 結論として、最近のAMDシステムでは &ldquo;Secure Rollback Prevention&rdquo; (BIOS rollback protection)とは別に &ldquo;AMD Secure Processor Rollback protection&rdquo; があり、これがベンダー側で有効にされている場合は一旦脆弱性対応を含むUEFI BIOSバージョンに上げてしまうとダウングレード（ロールバック）できなくなる。">
+  <link rel="alternate" hreflang="en" href="https://nobuto-m.github.io/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/">
   <link rel="alternate" hreflang="ja" href="https://nobuto-m.github.io/ja/post/2024/1714524492/">
   <link rel="canonical" href="https://nobuto-m.github.io/ja/post/2024/1714524492/">
   <link rel="icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_32x32_fill_lanczos_center_3.png">
@@ -122,6 +123,16 @@
               <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="表示設定"><i class="fas fa-moon" aria-hidden="true"></i></a>
               <div class="dropdown-menu">
                 <a href="#" class="dropdown-item js-set-theme-light"><span>ライト</span></a> <a href="#" class="dropdown-item js-set-theme-dark"><span>ダーク</span></a> <a href="#" class="dropdown-item js-set-theme-auto"><span>自動</span></a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown i18n-dropdown">
+              <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="言語"><i class="fas fa-globe mr-1" aria-hidden="true"></i></a>
+              <div class="dropdown-menu">
+                <div class="dropdown-item dropdown-item-active">
+                  <span>日本語</span>
+                </div>
+                <a class="dropdown-item" href="https://nobuto-m.github.io/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/"><span>English</span></a>
               </div>
             </li>
           </ul>
