@@ -60,3 +60,8 @@ The initial set of firmware for the model was so terrible that I lost the trackp
 
 [4] https://fwupd.org/lvfs/devices/com.lenovo.ThinkPadR23ET.firmware
 [5] https://www.reddit.com/r/thinkpad/comments/wju7d9/t14s_gen3_amd_trackpoint_stops_working_after/
+
+
+## Battery
+
+Draining even when the system status and the LED indicates it's charging.
