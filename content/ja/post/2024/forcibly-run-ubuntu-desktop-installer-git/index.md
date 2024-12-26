@@ -2,10 +2,13 @@
 # Documentation: https://wowchemy.com/docs/managing-content/
 
 title: "表示されないFlutter版ubuntu-desktop-installerをgit版で無理やり動かす"
-slug: 1704727518
+slug: forcibly-run-ubuntu-desktop-installer-git
 subtitle: ""
 summary: ""
 authors: []
+
+aliases:
+- 1704727518
 
 tags: []
 categories: []

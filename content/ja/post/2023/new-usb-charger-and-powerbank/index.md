@@ -2,10 +2,13 @@
 # Documentation: https://wowchemy.com/docs/managing-content/
 
 title: "USB充電器セットを買い替えた"
-slug: 1691725878
+slug: new-usb-charger-and-powerbank
 subtitle: ""
 summary: ""
 authors: []
+
+aliases:
+- 1691725878
 
 tags: []
 categories: []

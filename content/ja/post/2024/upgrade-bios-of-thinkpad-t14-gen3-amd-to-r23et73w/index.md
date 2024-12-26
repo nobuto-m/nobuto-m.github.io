@@ -2,10 +2,13 @@
 # Documentation: https://wowchemy.com/docs/managing-content/
 
 title: "ThinkPad T14 Gen 3 AMDのBIOSを1.49/1.32(R23ET73W)に上げる"
-slug: 1705134429
+slug: upgrade-bios-of-thinkpad-t14-gen3-amd-to-r23et73w
 subtitle: ""
 summary: ""
 authors: []
+
+aliases:
+- 1705134429
 
 tags: []
 categories: []

@@ -2,10 +2,13 @@
 # Documentation: https://wowchemy.com/docs/managing-content/
 
 title: "SlideShareからSpeaker Deckに移行した"
-slug: 1707038813
+slug: migration-from-slideshare-to-speakerdeck
 subtitle: ""
 summary: ""
 authors: []
+
+aliases:
+- 1707038813
 
 tags: []
 categories: []

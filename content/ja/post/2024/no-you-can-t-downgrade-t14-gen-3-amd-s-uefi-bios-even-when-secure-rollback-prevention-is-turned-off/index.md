@@ -42,7 +42,7 @@ https://fwupd.github.io/libfwupdplugin/hsi.html#org.fwupd.hsi.Amd.RollbackProtec
 > [...]  
 > End users are not able to directly modify rollback protection, this is controlled by the manufacturer.
 
-[以前BIOSバージョンを1.49に上げた]({{< ref "../1705134429/index.md" >}})ものの、この`1.49(R23ET73W)`が[公式ページ](https://pcsupport.lenovo.com/jp/ja/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t14-gen-3-type-21cf-21cg/21cf/21cfcto1ww/downloads/driver-list/component?name=BIOS%2FUEFI)から取り下げられてしまっている。何かしらの不具合があったということなので現時点で最新である`1.40(R23ET70W)`に戻しておきたかったのと、ファームウェアが原因なんじゃないかと思われる症状に悩まされているので色々なバージョンに戻ってテストしたかったので試行錯誤するはめに。
+[以前BIOSバージョンを1.49に上げた]({{< ref "../upgrade-bios-of-thinkpad-t14-gen3-amd-to-r23et73w/index.md" >}})ものの、この`1.49(R23ET73W)`が[公式ページ](https://pcsupport.lenovo.com/jp/ja/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t14-gen-3-type-21cf-21cg/21cf/21cfcto1ww/downloads/driver-list/component?name=BIOS%2FUEFI)から取り下げられてしまっている。何かしらの不具合があったということなので現時点で最新である`1.40(R23ET70W)`に戻しておきたかったのと、ファームウェアが原因なんじゃないかと思われる症状に悩まされているので色々なバージョンに戻ってテストしたかったので試行錯誤するはめに。
 
 まず`Secure Rollback Prevention`をオフにしてから、次のように`fwupdmgr`でダウングレードを選択するも再起動時に`Secure Flash Authentication Failed`で適用されず。
 

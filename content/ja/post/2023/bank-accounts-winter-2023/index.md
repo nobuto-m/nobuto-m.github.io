@@ -2,10 +2,13 @@
 # Documentation: https://wowchemy.com/docs/managing-content/
 
 title: "使っている銀行口座まとめ 2023冬"
-slug: 1703205652
+slug: bank-accounts-winter-2023
 subtitle: ""
 summary: ""
 authors: []
+
+aliases:
+- 1703205652
 
 tags: []
 categories: []
@@ -28,7 +31,7 @@ image:
   preview_only: true
 ---
 
-[クレジットカード]({{< ref "../1702951481/index.md" >}})に続いて、銀行口座もまとめてみる。口座ぐらいはしっかり管理できていたと思ってたけど意外に把握できていなかったので、現時点で整理した結果の自分用まとめ。クレジットカードと別ページじゃなくて一本化するのが筋な気もするので改善の余地は大いにあり。
+[クレジットカード]({{< ref "../credit-cards-winder-2023/index.md" >}})に続いて、銀行口座もまとめてみる。口座ぐらいはしっかり管理できていたと思ってたけど意外に把握できていなかったので、現時点で整理した結果の自分用まとめ。クレジットカードと別ページじゃなくて一本化するのが筋な気もするので改善の余地は大いにあり。
 
 {{< figure src="featured.jpg" caption="" >}}
 

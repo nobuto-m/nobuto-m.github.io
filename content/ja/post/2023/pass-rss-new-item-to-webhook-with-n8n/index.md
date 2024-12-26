@@ -2,10 +2,13 @@
 # Documentation: https://wowchemy.com/docs/managing-content/
 
 title: "n8nでRSSの新着アイテムをwebhookに投げる"
-slug: 1688885165
+slug: pass-rss-new-item-to-webhook-with-n8n
 subtitle: ""
 summary: ""
 authors: []
+
+aliases:
+- 1688885165
 
 tags: []
 categories: []

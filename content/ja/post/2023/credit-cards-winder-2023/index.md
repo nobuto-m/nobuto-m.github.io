@@ -2,10 +2,13 @@
 # Documentation: https://wowchemy.com/docs/managing-content/
 
 title: "使っているクレジットカードまとめ 2023冬"
-slug: 1702951481
+slug: credit-cards-winder-2023
 subtitle: ""
 summary: ""
 authors: []
+
+aliases:
+- 1702951481
 
 tags: []
 categories: []

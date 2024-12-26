@@ -2,10 +2,13 @@
 # Documentation: https://wowchemy.com/docs/managing-content/
 
 title: "ドラマ『トリリオンゲーム』にUbuntuがちらっと映った"
-slug: 1689418398
+slug: ubuntu-showed-up-in-the-trillion-game-drama
 subtitle: ""
 summary: ""
 authors: []
+
+aliases:
+- 1689418398
 
 tags: []
 categories: []

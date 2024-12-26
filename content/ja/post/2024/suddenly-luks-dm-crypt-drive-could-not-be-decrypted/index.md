@@ -2,10 +2,13 @@
 # Documentation: https://wowchemy.com/docs/managing-content/
 
 title: "突然LUKS(dm-crypt)起動ドライブの暗号化が解除できなくなった話"
-slug: 1706798132
+slug: suddenly-luks-dm-crypt-drive-could-not-be-decrypted
 subtitle: ""
 summary: ""
 authors: []
+
+aliases:
+- 1706798132
 
 tags: []
 categories: []

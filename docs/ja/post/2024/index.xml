@@ -56,7 +56,7 @@
 [&amp;hellip;]&lt;br&gt;
 End users are not able to directly modify rollback protection, this is controlled by the manufacturer.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://nobuto-m.github.io/ja/post/2024/1705134429/&#34;&gt;以前BIOSバージョンを1.49に上げた&lt;/a&gt;ものの、この&lt;code&gt;1.49(R23ET73W)&lt;/code&gt;が&lt;a href=&#34;https://pcsupport.lenovo.com/jp/ja/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t14-gen-3-type-21cf-21cg/21cf/21cfcto1ww/downloads/driver-list/component?name=BIOS%2FUEFI&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;公式ページ&lt;/a&gt;から取り下げられてしまっている。何かしらの不具合があったということなので現時点で最新である&lt;code&gt;1.40(R23ET70W)&lt;/code&gt;に戻しておきたかったのと、ファームウェアが原因なんじゃないかと思われる症状に悩まされているので色々なバージョンに戻ってテストしたかったので試行錯誤するはめに。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://nobuto-m.github.io/ja/post/2024/upgrade-bios-of-thinkpad-t14-gen3-amd-to-r23et73w/&#34;&gt;以前BIOSバージョンを1.49に上げた&lt;/a&gt;ものの、この&lt;code&gt;1.49(R23ET73W)&lt;/code&gt;が&lt;a href=&#34;https://pcsupport.lenovo.com/jp/ja/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t14-gen-3-type-21cf-21cg/21cf/21cfcto1ww/downloads/driver-list/component?name=BIOS%2FUEFI&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;公式ページ&lt;/a&gt;から取り下げられてしまっている。何かしらの不具合があったということなので現時点で最新である&lt;code&gt;1.40(R23ET70W)&lt;/code&gt;に戻しておきたかったのと、ファームウェアが原因なんじゃないかと思われる症状に悩まされているので色々なバージョンに戻ってテストしたかったので試行錯誤するはめに。&lt;/p&gt;
 &lt;p&gt;まず&lt;code&gt;Secure Rollback Prevention&lt;/code&gt;をオフにしてから、次のように&lt;code&gt;fwupdmgr&lt;/code&gt;でダウングレードを選択するも再起動時に&lt;code&gt;Secure Flash Authentication Failed&lt;/code&gt;で適用されず。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ fwupdmgr downgrade
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;0.	Cancel
@@ -205,9 +205,9 @@ End users are not able to directly modify rollback protection, this is controlle
     
     <item>
       <title>SlideShareからSpeaker Deckに移行した</title>
-      <link>https://nobuto-m.github.io/ja/post/2024/1707038813/</link>
+      <link>https://nobuto-m.github.io/ja/post/2024/migration-from-slideshare-to-speakerdeck/</link>
       <pubDate>Sun, 04 Feb 2024 18:26:53 +0900</pubDate>
-      <guid>https://nobuto-m.github.io/ja/post/2024/1707038813/</guid>
+      <guid>https://nobuto-m.github.io/ja/post/2024/migration-from-slideshare-to-speakerdeck/</guid>
       <description>
 
 
@@ -229,7 +229,7 @@ End users are not able to directly modify rollback protection, this is controlle
 &lt;figure  id=&#34;figure-結局は使わなかったimport-from-slideshareメニュー&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;結局は使わなかった“Import from SlideShare”メニュー&#34;
-           src=&#34;https://nobuto-m.github.io/ja/post/2024/1707038813/featured.png&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2024/migration-from-slideshare-to-speakerdeck/featured.png&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       結局は使わなかった“Import from SlideShare”メニュー
@@ -263,7 +263,7 @@ End users are not able to directly modify rollback protection, this is controlle
 &lt;figure  id=&#34;figure-日本語太字部分だけ中に色がつかない&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;日本語太字部分だけ中に色がつかない&#34;
-           src=&#34;https://nobuto-m.github.io/ja/post/2024/1707038813/ja_font.png&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2024/migration-from-slideshare-to-speakerdeck/ja_font.png&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       日本語太字部分だけ中に色がつかない
@@ -276,9 +276,9 @@ End users are not able to directly modify rollback protection, this is controlle
     
     <item>
       <title>突然LUKS(dm-crypt)起動ドライブの暗号化が解除できなくなった話</title>
-      <link>https://nobuto-m.github.io/ja/post/2024/1706798132/</link>
+      <link>https://nobuto-m.github.io/ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/</link>
       <pubDate>Thu, 01 Feb 2024 23:35:32 +0900</pubDate>
-      <guid>https://nobuto-m.github.io/ja/post/2024/1706798132/</guid>
+      <guid>https://nobuto-m.github.io/ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/</guid>
       <description>
 
 
@@ -300,10 +300,10 @@ End users are not able to directly modify rollback protection, this is controlle
 &lt;figure  id=&#34;figure-絶望の場面&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;絶望の場面&#34; srcset=&#34;
-               /ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_8f786f99630d2aa335ccc224ccc486c1.webp 400w,
-               /ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_2b1b3eea13c1d873c69639f5ebda885e.webp 760w,
-               /ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_8f786f99630d2aa335ccc224ccc486c1.webp&#34;
+               /ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_8f786f99630d2aa335ccc224ccc486c1.webp 400w,
+               /ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_2b1b3eea13c1d873c69639f5ebda885e.webp 760w,
+               /ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_8f786f99630d2aa335ccc224ccc486c1.webp&#34;
                width=&#34;760&#34;
                height=&#34;428&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -364,9 +364,9 @@ necessary to do so.&lt;/p&gt;
     
     <item>
       <title>ThinkPad T14 Gen 3 AMDのBIOSを1.49/1.32(R23ET73W)に上げる</title>
-      <link>https://nobuto-m.github.io/ja/post/2024/1705134429/</link>
+      <link>https://nobuto-m.github.io/ja/post/2024/upgrade-bios-of-thinkpad-t14-gen3-amd-to-r23et73w/</link>
       <pubDate>Sat, 13 Jan 2024 17:27:09 +0900</pubDate>
-      <guid>https://nobuto-m.github.io/ja/post/2024/1705134429/</guid>
+      <guid>https://nobuto-m.github.io/ja/post/2024/upgrade-bios-of-thinkpad-t14-gen3-amd-to-r23et73w/</guid>
       <description>&lt;p&gt;何度かやったことはあるけど、やる度に&lt;code&gt;geteltorito&lt;/code&gt;というコマンド名を思い出せないのでそのためのメモ。&lt;/p&gt;
 &lt;p&gt;ThinkPad T14 Gen 3 AMD (21CFCTO1WW)に&lt;a href=&#34;https://pcsupport.lenovo.com/jp/ja/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t14-gen-3-type-21cf-21cg/downloads/ds557681-bios-update-utility-bootable-cd-for-windows-10-64-bit-thinkpad-t14-gen-3-type-21cf-21cg-t16-gen-1-type-21ch-21cj-p16s-gen-1type-21ck-21cl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BIOS/UEFIアップデートR23ET73W(1.49)&lt;/a&gt;が来ていたけども、fwupdでは上手く当たらなかった。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ fwupdmgr update
@@ -461,9 +461,9 @@ necessary to do so.&lt;/p&gt;
     
     <item>
       <title>表示されないFlutter版ubuntu-desktop-installerをgit版で無理やり動かす</title>
-      <link>https://nobuto-m.github.io/ja/post/2024/1704727518/</link>
+      <link>https://nobuto-m.github.io/ja/post/2024/forcibly-run-ubuntu-desktop-installer-git/</link>
       <pubDate>Tue, 09 Jan 2024 00:25:18 +0900</pubDate>
-      <guid>https://nobuto-m.github.io/ja/post/2024/1704727518/</guid>
+      <guid>https://nobuto-m.github.io/ja/post/2024/forcibly-run-ubuntu-desktop-installer-git/</guid>
       <description>&lt;p&gt;Ubuntu開発版のインストールイメージのスナップショットが置いてある&lt;a href=&#34;https://cdimages.ubuntu.com/daily-live/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;daily-live&amp;rdquo;&lt;/a&gt;を使う人はほぼいないと思うけど（正式版でもないし）、昨年末ぐらいからまた画面が真っ白になっちゃう問題が発生しているみたい。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://bugs.launchpad.net/ubuntu-desktop-installer/&amp;#43;bug/2043915&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://bugs.launchpad.net/ubuntu-desktop-installer/+bug/2043915&lt;/a&gt;&lt;/li&gt;
@@ -491,7 +491,7 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-インストーラーを起動しても画面が真っ白&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;インストーラーを起動しても画面が真っ白&#34;
-           src=&#34;https://nobuto-m.github.io/ja/post/2024/1704727518/featured.png&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2024/forcibly-run-ubuntu-desktop-installer-git/featured.png&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       インストーラーを起動しても画面が真っ白

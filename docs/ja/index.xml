@@ -56,7 +56,7 @@
 [&amp;hellip;]&lt;br&gt;
 End users are not able to directly modify rollback protection, this is controlled by the manufacturer.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://nobuto-m.github.io/ja/post/2024/1705134429/&#34;&gt;以前BIOSバージョンを1.49に上げた&lt;/a&gt;ものの、この&lt;code&gt;1.49(R23ET73W)&lt;/code&gt;が&lt;a href=&#34;https://pcsupport.lenovo.com/jp/ja/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t14-gen-3-type-21cf-21cg/21cf/21cfcto1ww/downloads/driver-list/component?name=BIOS%2FUEFI&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;公式ページ&lt;/a&gt;から取り下げられてしまっている。何かしらの不具合があったということなので現時点で最新である&lt;code&gt;1.40(R23ET70W)&lt;/code&gt;に戻しておきたかったのと、ファームウェアが原因なんじゃないかと思われる症状に悩まされているので色々なバージョンに戻ってテストしたかったので試行錯誤するはめに。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://nobuto-m.github.io/ja/post/2024/upgrade-bios-of-thinkpad-t14-gen3-amd-to-r23et73w/&#34;&gt;以前BIOSバージョンを1.49に上げた&lt;/a&gt;ものの、この&lt;code&gt;1.49(R23ET73W)&lt;/code&gt;が&lt;a href=&#34;https://pcsupport.lenovo.com/jp/ja/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t14-gen-3-type-21cf-21cg/21cf/21cfcto1ww/downloads/driver-list/component?name=BIOS%2FUEFI&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;公式ページ&lt;/a&gt;から取り下げられてしまっている。何かしらの不具合があったということなので現時点で最新である&lt;code&gt;1.40(R23ET70W)&lt;/code&gt;に戻しておきたかったのと、ファームウェアが原因なんじゃないかと思われる症状に悩まされているので色々なバージョンに戻ってテストしたかったので試行錯誤するはめに。&lt;/p&gt;
 &lt;p&gt;まず&lt;code&gt;Secure Rollback Prevention&lt;/code&gt;をオフにしてから、次のように&lt;code&gt;fwupdmgr&lt;/code&gt;でダウングレードを選択するも再起動時に&lt;code&gt;Secure Flash Authentication Failed&lt;/code&gt;で適用されず。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ fwupdmgr downgrade
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;0.	Cancel
@@ -205,9 +205,9 @@ End users are not able to directly modify rollback protection, this is controlle
     
     <item>
       <title>SlideShareからSpeaker Deckに移行した</title>
-      <link>https://nobuto-m.github.io/ja/post/2024/1707038813/</link>
+      <link>https://nobuto-m.github.io/ja/post/2024/migration-from-slideshare-to-speakerdeck/</link>
       <pubDate>Sun, 04 Feb 2024 18:26:53 +0900</pubDate>
-      <guid>https://nobuto-m.github.io/ja/post/2024/1707038813/</guid>
+      <guid>https://nobuto-m.github.io/ja/post/2024/migration-from-slideshare-to-speakerdeck/</guid>
       <description>
 
 
@@ -229,7 +229,7 @@ End users are not able to directly modify rollback protection, this is controlle
 &lt;figure  id=&#34;figure-結局は使わなかったimport-from-slideshareメニュー&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;結局は使わなかった“Import from SlideShare”メニュー&#34;
-           src=&#34;https://nobuto-m.github.io/ja/post/2024/1707038813/featured.png&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2024/migration-from-slideshare-to-speakerdeck/featured.png&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       結局は使わなかった“Import from SlideShare”メニュー
@@ -263,7 +263,7 @@ End users are not able to directly modify rollback protection, this is controlle
 &lt;figure  id=&#34;figure-日本語太字部分だけ中に色がつかない&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;日本語太字部分だけ中に色がつかない&#34;
-           src=&#34;https://nobuto-m.github.io/ja/post/2024/1707038813/ja_font.png&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2024/migration-from-slideshare-to-speakerdeck/ja_font.png&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       日本語太字部分だけ中に色がつかない
@@ -276,9 +276,9 @@ End users are not able to directly modify rollback protection, this is controlle
     
     <item>
       <title>突然LUKS(dm-crypt)起動ドライブの暗号化が解除できなくなった話</title>
-      <link>https://nobuto-m.github.io/ja/post/2024/1706798132/</link>
+      <link>https://nobuto-m.github.io/ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/</link>
       <pubDate>Thu, 01 Feb 2024 23:35:32 +0900</pubDate>
-      <guid>https://nobuto-m.github.io/ja/post/2024/1706798132/</guid>
+      <guid>https://nobuto-m.github.io/ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/</guid>
       <description>
 
 
@@ -300,10 +300,10 @@ End users are not able to directly modify rollback protection, this is controlle
 &lt;figure  id=&#34;figure-絶望の場面&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;絶望の場面&#34; srcset=&#34;
-               /ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_8f786f99630d2aa335ccc224ccc486c1.webp 400w,
-               /ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_2b1b3eea13c1d873c69639f5ebda885e.webp 760w,
-               /ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2024/1706798132/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_8f786f99630d2aa335ccc224ccc486c1.webp&#34;
+               /ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_8f786f99630d2aa335ccc224ccc486c1.webp 400w,
+               /ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_2b1b3eea13c1d873c69639f5ebda885e.webp 760w,
+               /ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_8f786f99630d2aa335ccc224ccc486c1.webp&#34;
                width=&#34;760&#34;
                height=&#34;428&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -364,9 +364,9 @@ necessary to do so.&lt;/p&gt;
     
     <item>
       <title>ThinkPad T14 Gen 3 AMDのBIOSを1.49/1.32(R23ET73W)に上げる</title>
-      <link>https://nobuto-m.github.io/ja/post/2024/1705134429/</link>
+      <link>https://nobuto-m.github.io/ja/post/2024/upgrade-bios-of-thinkpad-t14-gen3-amd-to-r23et73w/</link>
       <pubDate>Sat, 13 Jan 2024 17:27:09 +0900</pubDate>
-      <guid>https://nobuto-m.github.io/ja/post/2024/1705134429/</guid>
+      <guid>https://nobuto-m.github.io/ja/post/2024/upgrade-bios-of-thinkpad-t14-gen3-amd-to-r23et73w/</guid>
       <description>&lt;p&gt;何度かやったことはあるけど、やる度に&lt;code&gt;geteltorito&lt;/code&gt;というコマンド名を思い出せないのでそのためのメモ。&lt;/p&gt;
 &lt;p&gt;ThinkPad T14 Gen 3 AMD (21CFCTO1WW)に&lt;a href=&#34;https://pcsupport.lenovo.com/jp/ja/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t14-gen-3-type-21cf-21cg/downloads/ds557681-bios-update-utility-bootable-cd-for-windows-10-64-bit-thinkpad-t14-gen-3-type-21cf-21cg-t16-gen-1-type-21ch-21cj-p16s-gen-1type-21ck-21cl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BIOS/UEFIアップデートR23ET73W(1.49)&lt;/a&gt;が来ていたけども、fwupdでは上手く当たらなかった。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ fwupdmgr update
@@ -461,9 +461,9 @@ necessary to do so.&lt;/p&gt;
     
     <item>
       <title>表示されないFlutter版ubuntu-desktop-installerをgit版で無理やり動かす</title>
-      <link>https://nobuto-m.github.io/ja/post/2024/1704727518/</link>
+      <link>https://nobuto-m.github.io/ja/post/2024/forcibly-run-ubuntu-desktop-installer-git/</link>
       <pubDate>Tue, 09 Jan 2024 00:25:18 +0900</pubDate>
-      <guid>https://nobuto-m.github.io/ja/post/2024/1704727518/</guid>
+      <guid>https://nobuto-m.github.io/ja/post/2024/forcibly-run-ubuntu-desktop-installer-git/</guid>
       <description>&lt;p&gt;Ubuntu開発版のインストールイメージのスナップショットが置いてある&lt;a href=&#34;https://cdimages.ubuntu.com/daily-live/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;daily-live&amp;rdquo;&lt;/a&gt;を使う人はほぼいないと思うけど（正式版でもないし）、昨年末ぐらいからまた画面が真っ白になっちゃう問題が発生しているみたい。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://bugs.launchpad.net/ubuntu-desktop-installer/&amp;#43;bug/2043915&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://bugs.launchpad.net/ubuntu-desktop-installer/+bug/2043915&lt;/a&gt;&lt;/li&gt;
@@ -491,7 +491,7 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-インストーラーを起動しても画面が真っ白&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;インストーラーを起動しても画面が真っ白&#34;
-           src=&#34;https://nobuto-m.github.io/ja/post/2024/1704727518/featured.png&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2024/forcibly-run-ubuntu-desktop-installer-git/featured.png&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       インストーラーを起動しても画面が真っ白
@@ -633,10 +633,10 @@ necessary to do so.&lt;/p&gt;
     
     <item>
       <title>使っている銀行口座まとめ 2023冬</title>
-      <link>https://nobuto-m.github.io/ja/post/2023/1703205652/</link>
+      <link>https://nobuto-m.github.io/ja/post/2023/bank-accounts-winter-2023/</link>
       <pubDate>Fri, 22 Dec 2023 09:40:52 +0900</pubDate>
-      <guid>https://nobuto-m.github.io/ja/post/2023/1703205652/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://nobuto-m.github.io/ja/post/2023/1702951481/&#34;&gt;クレジットカード&lt;/a&gt;に続いて、銀行口座もまとめてみる。口座ぐらいはしっかり管理できていたと思ってたけど意外に把握できていなかったので、現時点で整理した結果の自分用まとめ。クレジットカードと別ページじゃなくて一本化するのが筋な気もするので改善の余地は大いにあり。&lt;/p&gt;
+      <guid>https://nobuto-m.github.io/ja/post/2023/bank-accounts-winter-2023/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://nobuto-m.github.io/ja/post/2023/credit-cards-winder-2023/&#34;&gt;クレジットカード&lt;/a&gt;に続いて、銀行口座もまとめてみる。口座ぐらいはしっかり管理できていたと思ってたけど意外に把握できていなかったので、現時点で整理した結果の自分用まとめ。クレジットカードと別ページじゃなくて一本化するのが筋な気もするので改善の余地は大いにあり。&lt;/p&gt;
 
 
 
@@ -658,10 +658,10 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /ja/post/2023/1703205652/featured_hu6f83d88413371a50e37ac8cde68031e6_378654_f88aaada3f7ac8ea6d2abfa696e570b4.webp 400w,
-               /ja/post/2023/1703205652/featured_hu6f83d88413371a50e37ac8cde68031e6_378654_72a91f54d47837340e239788dc815c22.webp 760w,
-               /ja/post/2023/1703205652/featured_hu6f83d88413371a50e37ac8cde68031e6_378654_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1703205652/featured_hu6f83d88413371a50e37ac8cde68031e6_378654_f88aaada3f7ac8ea6d2abfa696e570b4.webp&#34;
+               /ja/post/2023/bank-accounts-winter-2023/featured_hu6f83d88413371a50e37ac8cde68031e6_378654_f88aaada3f7ac8ea6d2abfa696e570b4.webp 400w,
+               /ja/post/2023/bank-accounts-winter-2023/featured_hu6f83d88413371a50e37ac8cde68031e6_378654_72a91f54d47837340e239788dc815c22.webp 760w,
+               /ja/post/2023/bank-accounts-winter-2023/featured_hu6f83d88413371a50e37ac8cde68031e6_378654_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/bank-accounts-winter-2023/featured_hu6f83d88413371a50e37ac8cde68031e6_378654_f88aaada3f7ac8ea6d2abfa696e570b4.webp&#34;
                width=&#34;760&#34;
                height=&#34;570&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -715,7 +715,7 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-整理前の状況点線になっている口座が整理対象&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;整理前の状況。点線になっている口座が整理対象。&#34;
-           src=&#34;https://nobuto-m.github.io/ja/post/2023/1703205652/bank_mufg.png&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/bank-accounts-winter-2023/bank_mufg.png&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       整理前の状況。点線になっている口座が整理対象。
@@ -809,7 +809,7 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-点線になっている口座は残高ゼロにしてある&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;点線になっている口座は残高ゼロにしてある&#34;
-           src=&#34;https://nobuto-m.github.io/ja/post/2023/1703205652/banks.png&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/bank-accounts-winter-2023/banks.png&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       点線になっている口座は残高ゼロにしてある
@@ -820,9 +820,9 @@ necessary to do so.&lt;/p&gt;
     
     <item>
       <title>使っているクレジットカードまとめ 2023冬</title>
-      <link>https://nobuto-m.github.io/ja/post/2023/1702951481/</link>
+      <link>https://nobuto-m.github.io/ja/post/2023/credit-cards-winder-2023/</link>
       <pubDate>Tue, 19 Dec 2023 11:04:41 +0900</pubDate>
-      <guid>https://nobuto-m.github.io/ja/post/2023/1702951481/</guid>
+      <guid>https://nobuto-m.github.io/ja/post/2023/credit-cards-winder-2023/</guid>
       <description>
 
 
@@ -844,7 +844,7 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34;
-           src=&#34;https://nobuto-m.github.io/ja/post/2023/1702951481/featured.png&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/credit-cards-winder-2023/featured.png&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 
@@ -1024,9 +1024,9 @@ necessary to do so.&lt;/p&gt;
     
     <item>
       <title>USB充電器セットを買い替えた</title>
-      <link>https://nobuto-m.github.io/ja/post/2023/1691725878/</link>
+      <link>https://nobuto-m.github.io/ja/post/2023/new-usb-charger-and-powerbank/</link>
       <pubDate>Fri, 11 Aug 2023 12:51:18 +0900</pubDate>
-      <guid>https://nobuto-m.github.io/ja/post/2023/1691725878/</guid>
+      <guid>https://nobuto-m.github.io/ja/post/2023/new-usb-charger-and-powerbank/</guid>
       <description>&lt;p&gt;今まではカバンの中に60W出力の&lt;a href=&#34;https://jp.aukey.com/products/usb-c-wall-charger-pa-d4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AUKEY PA-D4&lt;/a&gt;とこれまたAUKEYの円筒形5000mAhモバイルバッテリーの組み合わせだったけども、スマホを充電するときに結構な電力を引っ張るからかモバイルバッテリーが熱くなってさらにLEDが赤点滅して充電が止まってしまう場面がちらほら出てきた。&lt;/p&gt;
 
 
@@ -1049,10 +1049,10 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-aukey-pa-d4-60w-126gと5000mahモバイルバッテリー-135gの合計で261g&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;AUKEY PA-D4 60W 126gと5000mAhモバイルバッテリー 135gの合計で261g&#34; srcset=&#34;
-               /ja/post/2023/1691725878/featured_hue8582b75b8b1763140b848c429efeacd_183933_a9e18e599868fbb0f5221df59adfb046.webp 400w,
-               /ja/post/2023/1691725878/featured_hue8582b75b8b1763140b848c429efeacd_183933_bc90e5d28ab0a90756ea436a6ca9458e.webp 760w,
-               /ja/post/2023/1691725878/featured_hue8582b75b8b1763140b848c429efeacd_183933_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1691725878/featured_hue8582b75b8b1763140b848c429efeacd_183933_a9e18e599868fbb0f5221df59adfb046.webp&#34;
+               /ja/post/2023/new-usb-charger-and-powerbank/featured_hue8582b75b8b1763140b848c429efeacd_183933_a9e18e599868fbb0f5221df59adfb046.webp 400w,
+               /ja/post/2023/new-usb-charger-and-powerbank/featured_hue8582b75b8b1763140b848c429efeacd_183933_bc90e5d28ab0a90756ea436a6ca9458e.webp 760w,
+               /ja/post/2023/new-usb-charger-and-powerbank/featured_hue8582b75b8b1763140b848c429efeacd_183933_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/new-usb-charger-and-powerbank/featured_hue8582b75b8b1763140b848c429efeacd_183933_a9e18e599868fbb0f5221df59adfb046.webp&#34;
                width=&#34;760&#34;
                height=&#34;570&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1082,10 +1082,10 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-anker-521-power-bank-45wは209g&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Anker 521 Power Bank 45Wは209g&#34; srcset=&#34;
-               /ja/post/2023/1691725878/anker_521_power_bank_huca47add64f0f8a31d7d37a1948c42c17_141472_c3f5341587db4ebf2651bb6c508a5132.webp 400w,
-               /ja/post/2023/1691725878/anker_521_power_bank_huca47add64f0f8a31d7d37a1948c42c17_141472_cefd38f904494ff41601326f9820800f.webp 760w,
-               /ja/post/2023/1691725878/anker_521_power_bank_huca47add64f0f8a31d7d37a1948c42c17_141472_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1691725878/anker_521_power_bank_huca47add64f0f8a31d7d37a1948c42c17_141472_c3f5341587db4ebf2651bb6c508a5132.webp&#34;
+               /ja/post/2023/new-usb-charger-and-powerbank/anker_521_power_bank_huca47add64f0f8a31d7d37a1948c42c17_141472_c3f5341587db4ebf2651bb6c508a5132.webp 400w,
+               /ja/post/2023/new-usb-charger-and-powerbank/anker_521_power_bank_huca47add64f0f8a31d7d37a1948c42c17_141472_cefd38f904494ff41601326f9820800f.webp 760w,
+               /ja/post/2023/new-usb-charger-and-powerbank/anker_521_power_bank_huca47add64f0f8a31d7d37a1948c42c17_141472_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/new-usb-charger-and-powerbank/anker_521_power_bank_huca47add64f0f8a31d7d37a1948c42c17_141472_c3f5341587db4ebf2651bb6c508a5132.webp&#34;
                width=&#34;760&#34;
                height=&#34;571&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1209,10 +1209,10 @@ necessary to do so.&lt;/p&gt;
     
     <item>
       <title>NucBox3での運用一筋縄ではいかないかも</title>
-      <link>https://nobuto-m.github.io/ja/post/2023/1690287370/</link>
+      <link>https://nobuto-m.github.io/ja/post/2023/operating-nucbox3-may-be-tricky/</link>
       <pubDate>Tue, 25 Jul 2023 21:16:10 +0900</pubDate>
-      <guid>https://nobuto-m.github.io/ja/post/2023/1690287370/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://nobuto-m.github.io/ja/post/2023/1687011989/&#34;&gt;Raspberry Pi 2Bの代用として買ったNucBox3&lt;/a&gt;を数週間運用してて、ある程度いい感じに動いてくれてると思ってたけど急に手がかかるようになった。マシンの上で動かしていたのは&lt;a href=&#34;https://nobuto-m.github.io/ja/post/2023/1688885165/&#34;&gt;n8nでの定期タスク&lt;/a&gt;で、それ自体は負荷がかからないけどそれをわざわざsingle-node Kubernetesの上で動かしていたのでそれなりにディスクアクセスはあった。それでもまあ大したものじゃなかったけど、急にfilesystemがread-onlyに。&lt;/p&gt;
+      <guid>https://nobuto-m.github.io/ja/post/2023/operating-nucbox3-may-be-tricky/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://nobuto-m.github.io/ja/post/2023/1687011989/&#34;&gt;Raspberry Pi 2Bの代用として買ったNucBox3&lt;/a&gt;を数週間運用してて、ある程度いい感じに動いてくれてると思ってたけど急に手がかかるようになった。マシンの上で動かしていたのは&lt;a href=&#34;https://nobuto-m.github.io/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/&#34;&gt;n8nでの定期タスク&lt;/a&gt;で、それ自体は負荷がかからないけどそれをわざわざsingle-node Kubernetesの上で動かしていたのでそれなりにディスクアクセスはあった。それでもまあ大したものじゃなかったけど、急にfilesystemがread-onlyに。&lt;/p&gt;
 
 
 
@@ -1234,7 +1234,7 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-30-iosからの突然のread-only&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;~30 IO/sからの突然のread-only&#34;
-           src=&#34;https://nobuto-m.github.io/ja/post/2023/1690287370/featured.png&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/operating-nucbox3-may-be-tricky/featured.png&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       ~30 IO/sからの突然のread-only
@@ -1263,7 +1263,7 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-温度はむしろ最近落ち着いていた&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;温度はむしろ最近落ち着いていた&#34;
-           src=&#34;https://nobuto-m.github.io/ja/post/2023/1690287370/temperature.png&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/operating-nucbox3-may-be-tricky/temperature.png&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       温度はむしろ最近落ち着いていた
@@ -1275,9 +1275,9 @@ necessary to do so.&lt;/p&gt;
     
     <item>
       <title>ドラマ『トリリオンゲーム』にUbuntuがちらっと映った</title>
-      <link>https://nobuto-m.github.io/ja/post/2023/1689418398/</link>
+      <link>https://nobuto-m.github.io/ja/post/2023/ubuntu-showed-up-in-the-trillion-game-drama/</link>
       <pubDate>Sat, 15 Jul 2023 19:53:18 +0900</pubDate>
-      <guid>https://nobuto-m.github.io/ja/post/2023/1689418398/</guid>
+      <guid>https://nobuto-m.github.io/ja/post/2023/ubuntu-showed-up-in-the-trillion-game-drama/</guid>
       <description>&lt;p&gt;会社に何か話が来ていたことは知っていて、ただ本当に映るのか観るまでは知らなかったので無事に映っててよかった。&lt;/p&gt;
 
 
@@ -1300,10 +1300,10 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-ubuntuのロゴも美術協力の一覧の中に&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Ubuntuのロゴも美術協力の一覧の中に&#34; srcset=&#34;
-               /ja/post/2023/1689418398/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_437f53d046a2a28b35bb2790405da1c2.webp 400w,
-               /ja/post/2023/1689418398/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_3485d4257c548076dde653918ff5a5d9.webp 760w,
-               /ja/post/2023/1689418398/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2023/1689418398/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_437f53d046a2a28b35bb2790405da1c2.webp&#34;
+               /ja/post/2023/ubuntu-showed-up-in-the-trillion-game-drama/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_437f53d046a2a28b35bb2790405da1c2.webp 400w,
+               /ja/post/2023/ubuntu-showed-up-in-the-trillion-game-drama/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_3485d4257c548076dde653918ff5a5d9.webp 760w,
+               /ja/post/2023/ubuntu-showed-up-in-the-trillion-game-drama/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2023/ubuntu-showed-up-in-the-trillion-game-drama/featured_huc1271ed999db08fd9e91b15d22ad4434_179752_437f53d046a2a28b35bb2790405da1c2.webp&#34;
                width=&#34;760&#34;
                height=&#34;428&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1322,9 +1322,9 @@ necessary to do so.&lt;/p&gt;
     
     <item>
       <title>n8nでRSSの新着アイテムをwebhookに投げる</title>
-      <link>https://nobuto-m.github.io/ja/post/2023/1688885165/</link>
+      <link>https://nobuto-m.github.io/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/</link>
       <pubDate>Sun, 09 Jul 2023 15:46:05 +0900</pubDate>
-      <guid>https://nobuto-m.github.io/ja/post/2023/1688885165/</guid>
+      <guid>https://nobuto-m.github.io/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/</guid>
       <description>&lt;p&gt;昔は&lt;a href=&#34;https://internet.watch.impress.co.jp/cda/news/2006/03/27/11384.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SleipnirのRSSリーダー&lt;/a&gt;とかGoogle Readerとかを使っていて、Feedlyもちょっとは使っていた。けれどもいつのまにかTwitterで話題になったやつとか、&lt;a href=&#34;https://developers.google.com/search/docs/appearance/google-discover&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Google Discover&lt;/a&gt;で出てきたニュースをちょろっと読むだけになってしまった。もうちょっと能動的にキーワードで引っ掛けたりして自分にとって重要そうなニュースを早めに読みたいという気持ちはあり、&lt;a href=&#34;https://n8n.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;n8n&lt;/a&gt;のself-hostingコミュニティ版を使ってチャットに流すことにした。&lt;/p&gt;
 
 
@@ -1347,7 +1347,7 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-ピタゴラスイッチっぽさ&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;ピタゴラスイッチっぽさ&#34;
-           src=&#34;https://nobuto-m.github.io/ja/post/2023/1688885165/featured.png&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/featured.png&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       ピタゴラスイッチっぽさ
@@ -1385,7 +1385,7 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-実行間隔の設定&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;実行間隔の設定&#34;
-           src=&#34;https://nobuto-m.github.io/ja/post/2023/1688885165/schedule_trigger.png&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/schedule_trigger.png&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       実行間隔の設定
@@ -1413,7 +1413,7 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-現在時刻から157分前を指定&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;現在時刻から157分前を指定&#34;
-           src=&#34;https://nobuto-m.github.io/ja/post/2023/1688885165/filter_by_date.png&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/filter_by_date.png&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       現在時刻から157分前を指定
@@ -1460,7 +1460,7 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-リンクやタイトルを整形して投げる&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;リンクやタイトルを整形して投げる&#34;
-           src=&#34;https://nobuto-m.github.io/ja/post/2023/1688885165/webhook.png&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/webhook.png&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       リンクやタイトルを整形して投げる
@@ -1488,7 +1488,7 @@ necessary to do so.&lt;/p&gt;
 &lt;figure  id=&#34;figure-タイトルか概要がキーワードを含むものだけに絞れる&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;タイトルか概要がキーワードを含むものだけに絞れる&#34;
-           src=&#34;https://nobuto-m.github.io/ja/post/2023/1688885165/filter_keywords.png&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/filter_keywords.png&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       タイトルか概要がキーワードを含むものだけに絞れる

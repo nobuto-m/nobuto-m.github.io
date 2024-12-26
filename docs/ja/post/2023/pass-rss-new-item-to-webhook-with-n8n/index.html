@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: 2024年12月26日 -->
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo Blox Builder 5.9.7">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; object-src 'none'; frame-src https://platform.twitter.com https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://platform.twitter.com;">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/vendor-bundle.min.26c458e6907dc03073573976b7f4044e.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/wowchemy.38ef0f893e880024d12f96952b77d82b.css">
+  <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  <meta name="google-site-verification" content="x-WRee-yVqnJs0JQZzIhmu43FqdyIrIKokjOAFhdL4I">
+  <meta name="description" content="昔はSleipnirのRSSリーダーとかGoogle Readerとかを使っていて、Feedlyもちょっとは使っていた。けれどもいつのまにかTwitterで話題になったやつとか、Google Discoverで出てきたニュースをちょろっと読むだけになってしまった。もうちょっと能動的にキーワードで引っ掛けたりして自分にとって重要そうなニュースを早めに読みたいという気持ちはあり、n8nのself-hostingコミュニティ版を使ってチャットに流すことにした。">
+  <link rel="alternate" hreflang="ja" href="https://nobuto-m.github.io/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/">
+  <link rel="canonical" href="https://nobuto-m.github.io/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/">
+  <link rel="icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_180x180_fill_lanczos_center_3.png">
+  <meta name="theme-color" content="#1565c0">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:image" content="https://nobuto-m.github.io/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/featured.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Nobuto Murata">
+  <meta property="og:url" content="https://nobuto-m.github.io/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/">
+  <meta property="og:title" content="n8nでRSSの新着アイテムをwebhookに投げる | Nobuto Murata">
+  <meta property="og:description" content="昔はSleipnirのRSSリーダーとかGoogle Readerとかを使っていて、Feedlyもちょっとは使っていた。けれどもいつのまにかTwitterで話題になったやつとか、Google Discoverで出てきたニュースをちょろっと読むだけになってしまった。もうちょっと能動的にキーワードで引っ掛けたりして自分にとって重要そうなニュースを早めに読みたいという気持ちはあり、n8nのself-hostingコミュニティ版を使ってチャットに流すことにした。">
+  <meta property="og:image" content="https://nobuto-m.github.io/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/featured.png">
+  <meta property="og:locale" content="ja">
+  <meta property="article:published_time" content="2023-07-09T15:46:05&#43;09:00">
+  <meta property="article:modified_time" content="2023-07-09T15:46:05&#43;09:00">
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nobuto-m.github.io/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/"
+  },
+  "headline": "n8nでRSSの新着アイテムをwebhookに投げる",
+
+  "image": [
+    "https://nobuto-m.github.io/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/featured.png"
+  ],
+
+  "datePublished": "2023-07-09T15:46:05+09:00",
+  "dateModified": "2023-07-09T15:46:05+09:00",
+
+  "author": {
+    "@type": "Person",
+    "name": "Authors"
+  },
+
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nobuto Murata",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "昔はSleipnirのRSSリーダーとかGoogle Readerとかを使っていて、Feedlyもちょっとは使っていた。けれどもいつのまにかTwitterで話題になったやつとか、Google Discoverで出てきたニュースをちょろっと読むだけになってしまった。もうちょっと能動的にキーワードで引っ掛けたりして自分にとって重要そうなニュースを早めに読みたいという気持ちはあり、n8nのself-hostingコミュニティ版を使ってチャットに流すことにした。"
+  }
+  </script>
+  <title>n8nでRSSの新着アイテムをwebhookに投げる | Nobuto Murata</title>
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper" data-wc-page-id="28f82d7d489e1aa52da0ff055831c073">
+  <script src="/js/wowchemy-init.min.9e4214442a7711d35691acd58f6f6361.js"></script>
+  <aside class="search-modal" id="search">
+    <div class="container">
+      <section class="search-header">
+        <div class="row no-gutters justify-content-between mb-3">
+          <div class="col-6">
+            <h1>検索</h1>
+          </div>
+
+          <div class="col-6 col-search-close">
+            <a class="js-search" href="#" aria-label="閉じる"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div id="search-box">
+          <input name="q" id="search-query" placeholder="検索..." autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control" aria-label="検索...">
+        </div>
+      </section>
+
+      <section class="section-search-results">
+        <div id="search-hits">
+        </div>
+      </section>
+    </div>
+  </aside>
+
+  <div class="page-header header--fixed">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+        <div class="container-xl">
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="ナビゲーションの切り替え"><span><i class="fas fa-bars"></i></span></button>
+          <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+            <ul class="navbar-nav d-md-inline-flex">
+              <li class="nav-item">
+                <a class="nav-link" href="/"><span>Home</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" href="/ja/post/"><span>投稿</span></a>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+            <li class="nav-item">
+              <a class="nav-link js-search" href="#" aria-label="検索"><i class="fas fa-search" aria-hidden="true"></i></a>
+            </li>
+
+            <li class="nav-item dropdown theme-dropdown">
+              <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="表示設定"><i class="fas fa-moon" aria-hidden="true"></i></a>
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-item js-set-theme-light"><span>ライト</span></a> <a href="#" class="dropdown-item js-set-theme-dark"><span>ダーク</span></a> <a href="#" class="dropdown-item js-set-theme-auto"><span>自動</span></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+      <div class="article-container pt-3">
+        <h1>n8nでRSSの新着アイテムをwebhookに投げる</h1>
+
+        <div class="article-metadata">
+          <span class="article-date">7月 9, 2023</span>
+        </div>
+      </div>
+
+      <div class="article-container">
+        <div class="article-style">
+          <p>昔は<a href="https://internet.watch.impress.co.jp/cda/news/2006/03/27/11384.html" target="_blank" rel="noopener">SleipnirのRSSリーダー</a>とかGoogle Readerとかを使っていて、Feedlyもちょっとは使っていた。けれどもいつのまにかTwitterで話題になったやつとか、<a href="https://developers.google.com/search/docs/appearance/google-discover" target="_blank" rel="noopener">Google Discover</a>で出てきたニュースをちょろっと読むだけになってしまった。もうちょっと能動的にキーワードで引っ掛けたりして自分にとって重要そうなニュースを早めに読みたいという気持ちはあり、<a href="https://n8n.io/" target="_blank" rel="noopener">n8n</a>のself-hostingコミュニティ版を使ってチャットに流すことにした。</p>
+
+          <figure id="figure-ピタゴラスイッチっぽさ">
+            <div class="d-flex justify-content-center">
+              <div class="w-100"><img alt="ピタゴラスイッチっぽさ" src="/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/featured.png" loading="lazy" data-zoomable="">
+              </div>
+            </div>
+
+            <figcaption>
+              ピタゴラスイッチっぽさ
+            </figcaption>
+          </figure>
+
+          <p>最初はすんなりいくかとおもって、特にメモを書くこともないなぁと思ってたけど、しっかりあったので書いておく。</p>
+
+          <p>まず、<a href="https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.rssfeedread/" target="_blank" rel="noopener">RSSフィードを扱ってくれるRSS Readノード</a>は、RSSのURLを1個しか受け取ってくれない。なので複数サイトのフィードを一気に扱いたいときは、さっそく他のノードとの連携が必要になってくる。幸い<a href="https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.splitinbatches/#example-usage-read-rss-feed-from-two-different-sources" target="_blank" rel="noopener">このトピックそのものの公式ドキュメントがあるので</a>、<code>Split In Batches</code>ノードでループを作ればいいことがわかるのだが、このループを作成するときにフィードのリストを渡すための「リストを定義する」みたいなノードが存在しない。</p>
+
+          <p>仕方がないので、先ほどの公式ドキュメントにあるように、別途任意のJavascriptコードを書ける<a href="https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/" target="_blank" rel="noopener">Codeノード</a>を用意して、下記のようにして次に実行されるノードにリストが渡るようにする。</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="k">return</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nx">json</span><span class="o">:</span> <span class="p">{</span><span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;https://news1.example.com/feed&#39;</span><span class="p">}},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nx">json</span><span class="o">:</span> <span class="p">{</span><span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;https://news2.example.com/feed&#39;</span><span class="p">}},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nx">json</span><span class="o">:</span> <span class="p">{</span><span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;https://news3.example.com/feed&#39;</span><span class="p">}},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nx">json</span><span class="o">:</span> <span class="p">{</span><span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;https://news4.example.com/feed&#39;</span><span class="p">}},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nx">json</span><span class="o">:</span> <span class="p">{</span><span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;https://news5.example.com/feed&#39;</span><span class="p">}},</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span></code></pre>
+          </div>
+
+          <p>ここまでで、ワークフローが実行されたときに全部のサイトを巡回して、RSS内のアイテムを取ってきてくれるのだが、ここから「前回実行時からの新着アイテム」に絞り込むことがRSSノードではできない。このままWebhookへのPOSTにつなげてしまうと、ワークフローが実行されるたびに古い記事も含めて全部のアイテムがチャットに投げられてしまうので悲劇。そこでまずはワークフローの実行間隔を、cronに相当する<a href="https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger/" target="_blank" rel="noopener">Schedule trigger</a>ノードで設定する。ここでは例として157分間隔に設定。</p>
+
+          <figure id="figure-実行間隔の設定">
+            <div class="d-flex justify-content-center">
+              <div class="w-100"><img alt="実行間隔の設定" src="/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/schedule_trigger.png" loading="lazy" data-zoomable="">
+              </div>
+            </div>
+
+            <figcaption>
+              実行間隔の設定
+            </figcaption>
+          </figure>
+
+          <p>続いて、<code>Split In Batches</code>ノードの後ろに<a href="https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.filter/" target="_blank" rel="noopener">Filterノード</a>をつなげて、次のようなフィルターを設定する。</p>
+
+          <figure id="figure-現在時刻から157分前を指定">
+            <div class="d-flex justify-content-center">
+              <div class="w-100"><img alt="現在時刻から157分前を指定" src="/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/filter_by_date.png" loading="lazy" data-zoomable="">
+              </div>
+            </div>
+
+            <figcaption>
+              現在時刻から157分前を指定
+            </figcaption>
+          </figure>
+
+          <p>ここで、RSS内のアイテムに紐付いている日時<code>{{$json.isoDate}}</code>と、現在時刻から157分前の日時<code>{{$now.minus({minutes:157}).toISO()}}</code>を比べて、記事が前回の実行時より新しいかどうかを無理やり判定する。</p>
+
+          <p>これ以外にいい方法がないか調べたけども、公式のノードだけではこれが限界っぽい。157分をハードコードすると、後々間隔を変更したときにこの部分を変更し忘れそうなので変数を使って<br>
+          <code>$('Schedule Trigger').params[&quot;rule&quot;][&quot;interval&quot;][0][&quot;minutesInterval&quot;]</code><br>
+          に変更しておくとよさそう。後は<code>$now</code>を使うとワークフロー全体が開始された日時ではなくて、<a href="https://docs.n8n.io/code-examples/expressions/luxon/#variables" target="_blank" rel="noopener">コード自体が呼び出された日時が入りそうなので</a>、フィードの取得に時間がかかったときなどは空白の時間が生まれて新着判定が上手くいかなそうなので、ここも変数を使ってワークフローが開始された日時そのものを使うために<br>
+          <code>$('Schedule Trigger').item.json.timestamp</code><br>
+          としておく。</p>
+
+          <p>最終的には新着判定のために使う基準日時は</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="p">{{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">DateTime</span><span class="p">.</span><span class="nx">fromISO</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&#34;Schedule Trigger&#34;</span><span class="p">).</span><span class="nx">item</span><span class="p">.</span><span class="nx">json</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">minus</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">minutes</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">$</span><span class="p">(</span><span class="s2">&#34;Schedule Trigger&#34;</span><span class="p">).</span><span class="nx">params</span><span class="p">[</span><span class="s2">&#34;rule&#34;</span><span class="p">][</span><span class="s2">&#34;interval&#34;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;minutesInterval&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">toISO</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}}</span>
+</span></span></code></pre>
+          </div>
+
+          <p>となる、けど読みにくいですね。</p>
+
+          <p>このあたりは、何分間隔という指定ではなくて、毎時決まった時間に、とした方がすっきりすると思う。だけど、毎時決まった時間にフィードを取りに行くのはなんかしっくりこないんですよね。</p>
+
+          <p>ここまでで新着判定はできているはずなので、後はWebhookに向かって情報を投げるだけ。<a href="https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/" target="_blank" rel="noopener">HTTP Requestノード</a>を使って、サービスに合わせて整形した上で投げる。例えば<a href="https://developers.mattermost.com/integrate/webhooks/incoming/" target="_blank" rel="noopener">Mattermostの場合は</a>、<code>text</code>にリンクを入れてあげれば自動でプレビューされるので十分。</p>
+
+          <figure id="figure-リンクやタイトルを整形して投げる">
+            <div class="d-flex justify-content-center">
+              <div class="w-100"><img alt="リンクやタイトルを整形して投げる" src="/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/webhook.png" loading="lazy" data-zoomable="">
+              </div>
+            </div>
+
+            <figcaption>
+              リンクやタイトルを整形して投げる
+            </figcaption>
+          </figure>
+
+          <p>新着アイテムを全部投稿するのではなくて、特定のキーワードに合致するものだけに絞りたければ、POSTする前にもう一つFilterノードを追加してRegexが書ける。</p>
+
+          <figure id="figure-タイトルか概要がキーワードを含むものだけに絞れる">
+            <div class="d-flex justify-content-center">
+              <div class="w-100"><img alt="タイトルか概要がキーワードを含むものだけに絞れる" src="/ja/post/2023/pass-rss-new-item-to-webhook-with-n8n/filter_keywords.png" loading="lazy" data-zoomable="">
+              </div>
+            </div>
+
+            <figcaption>
+              タイトルか概要がキーワードを含むものだけに絞れる
+            </figcaption>
+          </figure>
+
+          <p>「RSSの新着アイテムをキーワードで絞ってからPOSTしておいて」っていう簡単ぽく聞こえる作業が、ここまでの長文になってしまった。</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <footer class="site-footer">
+        <p class="powered-by copyright-license-text">© 2017-2024 Nobuto Murata</p>
+
+        <p class="powered-by">Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.</p>
+      </footer>
+    </div>
+  </div>
+  <script src="/js/vendor-bundle.min.391d344a129df56f7ad674c2c2ed04e8.js"></script> 
+  <script id="search-hit-fuse-template" type="text/x-template">
+
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script> 
+  <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script> 
+  <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script> 
+  <script id="page-data" type="application/json">
+  {"use_headroom":true}
+  </script> 
+  <script src="/js/wowchemy-headroom.db4755770454eb63685f8de785c0a172.js" type="module"></script> 
+  <script src="/ja/js/wowchemy.min.2cf3eed339f2734d3e528530d32b31f3.js"></script>
+</body>
+</html>
