@@ -2,10 +2,13 @@
 # Documentation: https://wowchemy.com/docs/managing-content/
 
 title: "TailscaleのACLを設定した"
-slug: 1690694899
+slug: configure-tailscale-acl
 subtitle: ""
 summary: ""
 authors: []
+
+aliases:
+- 1690694899
 
 tags: []
 categories: []
@@ -17,7 +20,7 @@ share: false
 
 year: 2023
 date: 2023-07-30T14:28:19+09:00
-lastmod: 2023-07-30T14:28:19+09:00
+lastmod: 2024-12-26T15:54:55+09:00
 
 featured: false
 draft: false
@@ -77,6 +80,7 @@ ACLは初期ルールをコメントアウトするとデフォルトが全拒�
     //{"action": "accept", "src": ["*"], "dst": ["*:*"]},
     {"action": "accept", "src": ["tag:client"], "dst": ["*:*"]},
     {"action": "accept", "src": ["tag:scraper"], "dst": ["tag:server:9100"]},
+    {"action": "accept", "src": ["autogroup:shared"], "dst": ["tag:server:*"]},
   ],
 }
 ```
