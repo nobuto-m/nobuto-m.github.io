@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: December 26, 2024 -->
-<html lang="en-US">
+<!-- Last Published: 2024年12月26日 -->
+<html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,45 +17,44 @@
   <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
   <meta name="google-site-verification" content="x-WRee-yVqnJs0JQZzIhmu43FqdyIrIKokjOAFhdL4I">
-  <meta name="author" content="Nobuto Murata">
-  <meta name="description" content="The &ldquo;Secure Rollback Prevention&rdquo; entry in the UEFI BIOS configuration The bottom line is that there is a new configuration called &ldquo;AMD Secure Processor Rollback protection&rdquo; on recent AMD systems in addition to &ldquo;Secure Rollback Prevention&rdquo; (BIOS rollback protection).">
+  <meta name="description" content="UEFI BIOS上の&quot;Secure Rollback Prevention&quot;の項目 結論として、最近のAMDシステムでは &ldquo;Secure Rollback Prevention&rdquo; (BIOS rollback protection)とは別に &ldquo;AMD Secure Processor Rollback protection&rdquo; があり、これがベンダー側で有効にされている場合は一旦脆弱性対応を含むUEFI BIOSバージョンに上げてしまうとダウングレード（ロールバック）できなくなる。">
+  <link rel="alternate" hreflang="en" href="https://nobuto-m.github.io/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/">
   <link rel="alternate" hreflang="ja" href="https://nobuto-m.github.io/ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/">
-  <link rel="alternate" hreflang="en-US" href="https://nobuto-m.github.io/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/">
-  <link rel="canonical" href="https://nobuto-m.github.io/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/">
+  <link rel="canonical" href="https://nobuto-m.github.io/ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/">
   <link rel="icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_32x32_fill_lanczos_center_3.png">
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_180x180_fill_lanczos_center_3.png">
   <meta name="theme-color" content="#1565c0">
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:image" content="https://nobuto-m.github.io/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured.jpg">
+  <meta property="twitter:image" content="https://nobuto-m.github.io/ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured.jpg">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Nobuto Murata">
-  <meta property="og:url" content="https://nobuto-m.github.io/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/">
-  <meta property="og:title" content="No, you can&#39;t downgrade T14 Gen 3 AMD&#39;s UEFI BIOS even when Secure Rollback Prevention is turned off | Nobuto Murata">
-  <meta property="og:description" content="The &ldquo;Secure Rollback Prevention&rdquo; entry in the UEFI BIOS configuration The bottom line is that there is a new configuration called &ldquo;AMD Secure Processor Rollback protection&rdquo; on recent AMD systems in addition to &ldquo;Secure Rollback Prevention&rdquo; (BIOS rollback protection).">
-  <meta property="og:image" content="https://nobuto-m.github.io/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured.jpg">
-  <meta property="og:locale" content="en-US">
-  <meta property="article:published_time" content="2024-05-03T12:20:51&#43;09:00">
-  <meta property="article:modified_time" content="2024-05-03T12:20:51&#43;09:00">
+  <meta property="og:url" content="https://nobuto-m.github.io/ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/">
+  <meta property="og:title" content="T14 Gen 3 AMDではSecure Rollback Preventionを無効化してもUEFI BIOSはダウングレードできない | Nobuto Murata">
+  <meta property="og:description" content="UEFI BIOS上の&quot;Secure Rollback Prevention&quot;の項目 結論として、最近のAMDシステムでは &ldquo;Secure Rollback Prevention&rdquo; (BIOS rollback protection)とは別に &ldquo;AMD Secure Processor Rollback protection&rdquo; があり、これがベンダー側で有効にされている場合は一旦脆弱性対応を含むUEFI BIOSバージョンに上げてしまうとダウングレード（ロールバック）できなくなる。">
+  <meta property="og:image" content="https://nobuto-m.github.io/ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured.jpg">
+  <meta property="og:locale" content="ja">
+  <meta property="article:published_time" content="2024-05-02T12:45:39&#43;09:00">
+  <meta property="article:modified_time" content="2024-05-02T12:45:39&#43;09:00">
   <script type="application/ld+json">
   {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://nobuto-m.github.io/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/"
+    "@id": "https://nobuto-m.github.io/ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/"
   },
-  "headline": "No, you can't downgrade T14 Gen 3 AMD's UEFI BIOS even when Secure Rollback Prevention is turned off",
+  "headline": "T14 Gen 3 AMDではSecure Rollback Preventionを無効化してもUEFI BIOSはダウングレードできない",
 
   "image": [
-    "https://nobuto-m.github.io/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured.jpg"
+    "https://nobuto-m.github.io/ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured.jpg"
   ],
 
-  "datePublished": "2024-05-03T12:20:51+09:00",
-  "dateModified": "2024-05-03T12:20:51+09:00",
+  "datePublished": "2024-05-02T12:45:39+09:00",
+  "dateModified": "2024-05-02T12:45:39+09:00",
 
   "author": {
     "@type": "Person",
-    "name": "Nobuto Murata"
+    "name": "Authors"
   },
 
   "publisher": {
@@ -66,10 +65,10 @@
       "url": "https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "The \u0026ldquo;Secure Rollback Prevention\u0026rdquo; entry in the UEFI BIOS configuration The bottom line is that there is a new configuration called \u0026ldquo;AMD Secure Processor Rollback protection\u0026rdquo; on recent AMD systems in addition to \u0026ldquo;Secure Rollback Prevention\u0026rdquo; (BIOS rollback protection)."
+  "description": "UEFI BIOS上の\u0026quot;Secure Rollback Prevention\u0026quot;の項目 結論として、最近のAMDシステムでは \u0026ldquo;Secure Rollback Prevention\u0026rdquo; (BIOS rollback protection)とは別に \u0026ldquo;AMD Secure Processor Rollback protection\u0026rdquo; があり、これがベンダー側で有効にされている場合は一旦脆弱性対応を含むUEFI BIOSバージョンに上げてしまうとダウングレード（ロールバック）できなくなる。"
   }
   </script>
-  <title>No, you can&#39;t downgrade T14 Gen 3 AMD&#39;s UEFI BIOS even when Secure Rollback Prevention is turned off | Nobuto Murata</title>
+  <title>T14 Gen 3 AMDではSecure Rollback Preventionを無効化してもUEFI BIOSはダウングレードできない | Nobuto Murata</title>
 </head>
 <body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper" data-wc-page-id="ce5493bb61321d5a1f3851a2d6708509">
   <script src="/js/wowchemy-init.min.9e4214442a7711d35691acd58f6f6361.js"></script>
@@ -78,16 +77,16 @@
       <section class="search-header">
         <div class="row no-gutters justify-content-between mb-3">
           <div class="col-6">
-            <h1>Search</h1>
+            <h1>検索</h1>
           </div>
 
           <div class="col-6 col-search-close">
-            <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+            <a class="js-search" href="#" aria-label="閉じる"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
           </div>
         </div>
 
         <div id="search-box">
-          <input name="q" id="search-query" placeholder="Search..." autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control" aria-label="Search...">
+          <input name="q" id="search-query" placeholder="検索..." autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control" aria-label="検索...">
         </div>
       </section>
 
@@ -102,45 +101,38 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
         <div class="container-xl">
-          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span><i class="fas fa-bars"></i></span></button>
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="ナビゲーションの切り替え"><span><i class="fas fa-bars"></i></span></button>
           <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
             <ul class="navbar-nav d-md-inline-flex">
               <li class="nav-item">
-                <a class="nav-link" href="/#about"><span>Home</span></a>
+                <a class="nav-link" href="/"><span>Home</span></a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="/#posts"><span>Posts</span></a>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Language</span><span class="caret"></span></a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="/ja/post/"><span>日本語</span></a>
-                </div>
+                <a class="nav-link active" href="/ja/post/"><span>投稿</span></a>
               </li>
             </ul>
           </div>
 
           <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
             <li class="nav-item">
-              <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+              <a class="nav-link js-search" href="#" aria-label="検索"><i class="fas fa-search" aria-hidden="true"></i></a>
             </li>
 
             <li class="nav-item dropdown theme-dropdown">
-              <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences"><i class="fas fa-moon" aria-hidden="true"></i></a>
+              <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="表示設定"><i class="fas fa-moon" aria-hidden="true"></i></a>
               <div class="dropdown-menu">
-                <a href="#" class="dropdown-item js-set-theme-light"><span>Light</span></a> <a href="#" class="dropdown-item js-set-theme-dark"><span>Dark</span></a> <a href="#" class="dropdown-item js-set-theme-auto"><span>Automatic</span></a>
+                <a href="#" class="dropdown-item js-set-theme-light"><span>ライト</span></a> <a href="#" class="dropdown-item js-set-theme-dark"><span>ダーク</span></a> <a href="#" class="dropdown-item js-set-theme-auto"><span>自動</span></a>
               </div>
             </li>
 
             <li class="nav-item dropdown i18n-dropdown">
-              <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Languages"><i class="fas fa-globe mr-1" aria-hidden="true"></i></a>
+              <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="言語"><i class="fas fa-globe mr-1" aria-hidden="true"></i></a>
               <div class="dropdown-menu">
                 <div class="dropdown-item dropdown-item-active">
-                  <span>English</span>
+                  <span>日本語</span>
                 </div>
-                <a class="dropdown-item" href="https://nobuto-m.github.io/ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/"><span>日本語</span></a>
+                <a class="dropdown-item" href="https://nobuto-m.github.io/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/"><span>English</span></a>
               </div>
             </li>
           </ul>
@@ -152,27 +144,27 @@
   <div class="page-body">
     <article class="article">
       <div class="article-container pt-3">
-        <h1>No, you can&#39;t downgrade T14 Gen 3 AMD&#39;s UEFI BIOS even when Secure Rollback Prevention is turned off</h1>
+        <h1>T14 Gen 3 AMDではSecure Rollback Preventionを無効化してもUEFI BIOSはダウングレードできない</h1>
 
         <div class="article-metadata">
-          <span class="article-date">May 3, 2024</span>
+          <span class="article-date">5月 2, 2024</span>
         </div>
       </div>
 
       <div class="article-container">
         <div class="article-style">
-          <figure id="figure-the-secure-rollback-prevention-entry-in-the-uefi-bios-configuration">
+          <figure id="figure-uefi-bios上のsecure-rollback-preventionの項目">
             <div class="d-flex justify-content-center">
-              <div class="w-100"><img alt="The &#34;Secure Rollback Prevention&#34; entry in the UEFI BIOS configuration" srcset="/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_3cb9670871c00c22c40ea3757e48b4ee.webp 400w, /post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_82fa2891a30ab0fe0a0b491ec67f6d81.webp 760w, /post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_1200x1200_fit_q75_h2_lanczos.webp 1200w" src="/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_3cb9670871c00c22c40ea3757e48b4ee.webp" width="760" height="570" loading="lazy" data-zoomable="">
+              <div class="w-100"><img alt="UEFI BIOS上の&#34;Secure Rollback Prevention&#34;の項目" srcset="/ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_3cb9670871c00c22c40ea3757e48b4ee.webp 400w, /ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_82fa2891a30ab0fe0a0b491ec67f6d81.webp 760w, /ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_1200x1200_fit_q75_h2_lanczos.webp 1200w" src="/ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_3cb9670871c00c22c40ea3757e48b4ee.webp" width="760" height="570" loading="lazy" data-zoomable="">
               </div>
             </div>
 
             <figcaption>
-              The &ldquo;Secure Rollback Prevention&rdquo; entry in the UEFI BIOS configuration
+              UEFI BIOS上の&quot;Secure Rollback Prevention&quot;の項目
             </figcaption>
           </figure>
 
-          <p>The bottom line is that there is a new configuration called &ldquo;AMD Secure <strong>Processor</strong> Rollback protection&rdquo; on recent AMD systems in addition to &ldquo;Secure Rollback Prevention&rdquo; (BIOS rollback protection). If it&rsquo;s enabled by a vendor, you cannot downgrade the UEFI BIOS revisions once you install a one with security vulnerability fixes.</p>
+          <p>結論として、最近のAMDシステムでは &ldquo;Secure Rollback Prevention&rdquo; (BIOS rollback protection)とは別に &ldquo;AMD Secure <strong>Processor</strong> Rollback protection&rdquo; があり、これがベンダー側で有効にされている場合は一旦脆弱性対応を含むUEFI BIOSバージョンに上げてしまうとダウングレード（ロールバック）できなくなる。</p>
 
           <p><a href="https://fwupd.github.io/libfwupdplugin/hsi.html#org.fwupd.hsi.Amd.RollbackProtection" target="_blank" rel="noopener">https://fwupd.github.io/libfwupdplugin/hsi.html#org.fwupd.hsi.Amd.RollbackProtection</a>
           </p>
@@ -183,13 +175,9 @@
             End users are not able to directly modify rollback protection, this is controlled by the manufacturer.</p>
           </blockquote>
 
-          <p>Previously I installed the revision 1.49 (R23ET73W) but it&rsquo;s gone from <a href="https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t14-gen-3-type-21cf-21cg/21cf/21cfcto1ww/downloads/driver-list/component?name=BIOS%2FUEFI" target="_blank" rel="noopener">Lenovo&rsquo;s official page</a> with the notice below. I&rsquo;ve been annoyed by a symptom which is likely from a firmware so I wanted to try multiple revisions for bisecting, and also I thought I should downgrade it to the latest official revision as 1.40 (R23ET70W) since the withdrawal clearly indicates that there is something wrong with 1.49.</p>
+          <p><a href="https://nobuto-m.github.io/ja/post/2024/1705134429/">以前BIOSバージョンを1.49に上げた</a>ものの、この<code>1.49(R23ET73W)</code>が<a href="https://pcsupport.lenovo.com/jp/ja/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t14-gen-3-type-21cf-21cg/21cf/21cfcto1ww/downloads/driver-list/component?name=BIOS%2FUEFI" target="_blank" rel="noopener">公式ページ</a>から取り下げられてしまっている。何かしらの不具合があったということなので現時点で最新である<code>1.40(R23ET70W)</code>に戻しておきたかったのと、ファームウェアが原因なんじゃないかと思われる症状に悩まされているので色々なバージョンに戻ってテストしたかったので試行錯誤するはめに。</p>
 
-          <blockquote>
-            <p>This BIOS version R23UJ73W is reported Lenovo cloud not working issue, hence it has been withdrawn from support site.</p>
-          </blockquote>
-
-          <p>First, I turned off <code>Secure Rollback Prevention</code> and tried downgrading it with <code>fwupdmgr</code> like the following. However, it failed to be applied with <code>Secure Flash Authentication Failed</code> when rebooted.</p>
+          <p>まず<code>Secure Rollback Prevention</code>をオフにしてから、次のように<code>fwupdmgr</code>でダウングレードを選択するも再起動時に<code>Secure Flash Authentication Failed</code>で適用されず。</p>
 
           <div class="highlight">
             <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ fwupdmgr downgrade
@@ -212,7 +200,7 @@
 </span></span></code></pre>
           </div>
 
-          <p>Next, I tried their ISO image <code>r23uj70wd.iso</code>, but no luck with another error.</p>
+          <p>次に<code>r23uj70wd.iso</code>をダウンロードしてきて起動するも別のエラーで適用できず。</p>
 
           <blockquote>
             <p>Error</p>
@@ -220,7 +208,7 @@
             <p>The system program file is not correct for this system.</p>
           </blockquote>
 
-          <p>Also, Windows failed to apply it so I became convinced it was impossible. However, I didn&rsquo;t have a clear idea why at that point and bumped into a handy command in <code>fwupdmgr</code>.</p>
+          <p>仕方なくWindowsからも適用を試みるがこれもダメ。このあたりで本当に無理な感じがしてきて、でもなんでダメなのかがよくわからず。そして<code>fwupdmgr</code>の便利コマンドを知る。</p>
 
           <div class="highlight">
             <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ fwupdmgr security
@@ -270,7 +258,7 @@
 </span></span></code></pre>
           </div>
 
-          <p>As you can see, the <code>BIOS rollback protection</code> in the HSI-2 section is &ldquo;Disabled&rdquo; as intended. But <code>Processor rollback protection</code> in HSI-4 is &ldquo;Enabled&rdquo;. I found a commit suggesting that there was a system with the config disabled and it was able to be enabled when <code>OS Optimized Defaults</code> is turned on.</p>
+          <p><code>HSI-2</code>の中で<code>BIOS rollback protection</code>は意図通りDisabledになっているものの、<code>HSI-4</code>セクションの<code>Processor rollback protection</code>はEnabledになっている。色々見てると、ここがDisabledのまま出荷されて、<code>OS Optimized Defaults</code>を読み込むとEnabledになるものもあるという記述を見つける。</p>
 
           <p><a href="https://github.com/fwupd/fwupd/commit/52d6c3cb78ab8ebfd432949995e5d4437569aaa6" target="_blank" rel="noopener">https://github.com/fwupd/fwupd/commit/52d6c3cb78ab8ebfd432949995e5d4437569aaa6</a>
           </p>
@@ -281,16 +269,16 @@
             <p>may enable security processor rollback protection on Lenovo systems.</p>
           </blockquote>
 
-          <p>I hoped that <code>Processor rollback protection</code> might be disabled by turning off <code>OS Optimized Defaults</code> instead.</p>
+          <p><code>OS Optimized Defaults</code>をオフにしたらもしかしたら<code>Processor rollback protection</code>もオフになってくれるかも、と試す。</p>
 
-          <figure id="figure-tried-os-optimized-defaults-turned-off-but-no-luck">
+          <figure id="figure-os-optimized-defaultsをオフにしてみるも変化なし">
             <div class="d-flex justify-content-center">
-              <div class="w-100"><img alt="Tried OS Optimized Defaults turned off but no luck" srcset="/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_653d6e7f1be4a9f7ce5da4ac4224f907.webp 400w, /post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_21a7706214242b47ca4b8bdcb32cb5d4.webp 760w, /post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_1200x1200_fit_q75_h2_lanczos.webp 1200w" src="/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_653d6e7f1be4a9f7ce5da4ac4224f907.webp" width="760" height="428" loading="lazy" data-zoomable="">
+              <div class="w-100"><img alt="OS Optimized Defaultsをオフにしてみるも変化なし" srcset="/ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_653d6e7f1be4a9f7ce5da4ac4224f907.webp 400w, /ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_21a7706214242b47ca4b8bdcb32cb5d4.webp 760w, /ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_1200x1200_fit_q75_h2_lanczos.webp 1200w" src="/ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_653d6e7f1be4a9f7ce5da4ac4224f907.webp" width="760" height="428" loading="lazy" data-zoomable="">
               </div>
             </div>
 
             <figcaption>
-              Tried OS Optimized Defaults turned off but no luck
+              OS Optimized Defaultsをオフにしてみるも変化なし
             </figcaption>
           </figure>
 
@@ -317,7 +305,7 @@
 </span></span></code></pre>
           </div>
 
-          <p>Some configurations were overridden, but the <code>Processor rollback protection</code> stayed the same. It&rsquo;s confirmed that it&rsquo;s really impossible to downgrade the firmware with vulnerability fixes. I learned the hard way that there was a clear difference between &ldquo;a vendor doesn&rsquo;t support downgrading&rdquo; and &ldquo;it can&rsquo;t be downgraded&rdquo; as per the release notes.</p>
+          <p>いくつかの項目が無効化されるけれども<code>Processor rollback protection</code>は変わらず、脆弱性対応が含まれていると本当にダウングレードできない。リリースノートにもしっかり書いてあるけど、よくある「ダウングレードはサポートされていないよ」じゃなくて「できないよ」の意味を身を持って理解した。</p>
 
           <p><a href="https://download.lenovo.com/pccbbs/mobiles/r23uj73wd.txt" target="_blank" rel="noopener">https://download.lenovo.com/pccbbs/mobiles/r23uj73wd.txt</a>
           </p>
@@ -342,73 +330,15 @@
             </ul>
           </blockquote>
 
-          <p>I have to wait for a new and better firmware.</p>
-        </div>
-
-        <div class="article-tags">
-          <a class="badge badge-light" href="/tag/planet-ubuntu/">Planet-Ubuntu</a>
-        </div>
-
-        <div class="share-box">
-          <ul class="share">
-            <li>
-              <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2024%2Fno-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off%2F&amp;text=No%2C&#43;you&#43;can%27t&#43;downgrade&#43;T14&#43;Gen&#43;3&#43;AMD%27s&#43;UEFI&#43;BIOS&#43;even&#43;when&#43;Secure&#43;Rollback&#43;Prevention&#43;is&#43;turned&#43;off" target="_blank" rel="noopener" class="share-btn-x" aria-label="x-twitter"><i class="fab fa-x-twitter"></i></a>
-            </li>
-
-            <li>
-              <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2024%2Fno-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off%2F&amp;t=No%2C&#43;you&#43;can%27t&#43;downgrade&#43;T14&#43;Gen&#43;3&#43;AMD%27s&#43;UEFI&#43;BIOS&#43;even&#43;when&#43;Secure&#43;Rollback&#43;Prevention&#43;is&#43;turned&#43;off" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook"><i class="fab fa-facebook"></i></a>
-            </li>
-
-            <li>
-              <a href="mailto:?subject=No%2C%20you%20can%27t%20downgrade%20T14%20Gen%203%20AMD%27s%20UEFI%20BIOS%20even%20when%20Secure%20Rollback%20Prevention%20is%20turned%20off&amp;body=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2024%2Fno-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope"><i class="fas fa-envelope"></i></a>
-            </li>
-
-            <li>
-              <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2024%2Fno-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off%2F&amp;title=No%2C&#43;you&#43;can%27t&#43;downgrade&#43;T14&#43;Gen&#43;3&#43;AMD%27s&#43;UEFI&#43;BIOS&#43;even&#43;when&#43;Secure&#43;Rollback&#43;Prevention&#43;is&#43;turned&#43;off" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in"><i class="fab fa-linkedin-in"></i></a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="media author-card content-widget-hr">
-          <a href="https://nobuto-m.github.io/"><img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_hu78a952caf143c499a0d44484a3185536_20286_270x270_fill_q75_lanczos_center.jpg" alt="Nobuto Murata"></a>
-          <div class="media-body">
-            <h5 class="card-title"><a href="https://nobuto-m.github.io/">Nobuto Murata</a>
-            </h5>
-
-            <ul class="network-icon" aria-hidden="true">
-              <li>
-                <a href="https://twitter.com/nobuto_m" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
-              </li>
-
-              <li>
-                <a href="https://github.com/nobuto-m" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-              </li>
-
-              <li>
-                <a href="https://nobuto-murata.org/" target="_blank" rel="noopener"><i class="fas fa-globe"></i></a>
-              </li>
-            </ul>
-          </div>
+          <p>より完璧なファームウェアアップデートが来るまでこのまま待ちます。</p>
         </div>
 
         <div class="article-widget content-widget-hr">
-          <h3>Related</h3>
+          <h3>関連項目</h3>
 
           <ul>
             <li>
-              <a href="/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/">Ubuntu Server autoinstall with a physical machine</a>
-            </li>
-
-            <li>
-              <a href="/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/">Shortcut key to mute/unmute yourself in Zoom, Google Meet, or Teams</a>
-            </li>
-
-            <li>
-              <a href="/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/">Minimal Dynamic DNS configuration for No-IP.com with ddclient</a>
-            </li>
-
-            <li>
-              <a href="/post/2017/knowing-what-services-need-restart-with-needrestart/">Knowing what services need restart with “needrestart”</a>
+              <a href="/ja/post/2024/1705134429/">ThinkPad T14 Gen 3 AMDのBIOSを1.49/1.32(R23ET73W)に上げる</a>
             </li>
           </ul>
         </div>
@@ -444,6 +374,6 @@
   {"use_headroom":true}
   </script> 
   <script src="/js/wowchemy-headroom.db4755770454eb63685f8de785c0a172.js" type="module"></script> 
-  <script src="/en/js/wowchemy.min.7f5ebaff62ae468cff8bb3dd1337bb9b.js"></script>
+  <script src="/ja/js/wowchemy.min.2cf3eed339f2734d3e528530d32b31f3.js"></script>
 </body>
 </html>

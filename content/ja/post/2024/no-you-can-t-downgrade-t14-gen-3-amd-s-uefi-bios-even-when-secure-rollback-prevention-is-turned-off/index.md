@@ -2,10 +2,13 @@
 # Documentation: https://wowchemy.com/docs/managing-content/
 
 title: "T14 Gen 3 AMDではSecure Rollback Preventionを無効化してもUEFI BIOSはダウングレードできない"
-slug: 1714524492
+slug: no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off
 subtitle: ""
 summary: ""
 authors: []
+
+aliases:
+- 1714524492
 
 tags: []
 categories: []

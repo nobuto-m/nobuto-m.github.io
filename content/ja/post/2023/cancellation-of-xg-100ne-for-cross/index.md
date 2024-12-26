@@ -2,10 +2,13 @@
 # Documentation: https://wowchemy.com/docs/managing-content/
 
 title: "光クロス対応レンタルルーターの解約申請をした"
-slug: 1683091989
+slug: cancellation-of-xg-100ne-for-cross
 subtitle: ""
 summary: ""
 authors: []
+
+aliases:
+- 1683091989
 
 tags: []
 categories: []
