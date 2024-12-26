@@ -208,7 +208,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;evdev:input:b0003v0483p572D*
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; KEYBOARD_KEY_c00e2=prog4
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once the hardware database is updated with &lt;code&gt;systemd-hwdb update&lt;/code&gt; and the device is unplugged and plugged again (if without udevadm commands), I was able to map &lt;code&gt;Launch4&lt;/code&gt;(prog4) to the xdotool commands in GNOME successfully.&lt;/p&gt;
-&lt;p&gt;It looks like everyone had the same idea. There are fancier buttons out there :-)&lt;/p&gt;
 </description>
     </item>
     

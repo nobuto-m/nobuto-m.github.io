@@ -33,7 +33,7 @@
   <meta property="og:image" content="https://nobuto-m.github.io/ja/post/2023/configure-tailscale-acl/featured.png">
   <meta property="og:locale" content="ja">
   <meta property="article:published_time" content="2023-07-30T14:28:19&#43;09:00">
-  <meta property="article:modified_time" content="2024-12-26T15:54:55&#43;09:00">
+  <meta property="article:modified_time" content="2024-12-26T23:37:52&#43;09:00">
   <script type="application/ld+json">
   {
   "@context": "https://schema.org",
@@ -49,7 +49,7 @@
   ],
 
   "datePublished": "2023-07-30T14:28:19+09:00",
-  "dateModified": "2024-12-26T15:54:55+09:00",
+  "dateModified": "2024-12-26T23:37:52+09:00",
 
   "author": {
     "@type": "Person",
@@ -197,7 +197,19 @@
 </span></span></code></pre>
           </div>
 
-          <p>ACLは初期ルールをコメントアウトするとデフォルトが全拒否になるので、必要なルールだけ追加。この場合は、手元のノートPCからは全マシンに全許可、Prometheusからは<code>server</code>タグが付いたマシンのNode exporter用<code>9100</code>ポートのみ許可。<code>server</code>タグ用のルールは存在しないのでこのタグのマシンはどこへもアクセスできない。</p>
+          <p>ACLは初期ルールをコメントアウトするとデフォルトが全拒否になるので、必要なルールだけ追加。この場合は、</p>
+
+          <ul>
+            <li>手元のノートPCからは全マシンに全許可</li>
+
+            <li>Prometheusからは<code>server</code>タグが付いたマシンのNode exporter用<code>9100</code>ポートのみ許可</li>
+
+            <li><code>server</code>タグ用のルールは存在しないのでこのタグのマシンはどこへもアクセスできない</li>
+
+            <li>招待されたユーザーである<code>autogroup:shared</code>は<code>server</code>タグが付いたマシンかつ自分が招待されたマシンにしかアクセスできない</li>
+          </ul>
+
+          <p>となる。</p>
 
           <div class="highlight">
             <pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
