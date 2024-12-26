@@ -31,7 +31,7 @@ image:
   preview_only: true
 ---
 
-[Raspberry Pi 2Bの代用として買ったNucBox3]({{< ref "../1687011989/index.md" >}})を数週間運用してて、ある程度いい感じに動いてくれてると思ってたけど急に手がかかるようになった。マシンの上で動かしていたのは[n8nでの定期タスク]({{< ref "../pass-rss-new-item-to-webhook-with-n8n/index.md" >}})で、それ自体は負荷がかからないけどそれをわざわざsingle-node Kubernetesの上で動かしていたのでそれなりにディスクアクセスはあった。それでもまあ大したものじゃなかったけど、急にfilesystemがread-onlyに。
+[Raspberry Pi 2Bの代用として買ったNucBox3]({{< ref "../tried-truenas-scale-on-nucbox3/index.md" >}})を数週間運用してて、ある程度いい感じに動いてくれてると思ってたけど急に手がかかるようになった。マシンの上で動かしていたのは[n8nでの定期タスク]({{< ref "../pass-rss-new-item-to-webhook-with-n8n/index.md" >}})で、それ自体は負荷がかからないけどそれをわざわざsingle-node Kubernetesの上で動かしていたのでそれなりにディスクアクセスはあった。それでもまあ大したものじゃなかったけど、急にfilesystemがread-onlyに。
 
 {{< figure src="featured.png" caption="~30 IO/sからの突然のread-only" >}}
 

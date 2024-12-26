@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: 2024年12月26日 -->
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo Blox Builder 5.9.7">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; object-src 'none'; frame-src https://platform.twitter.com https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://platform.twitter.com;">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/vendor-bundle.min.26c458e6907dc03073573976b7f4044e.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/wowchemy.38ef0f893e880024d12f96952b77d82b.css">
+  <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  <meta name="google-site-verification" content="x-WRee-yVqnJs0JQZzIhmu43FqdyIrIKokjOAFhdL4I">
+  <meta name="description" content="前回、SanDisk SDSSDA-2T00-G26がREGZAの2番組同時録画と別番組再生に追いつけなかった話で興味が出たので、同じシリーズの480GB(SDSSDA-480G-J26)も持ってたので同じ条件で軽く計測してみた。古いSSD同士で何をいまさらって感じがあるけど、まあ見てみたかったので。">
+  <link rel="alternate" hreflang="ja" href="https://nobuto-m.github.io/ja/post/2023/2tb-model-looks-slower-than-480gb-model-in-sandisk-ssd-plus-series/">
+  <link rel="canonical" href="https://nobuto-m.github.io/ja/post/2023/2tb-model-looks-slower-than-480gb-model-in-sandisk-ssd-plus-series/">
+  <link rel="icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_180x180_fill_lanczos_center_3.png">
+  <meta name="theme-color" content="#1565c0">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:image" content="https://nobuto-m.github.io/ja/post/2023/2tb-model-looks-slower-than-480gb-model-in-sandisk-ssd-plus-series/featured.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Nobuto Murata">
+  <meta property="og:url" content="https://nobuto-m.github.io/ja/post/2023/2tb-model-looks-slower-than-480gb-model-in-sandisk-ssd-plus-series/">
+  <meta property="og:title" content="SanDisk SSD Plusシリーズは2TBの方が480GBより遅く見えちゃう | Nobuto Murata">
+  <meta property="og:description" content="前回、SanDisk SDSSDA-2T00-G26がREGZAの2番組同時録画と別番組再生に追いつけなかった話で興味が出たので、同じシリーズの480GB(SDSSDA-480G-J26)も持ってたので同じ条件で軽く計測してみた。古いSSD同士で何をいまさらって感じがあるけど、まあ見てみたかったので。">
+  <meta property="og:image" content="https://nobuto-m.github.io/ja/post/2023/2tb-model-looks-slower-than-480gb-model-in-sandisk-ssd-plus-series/featured.png">
+  <meta property="og:locale" content="ja">
+  <meta property="article:published_time" content="2023-05-05T19:01:25&#43;09:00">
+  <meta property="article:modified_time" content="2023-05-05T19:01:25&#43;09:00">
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nobuto-m.github.io/ja/post/2023/2tb-model-looks-slower-than-480gb-model-in-sandisk-ssd-plus-series/"
+  },
+  "headline": "SanDisk SSD Plusシリーズは2TBの方が480GBより遅く見えちゃう",
+
+  "image": [
+    "https://nobuto-m.github.io/ja/post/2023/2tb-model-looks-slower-than-480gb-model-in-sandisk-ssd-plus-series/featured.png"
+  ],
+
+  "datePublished": "2023-05-05T19:01:25+09:00",
+  "dateModified": "2023-05-05T19:01:25+09:00",
+
+  "author": {
+    "@type": "Person",
+    "name": "Authors"
+  },
+
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nobuto Murata",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "前回、SanDisk SDSSDA-2T00-G26がREGZAの2番組同時録画と別番組再生に追いつけなかった話で興味が出たので、同じシリーズの480GB(SDSSDA-480G-J26)も持ってたので同じ条件で軽く計測してみた。古いSSD同士で何をいまさらって感じがあるけど、まあ見てみたかったので。"
+  }
+  </script>
+  <title>SanDisk SSD Plusシリーズは2TBの方が480GBより遅く見えちゃう | Nobuto Murata</title>
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper" data-wc-page-id="a17717efd55033ea7baced28bdfb8465">
+  <script src="/js/wowchemy-init.min.9e4214442a7711d35691acd58f6f6361.js"></script>
+  <aside class="search-modal" id="search">
+    <div class="container">
+      <section class="search-header">
+        <div class="row no-gutters justify-content-between mb-3">
+          <div class="col-6">
+            <h1>検索</h1>
+          </div>
+
+          <div class="col-6 col-search-close">
+            <a class="js-search" href="#" aria-label="閉じる"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div id="search-box">
+          <input name="q" id="search-query" placeholder="検索..." autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control" aria-label="検索...">
+        </div>
+      </section>
+
+      <section class="section-search-results">
+        <div id="search-hits">
+        </div>
+      </section>
+    </div>
+  </aside>
+
+  <div class="page-header header--fixed">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+        <div class="container-xl">
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="ナビゲーションの切り替え"><span><i class="fas fa-bars"></i></span></button>
+          <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+            <ul class="navbar-nav d-md-inline-flex">
+              <li class="nav-item">
+                <a class="nav-link" href="/"><span>Home</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" href="/ja/post/"><span>投稿</span></a>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+            <li class="nav-item">
+              <a class="nav-link js-search" href="#" aria-label="検索"><i class="fas fa-search" aria-hidden="true"></i></a>
+            </li>
+
+            <li class="nav-item dropdown theme-dropdown">
+              <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="表示設定"><i class="fas fa-moon" aria-hidden="true"></i></a>
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-item js-set-theme-light"><span>ライト</span></a> <a href="#" class="dropdown-item js-set-theme-dark"><span>ダーク</span></a> <a href="#" class="dropdown-item js-set-theme-auto"><span>自動</span></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+      <div class="article-container pt-3">
+        <h1>SanDisk SSD Plusシリーズは2TBの方が480GBより遅く見えちゃう</h1>
+
+        <div class="article-metadata">
+          <span class="article-date">5月 5, 2023</span>
+        </div>
+      </div>
+
+      <div class="article-container">
+        <div class="article-style">
+          <p>前回、<a href="https://www.westerndigital.com/ja-jp/products/internal-drives/sandisk-ssd-plus-sata-iii-ssd" target="_blank" rel="noopener">SanDisk SDSSDA-2T00-G26</a>が<a href="https://nobuto-m.github.io/ja/post/2023/replaced-a-drive-for-regza-recording-with-ssd-sct2-0u3ba-n/">REGZAの2番組同時録画と別番組再生に追いつけなかった話</a>で興味が出たので、同じシリーズの480GB(SDSSDA-480G-J26)も持ってたので同じ条件で軽く計測してみた。古いSSD同士で何をいまさらって感じがあるけど、まあ見てみたかったので。</p>
+
+          <figure id="figure-sandisk-ssd-plus-2tb">
+            <div class="d-flex justify-content-center">
+              <div class="w-100"><img alt="SanDisk SSD Plus 2TB" src="/ja/post/2023/2tb-model-looks-slower-than-480gb-model-in-sandisk-ssd-plus-series/sandisk_granular.png" loading="lazy" data-zoomable="">
+              </div>
+            </div>
+
+            <figcaption>
+              SanDisk SSD Plus 2TB
+            </figcaption>
+          </figure>
+
+          <figure id="figure-sandisk-ssd-plus-480gb">
+            <div class="d-flex justify-content-center">
+              <div class="w-100"><img alt="SanDisk SSD Plus 480GB" src="/ja/post/2023/2tb-model-looks-slower-than-480gb-model-in-sandisk-ssd-plus-series/featured.png" loading="lazy" data-zoomable="">
+              </div>
+            </div>
+
+            <figcaption>
+              SanDisk SSD Plus 480GB
+            </figcaption>
+          </figure>
+
+          <p>これを見ると480GBの方がガタガタではあるけれども、予測しやすい理屈に合った動きをしているように見えるし、平均書き込み速度で上回ってて、レイテンシーの面でも優秀。SSDは容量が大きい方がだいたい書き込み速度が上がる印象だけどこういうこともあるんだなと。ファームウェアのリビジョンによる違いなのかもしれないけど。</p>
+
+          <p>と思ったら普通にデータシートに1TBの方が他より遅いって書いてあった。2TBは最速っぽく書いてあるけど。</p>
+
+          <p><a href="https://documents.westerndigital.com/content/dam/doc-library/en_us/assets/public/sandisk/product/internal-drives/ssd-plus-sata-iii-ssd/data-sheet-ssd-plus-sata-iii-ssd.pdf" target="_blank" rel="noopener">Datasheet (PDF)</a>
+          </p>
+
+          <blockquote>
+            <ul>
+              <li>Read/write speeds of up to 545MB/s/450MBs** [2TB]</li>
+
+              <li>Read/write speeds of up to 535MB/s/350MBs** [1TB]</li>
+
+              <li>Read/write speeds of up to 535MB/s/445MBs** [480GB]</li>
+
+              <li>Read/write speeds of up to 530MB/s/440MBs** [240GB]</li>
+            </ul>
+          </blockquote>
+
+          <p>ちなみに実際のTBWはどちらも使いすぎってわけではなくて、大した値ではなかった。</p>
+
+          <p>[480GB]</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ sudo smartctl -A /dev/disk/by-id/ata-SanDisk_SDSSDA480G_XYZ -d sat
+</span></span><span class="line"><span class="cl">smartctl 7.2 2020-12-30 r5155 <span class="o">[</span>x86_64-linux-6.1.0-1009-oem<span class="o">]</span> <span class="o">(</span><span class="nb">local</span> build<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Copyright <span class="o">(</span>C<span class="o">)</span> 2002-20, Bruce Allen, Christian Franke, www.smartmontools.org
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">===</span> START OF READ SMART DATA <span class="nv">SECTION</span> <span class="o">===</span>
+</span></span><span class="line"><span class="cl">SMART Attributes Data Structure revision number: <span class="m">1</span>
+</span></span><span class="line"><span class="cl">Vendor Specific SMART Attributes with Thresholds:
+</span></span><span class="line"><span class="cl">ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+</span></span><span class="line"><span class="cl">  <span class="m">5</span> Retired_Block_Count     0x0032   <span class="m">100</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">0</span>
+</span></span><span class="line"><span class="cl">  <span class="m">9</span> Power_On_Hours_and_Msec 0x0032   <span class="m">000</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       11604h+00m+00.000s
+</span></span><span class="line"><span class="cl"> <span class="m">12</span> Power_Cycle_Count       0x0032   <span class="m">100</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">1926</span>
+</span></span><span class="line"><span class="cl"><span class="m">165</span> Unknown_Attribute       0x0032   <span class="m">100</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">7241469593843</span>
+</span></span><span class="line"><span class="cl"><span class="m">166</span> Unknown_Attribute       0x0032   <span class="m">100</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="m">167</span> Unknown_Attribute       0x0032   <span class="m">100</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="m">168</span> Unknown_Attribute       0x0032   <span class="m">100</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">15</span>
+</span></span><span class="line"><span class="cl"><span class="m">169</span> Unknown_Attribute       0x0032   <span class="m">100</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="m">170</span> Reserve_Block_Count     0x0032   <span class="m">100</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="m">171</span> Program_Fail_Count      0x0032   <span class="m">100</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="m">172</span> Erase_Fail_Count        0x0032   <span class="m">100</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="m">173</span> Unknown_SandForce_Attr  0x0032   <span class="m">100</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">8</span>
+</span></span><span class="line"><span class="cl"><span class="m">174</span> Unexpect_Power_Loss_Ct  0x0032   <span class="m">100</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">120</span>
+</span></span><span class="line"><span class="cl"><span class="m">187</span> Reported_Uncorrect      0x0032   <span class="m">100</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="m">188</span> Command_Timeout         0x0032   <span class="m">100</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="m">194</span> Temperature_Celsius     0x0022   <span class="m">061</span>   <span class="m">022</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">39</span> <span class="o">(</span>Min/Max 0/78<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="m">199</span> SATA_CRC_Error_Count    0x0032   <span class="m">100</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="m">230</span> Life_Curve_Status       0x0032   <span class="m">100</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">3277067780859</span>
+</span></span><span class="line"><span class="cl"><span class="m">232</span> Available_Reservd_Space 0x0033   <span class="m">100</span>   <span class="m">100</span>   <span class="m">004</span>    Pre-fail  Always       -       <span class="m">100</span>
+</span></span><span class="line"><span class="cl"><span class="m">233</span> SandForce_Internal      0x0032   <span class="m">100</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">3950</span>
+</span></span><span class="line"><span class="cl"><span class="m">234</span> SandForce_Internal      0x0032   <span class="m">100</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">43857</span>
+</span></span><span class="line"><span class="cl"><span class="m">241</span> Lifetime_Writes_GiB     0x0030   <span class="m">253</span>   <span class="m">253</span>   <span class="m">000</span>    Old_age   Offline      -       <span class="m">13081</span>
+</span></span><span class="line"><span class="cl"><span class="m">242</span> Lifetime_Reads_GiB      0x0030   <span class="m">253</span>   <span class="m">253</span>   <span class="m">000</span>    Old_age   Offline      -       <span class="m">6245</span>
+</span></span><span class="line"><span class="cl"><span class="m">244</span> Unknown_Attribute       0x0032   <span class="m">000</span>   <span class="m">100</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">0</span>
+</span></span></code></pre>
+          </div>
+
+          <p>-&gt; TBW: <code>~13 TB</code></p>
+
+          <p>[2TB]</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">$</span> <span class="n">sudo</span> <span class="n">smartctl</span> <span class="o">-</span><span class="n">A</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">id</span><span class="o">/</span><span class="n">ata</span><span class="o">-</span><span class="n">SanDisk_SSD_PLUS_2000GB_XYZ</span> <span class="o">-</span><span class="n">d</span> <span class="n">sat</span>
+</span></span><span class="line"><span class="cl"><span class="n">smartctl</span> <span class="mf">7.2</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">30</span> <span class="n">r5155</span> <span class="p">[</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="mf">6.1</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mi">1009</span><span class="o">-</span><span class="n">oem</span><span class="p">]</span> <span class="p">(</span><span class="n">local</span> <span class="n">build</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2002</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="n">Bruce</span> <span class="n">Allen</span><span class="p">,</span> <span class="n">Christian</span> <span class="n">Franke</span><span class="p">,</span> <span class="n">www</span><span class="o">.</span><span class="n">smartmontools</span><span class="o">.</span><span class="n">org</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">===</span> <span class="n">START</span> <span class="n">OF</span> <span class="n">READ</span> <span class="n">SMART</span> <span class="n">DATA</span> <span class="n">SECTION</span> <span class="o">===</span>
+</span></span><span class="line"><span class="cl"><span class="n">SMART</span> <span class="n">Attributes</span> <span class="n">Data</span> <span class="n">Structure</span> <span class="n">revision</span> <span class="n">number</span><span class="p">:</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">Vendor</span> <span class="n">Specific</span> <span class="n">SMART</span> <span class="n">Attributes</span> <span class="n">with</span> <span class="n">Thresholds</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="n">ID</span><span class="c1"># ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">5</span> <span class="n">Reallocated_Sector_Ct</span>   <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">9</span> <span class="n">Power_On_Hours</span>          <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">11767</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">12</span> <span class="n">Power_Cycle_Count</span>       <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">343</span>
+</span></span><span class="line"><span class="cl"><span class="mi">165</span> <span class="n">Unknown_Attribute</span>       <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">1378</span>
+</span></span><span class="line"><span class="cl"><span class="mi">166</span> <span class="n">Unknown_Attribute</span>       <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="o">---</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="mi">167</span> <span class="n">Unknown_Attribute</span>       <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="o">---</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">98</span>
+</span></span><span class="line"><span class="cl"><span class="mi">168</span> <span class="n">Unknown_Attribute</span>       <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="o">---</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">27</span>
+</span></span><span class="line"><span class="cl"><span class="mi">169</span> <span class="n">Unknown_Attribute</span>       <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="o">---</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">1623</span>
+</span></span><span class="line"><span class="cl"><span class="mi">170</span> <span class="n">Unknown_Attribute</span>       <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="o">---</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">171</span> <span class="n">Unknown_Attribute</span>       <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">172</span> <span class="n">Unknown_Attribute</span>       <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">173</span> <span class="n">Unknown_Attribute</span>       <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="mi">174</span> <span class="n">Unknown_Attribute</span>       <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">239</span>
+</span></span><span class="line"><span class="cl"><span class="mi">184</span> <span class="n">End</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">End_Error</span>        <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="o">---</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">187</span> <span class="n">Reported_Uncorrect</span>      <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">188</span> <span class="n">Command_Timeout</span>         <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="o">---</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">194</span> <span class="n">Temperature_Celsius</span>     <span class="mh">0x0022</span>   <span class="mi">058</span>   <span class="mi">071</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">42</span> <span class="p">(</span><span class="n">Min</span><span class="o">/</span><span class="n">Max</span> <span class="mi">14</span><span class="o">/</span><span class="mi">71</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">199</span> <span class="n">UDMA_CRC_Error_Count</span>    <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="o">---</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="mi">230</span> <span class="n">Unknown_SSD_Attribute</span>   <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">3698000397149</span>
+</span></span><span class="line"><span class="cl"><span class="mi">232</span> <span class="n">Available_Reservd_Space</span> <span class="mh">0x0033</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">005</span>    <span class="n">Pre</span><span class="o">-</span><span class="n">fail</span>  <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">100</span>
+</span></span><span class="line"><span class="cl"><span class="mi">233</span> <span class="n">Media_Wearout_Indicator</span> <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="o">---</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">21640</span>
+</span></span><span class="line"><span class="cl"><span class="mi">234</span> <span class="n">Unknown_Attribute</span>       <span class="mh">0x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">37214</span>
+</span></span><span class="line"><span class="cl"><span class="mi">241</span> <span class="n">Total_LBAs_Written</span>      <span class="mh">0x0030</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Offline</span>      <span class="o">-</span>       <span class="mi">14543</span>
+</span></span><span class="line"><span class="cl"><span class="mi">242</span> <span class="n">Total_LBAs_Read</span>         <span class="mh">0x0030</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Offline</span>      <span class="o">-</span>       <span class="mi">9730</span>
+</span></span><span class="line"><span class="cl"><span class="mi">244</span> <span class="n">Unknown_Attribute</span>       <span class="mh">0x0032</span>   <span class="mi">000</span>   <span class="mi">100</span>   <span class="o">---</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">0</span>
+</span></span></code></pre>
+          </div>
+
+          <p>-&gt; TBW: <code>~14.5 TB</code></p>
+        </div>
+
+        <div class="article-widget content-widget-hr">
+          <h3>関連項目</h3>
+
+          <ul>
+            <li>
+              <a href="/ja/post/2023/replaced-a-drive-for-regza-recording-with-ssd-sct2-0u3ba-n/">REGZAの録画用ドライブをSSD-SCT2.0U3BA/Nに交換した</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <footer class="site-footer">
+        <p class="powered-by copyright-license-text">© 2017-2024 Nobuto Murata</p>
+
+        <p class="powered-by">Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.</p>
+      </footer>
+    </div>
+  </div>
+  <script src="/js/vendor-bundle.min.391d344a129df56f7ad674c2c2ed04e8.js"></script> 
+  <script id="search-hit-fuse-template" type="text/x-template">
+
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script> 
+  <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script> 
+  <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script> 
+  <script id="page-data" type="application/json">
+  {"use_headroom":true}
+  </script> 
+  <script src="/js/wowchemy-headroom.db4755770454eb63685f8de785c0a172.js" type="module"></script> 
+  <script src="/ja/js/wowchemy.min.2cf3eed339f2734d3e528530d32b31f3.js"></script>
+</body>
+</html>
