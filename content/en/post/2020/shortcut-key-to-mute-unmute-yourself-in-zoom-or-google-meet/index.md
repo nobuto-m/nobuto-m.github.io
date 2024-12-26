@@ -126,5 +126,3 @@ evdev:input:b0003v0483p572D*
 Once the hardware database is updated with `systemd-hwdb update` and the device is unplugged and plugged again (if without udevadm commands), I was able to map `Launch4`(prog4) to the xdotool commands in GNOME successfully.
 
 It looks like everyone had the same idea. There are fancier buttons out there :-)
-
-{{< tweet user="joemcmanus" id="1341866233600217088" >}}
