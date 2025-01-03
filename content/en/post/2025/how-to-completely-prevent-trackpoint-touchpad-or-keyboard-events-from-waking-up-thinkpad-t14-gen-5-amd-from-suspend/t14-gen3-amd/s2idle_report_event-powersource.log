@@ -1,0 +1,763 @@
+2025-01-04 00:52:16,210 INFO:	Debugging script for s2idle on AMD systems
+2025-01-04 00:52:16,210 INFO:	💻 LENOVO 21CF21CFT1 (ThinkPad T14 Gen 3) running BIOS 1.56 (R23ET80W (1.56 )) released 10/28/2024 and EC 1.32
+2025-01-04 00:52:16,210 INFO:	🐧 Ubuntu 24.04.1 LTS
+2025-01-04 00:52:16,210 INFO:	🐧 Kernel 6.11.0-12-generic
+2025-01-04 00:52:16,216 DEBUG:	BAT0 energy level is 44050000 µWh
+2025-01-04 00:52:16,216 INFO:	🔋 Battery BAT0 (Sunwoda ) is operating at 90.91% of design
+2025-01-04 00:52:16,243 DEBUG:	Thermal zones
+2025-01-04 00:52:16,244 DEBUG:	├─  LNXTHERM:00
+2025-01-04 00:52:16,244 DEBUG:	│ 	 temp: 36.0°C
+2025-01-04 00:52:16,244 DEBUG:	│ 	 critical trip: 128.0°C
+2025-01-04 00:52:16,244 DEBUG:	└─ LNXTHERM:01
+2025-01-04 00:52:16,244 DEBUG:	  	 temp: 20.0°C
+2025-01-04 00:52:16,244 DEBUG:	  	 critical trip: 110.0°C
+2025-01-04 00:52:16,244 INFO:	Checking prerequisites for s2idle
+2025-01-04 00:52:16,244 INFO:	✅ Logs are provided via systemd
+2025-01-04 00:52:16,245 INFO:	✅ AMD Ryzen 7 PRO 6850U with Radeon Graphics (family 19 model 44)
+2025-01-04 00:52:16,245 INFO:	✅ ASPM policy set to 'default'
+2025-01-04 00:52:16,245 DEBUG:	SMT control: on
+2025-01-04 00:52:16,245 INFO:	✅ SMT enabled
+2025-01-04 00:52:16,246 INFO:	✅ LPS0 _DSM enabled
+2025-01-04 00:52:16,308 INFO:	✅ ACPI FADT supports Low-power S0 idle
+2025-01-04 00:52:16,308 DEBUG:	/sys/module/gpiolib_acpi/parameters/ignore_wake is not configured
+2025-01-04 00:52:16,309 DEBUG:	/sys/module/gpiolib_acpi/parameters/ignore_interrupt is not configured
+2025-01-04 00:52:16,309 DEBUG:	/proc/cmdline: 
+2025-01-04 00:52:16,311 DEBUG:	LOGIND: configuration changes:
+2025-01-04 00:52:16,311 DEBUG:		lidswitchignoreinhibited: yes
+2025-01-04 00:52:16,311 DEBUG:		handlelidswitch: lock
+2025-01-04 00:52:16,311 DEBUG:		handlelidswitchexternalpower: lock
+2025-01-04 00:52:16,311 DEBUG:		handlelidswitchdocked: ignore
+2025-01-04 00:52:16,313 INFO:	✅ HSMP driver `amd_hsmp` not detected (blocked: False)
+2025-01-04 00:52:16,320 INFO:	✅ PMC driver `amd_pmc` loaded (Program 4 Firmware 69.63.0)
+2025-01-04 00:52:16,333 INFO:	✅ GPU driver `amdgpu` bound to 0000:04:00.0
+2025-01-04 00:52:16,547 INFO:	✅ System is configured for s2idle
+2025-01-04 00:52:16,657 INFO:	✅ NVME SK hynix Gold P31/BC711/PC711 NVMe Solid State Drive is configured for s2idle in BIOS
+2025-01-04 00:52:16,664 INFO:	✅ GPIO driver `pinctrl_amd` available
+2025-01-04 00:52:16,667 DEBUG:	Winblue GPIO 0 debounce: disabled
+2025-01-04 00:52:16,667 DEBUG:	gpio	  int|active|trigger|S0i3| S3|S4/S5| Z|wake|pull|  orient|       debounce|reg
+2025-01-04 00:52:16,667 DEBUG:	#0	   😛|     ↑|   edge|  ⏰| ⏰|     |  |    |    |input  ↑|b (🕑 046875us)|0x578e3
+2025-01-04 00:52:16,667 DEBUG:	#2	   😷|     ↓|  level|    |   |     |  |    |    |input  ↑|               |0x50b00
+2025-01-04 00:52:16,667 DEBUG:	#8	   😛|     ↓|  level|    |   |     |  |    |  ↑ |input  ↑|               |0x151b00
+2025-01-04 00:52:16,667 DEBUG:	#9	   😛|     ↓|   edge|  ⏰| ⏰|     |  |    |    |input  ↑|               |0x57a00
+2025-01-04 00:52:16,667 DEBUG:	#18	   😛|     ↓|   edge|  ⏰| ⏰|     |  |    |  ↑ |input  ↑|               |0x157a00
+2025-01-04 00:52:16,667 DEBUG:	#44	   😛|     ↑|   edge|  ⏰| ⏰|     |  |    |    |input  ↓|               |0x7800
+2025-01-04 00:52:16,667 DEBUG:	#52	   😷|     ↑|   edge|    |   |     |  |    |    |input  ↓|               |0x800
+2025-01-04 00:52:16,667 DEBUG:	#54	   😷|     ↑|   edge|    |   |     |  |    |    |input  ↓|               |0x800
+2025-01-04 00:52:16,667 DEBUG:	#58	   😛|     ↑|  level|  ⏰| ⏰|     |⏰|    |    |input  ↓|               |0x8007900
+2025-01-04 00:52:16,667 DEBUG:	#59	   😛|     ↑|  level|  ⏰| ⏰|     |⏰|    |    |input  ↓|               |0x8007900
+2025-01-04 00:52:16,667 DEBUG:	#61	   😛|     ↑|  level|  ⏰| ⏰|     |  |    |    |input  ↓|               |0x7900
+2025-01-04 00:52:16,668 DEBUG:	#62	   😛|     ↑|  level|  ⏰| ⏰|     |  |    |    |input  ↓|               |0x7900
+2025-01-04 00:52:16,668 DEBUG:	#172	   😷|     ↑|  level|    |   |     |  |    |    |input  ↓|               |0x900
+2025-01-04 00:52:16,864 DEBUG:	Lenovo Battery firmware version: '1.2.2'
+2025-01-04 00:52:16,864 DEBUG:	| ['ada6e0c4-2ab9-46aa-b251-aed8af08e89a']
+2025-01-04 00:52:16,864 DEBUG:	└─[]
+2025-01-04 00:52:16,864 DEBUG:	Lenovo Embedded Controller firmware version: '0.1.32'
+2025-01-04 00:52:16,865 DEBUG:	| ['6be552b4-eda3-46a7-ab1b-d8ba1ff451bd']
+2025-01-04 00:52:16,865 DEBUG:	└─[]
+2025-01-04 00:52:16,865 DEBUG:	SK hynix SKHynix HFS256GDE9X081N firmware version: '41730C20'
+2025-01-04 00:52:16,865 DEBUG:	| ['0ee57466-ca9d-5f10-a005-ec6bacf6fb82', '34e06406-f620-5b9d-a9cd-7f3a4e648633', '59919342-93e0-53d6-bf67-851cb77dd09a']
+2025-01-04 00:52:16,865 DEBUG:	└─['NVME\\VEN_1C5C&DEV_174A', 'NVME\\VEN_1C5C&DEV_174A&SUBSYS_1C5C174A', 'SKHynix_HFS256GDE9X081N']
+2025-01-04 00:52:16,865 DEBUG:	Lenovo System Firmware firmware version: '0.1.56'
+2025-01-04 00:52:16,865 DEBUG:	| ['e40809b1-7d9f-4dc4-7c0f-8ace63b43687']
+2025-01-04 00:52:16,865 DEBUG:	└─[]
+2025-01-04 00:52:16,865 DEBUG:	Lenovo TPM firmware version: '7.2.769'
+2025-01-04 00:52:16,865 DEBUG:	| ['01ae569c-30cd-44bc-8437-5e329c6a391c']
+2025-01-04 00:52:16,865 DEBUG:	└─[]
+2025-01-04 00:52:16,865 DEBUG:	Nuvoton Technology TPM firmware version: '7.2.3.1'
+2025-01-04 00:52:16,865 DEBUG:	| ['fac1c8f3-73c8-5cd6-8330-07a3690b5140', 'bf68887b-e3d9-5572-9a02-0d34979502c7', 'e9ccc1dc-960a-5e09-afe9-e59a904b776d', 'bc8b2f06-5f89-5b3a-bc74-976e0329f53b']
+2025-01-04 00:52:16,865 DEBUG:	└─['TPM\\VEN_NTC&DEV_0000', 'TPM\\VEN_NTC&MOD_NPCT75x"!"8rls', 'TPM\\VEN_NTC&DEV_0000&VER_2.0', 'TPM\\VEN_NTC&MOD_NPCT75x"!"8rls&VER_2.0']
+2025-01-04 00:52:16,865 DEBUG:	None UEFI Device Firmware firmware version: '22048'
+2025-01-04 00:52:16,865 DEBUG:	| ['c2bcd4b6-2af2-4fd3-80db-e03cbd8f9583']
+2025-01-04 00:52:16,865 DEBUG:	└─[]
+2025-01-04 00:52:16,865 DEBUG:	None UEFI Device Firmware firmware version: '196608'
+2025-01-04 00:52:16,865 DEBUG:	| ['54cb734c-975c-4a74-9556-57ae6d9a2229']
+2025-01-04 00:52:16,865 DEBUG:	└─[]
+2025-01-04 00:52:16,865 DEBUG:	None UEFI Device Firmware firmware version: '532'
+2025-01-04 00:52:16,865 DEBUG:	| ['88523ddf-3aac-41f6-b15f-dc7bea434b39']
+2025-01-04 00:52:16,865 DEBUG:	└─[]
+2025-01-04 00:52:16,865 DEBUG:	None UEFI Device Firmware firmware version: '3'
+2025-01-04 00:52:16,865 DEBUG:	| ['e87c4ff6-69e0-4647-a4c0-aa1f736511f6']
+2025-01-04 00:52:16,865 DEBUG:	└─[]
+2025-01-04 00:52:16,865 DEBUG:	None UEFI Device Firmware firmware version: '1'
+2025-01-04 00:52:16,865 DEBUG:	| ['75d78aef-5e7f-0afe-b68a-aef4c52ccddd']
+2025-01-04 00:52:16,865 DEBUG:	└─[]
+2025-01-04 00:52:16,873 DEBUG:	enp1s0f0 supports WoL
+2025-01-04 00:52:16,873 WARNING:	Platform may have low hardware sleep residency with Wake-on-lan disabled. Run `ethtool -s enp1s0f0 wol g` to enable it if necessary.
+2025-01-04 00:52:17,019 DEBUG:	WCN6855 version string: ath11k_pci 0000:02:00.0: fw_version 0x1106196e fw_build_timestamp 2024-01-12 11:30 fw_build_id WLAN.HSP.1.1-03125-QCAHSPSWPL_V1_V2_SILICONZ_LITE-3.6510.37
+2025-01-04 00:52:17,019 INFO:	✅ WCN6855 WLAN (fw build id WLAN.HSP.1.1-03125-QCAHSPSWPL_V1_V2_SILICONZ_LITE-3.6510.37)
+2025-01-04 00:52:17,019 DEBUG:	Lockdown: none [integrity] confidentiality
+2025-01-04 00:52:17,579 DEBUG:	linux-firmware=20240318.git3b128b60-0ubuntu2.6
+2025-01-04 00:52:17,579 DEBUG:	VCE feature version: 0, firmware version: 0x00000000
+2025-01-04 00:52:17,579 DEBUG:	UVD feature version: 0, firmware version: 0x00000000
+2025-01-04 00:52:17,580 DEBUG:	MC feature version: 0, firmware version: 0x00000000
+2025-01-04 00:52:17,580 DEBUG:	ME feature version: 44, firmware version: 0x00000040
+2025-01-04 00:52:17,580 DEBUG:	PFP feature version: 44, firmware version: 0x00000061
+2025-01-04 00:52:17,580 DEBUG:	CE feature version: 44, firmware version: 0x00000025
+2025-01-04 00:52:17,580 DEBUG:	RLC feature version: 1, firmware version: 0x00000053
+2025-01-04 00:52:17,580 DEBUG:	RLC SRLC feature version: 1, firmware version: 0x00000001
+2025-01-04 00:52:17,580 DEBUG:	RLC SRLG feature version: 1, firmware version: 0x00000001
+2025-01-04 00:52:17,580 DEBUG:	RLC SRLS feature version: 1, firmware version: 0x00000001
+2025-01-04 00:52:17,580 DEBUG:	RLCP feature version: 0, firmware version: 0x00000000
+2025-01-04 00:52:17,580 DEBUG:	RLCV feature version: 0, firmware version: 0x00000000
+2025-01-04 00:52:17,580 DEBUG:	MEC feature version: 44, firmware version: 0x00000074
+2025-01-04 00:52:17,580 DEBUG:	MEC2 feature version: 44, firmware version: 0x00000074
+2025-01-04 00:52:17,580 DEBUG:	IMU feature version: 0, firmware version: 0x00000000
+2025-01-04 00:52:17,580 DEBUG:	SOS feature version: 0, firmware version: 0x00000000
+2025-01-04 00:52:17,580 DEBUG:	ASD feature version: 553648327, firmware version: 0x210000c7
+2025-01-04 00:52:17,580 DEBUG:	TA XGMI feature version: 0x00000000, firmware version: 0x00000000
+2025-01-04 00:52:17,580 DEBUG:	TA RAS feature version: 0x00000000, firmware version: 0x00000000
+2025-01-04 00:52:17,580 DEBUG:	TA HDCP feature version: 0x00000000, firmware version: 0x1700003c
+2025-01-04 00:52:17,580 DEBUG:	TA DTM feature version: 0x00000000, firmware version: 0x12000016
+2025-01-04 00:52:17,580 DEBUG:	TA RAP feature version: 0x00000000, firmware version: 0x00000000
+2025-01-04 00:52:17,580 DEBUG:	TA SECUREDISPLAY feature version: 0x00000000, firmware version: 0x00000000
+2025-01-04 00:52:17,580 DEBUG:	SMC feature version: 0, program: 4, firmware version: 0x04453f00 (69.63.0)
+2025-01-04 00:52:17,580 DEBUG:	SDMA0 feature version: 52, firmware version: 0x0000002f
+2025-01-04 00:52:17,580 DEBUG:	VCN feature version: 0, firmware version: 0x0311e004
+2025-01-04 00:52:17,580 DEBUG:	DMCU feature version: 0, firmware version: 0x00000000
+2025-01-04 00:52:17,580 DEBUG:	DMCUB feature version: 0, firmware version: 0x04000044
+2025-01-04 00:52:17,580 DEBUG:	TOC feature version: 0, firmware version: 0x00000003
+2025-01-04 00:52:17,580 DEBUG:	MES_KIQ feature version: 0, firmware version: 0x00000000
+2025-01-04 00:52:17,580 DEBUG:	MES feature version: 0, firmware version: 0x00000000
+2025-01-04 00:52:17,580 DEBUG:	VPE feature version: 0, firmware version: 0x00000000
+2025-01-04 00:52:17,580 DEBUG:	VBIOS version: 113-REMBRANDT-X37
+2025-01-04 00:52:17,595 DEBUG:	PCI devices
+2025-01-04 00:52:17,596 DEBUG:	│ 0000:00:00.0 : Advanced Micro Devices, Inc. [AMD] Host bridge [1022:14b5]
+2025-01-04 00:52:17,596 DEBUG:	│ 0000:00:00.2 : Advanced Micro Devices, Inc. [AMD] IOMMU [1022:14b6]
+2025-01-04 00:52:17,596 DEBUG:	│ 0000:00:01.0 : Advanced Micro Devices, Inc. [AMD] Host bridge [1022:14b7]
+2025-01-04 00:52:17,596 DEBUG:	│ 0000:00:02.0 : Advanced Micro Devices, Inc. [AMD] Host bridge [1022:14b7]
+2025-01-04 00:52:17,597 DEBUG:	│ 0000:00:02.1 : Advanced Micro Devices, Inc. [AMD] PCI bridge [1022:14ba] : \_SB_.PCI0.GPP5
+2025-01-04 00:52:17,597 DEBUG:	├─ 0000:01:00.0 : Realtek Semiconductor Co., Ltd. Ethernet controller [10ec:8168] : \_SB_.PCI0.GPP5.RTL8
+2025-01-04 00:52:17,597 DEBUG:	│ 0000:00:02.2 : Advanced Micro Devices, Inc. [AMD] PCI bridge [1022:14ba] : \_SB_.PCI0.GPP6
+2025-01-04 00:52:17,598 DEBUG:	├─ 0000:02:00.0 : Qualcomm Technologies, Inc Network controller [17cb:1103] : \_SB_.PCI0.GPP6.PXSX
+2025-01-04 00:52:17,598 DEBUG:	│ 0000:00:02.4 : Advanced Micro Devices, Inc. [AMD] PCI bridge [1022:14ba] : \_SB_.PCI0.GPP8
+2025-01-04 00:52:17,598 DEBUG:	├─ 0000:03:00.0 : SK hynix Non-Volatile memory controller [1c5c:174a] : \_SB_.PCI0.GPP8.NVME
+2025-01-04 00:52:17,598 DEBUG:	│ 0000:00:03.0 : Advanced Micro Devices, Inc. [AMD] Host bridge [1022:14b7]
+2025-01-04 00:52:17,599 DEBUG:	│ 0000:00:04.0 : Advanced Micro Devices, Inc. [AMD] Host bridge [1022:14b7]
+2025-01-04 00:52:17,599 DEBUG:	│ 0000:00:08.0 : Advanced Micro Devices, Inc. [AMD] Host bridge [1022:14b7]
+2025-01-04 00:52:17,599 DEBUG:	│ 0000:00:08.1 : Advanced Micro Devices, Inc. [AMD] PCI bridge [1022:14b9] : \_SB_.PCI0.GP17
+2025-01-04 00:52:17,599 DEBUG:	├─ 0000:04:00.0 : Advanced Micro Devices, Inc. [AMD/ATI] VGA compatible controller [1002:1681] : \_SB_.PCI0.GP17.VGA_
+2025-01-04 00:52:17,600 DEBUG:	├─ 0000:04:00.1 : Advanced Micro Devices, Inc. [AMD/ATI] Audio device [1002:1640] : \_SB_.PCI0.GP17.HDAU
+2025-01-04 00:52:17,600 DEBUG:	├─ 0000:04:00.2 : Advanced Micro Devices, Inc. [AMD] Encryption controller [1022:1649] : \_SB_.PCI0.GP17.PSP_
+2025-01-04 00:52:17,600 DEBUG:	├─ 0000:04:00.3 : Advanced Micro Devices, Inc. [AMD] USB controller [1022:161d] : \_SB_.PCI0.GP17.XHC0
+2025-01-04 00:52:17,601 DEBUG:	├─ 0000:04:00.4 : Advanced Micro Devices, Inc. [AMD] USB controller [1022:161e] : \_SB_.PCI0.GP17.XHC1
+2025-01-04 00:52:17,601 DEBUG:	├─ 0000:04:00.5 : Advanced Micro Devices, Inc. [AMD] Multimedia controller [1022:15e2] : \_SB_.PCI0.GP17.ACP_
+2025-01-04 00:52:17,601 DEBUG:	├─ 0000:04:00.6 : Advanced Micro Devices, Inc. [AMD] Audio device [1022:15e3] : \_SB_.PCI0.GP17.AZAL
+2025-01-04 00:52:17,601 DEBUG:	│ 0000:00:08.3 : Advanced Micro Devices, Inc. [AMD] PCI bridge [1022:14b9] : \_SB_.PCI0.GP19
+2025-01-04 00:52:17,602 DEBUG:	├─ 0000:05:00.0 : Advanced Micro Devices, Inc. [AMD] USB controller [1022:161f] : \_SB_.PCI0.GP19.XHC2
+2025-01-04 00:52:17,602 DEBUG:	├─ 0000:05:00.3 : Advanced Micro Devices, Inc. [AMD] USB controller [1022:15d6] : \_SB_.PCI0.GP19.XHC3
+2025-01-04 00:52:17,602 DEBUG:	├─ 0000:05:00.4 : Advanced Micro Devices, Inc. [AMD] USB controller [1022:15d7] : \_SB_.PCI0.GP19.XHC4
+2025-01-04 00:52:17,603 DEBUG:	│ 0000:00:14.0 : Advanced Micro Devices, Inc. [AMD] SMBus [1022:790b] : \_SB_.PCI0.SMB_
+2025-01-04 00:52:17,603 DEBUG:	│ 0000:00:14.3 : Advanced Micro Devices, Inc. [AMD] ISA bridge [1022:790e] : \_SB_.PCI0.LPC0
+2025-01-04 00:52:17,603 DEBUG:	│ 0000:00:18.0 : Advanced Micro Devices, Inc. [AMD] Host bridge [1022:1679]
+2025-01-04 00:52:17,603 DEBUG:	│ 0000:00:18.1 : Advanced Micro Devices, Inc. [AMD] Host bridge [1022:167a]
+2025-01-04 00:52:17,603 DEBUG:	│ 0000:00:18.2 : Advanced Micro Devices, Inc. [AMD] Host bridge [1022:167b]
+2025-01-04 00:52:17,604 DEBUG:	│ 0000:00:18.3 : Advanced Micro Devices, Inc. [AMD] Host bridge [1022:167c]
+2025-01-04 00:52:17,604 DEBUG:	│ 0000:00:18.4 : Advanced Micro Devices, Inc. [AMD] Host bridge [1022:167d]
+2025-01-04 00:52:17,604 DEBUG:	│ 0000:00:18.5 : Advanced Micro Devices, Inc. [AMD] Host bridge [1022:167e]
+2025-01-04 00:52:17,604 DEBUG:	│ 0000:00:18.6 : Advanced Micro Devices, Inc. [AMD] Host bridge [1022:167f]
+2025-01-04 00:52:17,604 DEBUG:	└─0000:00:18.7 : Advanced Micro Devices, Inc. [AMD] Host bridge [1022:1680]
+2025-01-04 00:52:18,061 DEBUG:	Interrupts
+2025-01-04 00:52:18,061 DEBUG:	│ 0: Timer
+2025-01-04 00:52:18,061 DEBUG:	│ 1: PS/2 controller
+2025-01-04 00:52:18,061 DEBUG:	│ 2: Disabled interrupt
+2025-01-04 00:52:18,061 DEBUG:	│ 3: Disabled interrupt
+2025-01-04 00:52:18,061 DEBUG:	│ 4: Disabled interrupt
+2025-01-04 00:52:18,061 DEBUG:	│ 5: Disabled interrupt
+2025-01-04 00:52:18,061 DEBUG:	│ 6: Disabled interrupt
+2025-01-04 00:52:18,061 DEBUG:	│ 7: GPIO Controller
+2025-01-04 00:52:18,061 DEBUG:	│ 8: RTC
+2025-01-04 00:52:18,061 DEBUG:	│ 9: ACPI SCI
+2025-01-04 00:52:18,061 DEBUG:	│ 10: Disabled interrupt
+2025-01-04 00:52:18,061 DEBUG:	│ 11: Disabled interrupt
+2025-01-04 00:52:18,061 DEBUG:	│ 12: PS/2 controller
+2025-01-04 00:52:18,061 DEBUG:	│ 13: Disabled interrupt
+2025-01-04 00:52:18,061 DEBUG:	│ 14: Disabled interrupt
+2025-01-04 00:52:18,061 DEBUG:	│ 15: Disabled interrupt
+2025-01-04 00:52:18,061 DEBUG:	│ 24: Disabled interrupt
+2025-01-04 00:52:18,061 DEBUG:	│ 25: Advanced Micro Devices, Inc. [AMD] Generic system peripheral (0000:00:00.2) (AMD-Vi)
+2025-01-04 00:52:18,061 DEBUG:	│ 26: GPIO 0 (ACPI:Event)
+2025-01-04 00:52:18,061 DEBUG:	│ 27: GPIO 44 (ACPI:Event)
+2025-01-04 00:52:18,061 DEBUG:	│ 28: GPIO 61 (ACPI:Event)
+2025-01-04 00:52:18,061 DEBUG:	│ 29: GPIO 62 (ACPI:Event)
+2025-01-04 00:52:18,061 DEBUG:	│ 30: GPIO 58 (ACPI:Event)
+2025-01-04 00:52:18,061 DEBUG:	│ 31: GPIO 59 (ACPI:Event)
+2025-01-04 00:52:18,061 DEBUG:	│ 32: GPIO 9 (ACPI:Event)
+2025-01-04 00:52:18,061 DEBUG:	│ 33: GPIO 18 (ACPI:Event)
+2025-01-04 00:52:18,061 DEBUG:	│ 34: Advanced Micro Devices, Inc. [AMD] Bridge (0000:00:02.1) (PCIe PME)
+2025-01-04 00:52:18,061 DEBUG:	│ 35: Advanced Micro Devices, Inc. [AMD] Bridge (0000:00:02.2) (PCIe PME)
+2025-01-04 00:52:18,061 DEBUG:	│ 36: Advanced Micro Devices, Inc. [AMD] Bridge (0000:00:02.4) (PCIe PME)
+2025-01-04 00:52:18,061 DEBUG:	│ 37: Advanced Micro Devices, Inc. [AMD] Bridge (0000:00:08.1) (PCIe PME)
+2025-01-04 00:52:18,061 DEBUG:	│ 38: Advanced Micro Devices, Inc. [AMD] Bridge (0000:00:08.3) (PCIe PME)
+2025-01-04 00:52:18,061 DEBUG:	│ 39: Disabled interrupt
+2025-01-04 00:52:18,061 DEBUG:	│ 40: GPIO 8 (ELAN0678:00)
+2025-01-04 00:52:18,062 DEBUG:	│ 41: Disabled interrupt
+2025-01-04 00:52:18,062 DEBUG:	│ 42: Advanced Micro Devices, Inc. [AMD] Serial bus controller (0000:04:00.3) (xhci_hcd)
+2025-01-04 00:52:18,062 DEBUG:	│ 43: Disabled interrupt
+2025-01-04 00:52:18,062 DEBUG:	│ 44: Advanced Micro Devices, Inc. [AMD] Serial bus controller (0000:04:00.4) (xhci_hcd)
+2025-01-04 00:52:18,062 DEBUG:	│ 45: Disabled interrupt
+2025-01-04 00:52:18,062 DEBUG:	│ 46: Advanced Micro Devices, Inc. [AMD] Serial bus controller (0000:05:00.0) (xhci_hcd)
+2025-01-04 00:52:18,062 DEBUG:	│ 47: Disabled interrupt
+2025-01-04 00:52:18,062 DEBUG:	│ 48: Realtek Semiconductor Co., Ltd. Network controller (0000:01:00.0) (enp1s0f0)
+2025-01-04 00:52:18,062 DEBUG:	│ 49: Advanced Micro Devices, Inc. [AMD] Serial bus controller (0000:05:00.3) (xhci_hcd)
+2025-01-04 00:52:18,062 DEBUG:	│ 50: Disabled interrupt
+2025-01-04 00:52:18,062 DEBUG:	│ 51: Advanced Micro Devices, Inc. [AMD] Serial bus controller (0000:05:00.4) (xhci_hcd)
+2025-01-04 00:52:18,062 DEBUG:	│ 52: Disabled interrupt
+2025-01-04 00:52:18,062 DEBUG:	│ 53: Advanced Micro Devices, Inc. [AMD] Multimedia controller (0000:04:00.6) (snd_hda_intel:card1)
+2025-01-04 00:52:18,062 DEBUG:	│ 54: SK hynix Mass storage controller (0000:03:00.0) (nvme0q0)
+2025-01-04 00:52:18,062 DEBUG:	│ 55: SK hynix Mass storage controller (0000:03:00.0) (nvme0q1)
+2025-01-04 00:52:18,062 DEBUG:	│ 56: SK hynix Mass storage controller (0000:03:00.0) (nvme0q2)
+2025-01-04 00:52:18,062 DEBUG:	│ 57: SK hynix Mass storage controller (0000:03:00.0) (nvme0q3)
+2025-01-04 00:52:18,062 DEBUG:	│ 58: SK hynix Mass storage controller (0000:03:00.0) (nvme0q4)
+2025-01-04 00:52:18,062 DEBUG:	│ 59: SK hynix Mass storage controller (0000:03:00.0) (nvme0q5)
+2025-01-04 00:52:18,062 DEBUG:	│ 60: SK hynix Mass storage controller (0000:03:00.0) (nvme0q6)
+2025-01-04 00:52:18,062 DEBUG:	│ 61: SK hynix Mass storage controller (0000:03:00.0) (nvme0q7)
+2025-01-04 00:52:18,062 DEBUG:	│ 62: SK hynix Mass storage controller (0000:03:00.0) (nvme0q8)
+2025-01-04 00:52:18,062 DEBUG:	│ 63: SK hynix Mass storage controller (0000:03:00.0) (nvme0q9)
+2025-01-04 00:52:18,062 DEBUG:	│ 64: SK hynix Mass storage controller (0000:03:00.0) (nvme0q10)
+2025-01-04 00:52:18,062 DEBUG:	│ 65: SK hynix Mass storage controller (0000:03:00.0) (nvme0q11)
+2025-01-04 00:52:18,062 DEBUG:	│ 66: SK hynix Mass storage controller (0000:03:00.0) (nvme0q12)
+2025-01-04 00:52:18,062 DEBUG:	│ 67: SK hynix Mass storage controller (0000:03:00.0) (nvme0q13)
+2025-01-04 00:52:18,062 DEBUG:	│ 68: SK hynix Mass storage controller (0000:03:00.0) (nvme0q14)
+2025-01-04 00:52:18,062 DEBUG:	│ 69: SK hynix Mass storage controller (0000:03:00.0) (nvme0q15)
+2025-01-04 00:52:18,062 DEBUG:	│ 70: Advanced Micro Devices, Inc. [AMD] Encryption controller (0000:04:00.2) (psp-1)
+2025-01-04 00:52:18,062 DEBUG:	│ 71: Advanced Micro Devices, Inc. [AMD] Encryption controller (0000:04:00.2)
+2025-01-04 00:52:18,062 DEBUG:	│ 72: Disabled interrupt
+2025-01-04 00:52:18,062 DEBUG:	│ 73: SK hynix Mass storage controller (0000:03:00.0) (nvme0q16)
+2025-01-04 00:52:18,062 DEBUG:	│ 74: Advanced Micro Devices, Inc. [AMD/ATI] Multimedia controller (0000:04:00.1) (snd_hda_intel:card0)
+2025-01-04 00:52:18,062 DEBUG:	│ 75: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (bhi)
+2025-01-04 00:52:18,062 DEBUG:	│ 76: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (mhi)
+2025-01-04 00:52:18,062 DEBUG:	│ 77: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (mhi)
+2025-01-04 00:52:18,062 DEBUG:	│ 78: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (ce0)
+2025-01-04 00:52:18,062 DEBUG:	│ 79: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (ce1)
+2025-01-04 00:52:18,062 DEBUG:	│ 80: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (ce2)
+2025-01-04 00:52:18,062 DEBUG:	│ 81: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (ce3)
+2025-01-04 00:52:18,062 DEBUG:	│ 82: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (ce5)
+2025-01-04 00:52:18,062 DEBUG:	│ 83: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (ce7)
+2025-01-04 00:52:18,062 DEBUG:	│ 84: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (ce8)
+2025-01-04 00:52:18,062 DEBUG:	│ 85: Qualcomm Technologies, Inc Network controller (0000:02:00.0)
+2025-01-04 00:52:18,062 DEBUG:	│ 86: Qualcomm Technologies, Inc Network controller (0000:02:00.0)
+2025-01-04 00:52:18,063 DEBUG:	│ 87: Qualcomm Technologies, Inc Network controller (0000:02:00.0)
+2025-01-04 00:52:18,063 DEBUG:	│ 88: Qualcomm Technologies, Inc Network controller (0000:02:00.0)
+2025-01-04 00:52:18,063 DEBUG:	│ 89: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (DP_EXT_IRQ)
+2025-01-04 00:52:18,063 DEBUG:	│ 90: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (DP_EXT_IRQ)
+2025-01-04 00:52:18,063 DEBUG:	│ 91: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (DP_EXT_IRQ)
+2025-01-04 00:52:18,063 DEBUG:	│ 92: Qualcomm Technologies, Inc Network controller (0000:02:00.0)
+2025-01-04 00:52:18,063 DEBUG:	│ 93: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (DP_EXT_IRQ)
+2025-01-04 00:52:18,063 DEBUG:	│ 94: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (DP_EXT_IRQ)
+2025-01-04 00:52:18,063 DEBUG:	│ 95: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (DP_EXT_IRQ)
+2025-01-04 00:52:18,063 DEBUG:	│ 96: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (DP_EXT_IRQ)
+2025-01-04 00:52:18,063 DEBUG:	│ 97: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (DP_EXT_IRQ)
+2025-01-04 00:52:18,063 DEBUG:	│ 98: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (DP_EXT_IRQ)
+2025-01-04 00:52:18,063 DEBUG:	│ 99: Qualcomm Technologies, Inc Network controller (0000:02:00.0) (DP_EXT_IRQ)
+2025-01-04 00:52:18,063 DEBUG:	│ 100: Qualcomm Technologies, Inc Network controller (0000:02:00.0)
+2025-01-04 00:52:18,063 DEBUG:	│ 101: Qualcomm Technologies, Inc Network controller (0000:02:00.0)
+2025-01-04 00:52:18,063 DEBUG:	│ 102: Qualcomm Technologies, Inc Network controller (0000:02:00.0)
+2025-01-04 00:52:18,063 DEBUG:	│ 103: Qualcomm Technologies, Inc Network controller (0000:02:00.0)
+2025-01-04 00:52:18,063 DEBUG:	│ 104: Qualcomm Technologies, Inc Network controller (0000:02:00.0)
+2025-01-04 00:52:18,063 DEBUG:	│ 105: Qualcomm Technologies, Inc Network controller (0000:02:00.0)
+2025-01-04 00:52:18,063 DEBUG:	│ 106: Qualcomm Technologies, Inc Network controller (0000:02:00.0)
+2025-01-04 00:52:18,063 DEBUG:	└─107: Advanced Micro Devices, Inc. [AMD/ATI] Display controller (0000:04:00.0) (amdgpu)
+2025-01-04 00:52:18,087 DEBUG:	I2C HID devices
+2025-01-04 00:52:18,087 DEBUG:	│ "ELAN0678:00 04F3:3195 Mouse" [ELAN0678] : \_SB_.I2CB.TPDD
+2025-01-04 00:52:18,087 DEBUG:	└─"ELAN0678:00 04F3:3195 Touchpad" [ELAN0678] : \_SB_.I2CB.TPDD
+2025-01-04 00:52:18,135 DEBUG:	Wakeup sources:
+2025-01-04 00:52:18,135 DEBUG:	│ ACPI Battery [PNP0C0A:00]: enabled
+2025-01-04 00:52:18,135 DEBUG:	│ ACPI Lid Switch [PNP0C0D:00]: enabled
+2025-01-04 00:52:18,135 DEBUG:	│ ACPI Power Button [LNXPWRBN:00]: enabled
+2025-01-04 00:52:18,135 DEBUG:	│ ACPI Power Button [PNP0C0C:00]: enabled
+2025-01-04 00:52:18,135 DEBUG:	│ ACPI Sleep Button [PNP0C0E:00]: enabled
+2025-01-04 00:52:18,135 DEBUG:	│ AT Translated Set 2 keyboard [serio0]: enabled
+2025-01-04 00:52:18,135 DEBUG:	│ Advanced Micro Devices, Inc. [AMD] ISA bridge [0000:00:14.3]: enabled
+2025-01-04 00:52:18,135 DEBUG:	│ Advanced Micro Devices, Inc. [AMD] PCI bridge [0000:00:02.1]: enabled
+2025-01-04 00:52:18,135 DEBUG:	│ Advanced Micro Devices, Inc. [AMD] PCI bridge [0000:00:02.2]: enabled
+2025-01-04 00:52:18,135 DEBUG:	│ Advanced Micro Devices, Inc. [AMD] USB controller [0000:04:00.3]: enabled
+2025-01-04 00:52:18,135 DEBUG:	│ Advanced Micro Devices, Inc. [AMD] USB controller [0000:04:00.4]: enabled
+2025-01-04 00:52:18,135 DEBUG:	│ Advanced Micro Devices, Inc. [AMD] USB controller [0000:05:00.0]: enabled
+2025-01-04 00:52:18,135 DEBUG:	│ Advanced Micro Devices, Inc. [AMD] USB controller [0000:05:00.3]: enabled
+2025-01-04 00:52:18,135 DEBUG:	│ Advanced Micro Devices, Inc. [AMD] USB controller [0000:05:00.4]: enabled
+2025-01-04 00:52:18,135 DEBUG:	│ ELAN0678:00 04F3:3195 Mouse [i2c-ELAN0678:00]: enabled
+2025-01-04 00:52:18,135 DEBUG:	│ Mobile Broadband host interface [mhi0]: enabled
+2025-01-04 00:52:18,135 DEBUG:	│ Plug-n-play Real Time Clock [00:01]: enabled
+2025-01-04 00:52:18,135 DEBUG:	└─Real Time Clock alarm timer [rtc0]: enabled
+2025-01-04 00:52:18,141 DEBUG:	/*
+2025-01-04 00:52:18,141 DEBUG:	 * Intel ACPI Component Architecture
+2025-01-04 00:52:18,141 DEBUG:	 * AML/ASL+ Disassembler version 20230628 (64-bit version)
+2025-01-04 00:52:18,141 DEBUG:	 * Copyright (c) 2000 - 2023 Intel Corporation
+2025-01-04 00:52:18,141 DEBUG:	 *
+2025-01-04 00:52:18,141 DEBUG:	 * Disassembling to symbolic ASL+ operators
+2025-01-04 00:52:18,141 DEBUG:	 *
+2025-01-04 00:52:18,141 DEBUG:	 * Disassembly of /sys/firmware/acpi/tables/SSDT18, Sat Jan  4 00:52:18 2025
+2025-01-04 00:52:18,141 DEBUG:	 *
+2025-01-04 00:52:18,141 DEBUG:	 * Original Table Header:
+2025-01-04 00:52:18,141 DEBUG:	 *     Signature        "SSDT"
+2025-01-04 00:52:18,141 DEBUG:	 *     Length           0x00000DBA (3514)
+2025-01-04 00:52:18,141 DEBUG:	 *     Revision         0x01
+2025-01-04 00:52:18,141 DEBUG:	 *     Checksum         0xDC
+2025-01-04 00:52:18,142 DEBUG:	 *     OEM ID           "LENOVO"
+2025-01-04 00:52:18,142 DEBUG:	 *     OEM Table ID     "TP-R23  "
+2025-01-04 00:52:18,142 DEBUG:	 *     OEM Revision     0x00000001 (1)
+2025-01-04 00:52:18,142 DEBUG:	 *     Compiler ID      "INTL"
+2025-01-04 00:52:18,142 DEBUG:	 *     Compiler Version 0x20180313 (538444563)
+2025-01-04 00:52:18,142 DEBUG:	 */
+2025-01-04 00:52:18,142 DEBUG:	DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R23  ", 0x00000001)
+2025-01-04 00:52:18,142 DEBUG:	{
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.GPIO, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PCI0.GP17.ACP_, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PCI0.GP17.AZAL, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PCI0.GP17.MP2C, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PCI0.GP17.XHC0, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PCI0.GP17.XHC1, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PCI0.GPP3, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PCI0.GPP4, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PCI0.GPP6.PXSX, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PCI0.GPP7, UnknownObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PCI0.GPP7.L850, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PCI0.LPC0.EC0_, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PCI0.LPC0.EC0_.ACAT, UnknownObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PCI0.LPC0.EC0_.ACIN, MethodObj)    // 0 Arguments
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PCI0.LPC0.EC0_.ACOU, MethodObj)    // 0 Arguments
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PCI0.LPC0.EC0_.HPLD, UnknownObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PCI0.LPC0.EC0_.HWAK, FieldUnitObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PCI0.LPC0.EC0_.LIDC, MethodObj)    // 0 Arguments
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PCI0.LPC0.EC0_.LIDO, MethodObj)    // 0 Arguments
+2025-01-04 00:52:18,142 DEBUG:	    External (_SB_.PWRB, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M000, MethodObj)    // 1 Arguments
+2025-01-04 00:52:18,142 DEBUG:	    External (M037, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M046, IntObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M050, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M051, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M052, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M053, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M054, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M055, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M056, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M057, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M058, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M059, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M062, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M068, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M069, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M070, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M071, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M072, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M074, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M075, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M076, DeviceObj)
+2025-01-04 00:52:18,142 DEBUG:	    External (M077, DeviceObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M078, DeviceObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M079, DeviceObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M080, DeviceObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M081, DeviceObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M082, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M083, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M084, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M085, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M086, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M087, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M088, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M089, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M090, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M091, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M092, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M093, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M094, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M095, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M096, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M097, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M098, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M099, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M100, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M101, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M102, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M103, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M104, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M105, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M106, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M107, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M108, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M109, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M110, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M115, BuffObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M116, BuffFieldObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M117, BuffFieldObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M118, BuffFieldObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M119, BuffFieldObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M120, BuffFieldObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M122, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M127, DeviceObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M128, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M131, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M132, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M133, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M134, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M135, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M136, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M220, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M221, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M226, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M227, DeviceObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M229, FieldUnitObj)
+2025-01-04 00:52:18,143 DEBUG:	    External (M231, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M233, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M235, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M23A, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M251, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M280, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M290, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M29A, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M310, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M31C, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M320, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M321, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M322, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M323, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M324, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M325, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M326, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M327, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M328, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M329, DeviceObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M32A, DeviceObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M32B, DeviceObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M330, DeviceObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M331, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M378, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M379, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M380, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M381, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M382, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M383, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M384, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M385, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M386, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M387, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M388, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M389, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M390, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M391, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M392, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M404, DeviceObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M408, MutexObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M414, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M444, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M449, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M453, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M454, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M455, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M456, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M457, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M460, MethodObj)    // 7 Arguments
+2025-01-04 00:52:18,144 DEBUG:	    External (M4C0, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	    External (M4F0, FieldUnitObj)
+2025-01-04 00:52:18,144 DEBUG:	
+2025-01-04 00:52:18,144 DEBUG:	    Scope (\_SB.GPIO)
+2025-01-04 00:52:18,144 DEBUG:	    {
+2025-01-04 00:52:18,145 DEBUG:	        Method (_AEI, 0, NotSerialized)  // _AEI: ACPI Event Interrupts
+2025-01-04 00:52:18,145 DEBUG:	        {
+2025-01-04 00:52:18,145 DEBUG:	            Name (BUF0, ResourceTemplate ()
+2025-01-04 00:52:18,145 DEBUG:	            {
+2025-01-04 00:52:18,145 DEBUG:	                GpioInt (Edge, ActiveHigh, ExclusiveAndWake, PullDefault, 0x1388,
+2025-01-04 00:52:18,145 DEBUG:	                    "\\_SB.GPIO", 0x00, ResourceConsumer, ,
+2025-01-04 00:52:18,145 DEBUG:	                    )
+2025-01-04 00:52:18,145 DEBUG:	                    {   // Pin list
+2025-01-04 00:52:18,145 DEBUG:	                        0x0000
+2025-01-04 00:52:18,145 DEBUG:	                    }
+2025-01-04 00:52:18,145 DEBUG:	                GpioInt (Edge, ActiveHigh, ExclusiveAndWake, PullDefault, 0x1388,
+2025-01-04 00:52:18,145 DEBUG:	                    "\\_SB.GPIO", 0x00, ResourceConsumer, ,
+2025-01-04 00:52:18,145 DEBUG:	                    )
+2025-01-04 00:52:18,145 DEBUG:	                    {   // Pin list
+2025-01-04 00:52:18,145 DEBUG:	                        0x002C
+2025-01-04 00:52:18,145 DEBUG:	                    }
+2025-01-04 00:52:18,145 DEBUG:	                GpioInt (Level, ActiveHigh, ExclusiveAndWake, PullNone, 0x0000,
+2025-01-04 00:52:18,145 DEBUG:	                    "\\_SB.GPIO", 0x00, ResourceConsumer, ,
+2025-01-04 00:52:18,145 DEBUG:	                    )
+2025-01-04 00:52:18,145 DEBUG:	                    {   // Pin list
+2025-01-04 00:52:18,145 DEBUG:	                        0x003D
+2025-01-04 00:52:18,145 DEBUG:	                    }
+2025-01-04 00:52:18,145 DEBUG:	                GpioInt (Level, ActiveHigh, ExclusiveAndWake, PullNone, 0x0000,
+2025-01-04 00:52:18,145 DEBUG:	                    "\\_SB.GPIO", 0x00, ResourceConsumer, ,
+2025-01-04 00:52:18,145 DEBUG:	                    )
+2025-01-04 00:52:18,145 DEBUG:	                    {   // Pin list
+2025-01-04 00:52:18,145 DEBUG:	                        0x003E
+2025-01-04 00:52:18,145 DEBUG:	                    }
+2025-01-04 00:52:18,145 DEBUG:	                GpioInt (Level, ActiveHigh, ExclusiveAndWake, PullNone, 0x0000,
+2025-01-04 00:52:18,145 DEBUG:	                    "\\_SB.GPIO", 0x00, ResourceConsumer, ,
+2025-01-04 00:52:18,145 DEBUG:	                    )
+2025-01-04 00:52:18,145 DEBUG:	                    {   // Pin list
+2025-01-04 00:52:18,145 DEBUG:	                        0x003A
+2025-01-04 00:52:18,145 DEBUG:	                    }
+2025-01-04 00:52:18,145 DEBUG:	                GpioInt (Level, ActiveHigh, ExclusiveAndWake, PullNone, 0x0000,
+2025-01-04 00:52:18,145 DEBUG:	                    "\\_SB.GPIO", 0x00, ResourceConsumer, ,
+2025-01-04 00:52:18,145 DEBUG:	                    )
+2025-01-04 00:52:18,145 DEBUG:	                    {   // Pin list
+2025-01-04 00:52:18,145 DEBUG:	                        0x003B
+2025-01-04 00:52:18,145 DEBUG:	                    }
+2025-01-04 00:52:18,145 DEBUG:	                GpioInt (Edge, ActiveLow, ExclusiveAndWake, PullNone, 0x0000,
+2025-01-04 00:52:18,145 DEBUG:	                    "\\_SB.GPIO", 0x00, ResourceConsumer, ,
+2025-01-04 00:52:18,145 DEBUG:	                    )
+2025-01-04 00:52:18,145 DEBUG:	                    {   // Pin list
+2025-01-04 00:52:18,145 DEBUG:	                        0x0009
+2025-01-04 00:52:18,145 DEBUG:	                    }
+2025-01-04 00:52:18,145 DEBUG:	                GpioInt (Edge, ActiveLow, ExclusiveAndWake, PullNone, 0x0000,
+2025-01-04 00:52:18,145 DEBUG:	                    "\\_SB.GPIO", 0x00, ResourceConsumer, ,
+2025-01-04 00:52:18,145 DEBUG:	                    )
+2025-01-04 00:52:18,145 DEBUG:	                    {   // Pin list
+2025-01-04 00:52:18,145 DEBUG:	                        0x0012
+2025-01-04 00:52:18,145 DEBUG:	                    }
+2025-01-04 00:52:18,145 DEBUG:	            })
+2025-01-04 00:52:18,145 DEBUG:	            M460 ("OEM-ASL-\\_SB.GPIO._AEI\n", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00)
+2025-01-04 00:52:18,146 DEBUG:	            Return (BUF0) /* \_SB_.GPIO._AEI.BUF0 */
+2025-01-04 00:52:18,146 DEBUG:	        }
+2025-01-04 00:52:18,146 DEBUG:	
+2025-01-04 00:52:18,146 DEBUG:	        OperationRegion (ECRM, EmbeddedControl, 0x00, 0xFF)
+2025-01-04 00:52:18,146 DEBUG:	        Field (ECRM, ByteAcc, NoLock, Preserve)
+2025-01-04 00:52:18,146 DEBUG:	        {
+2025-01-04 00:52:18,146 DEBUG:	            Offset (0xCC),
+2025-01-04 00:52:18,146 DEBUG:	            PBCN,   8
+2025-01-04 00:52:18,146 DEBUG:	        }
+2025-01-04 00:52:18,146 DEBUG:	
+2025-01-04 00:52:18,146 DEBUG:	        OperationRegion (CMS1, SystemIO, 0x72, 0x02)
+2025-01-04 00:52:18,146 DEBUG:	        Field (CMS1, ByteAcc, NoLock, Preserve)
+2025-01-04 00:52:18,146 DEBUG:	        {
+2025-01-04 00:52:18,146 DEBUG:	            INDX,   8,
+2025-01-04 00:52:18,146 DEBUG:	            DATA,   8
+2025-01-04 00:52:18,146 DEBUG:	        }
+2025-01-04 00:52:18,146 DEBUG:	
+2025-01-04 00:52:18,146 DEBUG:	        IndexField (INDX, DATA, ByteAcc, NoLock, Preserve)
+2025-01-04 00:52:18,146 DEBUG:	        {
+2025-01-04 00:52:18,146 DEBUG:	            Offset (0x8F),
+2025-01-04 00:52:18,146 DEBUG:	            CM8G,   8
+2025-01-04 00:52:18,146 DEBUG:	        }
+2025-01-04 00:52:18,146 DEBUG:	
+2025-01-04 00:52:18,146 DEBUG:	        Method (_EVT, 1, Serialized)  // _EVT: Event
+2025-01-04 00:52:18,146 DEBUG:	        {
+2025-01-04 00:52:18,146 DEBUG:	            Name (HPDW, 0x01)
+2025-01-04 00:52:18,146 DEBUG:	            M460 ("  OEM-ASL-\\_SB.GPIO._EVT-Start Case %d\n", ToInteger (Arg0), 0x00, 0x00, 0x00, 0x00, 0x00)
+2025-01-04 00:52:18,146 DEBUG:	            Switch (ToInteger (Arg0))
+2025-01-04 00:52:18,146 DEBUG:	            {
+2025-01-04 00:52:18,146 DEBUG:	                Case (0x00)
+2025-01-04 00:52:18,146 DEBUG:	                {
+2025-01-04 00:52:18,146 DEBUG:	                    CM8G = 0xBB
+2025-01-04 00:52:18,146 DEBUG:	                    Local0 = \_SB.PCI0.LPC0.EC0.HWAK /* External reference */
+2025-01-04 00:52:18,146 DEBUG:	                    If (((Local0 & 0x04) == 0x04))
+2025-01-04 00:52:18,146 DEBUG:	                    {
+2025-01-04 00:52:18,146 DEBUG:	                        CM8G = 0xCC
+2025-01-04 00:52:18,146 DEBUG:	                        Local0 &= 0xFFFB
+2025-01-04 00:52:18,146 DEBUG:	                        \_SB.PCI0.LPC0.EC0.HWAK = Local0
+2025-01-04 00:52:18,146 DEBUG:	                        \_SB.PCI0.LPC0.EC0.LIDO ()
+2025-01-04 00:52:18,146 DEBUG:	                        Sleep (0x01F4)
+2025-01-04 00:52:18,146 DEBUG:	                    }
+2025-01-04 00:52:18,146 DEBUG:	                    ElseIf (((Local0 & 0x20) == 0x20))
+2025-01-04 00:52:18,146 DEBUG:	                    {
+2025-01-04 00:52:18,146 DEBUG:	                        CM8G = 0xC1
+2025-01-04 00:52:18,146 DEBUG:	                        Local0 &= 0xFFDF
+2025-01-04 00:52:18,146 DEBUG:	                        \_SB.PCI0.LPC0.EC0.HWAK = Local0
+2025-01-04 00:52:18,146 DEBUG:	                        \_SB.PCI0.LPC0.EC0.LIDC ()
+2025-01-04 00:52:18,146 DEBUG:	                        Sleep (0x01F4)
+2025-01-04 00:52:18,146 DEBUG:	                    }
+2025-01-04 00:52:18,146 DEBUG:	                    ElseIf (((Local0 & 0x40) == 0x40))
+2025-01-04 00:52:18,146 DEBUG:	                    {
+2025-01-04 00:52:18,146 DEBUG:	                        CM8G = 0xDD
+2025-01-04 00:52:18,146 DEBUG:	                        Local0 &= 0xFFBF
+2025-01-04 00:52:18,146 DEBUG:	                        \_SB.PCI0.LPC0.EC0.HWAK = Local0
+2025-01-04 00:52:18,147 DEBUG:	                        If ((\_SB.PCI0.LPC0.EC0.ACAT == 0x01))
+2025-01-04 00:52:18,147 DEBUG:	                        {
+2025-01-04 00:52:18,147 DEBUG:	                            \_SB.PCI0.LPC0.EC0.ACIN ()
+2025-01-04 00:52:18,147 DEBUG:	                            CM8G = 0xEE
+2025-01-04 00:52:18,147 DEBUG:	                        }
+2025-01-04 00:52:18,147 DEBUG:	                        Else
+2025-01-04 00:52:18,147 DEBUG:	                        {
+2025-01-04 00:52:18,147 DEBUG:	                            \_SB.PCI0.LPC0.EC0.ACOU ()
+2025-01-04 00:52:18,147 DEBUG:	                            CM8G = 0xFF
+2025-01-04 00:52:18,147 DEBUG:	                        }
+2025-01-04 00:52:18,147 DEBUG:	                    }
+2025-01-04 00:52:18,147 DEBUG:	                    Else
+2025-01-04 00:52:18,147 DEBUG:	                    {
+2025-01-04 00:52:18,147 DEBUG:	                        CM8G = 0x00
+2025-01-04 00:52:18,147 DEBUG:	                        M000 (0x3900)
+2025-01-04 00:52:18,147 DEBUG:	                        Local0 &= 0xFFEF
+2025-01-04 00:52:18,147 DEBUG:	                        \_SB.PCI0.LPC0.EC0.HWAK = Local0
+2025-01-04 00:52:18,147 DEBUG:	                        Notify (\_SB.PWRB, 0x80) // Status Change
+2025-01-04 00:52:18,147 DEBUG:	                    }
+2025-01-04 00:52:18,147 DEBUG:	                }
+2025-01-04 00:52:18,147 DEBUG:	                Case (0x02)
+2025-01-04 00:52:18,147 DEBUG:	                {
+2025-01-04 00:52:18,147 DEBUG:	                    M000 (0x3902)
+2025-01-04 00:52:18,147 DEBUG:	                }
+2025-01-04 00:52:18,147 DEBUG:	                Case (0x09)
+2025-01-04 00:52:18,147 DEBUG:	                {
+2025-01-04 00:52:18,147 DEBUG:	                    M000 (0x3902)
+2025-01-04 00:52:18,147 DEBUG:	                    M460 ("    Notify (\\_SB.PCI0.GPP7.L850, 0x02)\n", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00)
+2025-01-04 00:52:18,147 DEBUG:	                    Notify (\_SB.PCI0.GPP7, 0x02) // Device Wake
+2025-01-04 00:52:18,147 DEBUG:	                    Notify (\_SB.PCI0.GPP7.L850, 0x02) // Device Wake
+2025-01-04 00:52:18,147 DEBUG:	                }
+2025-01-04 00:52:18,147 DEBUG:	                Case (0x11)
+2025-01-04 00:52:18,147 DEBUG:	                {
+2025-01-04 00:52:18,147 DEBUG:	                    M000 (0x3911)
+2025-01-04 00:52:18,147 DEBUG:	                }
+2025-01-04 00:52:18,147 DEBUG:	                Case (0x12)
+2025-01-04 00:52:18,147 DEBUG:	                {
+2025-01-04 00:52:18,147 DEBUG:	                    M000 (0x3912)
+2025-01-04 00:52:18,147 DEBUG:	                    M460 ("    Notify (\\_SB.PCI0.GPP6.PXSX, 0x02)\n", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00)
+2025-01-04 00:52:18,147 DEBUG:	                    Notify (\_SB.PCI0.GPP6.PXSX, 0x02) // Device Wake
+2025-01-04 00:52:18,147 DEBUG:	                }
+2025-01-04 00:52:18,147 DEBUG:	                Case (0x18)
+2025-01-04 00:52:18,147 DEBUG:	                {
+2025-01-04 00:52:18,147 DEBUG:	                    M000 (0x3918)
+2025-01-04 00:52:18,147 DEBUG:	                    M460 ("    Notify (\\_SB.PCI0.GPP3, 0x02)\n", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00)
+2025-01-04 00:52:18,147 DEBUG:	                    Notify (\_SB.PCI0.GPP3, 0x02) // Device Wake
+2025-01-04 00:52:18,147 DEBUG:	                }
+2025-01-04 00:52:18,147 DEBUG:	                Case (0x36)
+2025-01-04 00:52:18,147 DEBUG:	                {
+2025-01-04 00:52:18,147 DEBUG:	                    M000 (0x3936)
+2025-01-04 00:52:18,147 DEBUG:	                    M460 ("    Notify (\\_SB.PCI0.GP17.MP2C, 0x02)\n", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00)
+2025-01-04 00:52:18,147 DEBUG:	                    Notify (\_SB.PCI0.GP17.MP2C, 0x02) // Device Wake
+2025-01-04 00:52:18,147 DEBUG:	                    If (((HPDW == 0x01) && (\_SB.PCI0.LPC0.EC0.HPLD == 0x01)))
+2025-01-04 00:52:18,147 DEBUG:	                    {
+2025-01-04 00:52:18,147 DEBUG:	                        M460 ("    Notify (\\_SB.PCI0.GP17.MP2C(HPDW):PWRB 0x80)\n", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00)
+2025-01-04 00:52:18,148 DEBUG:	                        Notify (\_SB.PWRB, 0x80) // Status Change
+2025-01-04 00:52:18,148 DEBUG:	                    }
+2025-01-04 00:52:18,148 DEBUG:	                }
+2025-01-04 00:52:18,148 DEBUG:	                Case (0x3A)
+2025-01-04 00:52:18,148 DEBUG:	                {
+2025-01-04 00:52:18,148 DEBUG:	                    M000 (0x393A)
+2025-01-04 00:52:18,148 DEBUG:	                    M460 ("    Notify (\\_SB.PCI0.GP17.XHC0, 0x02)\n", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00)
+2025-01-04 00:52:18,148 DEBUG:	                    Notify (\_SB.PCI0.GP17.XHC0, 0x02) // Device Wake
+2025-01-04 00:52:18,148 DEBUG:	                }
+2025-01-04 00:52:18,148 DEBUG:	                Case (0x3B)
+2025-01-04 00:52:18,148 DEBUG:	                {
+2025-01-04 00:52:18,148 DEBUG:	                    M000 (0x393B)
+2025-01-04 00:52:18,148 DEBUG:	                    M460 ("    Notify (\\_SB.PCI0.GP17.XHC1, 0x02)\n", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00)
+2025-01-04 00:52:18,148 DEBUG:	                    Notify (\_SB.PCI0.GP17.XHC1, 0x02) // Device Wake
+2025-01-04 00:52:18,148 DEBUG:	                }
+2025-01-04 00:52:18,148 DEBUG:	                Case (0x2A)
+2025-01-04 00:52:18,148 DEBUG:	                {
+2025-01-04 00:52:18,148 DEBUG:	                    M000 (0x392A)
+2025-01-04 00:52:18,148 DEBUG:	                    M460 ("    Notify (\\_SB.PCI0.GPP7, 0x00)\n", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00)
+2025-01-04 00:52:18,148 DEBUG:	                    Notify (\_SB.PCI0.GPP7, 0x00) // Bus Check
+2025-01-04 00:52:18,148 DEBUG:	                }
+2025-01-04 00:52:18,148 DEBUG:	                Case (0x3D)
+2025-01-04 00:52:18,148 DEBUG:	                {
+2025-01-04 00:52:18,148 DEBUG:	                    M000 (0x393D)
+2025-01-04 00:52:18,148 DEBUG:	                    M460 ("    Notify (\\_SB.PCI0.GP17.AZAL, 0x02)\n", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00)
+2025-01-04 00:52:18,148 DEBUG:	                    Notify (\_SB.PCI0.GP17.AZAL, 0x02) // Device Wake
+2025-01-04 00:52:18,148 DEBUG:	                }
+2025-01-04 00:52:18,148 DEBUG:	                Case (0x3E)
+2025-01-04 00:52:18,148 DEBUG:	                {
+2025-01-04 00:52:18,148 DEBUG:	                    M000 (0x393D)
+2025-01-04 00:52:18,148 DEBUG:	                    M460 ("    Notify (\\_SB.PCI0.GP17.ACP, 0x02)\n", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00)
+2025-01-04 00:52:18,148 DEBUG:	                    Notify (\_SB.PCI0.GP17.ACP, 0x02) // Device Wake
+2025-01-04 00:52:18,148 DEBUG:	                }
+2025-01-04 00:52:18,148 DEBUG:	
+2025-01-04 00:52:18,148 DEBUG:	            }
+2025-01-04 00:52:18,148 DEBUG:	
+2025-01-04 00:52:18,148 DEBUG:	            M460 ("  OEM-ASL-\\_SB.GPIO._EVT-End Case %d\n", ToInteger (Arg0), 0x00, 0x00, 0x00, 0x00, 0x00)
+2025-01-04 00:52:18,148 DEBUG:	        }
+2025-01-04 00:52:18,148 DEBUG:	    }
+2025-01-04 00:52:18,148 DEBUG:	}
+2025-01-04 00:52:18,150 DEBUG:	Power profiles:
+2025-01-04 00:52:18,260 DEBUG:	   performance:
+2025-01-04 00:52:18,260 DEBUG:	     CpuDriver:	amd_pstate
+2025-01-04 00:52:18,261 DEBUG:	     PlatformDriver:	platform_profile
+2025-01-04 00:52:18,261 DEBUG:	     Degraded:   no
+2025-01-04 00:52:18,261 DEBUG:	 
+2025-01-04 00:52:18,261 DEBUG:	 * balanced:
+2025-01-04 00:52:18,261 DEBUG:	     CpuDriver:	amd_pstate
+2025-01-04 00:52:18,261 DEBUG:	     PlatformDriver:	platform_profile
+2025-01-04 00:52:18,261 DEBUG:	 
+2025-01-04 00:52:18,261 DEBUG:	   power-saver:
+2025-01-04 00:52:18,261 DEBUG:	     CpuDriver:	amd_pstate
+2025-01-04 00:52:18,261 DEBUG:	     PlatformDriver:	platform_profile
+2025-01-04 00:52:18,261 DEBUG:	 
+2025-01-04 00:52:18,261 DEBUG:	Suspend timer programmed for 0:00:30
+2025-01-04 00:52:18,264 DEBUG:	ACPI Lid (/proc/acpi/button/lid/LID/state): open
+2025-01-04 00:52:20,271 INFO:	Started at 2025-01-04 00:52:20.271454 (cycle finish expected @ 2025-01-04 00:52:54.271492)
+2025-01-04 00:52:37,459 INFO:	Results from last s2idle cycle
+2025-01-04 00:52:37,462 DEBUG:	PM: suspend entry (s2idle)
+2025-01-04 00:52:37,463 DEBUG:	Filesystems sync: 0.008 seconds
+2025-01-04 00:52:37,463 DEBUG:	Freezing user space processes
+2025-01-04 00:52:37,463 DEBUG:	Freezing user space processes completed (elapsed 0.003 seconds)
+2025-01-04 00:52:37,463 DEBUG:	OOM killer disabled.
+2025-01-04 00:52:37,463 DEBUG:	Freezing remaining freezable tasks
+2025-01-04 00:52:37,463 DEBUG:	Freezing remaining freezable tasks completed (elapsed 0.001 seconds)
+2025-01-04 00:52:37,464 DEBUG:	printk: Suspending console(s) (use no_console_suspend to debug)
+2025-01-04 00:52:37,464 DEBUG:	PM: suspend of devices complete after 365.566 msecs
+2025-01-04 00:52:37,464 DEBUG:	PM: start suspend of devices complete after 368.259 msecs
+2025-01-04 00:52:37,464 DEBUG:	Disabling GPIO #8 interrupt for suspend.
+2025-01-04 00:52:37,465 DEBUG:	PM: late suspend of devices complete after 1.960 msecs
+2025-01-04 00:52:37,465 DEBUG:	ACPI: EC: interrupt blocked
+2025-01-04 00:52:37,466 DEBUG:	PM: noirq suspend of devices complete after 66.681 msecs
+2025-01-04 00:52:37,466 DEBUG:	ACPI: \_SB_.PCI0.GPP7: LPI: Constraint not met; min power state:D3hot current power state:D0
+2025-01-04 00:52:37,466 DEBUG:	ACPI: \_SB_.PCI0.GP18.SATA: LPI: Constraint not met; min power state:D3hot current power state:D0
+2025-01-04 00:52:37,466 DEBUG:	PM: Triggering wakeup from IRQ 9
+2025-01-04 00:52:37,466 DEBUG:	ACPI: \_SB_.PEP_: Successfully transitioned to state screen off
+2025-01-04 00:52:37,467 DEBUG:	ACPI: \_SB_.PEP_: Successfully transitioned to state lps0 ms entry
+2025-01-04 00:52:37,467 DEBUG:	ACPI: \_SB_.PEP_: Successfully transitioned to state lps0 entry
+2025-01-04 00:52:37,467 DEBUG:	PM: suspend-to-idle
+2025-01-04 00:52:37,467 DEBUG:	ACPI: EC: ACPI EC GPE status set
+2025-01-04 00:52:37,467 DEBUG:	ACPI: PM: Rearming ACPI SCI for wakeup
+2025-01-04 00:52:37,467 DEBUG:	amd_pmc: SMU idlemask s0i3: 0x8fff9eb5
+2025-01-04 00:52:37,467 DEBUG:	Timekeeping suspended for 13.039 seconds
+2025-01-04 00:52:37,467 DEBUG:	PM: Triggering wakeup from IRQ 9
+2025-01-04 00:52:37,468 DEBUG:	PM: Triggering wakeup from IRQ 7
+2025-01-04 00:52:37,468 DEBUG:	ACPI: EC: ACPI EC GPE status set
+2025-01-04 00:52:37,468 DEBUG:	ACPI: EC: ACPI EC GPE dispatched
+2025-01-04 00:52:37,468 DEBUG:	workqueue: acpi_ec_event_processor hogged CPU for >10000us 19 times, consider switching to WQ_UNBOUND
+2025-01-04 00:52:37,468 DEBUG:	ACPI: EC: ACPI EC work flushed
+2025-01-04 00:52:37,468 DEBUG:	ACPI: PM: Wakeup after ACPI Notify sync
+2025-01-04 00:52:37,468 DEBUG:	PM: resume from suspend-to-idle
+2025-01-04 00:52:37,468 DEBUG:	ACPI: \_SB_.PEP_: Successfully transitioned to state lps0 exit
+2025-01-04 00:52:37,468 DEBUG:	ACPI: \_SB_.PEP_: Successfully transitioned to state lps0 ms exit
+2025-01-04 00:52:37,469 DEBUG:	ACPI: \_SB_.PEP_: Successfully transitioned to state screen on
+2025-01-04 00:52:37,469 DEBUG:	ACPI: EC: interrupt unblocked
+2025-01-04 00:52:37,469 DEBUG:	PM: noirq resume of devices complete after 177.478 msecs
+2025-01-04 00:52:37,469 DEBUG:	GPIO 0 is active: 0x300578e3
+2025-01-04 00:52:37,469 DEBUG:	PM: early resume of devices complete after 3.927 msecs
+2025-01-04 00:52:37,469 DEBUG:	[drm] PCIE GART of 1024M enabled (table at 0x000000F4FFC00000).
+2025-01-04 00:52:37,469 DEBUG:	amdgpu 0000:04:00.0: amdgpu: SMU is resuming...
+2025-01-04 00:52:37,469 DEBUG:	amdgpu 0000:04:00.0: amdgpu: SMU is resumed successfully!
+2025-01-04 00:52:37,470 DEBUG:	nvme nvme0: 16/0/0 default/read/poll queues
+2025-01-04 00:52:37,470 DEBUG:	r8169 0000:01:00.0 enp1s0f0: Link is Down
+2025-01-04 00:52:37,470 DEBUG:	nvme nvme0: Ignoring bogus Namespace Identifiers
+2025-01-04 00:52:37,470 DEBUG:	amdgpu 0000:04:00.0: amdgpu: ring gfx_0.0.0 uses VM inv eng 0 on hub 0
+2025-01-04 00:52:37,470 DEBUG:	amdgpu 0000:04:00.0: amdgpu: ring gfx_0.1.0 uses VM inv eng 1 on hub 0
+2025-01-04 00:52:37,470 DEBUG:	amdgpu 0000:04:00.0: amdgpu: ring comp_1.0.0 uses VM inv eng 4 on hub 0
+2025-01-04 00:52:37,470 DEBUG:	amdgpu 0000:04:00.0: amdgpu: ring comp_1.1.0 uses VM inv eng 5 on hub 0
+2025-01-04 00:52:37,470 DEBUG:	amdgpu 0000:04:00.0: amdgpu: ring comp_1.2.0 uses VM inv eng 6 on hub 0
+2025-01-04 00:52:37,470 DEBUG:	amdgpu 0000:04:00.0: amdgpu: ring comp_1.3.0 uses VM inv eng 7 on hub 0
+2025-01-04 00:52:37,471 DEBUG:	amdgpu 0000:04:00.0: amdgpu: ring comp_1.0.1 uses VM inv eng 8 on hub 0
+2025-01-04 00:52:37,471 DEBUG:	amdgpu 0000:04:00.0: amdgpu: ring comp_1.1.1 uses VM inv eng 9 on hub 0
+2025-01-04 00:52:37,471 DEBUG:	amdgpu 0000:04:00.0: amdgpu: ring comp_1.2.1 uses VM inv eng 10 on hub 0
+2025-01-04 00:52:37,471 DEBUG:	amdgpu 0000:04:00.0: amdgpu: ring comp_1.3.1 uses VM inv eng 11 on hub 0
+2025-01-04 00:52:37,471 DEBUG:	amdgpu 0000:04:00.0: amdgpu: ring kiq_0.2.1.0 uses VM inv eng 12 on hub 0
+2025-01-04 00:52:37,471 DEBUG:	amdgpu 0000:04:00.0: amdgpu: ring sdma0 uses VM inv eng 13 on hub 0
+2025-01-04 00:52:37,471 DEBUG:	amdgpu 0000:04:00.0: amdgpu: ring vcn_dec_0 uses VM inv eng 0 on hub 8
+2025-01-04 00:52:37,471 DEBUG:	amdgpu 0000:04:00.0: amdgpu: ring vcn_enc_0.0 uses VM inv eng 1 on hub 8
+2025-01-04 00:52:37,472 DEBUG:	amdgpu 0000:04:00.0: amdgpu: ring vcn_enc_0.1 uses VM inv eng 4 on hub 8
+2025-01-04 00:52:37,472 DEBUG:	amdgpu 0000:04:00.0: amdgpu: ring jpeg_dec uses VM inv eng 5 on hub 8
+2025-01-04 00:52:37,472 DEBUG:	PM: resume of devices complete after 523.403 msecs
+2025-01-04 00:52:37,472 DEBUG:	OOM killer enabled.
+2025-01-04 00:52:37,472 DEBUG:	Restarting tasks ... done.
+2025-01-04 00:52:37,472 DEBUG:	random: crng reseeded on system resumption
+2025-01-04 00:52:37,472 DEBUG:	PM: suspend exit
+2025-01-04 00:52:37,472 INFO:	💤 Suspend count: 1
+2025-01-04 00:52:37,472 INFO:	💤 Hardware sleep cycle count: 1
+2025-01-04 00:52:37,472 INFO:	○ GPIOs active: ['0']
+2025-01-04 00:52:37,472 INFO:	🥱 Wakeup triggered from IRQ 9: ACPI SCI
+2025-01-04 00:52:37,472 INFO:	🥱 Wakeup triggered from IRQ 7: GPIO Controller
+2025-01-04 00:52:37,473 DEBUG:	Used Microsoft uPEP GUID in LPS0 _DSM
+2025-01-04 00:52:37,473 INFO:	🥱 Woke up from IRQ 9: ACPI SCI
+2025-01-04 00:52:37,473 DEBUG:	gpe0B increased from 2942 to 3114
+2025-01-04 00:52:37,474 DEBUG:	ACPI Lid (/proc/acpi/button/lid/LID/state): open
+2025-01-04 00:52:37,474 ERROR:	❌ Userspace suspended for 0:00:17.203300 (< minimum expected 0:00:27)
+2025-01-04 00:52:37,474 DEBUG:	Kernel suspended for total of 0:00:13.039000 (75.79%)
+2025-01-04 00:52:37,474 INFO:	💤 In a hardware sleep state for 0:00:12.920287 (75.10%)
+2025-01-04 00:52:37,477 DEBUG:	BAT0 energy level is 44220000 µWh
+2025-01-04 00:52:37,477 INFO:	🔋 Battery BAT0 gained 170000 µWh (0.36%) [Average rate 35.57W]
+2025-01-04 00:52:37,496 DEBUG:	Thermal zones
+2025-01-04 00:52:37,497 DEBUG:	├─  LNXTHERM:00
+2025-01-04 00:52:37,497 DEBUG:	│ 	 36.0°C -> 33.0°C
+2025-01-04 00:52:37,497 DEBUG:	└─ LNXTHERM:01
+2025-01-04 00:52:37,497 DEBUG:	  	 20.0°C -> 20.0°C
+2025-01-04 00:52:37,497 INFO:	Explanations for your system
+2025-01-04 00:52:37,497 WARNING:	🚦 Userspace wasn't asleep at least 0:00:30
