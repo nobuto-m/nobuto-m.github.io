@@ -1,13 +1,13 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: "How to completely prevent trackpoint touchpad or keyboard events from waking up thinkpad t14 gen 5 amd from suspend"
-slug: how-to-completely-prevent-trackpoint-touchpad-or-keyboard-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend
+title: "How to prevent TrackPoint, touchpad or keyboard events from waking up ThinkPad T14 Gen 5 AMD from suspend"
+slug: how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend
 subtitle: ""
 summary: ""
 authors: []
 
-tags: [planet-ubuntu]
+tags: [planet-ubuntu, "ThinkPad T14 Gen 5 AMD", "ThinkPad T14 Gen 3 AMD"]
 categories: [Ubuntu]
 keywords: []
 

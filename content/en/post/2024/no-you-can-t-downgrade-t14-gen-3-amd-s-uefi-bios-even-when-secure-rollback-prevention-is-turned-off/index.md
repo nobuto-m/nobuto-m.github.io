@@ -7,7 +7,7 @@ subtitle: ""
 summary: ""
 authors: []
 
-tags: [planet-ubuntu]
+tags: [planet-ubuntu, "ThinkPad T14 Gen 3 AMD"]
 categories: []
 keywords: []
 
