@@ -38,10 +38,10 @@
 &lt;figure  id=&#34;figure-uefi-bios上のsecure-rollback-preventionの項目&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;UEFI BIOS上の&amp;#34;Secure Rollback Prevention&amp;#34;の項目&#34; srcset=&#34;
-               /ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_27deac6b35ebe60c6a247861ded776f7.webp 400w,
-               /ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_9f6e139530d9a40378a6f26d595994ca.webp 760w,
+               /ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_3cb9670871c00c22c40ea3757e48b4ee.webp 400w,
+               /ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_82fa2891a30ab0fe0a0b491ec67f6d81.webp 760w,
                /ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_27deac6b35ebe60c6a247861ded776f7.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/featured_hu98a07cb948a4aa5ce68d8a190753e9dc_450211_3cb9670871c00c22c40ea3757e48b4ee.webp&#34;
                width=&#34;760&#34;
                height=&#34;570&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -153,10 +153,10 @@ End users are not able to directly modify rollback protection, this is controlle
 &lt;figure  id=&#34;figure-os-optimized-defaultsをオフにしてみるも変化なし&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;OS Optimized Defaultsをオフにしてみるも変化なし&#34; srcset=&#34;
-               /ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_6de032c4c45f2693f7d9bd09736c88cd.webp 400w,
-               /ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_1def10747c2ad883f8826562b7923597.webp 760w,
+               /ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_653d6e7f1be4a9f7ce5da4ac4224f907.webp 400w,
+               /ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_21a7706214242b47ca4b8bdcb32cb5d4.webp 760w,
                /ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_6de032c4c45f2693f7d9bd09736c88cd.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/os-optimized-defaults_hu503de795b087b91d9dac387047c8e5d4_262087_653d6e7f1be4a9f7ce5da4ac4224f907.webp&#34;
                width=&#34;760&#34;
                height=&#34;428&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -300,10 +300,10 @@ End users are not able to directly modify rollback protection, this is controlle
 &lt;figure  id=&#34;figure-絶望の場面&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;絶望の場面&#34; srcset=&#34;
-               /ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1ec817b7f545770f51c33e7c4fc67410.webp 400w,
-               /ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_07c0552269bd6291a7efa1da420fa786.webp 760w,
+               /ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_8f786f99630d2aa335ccc224ccc486c1.webp 400w,
+               /ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_2b1b3eea13c1d873c69639f5ebda885e.webp 760w,
                /ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_1ec817b7f545770f51c33e7c4fc67410.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2024/suddenly-luks-dm-crypt-drive-could-not-be-decrypted/featured_huefb045cac53c25ae4a306e3cbb736c59_183988_8f786f99630d2aa335ccc224ccc486c1.webp&#34;
                width=&#34;760&#34;
                height=&#34;428&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
