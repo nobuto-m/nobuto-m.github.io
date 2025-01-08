@@ -43,7 +43,7 @@ KERNEL=="PNP0C0E:00", SUBSYSTEM=="acpi", DRIVERS=="button", ATTRS{path}=="\_SB_.
 
 {{< figure src="featured.jpg" caption="Whenever something touched this red cap, the system woke up from suspend." >}}
 
-I've used ThinkPad T14 Gen 3 AMD for 2 years, and I recently purchased T14 **Gen 5** AMD. The previous system as Gen 3 annoyed me so much because the laptop woke up from suspend from time to time even inside a backpack on its own, heated up the confined air in it, and drained the battery pretty fast as a consequense. Basically Gen 3 was too sensitive to any events. Whenever an usb-c cable is plugged in as a power source or whenever something touches the TrackPoint even if a display on a closed lid slightly make contact with the red cap, the system wakes up from suspend. It was uncontrollable.
+I've used ThinkPad T14 Gen 3 AMD for 2 years, and I recently purchased T14 **Gen 5** AMD. The previous system as Gen 3 annoyed me so much because the laptop randomly woke up from suspend even inside a backpack on its own, heated up the confined air in it, and drained the battery pretty fast as a consequense. Basically Gen 3 was too sensitive to any events. Whenever a USB Type-C cable is plugged in as a power source or whenever something touches the TrackPoint even if a display on a closed lid slightly make contact with the red cap, the system wakes up from suspend. It was uncontrollable.
 
 I was hoping that Gen 5 would make a difference and it did when it comes to the power source event. However, frequent wakeup due to the trackpoint event remained the same so I started to dig in.
 
@@ -93,7 +93,7 @@ $ udevadm info --attribute-walk -p /devices/platform/AMDI0010:01/i2c-1/i2c-ELAN0
     ATTRS{power/wakeup}=="enabled"
 ```
 
-The line we are looking for is `ATTRS{power/wakeup}`. And by using the identifiers of the parent device that has `ATTRS{power/wakeup}`, we can make sure that `/sys/devices/platform/AMDI0010:01/i2c-1/i2c-ELAN0676:00/power/wakeup` can be always `disabled` in the custom udev rule as follows.
+The line we are looking for is `ATTRS{power/wakeup}`. And by using the identifiers of the parent device that has `ATTRS{power/wakeup}`, we can make sure that `/sys/devices/platform/AMDI0010:01/i2c-1/i2c-ELAN0676:00/power/wakeup` can be always `disabled` with the custom udev rule as follows.
 
 ```shell
 KERNEL=="i2c-ELAN0676:00", SUBSYSTEM=="i2c", DRIVERS=="i2c_hid_acpi", ATTR{power/wakeup}="disabled"
@@ -145,7 +145,7 @@ $ udevadm info --attribute-walk -p /devices/platform/i8042/serio1/input/input5
     ATTRS{power/wakeup}=="disabled"
 ```
 
-I hit the wall here. `ATTRS{power/wakeup}=="disabled"` was already set but the TrackPoint still wakes up the system from suspend. By doing bisecting for all remaining wakeup sources, disabling SLPB(ACPI Sleep Button) as a wakeup source stopped undesired wakeups by TrackPoint or keyboard events somehow.
+I hit the wall here. `ATTRS{power/wakeup}=="disabled"` was already set but the TrackPoint still wakes up the system from suspend. By doing bisecting for all remaining wakeup sources, disabling SLPB(ACPI Sleep Button) stopped undesired wakeups by TrackPoint or keyboard events somehow.
 
 ```bash
   looking at parent device '/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0E:00':
