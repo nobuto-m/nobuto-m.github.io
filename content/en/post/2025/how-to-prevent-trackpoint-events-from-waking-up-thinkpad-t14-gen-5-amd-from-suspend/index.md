@@ -1,7 +1,7 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: "How to prevent TrackPoint, touchpad or keyboard events from waking up ThinkPad T14 Gen 5 AMD from suspend"
+title: "How to prevent TrackPoint or touchpad events from waking up ThinkPad T14 Gen 5 AMD from suspend"
 slug: how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend
 subtitle: ""
 summary: ""
@@ -16,8 +16,8 @@ show_related: true
 share: true
 
 year: 2025
-date: 2025-01-02T22:36:00+09:00
-lastmod: 2025-01-02T22:36:00+09:00
+date: 2025-01-08T23:03:07+09:00
+lastmod: 2025-01-08T23:03:07+09:00
 
 featured: false
 draft: true
@@ -30,7 +30,8 @@ image:
 
 ## TL;DR
 
-Try the following lines in your custom udev rules, e.g. `/etc/udev/rules.d/99-local-disable-wakeup-events-from-input-dev.rules`.
+Try the following lines in your custom udev rules, e.g.  
+`/etc/udev/rules.d/99-local-disable-wakeup-events-from-input-dev.rules`
 
 ```shell
 KERNEL=="i2c-ELAN0676:00", SUBSYSTEM=="i2c", DRIVERS=="i2c_hid_acpi", ATTR{power/wakeup}="disabled"
@@ -43,9 +44,9 @@ KERNEL=="PNP0C0E:00", SUBSYSTEM=="acpi", DRIVERS=="button", ATTRS{path}=="\_SB_.
 
 {{< figure src="featured.jpg" caption="Whenever something touched this red cap, the system woke up from suspend." >}}
 
-I've used ThinkPad T14 Gen 3 AMD for 2 years, and I recently purchased T14 **Gen 5** AMD. The previous system as Gen 3 annoyed me so much because the laptop randomly woke up from suspend even inside a backpack on its own, heated up the confined air in it, and drained the battery pretty fast as a consequense. Basically Gen 3 was too sensitive to any events. Whenever a USB Type-C cable is plugged in as a power source or whenever something touches the TrackPoint even if a display on a closed lid slightly make contact with the red cap, the system wakes up from suspend. It was uncontrollable.
+I've used ThinkPad T14 Gen 3 AMD for 2 years, and I recently purchased T14 **Gen 5** AMD. The previous system as Gen 3 annoyed me so much because the laptop randomly woke up from suspend even inside a backpack on its own, heated up the confined air in it, and drained the battery pretty fast as a consequense. Basically Gen 3 was too sensitive to any events. Whenever a USB Type-C cable is plugged in as a power source or whenever something touches the TrackPoint **even if a display on a closed lid slightly makes contact with the red cap, the system wakes up from suspend**. It was uncontrollable.
 
-I was hoping that Gen 5 would make a difference and it did when it comes to the power source event. However, frequent wakeup due to the trackpoint event remained the same so I started to dig in.
+I was hoping that Gen 5 would make a difference and it did when it comes to the power source event. However, frequent wakeup due to the TrackPoint event remained the same so I started to dig in.
 
 
 ## Disabling touchpad as a wakeup source on T14 Gen 5 AMD
@@ -93,7 +94,7 @@ $ udevadm info --attribute-walk -p /devices/platform/AMDI0010:01/i2c-1/i2c-ELAN0
     ATTRS{power/wakeup}=="enabled"
 ```
 
-The line we are looking for is `ATTRS{power/wakeup}`. And by using the identifiers of the parent device that has `ATTRS{power/wakeup}`, we can make sure that `/sys/devices/platform/AMDI0010:01/i2c-1/i2c-ELAN0676:00/power/wakeup` can be always `disabled` with the custom udev rule as follows.
+The line I'm looking for is `ATTRS{power/wakeup}=="enabled"`. And by using the identifiers of the parent device that has `ATTRS{power/wakeup}`, I can make sure that `/sys/devices/platform/AMDI0010:01/i2c-1/i2c-ELAN0676:00/power/wakeup` is always `disabled` with the custom udev rule as follows.
 
 ```shell
 KERNEL=="i2c-ELAN0676:00", SUBSYSTEM=="i2c", DRIVERS=="i2c_hid_acpi", ATTR{power/wakeup}="disabled"
@@ -101,7 +102,7 @@ KERNEL=="i2c-ELAN0676:00", SUBSYSTEM=="i2c", DRIVERS=="i2c_hid_acpi", ATTR{power
 
 ## Disabling TrackPoint as a wakeup source on T14 Gen 5 AMD
 
-We saw a pattern already with the touchpad above so we *should* be able to apply the same method. We see the TrackPoint device, `TPPS/2 Elan TrackPoint`, in the udev device tree.
+I've seen a pattern already as above so I *should* be able to apply the same method. I see the TrackPoint device, `TPPS/2 Elan TrackPoint`, in the udev device tree.
 
 ```bash
 $ udevadm info --tree
@@ -147,9 +148,9 @@ $ udevadm info --attribute-walk -p /devices/platform/i8042/serio1/input/input5
     ATTRS{power/wakeup}=="disabled"
 ```
 
-I hit the wall here. `ATTRS{power/wakeup}=="disabled"` was already set but the TrackPoint still wakes up the system from suspend. And I had to do bisecting for all remaining wakeup sources.
+I hit the wall here. `ATTRS{power/wakeup}=="disabled"` is already there but the TrackPoint still wakes up the system from suspend. And I had to do bisecting for all remaining wakeup sources.
 
-{{< spoiler text="The full list of the remaining wakeup sources" >}}
+{{< spoiler text="The list of the remaining wakeup sources" >}}
 
 ```bash
 $ cat /proc/acpi/wakeup
@@ -204,7 +205,7 @@ SLPB	  S3	*enabled   platform:PNP0C0E:00
 ```
 {{< /spoiler >}}
 
-And somehow, disabling SLPB(ACPI Sleep Button) stopped undesired wakeups by TrackPoint or keyboard events.
+And somehow, disabling `SLPB` "ACPI Sleep Button" stopped undesired wakeups by TrackPoint.
 
 ```bash
   looking at parent device '/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0E:00':
@@ -217,24 +218,100 @@ And somehow, disabling SLPB(ACPI Sleep Button) stopped undesired wakeups by Trac
     ATTRS{power/wakeup}=="enabled"
 ```
 
-The final udev rule is the following. It also disables wakeup events from the keyboard as a side effect, but the lid open event or pressing the power botton can wake up the system so it works for me.
+The final udev rule is the following. It also disables wakeup events from the keyboard as a side effect, but the lid open event or pressing the power botton can still wake up the system so it works for me.
 
 ```shell
 KERNEL=="PNP0C0E:00", SUBSYSTEM=="acpi", DRIVERS=="button", ATTRS{path}=="\_SB_.SLPB", ATTR{power/wakeup}="disabled"
 ```
 
-## ThinkPad T14 Gen 3 AMD case
+## In the case of ThinkPad T14 Gen 3 AMD
+
+After solving the headache of frequent wakeups for T14 Gen5 AMD. I was curious if I could apply the same to Gen 3 AMD retrospectively.
+
+```
+ Wakeup sources:
+ │ ACPI Battery [PNP0C0A:00]: enabled
+ │ ACPI Lid Switch [PNP0C0D:00]: enabled
+ │ ACPI Power Button [LNXPWRBN:00]: enabled
+ │ ACPI Power Button [PNP0C0C:00]: enabled
+ │ ACPI Sleep Button [PNP0C0E:00]: enabled
+ │ AT Translated Set 2 keyboard [serio0]: enabled
+ │ Advanced Micro Devices, Inc. [AMD] ISA bridge [0000:00:14.3]: enabled
+ │ Advanced Micro Devices, Inc. [AMD] PCI bridge [0000:00:02.1]: enabled
+ │ Advanced Micro Devices, Inc. [AMD] PCI bridge [0000:00:02.2]: enabled
+ │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:04:00.3]: enabled
+ │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:04:00.4]: enabled
+ │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:05:00.0]: enabled
+ │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:05:00.3]: enabled
+ │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:05:00.4]: enabled
+ │ ELAN0678:00 04F3:3195 Mouse [i2c-ELAN0678:00]: enabled
+ │ Mobile Broadband host interface [mhi0]: enabled
+ │ Plug-n-play Real Time Clock [00:01]: enabled
+ └─Real Time Clock alarm timer [rtc0]: enabled
+```
+
+The touchpad event was straightforward. The only difference was the ID of the device.
+
+```shell
+KERNEL=="i2c-ELAN0678:00", SUBSYSTEM=="i2c", DRIVERS=="i2c_hid_acpi", ATTR{power/wakeup}="disabled"
+```
+
+When it comes to the TrackPoint or power source event, nothing was able to stop it from waking up the system even after disabling all wakeup sources. I came across a hidden gem (at least to me) as `amd_s2idle.py`. The ["S0i3/s2idle analysis script for AMD systems"](https://gitlab.freedesktop.org/drm/amd/-/blob/master/scripts/amd_s2idle.py) is full with domain knowledge like where to look into in `/proc` or `/sys` or how to enable debug and read the debug logs.
+
+By running the script, I get the following output with information around the unexpected wakeup.
+
+```
+$ sudo python3 ./amd_s2idle.py --debug-ec --duration 30
+Debugging script for s2idle on AMD systems
+💻 LENOVO 21CF21CFT1 (ThinkPad T14 Gen 3) running BIOS 1.56 (R23ET80W (1.56 )) released 10/28/2024 and EC 1.32
+🐧 Ubuntu 24.04.1 LTS
+🐧 Kernel 6.11.0-12-generic
+🔋 Battery BAT0 (Sunwoda ) is operating at 90.91% of design
+Checking prerequisites for s2idle
+✅ Logs are provided via systemd
+✅ AMD Ryzen 7 PRO 6850U with Radeon Graphics (family 19 model 44)
+...
+
+Suspending system in 0:00:02
+Suspending system in 0:00:01
+
+Started at 2025-01-04 00:46:53.063495 (cycle finish expected @ 2025-01-04 00:47:27.063532)
+Collecting data in 0:00:02
+Collecting data in 0:00:01
+
+Results from last s2idle cycle
+💤 Suspend count: 1
+💤 Hardware sleep cycle count: 1
+○ GPIOs active: ['0']
+🥱 Wakeup triggered from IRQ 9: ACPI SCI
+🥱 Wakeup triggered from IRQ 7: GPIO Controller
+🥱 Woke up from IRQ 7: GPIO Controller
+❌ Userspace suspended for 0:00:14.031448 (< minimum expected 0:00:27)
+💤 In a hardware sleep state for 0:00:10.566894 (75.31%)
+🔋 Battery BAT0 lost 10000 µWh (0.02%) [Average rate 2.57W]
+Explanations for your system
+🚦 Userspace wasn't asleep at least 0:00:30
+        The system was programmed to sleep for 0:00:30, but woke up prematurely.
+        This typically happens when the system was woken up from a non-timer based source.
+
+        If you didn't intentionally wake it up, then there may be a kernel or firmware bug
+```
+
+I compared all logs between the power button, power source, TrackPoint, and touchpad event. But except for the touchpad event, everything else was coming from GPIO Pin #0 and there was no information to distinguish those wakeup triggers. And I ended up with a drastic approch of ignoring wakeup triggers from the GPIO Pin #0 completely with the following kernel option.
+
+```shell
+gpiolib_acpi.ignore_wake=AMDI0030:00@0"
+```
+
+That comes with obvious downsides. The system doesn't wake up frequently any longer. However, nothing can wake up after getting into suspend mode. Opening the lid, pressing the power button or any key is simply ignored since all are going to GPIO Pin #0. In the end, I had to enable the touchpad back as a wakeup source explicitly so the system can wakeup by tapping the touchpad. It's far from ideal, but the touchpad is far less sensible than the TrackPoint so I will keep it as is.
 
 ```shell
 KERNEL=="i2c-ELAN0678:00", SUBSYSTEM=="i2c", DRIVERS=="i2c_hid_acpi", ATTR{power/wakeup}="enabled"
 ```
 
-[/etc/default/grub.d/local-ignore-interrupt.cfg]
-```shell
-GRUB_CMDLINE_LINUX_DEFAULT="$GRUB_CMDLINE_LINUX_DEFAULT gpiolib_acpi.ignore_wake=AMDI0030:00@0"
-```
+## References
 
-## S0i3/s2idle analysis script for AMD systems
-
-https://gitlab.freedesktop.org/drm/amd/-/blob/master/scripts/amd_s2idle.py
-
+- [scripts/amd_s2idle.py · master · drm / amd · GitLab](https://gitlab.freedesktop.org/drm/amd/-/blob/master/scripts/amd_s2idle.py)
+- [Cannot disable wakeup sources on Yellow Carp / Rembrandt 6850U w/ kernels 6.0 and 6.1 (#2405) · Issues · drm / amd · GitLab](https://gitlab.freedesktop.org/drm/amd/-/issues/2405)
+- [linux/drivers/gpio/gpiolib-acpi.c at v6.11 · torvalds/linux](https://github.com/torvalds/linux/blob/v6.11/drivers/gpio/gpiolib-acpi.c#L31-L41)
+- [Lenovo ThinkPad T14 (AMD) Gen 3 - ArchWiki](https://wiki.archlinux.org/title/Lenovo_ThinkPad_T14_(AMD)_Gen_3)
