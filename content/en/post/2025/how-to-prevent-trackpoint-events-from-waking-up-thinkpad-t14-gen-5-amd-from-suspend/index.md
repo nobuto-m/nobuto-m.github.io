@@ -300,7 +300,7 @@ Explanations for your system
 I compared all logs between the power button, power source, TrackPoint, and touchpad event. But except for the touchpad event, everything else was coming from GPIO Pin #0 and there was no information to distinguish those wakeup triggers. And I ended up with a drastic approch of ignoring wakeup triggers from the GPIO Pin #0 completely with the following kernel option.
 
 ```shell
-gpiolib_acpi.ignore_wake=AMDI0030:00@0"
+gpiolib_acpi.ignore_wake=AMDI0030:00@0
 ```
 
 That comes with obvious downsides. The system doesn't wake up frequently any longer. However, nothing can wake up after getting into suspend mode. Opening the lid, pressing the power button or any key is simply ignored since all are going to GPIO Pin #0. In the end, I had to enable the touchpad back as a wakeup source explicitly so the system can wakeup by tapping the touchpad. It's far from ideal, but the touchpad is far less sensible than the TrackPoint so I will keep it as is.
