@@ -303,6 +303,10 @@ I compared all logs between the power button, power source, TrackPoint, and touc
 gpiolib_acpi.ignore_wake=AMDI0030:00@0
 ```
 
+```bash
+kernel: amd_gpio AMDI0030:00: Ignoring wakeup on pin 0
+```
+
 That comes with obvious downsides. The system doesn't wake up frequently any longer. However, nothing can wake up after getting into suspend mode. Opening the lid, pressing the power button or any key is simply ignored since all are going to GPIO Pin #0. In the end, I had to enable the touchpad back as a wakeup source explicitly so the system can wakeup by tapping the touchpad. It's far from ideal, but the touchpad is far less sensible than the TrackPoint so I will keep it as is.
 
 ```shell
