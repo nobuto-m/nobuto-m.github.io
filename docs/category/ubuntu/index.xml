@@ -5,12 +5,288 @@
     <link>https://nobuto-m.github.io/category/ubuntu/</link>
       <atom:link href="https://nobuto-m.github.io/category/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <description>Ubuntu</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-US</language><lastBuildDate>Sun, 02 Jul 2023 16:29:52 +0900</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-US</language><lastBuildDate>Thu, 09 Jan 2025 23:50:38 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>Ubuntu</title>
       <link>https://nobuto-m.github.io/category/ubuntu/</link>
     </image>
+    
+    <item>
+      <title>How to prevent TrackPoint or touchpad events from waking up ThinkPad T14 Gen 5 AMD from suspend</title>
+      <link>https://nobuto-m.github.io/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/</link>
+      <pubDate>Thu, 09 Jan 2025 23:50:38 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
+&lt;p&gt;Try the following lines in your custom udev rules, e.g.&lt;br&gt;
+&lt;code&gt;/etc/udev/rules.d/99-local-disable-wakeup-events.rules&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;KERNEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;i2c-ELAN0676:00&amp;#34;&lt;/span&gt;, &lt;span class=&#34;nv&#34;&gt;SUBSYSTEM&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;i2c&amp;#34;&lt;/span&gt;, &lt;span class=&#34;nv&#34;&gt;DRIVERS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;i2c_hid_acpi&amp;#34;&lt;/span&gt;, ATTR&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;power/wakeup&lt;span class=&#34;o&#34;&gt;}=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;disabled&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;KERNEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;PNP0C0E:00&amp;#34;&lt;/span&gt;, &lt;span class=&#34;nv&#34;&gt;SUBSYSTEM&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;acpi&amp;#34;&lt;/span&gt;, &lt;span class=&#34;nv&#34;&gt;DRIVERS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;button&amp;#34;&lt;/span&gt;, ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;path&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;\_SB_.SLPB&amp;#34;&lt;/span&gt;, ATTR&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;power/wakeup&lt;span class=&#34;o&#34;&gt;}=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;disabled&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;details class=&#34;toc-inpage d-print-none  &#34; open&gt;
+  &lt;summary class=&#34;font-weight-bold&#34;&gt;Table of Contents&lt;/summary&gt;
+  &lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#tldr&#34;&gt;TL;DR&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#the-motivation&#34;&gt;The motivation&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#disabling-touchpad-as-a-wakeup-source-on-t14-gen-5-amd&#34;&gt;Disabling touchpad as a wakeup source on T14 Gen 5 AMD&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#disabling-trackpoint-as-a-wakeup-source-on-t14-gen-5-amd&#34;&gt;Disabling TrackPoint as a wakeup source on T14 Gen 5 AMD&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#in-the-case-of-thinkpad-t14-gen-3-amd&#34;&gt;In the case of ThinkPad T14 Gen 3 AMD&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;/details&gt;
+
+&lt;h2 id=&#34;the-motivation&#34;&gt;The motivation&lt;/h2&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-whenever-something-touches-the-red-cap-the-system-wakes-up-from-suspends2idle&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Whenever something touches the red cap, the system wakes up from suspend/s2idle.&#34; srcset=&#34;
+               /post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/featured_hu236477c92f30afd096faecc971ed105b_216203_ef92985f72956f9e9c069bb57dd9577e.webp 400w,
+               /post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/featured_hu236477c92f30afd096faecc971ed105b_216203_81f124a57e0d1d41c2112639562f955b.webp 760w,
+               /post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/featured_hu236477c92f30afd096faecc971ed105b_216203_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/featured_hu236477c92f30afd096faecc971ed105b_216203_ef92985f72956f9e9c069bb57dd9577e.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;428&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Whenever something touches the red cap, the system wakes up from suspend/s2idle.
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;I&amp;rsquo;ve used ThinkPad T14 Gen 3 AMD for 2 years, and I recently purchased T14 &lt;strong&gt;Gen 5&lt;/strong&gt; AMD. The previous system as Gen 3 annoyed me so much because the laptop randomly woke up from suspend even inside a backpack on its own, heated up the confined air in it, and drained the battery pretty fast as a consequence. Basically it&amp;rsquo;s too sensitive to any events. For example, whenever a USB Type-C cable is plugged in as a power source or whenever something touches the TrackPoint &lt;strong&gt;even if a display on a closed lid slightly makes contact with the red cap, the system wakes up from suspend&lt;/strong&gt;. It was uncontrollable.&lt;/p&gt;
+&lt;p&gt;I was hoping that Gen 5 would make a difference, and it did when it comes to the power source event. However, frequent wakeups due to the TrackPoint event remained the same so I started to dig in.&lt;/p&gt;
+&lt;h2 id=&#34;disabling-touchpad-as-a-wakeup-source-on-t14-gen-5-amd&#34;&gt;Disabling touchpad as a wakeup source on T14 Gen 5 AMD&lt;/h2&gt;
+&lt;p&gt;Disabling touchpad events as a wakeup source is straightforward. The touchpad device, &lt;code&gt;ELAN0676:00 04F3:3195 Touchpad&lt;/code&gt;, can be found in the udev device tree as follows.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ udevadm info --tree
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; └─input/input12
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ┆ P: /devices/platform/AMDI0010:01/i2c-1/i2c-ELAN0676:00/0018:04F3:3195.0001/input/input12
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ┆ M: input12
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ┆ R: &lt;span class=&#34;m&#34;&gt;12&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ┆ U: input
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ┆ E: &lt;span class=&#34;nv&#34;&gt;DEVPATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/devices/platform/AMDI0010:01/i2c-1/i2c-ELAN0676:00/0018:04F3:3195.0001/input/input12
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ┆ E: &lt;span class=&#34;nv&#34;&gt;SUBSYSTEM&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;input
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ┆ E: &lt;span class=&#34;nv&#34;&gt;PRODUCT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;18/4f3/3195/100
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ┆ E: &lt;span class=&#34;nv&#34;&gt;NAME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;ELAN0676:00 04F3:3195 Touchpad&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ┆ E: &lt;span class=&#34;nv&#34;&gt;PHYS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;i2c-ELAN0676:00&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And you can get all attributes including parent devices like the following.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ udevadm info --attribute-walk -p /devices/platform/AMDI0010:01/i2c-1/i2c-ELAN0676:00/0018:04F3:3195.0001/input/input12
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  looking at device &lt;span class=&#34;s1&#34;&gt;&amp;#39;/devices/platform/AMDI0010:01/i2c-1/i2c-ELAN0676:00/0018:04F3:3195.0001/input/input12&amp;#39;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;KERNEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;input12&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;SUBSYSTEM&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;input&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;DRIVER&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ATTR&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;name&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;ELAN0676:00 04F3:3195 Touchpad&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ATTR&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;phys&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;i2c-ELAN0676:00&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  looking at parent device &lt;span class=&#34;s1&#34;&gt;&amp;#39;/devices/platform/AMDI0010:01/i2c-1/i2c-ELAN0676:00&amp;#39;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;KERNELS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;i2c-ELAN0676:00&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;SUBSYSTEMS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;i2c&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;DRIVERS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;i2c_hid_acpi&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;name&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;ELAN0676:00&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;power/wakeup&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;enabled&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The line I&amp;rsquo;m looking for is &lt;code&gt;ATTRS{power/wakeup}==&amp;quot;enabled&amp;quot;&lt;/code&gt;. By using the identifiers of the parent device that has &lt;code&gt;ATTRS{power/wakeup}&lt;/code&gt;, I can make sure that &lt;code&gt;/sys/devices/platform/AMDI0010:01/i2c-1/i2c-ELAN0676:00/power/wakeup&lt;/code&gt; is always &lt;code&gt;disabled&lt;/code&gt; with the custom udev rule as follows.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;KERNEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;i2c-ELAN0676:00&amp;#34;&lt;/span&gt;, &lt;span class=&#34;nv&#34;&gt;SUBSYSTEM&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;i2c&amp;#34;&lt;/span&gt;, &lt;span class=&#34;nv&#34;&gt;DRIVERS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;i2c_hid_acpi&amp;#34;&lt;/span&gt;, ATTR&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;power/wakeup&lt;span class=&#34;o&#34;&gt;}=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;disabled&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;disabling-trackpoint-as-a-wakeup-source-on-t14-gen-5-amd&#34;&gt;Disabling TrackPoint as a wakeup source on T14 Gen 5 AMD&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ve seen a pattern already as above so I &lt;em&gt;should&lt;/em&gt; be able to apply the same method. The TrackPoint device, &lt;code&gt;TPPS/2 Elan TrackPoint&lt;/code&gt;, can be found in the udev device tree.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ udevadm info --tree
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; └─input/input5
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ┆ P: /devices/platform/i8042/serio1/input/input5
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ┆ M: input5
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ┆ R: &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ┆ U: input
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ┆ E: &lt;span class=&#34;nv&#34;&gt;DEVPATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/devices/platform/i8042/serio1/input/input5
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ┆ E: &lt;span class=&#34;nv&#34;&gt;SUBSYSTEM&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;input
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ┆ E: &lt;span class=&#34;nv&#34;&gt;PRODUCT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;11/2/a/63
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ┆ E: &lt;span class=&#34;nv&#34;&gt;NAME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;TPPS/2 Elan TrackPoint&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ┆ E: &lt;span class=&#34;nv&#34;&gt;PHYS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;isa0060/serio1/input0&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And the information of parent devices too.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ udevadm info --attribute-walk -p /devices/platform/i8042/serio1/input/input5
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  looking at device &lt;span class=&#34;s1&#34;&gt;&amp;#39;/devices/platform/i8042/serio1/input/input5&amp;#39;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;KERNEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;input5&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;SUBSYSTEM&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;input&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;DRIVER&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ATTR&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;name&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;TPPS/2 Elan TrackPoint&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ATTR&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;phys&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;isa0060/serio1/input0&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  looking at parent device &lt;span class=&#34;s1&#34;&gt;&amp;#39;/devices/platform/i8042/serio1&amp;#39;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;KERNELS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;serio1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;SUBSYSTEMS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;serio&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;DRIVERS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;psmouse&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;bind_mode&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;auto&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;description&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;i8042 AUX port&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;drvctl&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;(not readable)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;firmware_id&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;PNP: LEN0321 PNP0f13&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;power/wakeup&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;disabled&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I hit the wall here. &lt;code&gt;ATTRS{power/wakeup}==&amp;quot;disabled&amp;quot;&lt;/code&gt; for the &lt;code&gt;i8042 AUX port&lt;/code&gt; is already there but the TrackPoint still wakes up the system from suspend. I had to do bisecting for all remaining wakeup sources.&lt;/p&gt;
+&lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-2&#34;&gt;
+  &lt;summary&gt;The list of the remaining wakeup sources&lt;/summary&gt;
+  &lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ cat /proc/acpi/wakeup
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Device	S-state	  Status   Sysfs node
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;GPP0	  S0	*disabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;GPP2	  S3	*disabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;GPP5	  S0	*enabled   pci:0000:00:02.1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;GPP6	  S4	*enabled   pci:0000:00:02.2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;GP11	  S4	*enabled   pci:0000:00:03.1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;SWUS	  S4	*disabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;GP12	  S4	*enabled   pci:0000:00:04.1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;SWUS	  S4	*disabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;XHC0	  S3	*enabled   pci:0000:c4:00.3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;XHC1	  S4	*enabled   pci:0000:c4:00.4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;XHC2	  S4	*disabled  pci:0000:c6:00.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;NHI0	  S3	*enabled   pci:0000:c6:00.5
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;XHC3	  S3	*enabled   pci:0000:c6:00.3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;NHI1	  S4	*enabled   pci:0000:c6:00.6
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;XHC4	  S3	*enabled   pci:0000:c6:00.4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;LID	  S4	*enabled   platform:PNP0C0D:00
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;SLPB	  S3	*enabled   platform:PNP0C0E:00
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; Wakeup sources:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │  [/sys/devices/platform/USBC000:00/power_supply/ucsi-source-psy-USBC000:001/wakeup66]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │  [/sys/devices/platform/USBC000:00/power_supply/ucsi-source-psy-USBC000:002/wakeup67]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ ACPI Battery [PNP0C0A:00]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ ACPI Lid Switch [PNP0C0D:00]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ ACPI Power Button [PNP0C0C:00]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ ACPI Sleep Button [PNP0C0E:00]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ AT Translated Set 2 keyboard [serio0]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] ISA bridge [0000:00:14.3]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] Multimedia controller [0000:c4:00.5]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] PCI bridge [0000:00:02.1]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] PCI bridge [0000:00:02.2]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] PCI bridge [0000:00:03.1]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] PCI bridge [0000:00:04.1]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:c4:00.3]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:c4:00.4]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:c6:00.3]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:c6:00.4]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:c6:00.5]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:c6:00.6]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Mobile Broadband host interface [mhi0]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Plug-n-play Real Time Clock [00:01]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Real Time Clock alarm timer [rtc0]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Thunderbolt domain [domain0]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Thunderbolt domain [domain1]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ USB4 host controller [0-0]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; └─USB4 host controller [1-0]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;/details&gt;
+&lt;p&gt;Somehow, disabling &lt;code&gt;SLPB&lt;/code&gt; &amp;ldquo;ACPI Sleep Button&amp;rdquo; stopped undesired wakeups by the TrackPoint.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  looking at parent device &lt;span class=&#34;s1&#34;&gt;&amp;#39;/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0E:00&amp;#39;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;KERNELS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;PNP0C0E:00&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;SUBSYSTEMS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;acpi&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;DRIVERS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;button&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;hid&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;PNP0C0E&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;path&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;\_SB_.SLPB&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;power/wakeup&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;enabled&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The final udev rule is the following. It also disables wakeup events from the keyboard as a side effect, but opening the lid or pressing the power button can still wake up the system so it works for me.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;KERNEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;PNP0C0E:00&amp;#34;&lt;/span&gt;, &lt;span class=&#34;nv&#34;&gt;SUBSYSTEM&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;acpi&amp;#34;&lt;/span&gt;, &lt;span class=&#34;nv&#34;&gt;DRIVERS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;button&amp;#34;&lt;/span&gt;, ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;path&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;\_SB_.SLPB&amp;#34;&lt;/span&gt;, ATTR&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;power/wakeup&lt;span class=&#34;o&#34;&gt;}=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;disabled&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;in-the-case-of-thinkpad-t14-gen-3-amd&#34;&gt;In the case of ThinkPad T14 Gen 3 AMD&lt;/h2&gt;
+&lt;p&gt;After solving the headache of frequent wakeups for T14 Gen5 AMD. I was curious if I could apply the same to Gen 3 AMD retrospectively. Gen 3 has the following wakeup sources active out of the box.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; Wakeup sources:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ ACPI Battery [PNP0C0A:00]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ ACPI Lid Switch [PNP0C0D:00]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ ACPI Power Button [LNXPWRBN:00]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ ACPI Power Button [PNP0C0C:00]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ ACPI Sleep Button [PNP0C0E:00]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ AT Translated Set 2 keyboard [serio0]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] ISA bridge [0000:00:14.3]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] PCI bridge [0000:00:02.1]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] PCI bridge [0000:00:02.2]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:04:00.3]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:04:00.4]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:05:00.0]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:05:00.3]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:05:00.4]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ ELAN0678:00 04F3:3195 Mouse [i2c-ELAN0678:00]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Mobile Broadband host interface [mhi0]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; │ Plug-n-play Real Time Clock [00:01]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; └─Real Time Clock alarm timer [rtc0]: enabled
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Disabling the touchpad event was straightforward. The only difference from Gen 5 was the ID of the device.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;KERNEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;i2c-ELAN0678:00&amp;#34;&lt;/span&gt;, &lt;span class=&#34;nv&#34;&gt;SUBSYSTEM&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;i2c&amp;#34;&lt;/span&gt;, &lt;span class=&#34;nv&#34;&gt;DRIVERS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;i2c_hid_acpi&amp;#34;&lt;/span&gt;, ATTR&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;power/wakeup&lt;span class=&#34;o&#34;&gt;}=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;disabled&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When it comes to the TrackPoint or power source event, nothing was able to stop it from waking up the system even after disabling all wakeup sources. I came across a hidden gem named &lt;code&gt;amd_s2idle.py&lt;/code&gt;. The &lt;a href=&#34;https://gitlab.freedesktop.org/drm/amd/-/blob/master/scripts/amd_s2idle.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;S0i3/s2idle analysis script for AMD systems&amp;rdquo;&lt;/a&gt; is full with the domain knowledge of s2idle like where to look in &lt;code&gt;/proc&lt;/code&gt; or &lt;code&gt;/sys&lt;/code&gt; or how to enable debug and what part of the logs is important.&lt;/p&gt;
+&lt;p&gt;By running the script, I got the following output around the unexpected wakeup.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo python3 ./amd_s2idle.py --debug-ec --duration 30
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Debugging script for s2idle on AMD systems
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;💻 LENOVO 21CF21CFT1 (ThinkPad T14 Gen 3) running BIOS 1.56 (R23ET80W (1.56 )) released 10/28/2024 and EC 1.32
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;🐧 Ubuntu 24.04.1 LTS
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;🐧 Kernel 6.11.0-12-generic
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;🔋 Battery BAT0 (Sunwoda ) is operating at 90.91% of design
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Checking prerequisites for s2idle
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✅ Logs are provided via systemd
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;✅ AMD Ryzen 7 PRO 6850U with Radeon Graphics (family 19 model 44)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Suspending system in 0:00:02
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Suspending system in 0:00:01
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Started at 2025-01-04 00:46:53.063495 (cycle finish expected @ 2025-01-04 00:47:27.063532)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Collecting data in 0:00:02
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Collecting data in 0:00:01
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Results from last s2idle cycle
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;💤 Suspend count: 1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;💤 Hardware sleep cycle count: 1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;○ GPIOs active: [&amp;#39;0&amp;#39;]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;🥱 Wakeup triggered from IRQ 9: ACPI SCI
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;🥱 Wakeup triggered from IRQ 7: GPIO Controller
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;🥱 Woke up from IRQ 7: GPIO Controller
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❌ Userspace suspended for 0:00:14.031448 (&amp;lt; minimum expected 0:00:27)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;💤 In a hardware sleep state for 0:00:10.566894 (75.31%)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;🔋 Battery BAT0 lost 10000 µWh (0.02%) [Average rate 2.57W]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Explanations for your system
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;🚦 Userspace wasn&amp;#39;t asleep at least 0:00:30
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        The system was programmed to sleep for 0:00:30, but woke up prematurely.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        This typically happens when the system was woken up from a non-timer based source.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        If you didn&amp;#39;t intentionally wake it up, then there may be a kernel or firmware bug
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I compared all the logs generated between the events of power button, power source, TrackPoint, and touchpad. But except for the touchpad event, everything else was coming from GPIO pin #0 and there was no more information of how to distinguish those wakeup triggers. I ended up with a drastic approach of ignoring wakeup triggers from the GPIO pin #0 completely with the following kernel option.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;gpiolib_acpi.ignore_wake&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;AMDI0030:00@0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And I get the line on each boot.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kernel: amd_gpio AMDI0030:00: Ignoring wakeup on pin &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That comes with obvious downsides. The system doesn&amp;rsquo;t wake up frequently any longer, that is good. However, nothing can wake it up after getting into suspend. Opening the lid, pressing the power button or any key is simply ignored since all are going to GPIO pin #0. In the end, I had to enable the touchpad back as a wakeup source explicitly so the system can wakeup by tapping the touchpad. It&amp;rsquo;s far from ideal, but the touchpad is less sensitive than the TrackPoint so I will keep it that way.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;KERNEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;i2c-ELAN0678:00&amp;#34;&lt;/span&gt;, &lt;span class=&#34;nv&#34;&gt;SUBSYSTEM&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;i2c&amp;#34;&lt;/span&gt;, &lt;span class=&#34;nv&#34;&gt;DRIVERS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;i2c_hid_acpi&amp;#34;&lt;/span&gt;, ATTR&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;power/wakeup&lt;span class=&#34;o&#34;&gt;}=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;enabled&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I guess the limitation is coming from a firmware more or less, but at the same time I don&amp;rsquo;t expect fixes for the few year old model.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gitlab.freedesktop.org/drm/amd/-/blob/master/scripts/amd_s2idle.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;scripts/amd_s2idle.py · master · drm / amd · GitLab&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gitlab.freedesktop.org/drm/amd/-/issues/2405&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cannot disable wakeup sources on Yellow Carp / Rembrandt 6850U w/ kernels 6.0 and 6.1 (#2405) · Issues · drm / amd · GitLab&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/torvalds/linux/blob/v6.11/drivers/gpio/gpiolib-acpi.c#L31-L41&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;linux/drivers/gpio/gpiolib-acpi.c at v6.11 · torvalds/linux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://wiki.archlinux.org/title/Lenovo_ThinkPad_T14_%28AMD%29_Gen_3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lenovo ThinkPad T14 (AMD) Gen 3 - ArchWiki&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Ubuntu Server autoinstall with a physical machine</title>

@@ -187,6 +187,27 @@
             <div class="media stream-item view-compact">
               <div class="media-body">
                 <div class="section-subheading article-title mb-0 mt-0">
+                  <a href="/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/">How to prevent TrackPoint or touchpad events from waking up ThinkPad T14 Gen 5 AMD from suspend</a>
+                </div>
+                <a href="/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/" class="summary-link">
+                <div class="article-style">
+                  TL;DR Try the following lines in your custom udev rules, e.g. /etc/udev/rules.d/99-local-disable-wakeup-events.rules KERNEL==&#34;i2c-ELAN0676:00&#34;, SUBSYSTEM==&#34;i2c&#34;, DRIVERS==&#34;i2c_hid_acpi&#34;, ATTR{power/wakeup}=&#34;disabled&#34; KERNEL==&#34;PNP0C0E:00&#34;, SUBSYSTEM==&#34;acpi&#34;, DRIVERS==&#34;button&#34;, ATTRS{path}==&#34;\_SB_.SLPB&#34;, ATTR{power/wakeup}=&#34;disabled&#34; Table of Contents TL;DR The motivation Disabling touchpad as a wakeup source on T14 Gen 5 AMD Disabling TrackPoint as a wakeup source on T14 Gen 5 AMD In the case of ThinkPad T14 Gen 3 AMD References The motivation Whenever something touches the red cap, the system wakes up from suspend/s2idle.
+                </div></a>
+                <div class="stream-meta article-metadata">
+                  <div class="article-metadata">
+                    <span class="article-date">Jan 9, 2025</span> <span class="middot-divider"></span> <span class="article-categories"><i class="fas fa-folder mr-1"></i><a href="/category/ubuntu/">Ubuntu</a></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ml-3">
+                <a href="/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/"><img src="/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/featured_hu236477c92f30afd096faecc971ed105b_216203_5896eed7b46cc11e546e0e0f11fb904a.webp" height="84" width="150" alt="How to prevent TrackPoint or touchpad events from waking up ThinkPad T14 Gen 5 AMD from suspend" loading="lazy"></a>
+              </div>
+            </div>
+
+            <div class="media stream-item view-compact">
+              <div class="media-body">
+                <div class="section-subheading article-title mb-0 mt-0">
                   <a href="/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/">No, you can&#39;t downgrade T14 Gen 3 AMD&#39;s UEFI BIOS even when Secure Rollback Prevention is turned off</a>
                 </div>
                 <a href="/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/" class="summary-link">
@@ -265,27 +286,6 @@
 
               <div class="ml-3">
                 <a href="/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/"><img src="/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/featured_hub5fb727d7909e14eb08c84e880dd2aff_110324_9619ee38903c8469ca3b195fe276fe0b.webp" height="84" width="150" alt="Shortcut key to mute/unmute yourself in Zoom, Google Meet, or Teams" loading="lazy"></a>
-              </div>
-            </div>
-
-            <div class="media stream-item view-compact">
-              <div class="media-body">
-                <div class="section-subheading article-title mb-0 mt-0">
-                  <a href="/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/">Minimal Dynamic DNS configuration for No-IP.com with ddclient</a>
-                </div>
-                <a href="/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/" class="summary-link">
-                <div class="article-style">
-                  EDIT: I have migrated one of my domains to Google Domains so I&rsquo;m using protocol=googledomains these days. When I searched for a way to configure ddclient for No-IP.com, some pages mention protocol=dyndns2 with a custom URL.
-                </div></a>
-                <div class="stream-meta article-metadata">
-                  <div class="article-metadata">
-                    <span class="article-date">Jul 21, 2018 &middot; Last updated on Jun 18, 2019</span> <span class="middot-divider"></span> <span class="article-categories"><i class="fas fa-folder mr-1"></i><a href="/category/ubuntu/">Ubuntu</a></span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="ml-3">
-                <a href="/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/"><img src="/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/featured_hu797cc7a317ec874161fb563b914460bc_25691_59bd2dd20691e0ca2616eca23b26710b.webp" height="84" width="150" alt="Minimal Dynamic DNS configuration for No-IP.com with ddclient" loading="lazy"></a>
               </div>
             </div>
 

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: January 9, 2025 -->
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo Blox Builder 5.9.7">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; object-src 'none'; frame-src https://platform.twitter.com https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://platform.twitter.com;">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/vendor-bundle.min.26c458e6907dc03073573976b7f4044e.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/wowchemy.38ef0f893e880024d12f96952b77d82b.css">
+  <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  <meta name="google-site-verification" content="x-WRee-yVqnJs0JQZzIhmu43FqdyIrIKokjOAFhdL4I">
+  <meta name="author" content="Nobuto Murata">
+  <meta name="description" content="TL;DR Try the following lines in your custom udev rules, e.g. /etc/udev/rules.d/99-local-disable-wakeup-events.rules KERNEL==&#34;i2c-ELAN0676:00&#34;, SUBSYSTEM==&#34;i2c&#34;, DRIVERS==&#34;i2c_hid_acpi&#34;, ATTR{power/wakeup}=&#34;disabled&#34; KERNEL==&#34;PNP0C0E:00&#34;, SUBSYSTEM==&#34;acpi&#34;, DRIVERS==&#34;button&#34;, ATTRS{path}==&#34;\_SB_.SLPB&#34;, ATTR{power/wakeup}=&#34;disabled&#34; Table of Contents TL;DR The motivation Disabling touchpad as a wakeup source on T14 Gen 5 AMD Disabling TrackPoint as a wakeup source on T14 Gen 5 AMD In the case of ThinkPad T14 Gen 3 AMD References The motivation Whenever something touches the red cap, the system wakes up from suspend/s2idle.">
+  <link rel="alternate" hreflang="en-US" href="https://nobuto-m.github.io/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/">
+  <link rel="canonical" href="https://nobuto-m.github.io/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/">
+  <link rel="icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_180x180_fill_lanczos_center_3.png">
+  <meta name="theme-color" content="#1565c0">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:image" content="https://nobuto-m.github.io/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/featured.jpg">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Nobuto Murata">
+  <meta property="og:url" content="https://nobuto-m.github.io/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/">
+  <meta property="og:title" content="How to prevent TrackPoint or touchpad events from waking up ThinkPad T14 Gen 5 AMD from suspend | Nobuto Murata">
+  <meta property="og:description" content="TL;DR Try the following lines in your custom udev rules, e.g. /etc/udev/rules.d/99-local-disable-wakeup-events.rules KERNEL==&#34;i2c-ELAN0676:00&#34;, SUBSYSTEM==&#34;i2c&#34;, DRIVERS==&#34;i2c_hid_acpi&#34;, ATTR{power/wakeup}=&#34;disabled&#34; KERNEL==&#34;PNP0C0E:00&#34;, SUBSYSTEM==&#34;acpi&#34;, DRIVERS==&#34;button&#34;, ATTRS{path}==&#34;\_SB_.SLPB&#34;, ATTR{power/wakeup}=&#34;disabled&#34; Table of Contents TL;DR The motivation Disabling touchpad as a wakeup source on T14 Gen 5 AMD Disabling TrackPoint as a wakeup source on T14 Gen 5 AMD In the case of ThinkPad T14 Gen 3 AMD References The motivation Whenever something touches the red cap, the system wakes up from suspend/s2idle.">
+  <meta property="og:image" content="https://nobuto-m.github.io/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/featured.jpg">
+  <meta property="og:locale" content="en-US">
+  <meta property="article:published_time" content="2025-01-09T23:50:38&#43;09:00">
+  <meta property="article:modified_time" content="2025-01-09T23:50:38&#43;09:00">
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nobuto-m.github.io/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/"
+  },
+  "headline": "How to prevent TrackPoint or touchpad events from waking up ThinkPad T14 Gen 5 AMD from suspend",
+
+  "image": [
+    "https://nobuto-m.github.io/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/featured.jpg"
+  ],
+
+  "datePublished": "2025-01-09T23:50:38+09:00",
+  "dateModified": "2025-01-09T23:50:38+09:00",
+
+  "author": {
+    "@type": "Person",
+    "name": "Nobuto Murata"
+  },
+
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nobuto Murata",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "TL;DR Try the following lines in your custom udev rules, e.g.\n/etc/udev/rules.d/99-local-disable-wakeup-events.rules\nKERNEL==\u0026#34;i2c-ELAN0676:00\u0026#34;, SUBSYSTEM==\u0026#34;i2c\u0026#34;, DRIVERS==\u0026#34;i2c_hid_acpi\u0026#34;, ATTR{power/wakeup}=\u0026#34;disabled\u0026#34; KERNEL==\u0026#34;PNP0C0E:00\u0026#34;, SUBSYSTEM==\u0026#34;acpi\u0026#34;, DRIVERS==\u0026#34;button\u0026#34;, ATTRS{path}==\u0026#34;\\_SB_.SLPB\u0026#34;, ATTR{power/wakeup}=\u0026#34;disabled\u0026#34; Table of Contents TL;DR The motivation Disabling touchpad as a wakeup source on T14 Gen 5 AMD Disabling TrackPoint as a wakeup source on T14 Gen 5 AMD In the case of ThinkPad T14 Gen 3 AMD References The motivation Whenever something touches the red cap, the system wakes up from suspend/s2idle."
+  }
+  </script>
+  <title>How to prevent TrackPoint or touchpad events from waking up ThinkPad T14 Gen 5 AMD from suspend | Nobuto Murata</title>
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper" data-wc-page-id="dfdba8565ca4e33c06eafa5110c1e516">
+  <script src="/js/wowchemy-init.min.9e4214442a7711d35691acd58f6f6361.js"></script>
+  <aside class="search-modal" id="search">
+    <div class="container">
+      <section class="search-header">
+        <div class="row no-gutters justify-content-between mb-3">
+          <div class="col-6">
+            <h1>Search</h1>
+          </div>
+
+          <div class="col-6 col-search-close">
+            <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div id="search-box">
+          <input name="q" id="search-query" placeholder="Search..." autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control" aria-label="Search...">
+        </div>
+      </section>
+
+      <section class="section-search-results">
+        <div id="search-hits">
+        </div>
+      </section>
+    </div>
+  </aside>
+
+  <div class="page-header header--fixed">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+        <div class="container-xl">
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation"><span><i class="fas fa-bars"></i></span></button>
+          <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+            <ul class="navbar-nav d-md-inline-flex">
+              <li class="nav-item">
+                <a class="nav-link" href="/#about"><span>Home</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/#posts"><span>Posts</span></a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Language</span><span class="caret"></span></a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/ja/post/"><span>日本語</span></a>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+            <li class="nav-item">
+              <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+            </li>
+
+            <li class="nav-item dropdown theme-dropdown">
+              <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences"><i class="fas fa-moon" aria-hidden="true"></i></a>
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-item js-set-theme-light"><span>Light</span></a> <a href="#" class="dropdown-item js-set-theme-dark"><span>Dark</span></a> <a href="#" class="dropdown-item js-set-theme-auto"><span>Automatic</span></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+      <div class="article-container pt-3">
+        <h1>How to prevent TrackPoint or touchpad events from waking up ThinkPad T14 Gen 5 AMD from suspend</h1>
+
+        <div class="article-metadata">
+          <span class="article-date">Jan 9, 2025</span> <span class="middot-divider"></span> <span class="article-categories"><i class="fas fa-folder mr-1"></i><a href="/category/ubuntu/">Ubuntu</a></span>
+        </div>
+      </div>
+
+      <div class="article-container">
+        <div class="article-style">
+          <h2 id="tldr">TL;DR</h2>
+
+          <p>Try the following lines in your custom udev rules, e.g.<br>
+          <code>/etc/udev/rules.d/99-local-disable-wakeup-events.rules</code></p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;i2c-ELAN0676:00&#34;</span>, <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;i2c&#34;</span>, <span class="nv">DRIVERS</span><span class="o">==</span><span class="s2">&#34;i2c_hid_acpi&#34;</span>, ATTR<span class="o">{</span>power/wakeup<span class="o">}=</span><span class="s2">&#34;disabled&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;PNP0C0E:00&#34;</span>, <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;acpi&#34;</span>, <span class="nv">DRIVERS</span><span class="o">==</span><span class="s2">&#34;button&#34;</span>, ATTRS<span class="o">{</span>path<span class="o">}==</span><span class="s2">&#34;\_SB_.SLPB&#34;</span>, ATTR<span class="o">{</span>power/wakeup<span class="o">}=</span><span class="s2">&#34;disabled&#34;</span>
+</span></span></code></pre>
+          </div>
+
+          <details class="toc-inpage d-print-none" open>
+            <summary class="font-weight-bold">
+              Table of Contents
+            </summary>
+
+            <nav id="TableOfContents">
+              <ul>
+                <li>
+                  <a href="#tldr">TL;DR</a>
+                </li>
+
+                <li>
+                  <a href="#the-motivation">The motivation</a>
+                </li>
+
+                <li>
+                  <a href="#disabling-touchpad-as-a-wakeup-source-on-t14-gen-5-amd">Disabling touchpad as a wakeup source on T14 Gen 5 AMD</a>
+                </li>
+
+                <li>
+                  <a href="#disabling-trackpoint-as-a-wakeup-source-on-t14-gen-5-amd">Disabling TrackPoint as a wakeup source on T14 Gen 5 AMD</a>
+                </li>
+
+                <li>
+                  <a href="#in-the-case-of-thinkpad-t14-gen-3-amd">In the case of ThinkPad T14 Gen 3 AMD</a>
+                </li>
+
+                <li>
+                  <a href="#references">References</a>
+                </li>
+              </ul>
+            </nav>
+          </details>
+
+          <h2 id="the-motivation">The motivation</h2>
+
+          <figure id="figure-whenever-something-touches-the-red-cap-the-system-wakes-up-from-suspends2idle">
+            <div class="d-flex justify-content-center">
+              <div class="w-100"><img alt="Whenever something touches the red cap, the system wakes up from suspend/s2idle." srcset="/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/featured_hu236477c92f30afd096faecc971ed105b_216203_ef92985f72956f9e9c069bb57dd9577e.webp 400w, /post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/featured_hu236477c92f30afd096faecc971ed105b_216203_81f124a57e0d1d41c2112639562f955b.webp 760w, /post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/featured_hu236477c92f30afd096faecc971ed105b_216203_1200x1200_fit_q75_h2_lanczos.webp 1200w" src="/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/featured_hu236477c92f30afd096faecc971ed105b_216203_ef92985f72956f9e9c069bb57dd9577e.webp" width="760" height="428" loading="lazy" data-zoomable="">
+              </div>
+            </div>
+
+            <figcaption>
+              Whenever something touches the red cap, the system wakes up from suspend/s2idle.
+            </figcaption>
+          </figure>
+
+          <p>I&rsquo;ve used ThinkPad T14 Gen 3 AMD for 2 years, and I recently purchased T14 <strong>Gen 5</strong> AMD. The previous system as Gen 3 annoyed me so much because the laptop randomly woke up from suspend even inside a backpack on its own, heated up the confined air in it, and drained the battery pretty fast as a consequence. Basically it&rsquo;s too sensitive to any events. For example, whenever a USB Type-C cable is plugged in as a power source or whenever something touches the TrackPoint <strong>even if a display on a closed lid slightly makes contact with the red cap, the system wakes up from suspend</strong>. It was uncontrollable.</p>
+
+          <p>I was hoping that Gen 5 would make a difference, and it did when it comes to the power source event. However, frequent wakeups due to the TrackPoint event remained the same so I started to dig in.</p>
+
+          <h2 id="disabling-touchpad-as-a-wakeup-source-on-t14-gen-5-amd">Disabling touchpad as a wakeup source on T14 Gen 5 AMD</h2>
+
+          <p>Disabling touchpad events as a wakeup source is straightforward. The touchpad device, <code>ELAN0676:00 04F3:3195 Touchpad</code>, can be found in the udev device tree as follows.</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ udevadm info --tree
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> └─input/input12
+</span></span><span class="line"><span class="cl">   ┆ P: /devices/platform/AMDI0010:01/i2c-1/i2c-ELAN0676:00/0018:04F3:3195.0001/input/input12
+</span></span><span class="line"><span class="cl">   ┆ M: input12
+</span></span><span class="line"><span class="cl">   ┆ R: <span class="m">12</span>
+</span></span><span class="line"><span class="cl">   ┆ U: input
+</span></span><span class="line"><span class="cl">   ┆ E: <span class="nv">DEVPATH</span><span class="o">=</span>/devices/platform/AMDI0010:01/i2c-1/i2c-ELAN0676:00/0018:04F3:3195.0001/input/input12
+</span></span><span class="line"><span class="cl">   ┆ E: <span class="nv">SUBSYSTEM</span><span class="o">=</span>input
+</span></span><span class="line"><span class="cl">   ┆ E: <span class="nv">PRODUCT</span><span class="o">=</span>18/4f3/3195/100
+</span></span><span class="line"><span class="cl">   ┆ E: <span class="nv">NAME</span><span class="o">=</span><span class="s2">&#34;ELAN0676:00 04F3:3195 Touchpad&#34;</span>
+</span></span><span class="line"><span class="cl">   ┆ E: <span class="nv">PHYS</span><span class="o">=</span><span class="s2">&#34;i2c-ELAN0676:00&#34;</span>
+</span></span></code></pre>
+          </div>
+
+          <p>And you can get all attributes including parent devices like the following.</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ udevadm info --attribute-walk -p /devices/platform/AMDI0010:01/i2c-1/i2c-ELAN0676:00/0018:04F3:3195.0001/input/input12
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  looking at device <span class="s1">&#39;/devices/platform/AMDI0010:01/i2c-1/i2c-ELAN0676:00/0018:04F3:3195.0001/input/input12&#39;</span>:
+</span></span><span class="line"><span class="cl">    <span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;input12&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;input&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">DRIVER</span><span class="o">==</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">    ATTR<span class="o">{</span>name<span class="o">}==</span><span class="s2">&#34;ELAN0676:00 04F3:3195 Touchpad&#34;</span>
+</span></span><span class="line"><span class="cl">    ATTR<span class="o">{</span>phys<span class="o">}==</span><span class="s2">&#34;i2c-ELAN0676:00&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  looking at parent device <span class="s1">&#39;/devices/platform/AMDI0010:01/i2c-1/i2c-ELAN0676:00&#39;</span>:
+</span></span><span class="line"><span class="cl">    <span class="nv">KERNELS</span><span class="o">==</span><span class="s2">&#34;i2c-ELAN0676:00&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">SUBSYSTEMS</span><span class="o">==</span><span class="s2">&#34;i2c&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">DRIVERS</span><span class="o">==</span><span class="s2">&#34;i2c_hid_acpi&#34;</span>
+</span></span><span class="line"><span class="cl">    ATTRS<span class="o">{</span>name<span class="o">}==</span><span class="s2">&#34;ELAN0676:00&#34;</span>
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">    ATTRS<span class="o">{</span>power/wakeup<span class="o">}==</span><span class="s2">&#34;enabled&#34;</span>
+</span></span></code></pre>
+          </div>
+
+          <p>The line I&rsquo;m looking for is <code>ATTRS{power/wakeup}==&quot;enabled&quot;</code>. By using the identifiers of the parent device that has <code>ATTRS{power/wakeup}</code>, I can make sure that <code>/sys/devices/platform/AMDI0010:01/i2c-1/i2c-ELAN0676:00/power/wakeup</code> is always <code>disabled</code> with the custom udev rule as follows.</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;i2c-ELAN0676:00&#34;</span>, <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;i2c&#34;</span>, <span class="nv">DRIVERS</span><span class="o">==</span><span class="s2">&#34;i2c_hid_acpi&#34;</span>, ATTR<span class="o">{</span>power/wakeup<span class="o">}=</span><span class="s2">&#34;disabled&#34;</span>
+</span></span></code></pre>
+          </div>
+
+          <h2 id="disabling-trackpoint-as-a-wakeup-source-on-t14-gen-5-amd">Disabling TrackPoint as a wakeup source on T14 Gen 5 AMD</h2>
+
+          <p>I&rsquo;ve seen a pattern already as above so I <em>should</em> be able to apply the same method. The TrackPoint device, <code>TPPS/2 Elan TrackPoint</code>, can be found in the udev device tree.</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ udevadm info --tree
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> └─input/input5
+</span></span><span class="line"><span class="cl">   ┆ P: /devices/platform/i8042/serio1/input/input5
+</span></span><span class="line"><span class="cl">   ┆ M: input5
+</span></span><span class="line"><span class="cl">   ┆ R: <span class="m">5</span>
+</span></span><span class="line"><span class="cl">   ┆ U: input
+</span></span><span class="line"><span class="cl">   ┆ E: <span class="nv">DEVPATH</span><span class="o">=</span>/devices/platform/i8042/serio1/input/input5
+</span></span><span class="line"><span class="cl">   ┆ E: <span class="nv">SUBSYSTEM</span><span class="o">=</span>input
+</span></span><span class="line"><span class="cl">   ┆ E: <span class="nv">PRODUCT</span><span class="o">=</span>11/2/a/63
+</span></span><span class="line"><span class="cl">   ┆ E: <span class="nv">NAME</span><span class="o">=</span><span class="s2">&#34;TPPS/2 Elan TrackPoint&#34;</span>
+</span></span><span class="line"><span class="cl">   ┆ E: <span class="nv">PHYS</span><span class="o">=</span><span class="s2">&#34;isa0060/serio1/input0&#34;</span>
+</span></span></code></pre>
+          </div>
+
+          <p>And the information of parent devices too.</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ udevadm info --attribute-walk -p /devices/platform/i8042/serio1/input/input5
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  looking at device <span class="s1">&#39;/devices/platform/i8042/serio1/input/input5&#39;</span>:
+</span></span><span class="line"><span class="cl">    <span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;input5&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;input&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">DRIVER</span><span class="o">==</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">    ATTR<span class="o">{</span>name<span class="o">}==</span><span class="s2">&#34;TPPS/2 Elan TrackPoint&#34;</span>
+</span></span><span class="line"><span class="cl">    ATTR<span class="o">{</span>phys<span class="o">}==</span><span class="s2">&#34;isa0060/serio1/input0&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  looking at parent device <span class="s1">&#39;/devices/platform/i8042/serio1&#39;</span>:
+</span></span><span class="line"><span class="cl">    <span class="nv">KERNELS</span><span class="o">==</span><span class="s2">&#34;serio1&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">SUBSYSTEMS</span><span class="o">==</span><span class="s2">&#34;serio&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">DRIVERS</span><span class="o">==</span><span class="s2">&#34;psmouse&#34;</span>
+</span></span><span class="line"><span class="cl">    ATTRS<span class="o">{</span>bind_mode<span class="o">}==</span><span class="s2">&#34;auto&#34;</span>
+</span></span><span class="line"><span class="cl">    ATTRS<span class="o">{</span>description<span class="o">}==</span><span class="s2">&#34;i8042 AUX port&#34;</span>
+</span></span><span class="line"><span class="cl">    ATTRS<span class="o">{</span>drvctl<span class="o">}==</span><span class="s2">&#34;(not readable)&#34;</span>
+</span></span><span class="line"><span class="cl">    ATTRS<span class="o">{</span>firmware_id<span class="o">}==</span><span class="s2">&#34;PNP: LEN0321 PNP0f13&#34;</span>
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">    ATTRS<span class="o">{</span>power/wakeup<span class="o">}==</span><span class="s2">&#34;disabled&#34;</span>
+</span></span></code></pre>
+          </div>
+
+          <p>I hit the wall here. <code>ATTRS{power/wakeup}==&quot;disabled&quot;</code> for the <code>i8042 AUX port</code> is already there but the TrackPoint still wakes up the system from suspend. I had to do bisecting for all remaining wakeup sources.</p>
+
+          <details class="spoiler" id="spoiler-2">
+            <summary>
+              The list of the remaining wakeup sources
+            </summary>
+
+            <p>
+            </p>
+
+            <div class="highlight">
+              <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ cat /proc/acpi/wakeup
+</span></span><span class="line"><span class="cl">Device        S-state   Status   Sysfs node
+</span></span><span class="line"><span class="cl">GPP0    S0    *disabled
+</span></span><span class="line"><span class="cl">GPP2    S3    *disabled
+</span></span><span class="line"><span class="cl">GPP5    S0    *enabled   pci:0000:00:02.1
+</span></span><span class="line"><span class="cl">GPP6    S4    *enabled   pci:0000:00:02.2
+</span></span><span class="line"><span class="cl">GP11    S4    *enabled   pci:0000:00:03.1
+</span></span><span class="line"><span class="cl">SWUS    S4    *disabled
+</span></span><span class="line"><span class="cl">GP12    S4    *enabled   pci:0000:00:04.1
+</span></span><span class="line"><span class="cl">SWUS    S4    *disabled
+</span></span><span class="line"><span class="cl">XHC0    S3    *enabled   pci:0000:c4:00.3
+</span></span><span class="line"><span class="cl">XHC1    S4    *enabled   pci:0000:c4:00.4
+</span></span><span class="line"><span class="cl">XHC2    S4    *disabled  pci:0000:c6:00.0
+</span></span><span class="line"><span class="cl">NHI0    S3    *enabled   pci:0000:c6:00.5
+</span></span><span class="line"><span class="cl">XHC3    S3    *enabled   pci:0000:c6:00.3
+</span></span><span class="line"><span class="cl">NHI1    S4    *enabled   pci:0000:c6:00.6
+</span></span><span class="line"><span class="cl">XHC4    S3    *enabled   pci:0000:c6:00.4
+</span></span><span class="line"><span class="cl">LID     S4    *enabled   platform:PNP0C0D:00
+</span></span><span class="line"><span class="cl">SLPB    S3    *enabled   platform:PNP0C0E:00
+</span></span></code></pre>
+            </div>
+
+            <div class="highlight">
+              <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> Wakeup sources:
+</span></span><span class="line"><span class="cl"> │  [/sys/devices/platform/USBC000:00/power_supply/ucsi-source-psy-USBC000:001/wakeup66]: enabled
+</span></span><span class="line"><span class="cl"> │  [/sys/devices/platform/USBC000:00/power_supply/ucsi-source-psy-USBC000:002/wakeup67]: enabled
+</span></span><span class="line"><span class="cl"> │ ACPI Battery [PNP0C0A:00]: enabled
+</span></span><span class="line"><span class="cl"> │ ACPI Lid Switch [PNP0C0D:00]: enabled
+</span></span><span class="line"><span class="cl"> │ ACPI Power Button [PNP0C0C:00]: enabled
+</span></span><span class="line"><span class="cl"> │ ACPI Sleep Button [PNP0C0E:00]: enabled
+</span></span><span class="line"><span class="cl"> │ AT Translated Set 2 keyboard [serio0]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] ISA bridge [0000:00:14.3]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] Multimedia controller [0000:c4:00.5]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] PCI bridge [0000:00:02.1]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] PCI bridge [0000:00:02.2]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] PCI bridge [0000:00:03.1]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] PCI bridge [0000:00:04.1]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:c4:00.3]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:c4:00.4]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:c6:00.3]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:c6:00.4]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:c6:00.5]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:c6:00.6]: enabled
+</span></span><span class="line"><span class="cl"> │ Mobile Broadband host interface [mhi0]: enabled
+</span></span><span class="line"><span class="cl"> │ Plug-n-play Real Time Clock [00:01]: enabled
+</span></span><span class="line"><span class="cl"> │ Real Time Clock alarm timer [rtc0]: enabled
+</span></span><span class="line"><span class="cl"> │ Thunderbolt domain [domain0]: enabled
+</span></span><span class="line"><span class="cl"> │ Thunderbolt domain [domain1]: enabled
+</span></span><span class="line"><span class="cl"> │ USB4 host controller [0-0]: enabled
+</span></span><span class="line"><span class="cl"> └─USB4 host controller [1-0]: enabled
+</span></span></code></pre>
+            </div>
+            <p></p>
+          </details>
+
+          <p>Somehow, disabling <code>SLPB</code> &ldquo;ACPI Sleep Button&rdquo; stopped undesired wakeups by the TrackPoint.</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">  looking at parent device <span class="s1">&#39;/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0E:00&#39;</span>:
+</span></span><span class="line"><span class="cl">    <span class="nv">KERNELS</span><span class="o">==</span><span class="s2">&#34;PNP0C0E:00&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">SUBSYSTEMS</span><span class="o">==</span><span class="s2">&#34;acpi&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">DRIVERS</span><span class="o">==</span><span class="s2">&#34;button&#34;</span>
+</span></span><span class="line"><span class="cl">    ATTRS<span class="o">{</span>hid<span class="o">}==</span><span class="s2">&#34;PNP0C0E&#34;</span>
+</span></span><span class="line"><span class="cl">    ATTRS<span class="o">{</span>path<span class="o">}==</span><span class="s2">&#34;\_SB_.SLPB&#34;</span>
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">    ATTRS<span class="o">{</span>power/wakeup<span class="o">}==</span><span class="s2">&#34;enabled&#34;</span>
+</span></span></code></pre>
+          </div>
+
+          <p>The final udev rule is the following. It also disables wakeup events from the keyboard as a side effect, but opening the lid or pressing the power button can still wake up the system so it works for me.</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;PNP0C0E:00&#34;</span>, <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;acpi&#34;</span>, <span class="nv">DRIVERS</span><span class="o">==</span><span class="s2">&#34;button&#34;</span>, ATTRS<span class="o">{</span>path<span class="o">}==</span><span class="s2">&#34;\_SB_.SLPB&#34;</span>, ATTR<span class="o">{</span>power/wakeup<span class="o">}=</span><span class="s2">&#34;disabled&#34;</span>
+</span></span></code></pre>
+          </div>
+
+          <h2 id="in-the-case-of-thinkpad-t14-gen-3-amd">In the case of ThinkPad T14 Gen 3 AMD</h2>
+
+          <p>After solving the headache of frequent wakeups for T14 Gen5 AMD. I was curious if I could apply the same to Gen 3 AMD retrospectively. Gen 3 has the following wakeup sources active out of the box.</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> Wakeup sources:
+</span></span><span class="line"><span class="cl"> │ ACPI Battery [PNP0C0A:00]: enabled
+</span></span><span class="line"><span class="cl"> │ ACPI Lid Switch [PNP0C0D:00]: enabled
+</span></span><span class="line"><span class="cl"> │ ACPI Power Button [LNXPWRBN:00]: enabled
+</span></span><span class="line"><span class="cl"> │ ACPI Power Button [PNP0C0C:00]: enabled
+</span></span><span class="line"><span class="cl"> │ ACPI Sleep Button [PNP0C0E:00]: enabled
+</span></span><span class="line"><span class="cl"> │ AT Translated Set 2 keyboard [serio0]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] ISA bridge [0000:00:14.3]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] PCI bridge [0000:00:02.1]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] PCI bridge [0000:00:02.2]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:04:00.3]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:04:00.4]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:05:00.0]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:05:00.3]: enabled
+</span></span><span class="line"><span class="cl"> │ Advanced Micro Devices, Inc. [AMD] USB controller [0000:05:00.4]: enabled
+</span></span><span class="line"><span class="cl"> │ ELAN0678:00 04F3:3195 Mouse [i2c-ELAN0678:00]: enabled
+</span></span><span class="line"><span class="cl"> │ Mobile Broadband host interface [mhi0]: enabled
+</span></span><span class="line"><span class="cl"> │ Plug-n-play Real Time Clock [00:01]: enabled
+</span></span><span class="line"><span class="cl"> └─Real Time Clock alarm timer [rtc0]: enabled
+</span></span></code></pre>
+          </div>
+
+          <p>Disabling the touchpad event was straightforward. The only difference from Gen 5 was the ID of the device.</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;i2c-ELAN0678:00&#34;</span>, <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;i2c&#34;</span>, <span class="nv">DRIVERS</span><span class="o">==</span><span class="s2">&#34;i2c_hid_acpi&#34;</span>, ATTR<span class="o">{</span>power/wakeup<span class="o">}=</span><span class="s2">&#34;disabled&#34;</span>
+</span></span></code></pre>
+          </div>
+
+          <p>When it comes to the TrackPoint or power source event, nothing was able to stop it from waking up the system even after disabling all wakeup sources. I came across a hidden gem named <code>amd_s2idle.py</code>. The <a href="https://gitlab.freedesktop.org/drm/amd/-/blob/master/scripts/amd_s2idle.py" target="_blank" rel="noopener">&ldquo;S0i3/s2idle analysis script for AMD systems&rdquo;</a> is full with the domain knowledge of s2idle like where to look in <code>/proc</code> or <code>/sys</code> or how to enable debug and what part of the logs is important.</p>
+
+          <p>By running the script, I got the following output around the unexpected wakeup.</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo python3 ./amd_s2idle.py --debug-ec --duration 30
+</span></span><span class="line"><span class="cl">Debugging script for s2idle on AMD systems
+</span></span><span class="line"><span class="cl">💻 LENOVO 21CF21CFT1 (ThinkPad T14 Gen 3) running BIOS 1.56 (R23ET80W (1.56 )) released 10/28/2024 and EC 1.32
+</span></span><span class="line"><span class="cl">🐧 Ubuntu 24.04.1 LTS
+</span></span><span class="line"><span class="cl">🐧 Kernel 6.11.0-12-generic
+</span></span><span class="line"><span class="cl">🔋 Battery BAT0 (Sunwoda ) is operating at 90.91% of design
+</span></span><span class="line"><span class="cl">Checking prerequisites for s2idle
+</span></span><span class="line"><span class="cl">✅ Logs are provided via systemd
+</span></span><span class="line"><span class="cl">✅ AMD Ryzen 7 PRO 6850U with Radeon Graphics (family 19 model 44)
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Suspending system in 0:00:02
+</span></span><span class="line"><span class="cl">Suspending system in 0:00:01
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Started at 2025-01-04 00:46:53.063495 (cycle finish expected @ 2025-01-04 00:47:27.063532)
+</span></span><span class="line"><span class="cl">Collecting data in 0:00:02
+</span></span><span class="line"><span class="cl">Collecting data in 0:00:01
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Results from last s2idle cycle
+</span></span><span class="line"><span class="cl">💤 Suspend count: 1
+</span></span><span class="line"><span class="cl">💤 Hardware sleep cycle count: 1
+</span></span><span class="line"><span class="cl">○ GPIOs active: [&#39;0&#39;]
+</span></span><span class="line"><span class="cl">🥱 Wakeup triggered from IRQ 9: ACPI SCI
+</span></span><span class="line"><span class="cl">🥱 Wakeup triggered from IRQ 7: GPIO Controller
+</span></span><span class="line"><span class="cl">🥱 Woke up from IRQ 7: GPIO Controller
+</span></span><span class="line"><span class="cl">❌ Userspace suspended for 0:00:14.031448 (&lt; minimum expected 0:00:27)
+</span></span><span class="line"><span class="cl">💤 In a hardware sleep state for 0:00:10.566894 (75.31%)
+</span></span><span class="line"><span class="cl">🔋 Battery BAT0 lost 10000 µWh (0.02%) [Average rate 2.57W]
+</span></span><span class="line"><span class="cl">Explanations for your system
+</span></span><span class="line"><span class="cl">🚦 Userspace wasn&#39;t asleep at least 0:00:30
+</span></span><span class="line"><span class="cl">        The system was programmed to sleep for 0:00:30, but woke up prematurely.
+</span></span><span class="line"><span class="cl">        This typically happens when the system was woken up from a non-timer based source.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        If you didn&#39;t intentionally wake it up, then there may be a kernel or firmware bug
+</span></span></code></pre>
+          </div>
+
+          <p>I compared all the logs generated between the events of power button, power source, TrackPoint, and touchpad. But except for the touchpad event, everything else was coming from GPIO pin #0 and there was no more information of how to distinguish those wakeup triggers. I ended up with a drastic approach of ignoring wakeup triggers from the GPIO pin #0 completely with the following kernel option.</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">gpiolib_acpi.ignore_wake<span class="o">=</span>AMDI0030:00@0
+</span></span></code></pre>
+          </div>
+
+          <p>And I get the line on each boot.</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kernel: amd_gpio AMDI0030:00: Ignoring wakeup on pin <span class="m">0</span>
+</span></span></code></pre>
+          </div>
+
+          <p>That comes with obvious downsides. The system doesn&rsquo;t wake up frequently any longer, that is good. However, nothing can wake it up after getting into suspend. Opening the lid, pressing the power button or any key is simply ignored since all are going to GPIO pin #0. In the end, I had to enable the touchpad back as a wakeup source explicitly so the system can wakeup by tapping the touchpad. It&rsquo;s far from ideal, but the touchpad is less sensitive than the TrackPoint so I will keep it that way.</p>
+
+          <div class="highlight">
+            <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;i2c-ELAN0678:00&#34;</span>, <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;i2c&#34;</span>, <span class="nv">DRIVERS</span><span class="o">==</span><span class="s2">&#34;i2c_hid_acpi&#34;</span>, ATTR<span class="o">{</span>power/wakeup<span class="o">}=</span><span class="s2">&#34;enabled&#34;</span>
+</span></span></code></pre>
+          </div>
+
+          <p>I guess the limitation is coming from a firmware more or less, but at the same time I don&rsquo;t expect fixes for the few year old model.</p>
+
+          <h2 id="references">References</h2>
+
+          <ul>
+            <li>
+              <a href="https://gitlab.freedesktop.org/drm/amd/-/blob/master/scripts/amd_s2idle.py" target="_blank" rel="noopener">scripts/amd_s2idle.py · master · drm / amd · GitLab</a>
+            </li>
+
+            <li>
+              <a href="https://gitlab.freedesktop.org/drm/amd/-/issues/2405" target="_blank" rel="noopener">Cannot disable wakeup sources on Yellow Carp / Rembrandt 6850U w/ kernels 6.0 and 6.1 (#2405) · Issues · drm / amd · GitLab</a>
+            </li>
+
+            <li>
+              <a href="https://github.com/torvalds/linux/blob/v6.11/drivers/gpio/gpiolib-acpi.c#L31-L41" target="_blank" rel="noopener">linux/drivers/gpio/gpiolib-acpi.c at v6.11 · torvalds/linux</a>
+            </li>
+
+            <li>
+              <a href="https://wiki.archlinux.org/title/Lenovo_ThinkPad_T14_%28AMD%29_Gen_3" target="_blank" rel="noopener">Lenovo ThinkPad T14 (AMD) Gen 3 - ArchWiki</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="article-tags">
+          <a class="badge badge-light" href="/tag/planet-ubuntu/">Planet-Ubuntu</a> <a class="badge badge-light" href="/tag/thinkpad-t14-gen-5-amd/">ThinkPad T14 Gen 5 AMD</a> <a class="badge badge-light" href="/tag/thinkpad-t14-gen-3-amd/">ThinkPad T14 Gen 3 AMD</a>
+        </div>
+
+        <div class="share-box">
+          <ul class="share">
+            <li>
+              <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2025%2Fhow-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend%2F&amp;text=How&#43;to&#43;prevent&#43;TrackPoint&#43;or&#43;touchpad&#43;events&#43;from&#43;waking&#43;up&#43;ThinkPad&#43;T14&#43;Gen&#43;5&#43;AMD&#43;from&#43;suspend" target="_blank" rel="noopener" class="share-btn-x" aria-label="x-twitter"><i class="fab fa-x-twitter"></i></a>
+            </li>
+
+            <li>
+              <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2025%2Fhow-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend%2F&amp;t=How&#43;to&#43;prevent&#43;TrackPoint&#43;or&#43;touchpad&#43;events&#43;from&#43;waking&#43;up&#43;ThinkPad&#43;T14&#43;Gen&#43;5&#43;AMD&#43;from&#43;suspend" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook"><i class="fab fa-facebook"></i></a>
+            </li>
+
+            <li>
+              <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2025%2Fhow-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend%2F&amp;title=How&#43;to&#43;prevent&#43;TrackPoint&#43;or&#43;touchpad&#43;events&#43;from&#43;waking&#43;up&#43;ThinkPad&#43;T14&#43;Gen&#43;5&#43;AMD&#43;from&#43;suspend" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in"><i class="fab fa-linkedin-in"></i></a>
+            </li>
+
+            <li>
+              <a href="https://github.com/nobuto-m/nobuto-m.github.io/issues/new?body=%0A%0A---%0AReported&#43;from:%0Ahttps%3A%2F%2Fnobuto-m.github.io%2Fpost%2F2025%2Fhow-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend%2F" target="_blank" rel="noopener" class="share-btn-feedback" aria-label="exclamation-circle"><i class="fas fa-exclamation-circle"></i></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="media author-card content-widget-hr">
+          <a href="https://nobuto-m.github.io/"><img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_hu78a952caf143c499a0d44484a3185536_20286_270x270_fill_q75_lanczos_center.jpg" alt="Nobuto Murata"></a>
+          <div class="media-body">
+            <h5 class="card-title"><a href="https://nobuto-m.github.io/">Nobuto Murata</a>
+            </h5>
+
+            <ul class="network-icon" aria-hidden="true">
+              <li>
+                <a href="https://twitter.com/nobuto_m" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
+              </li>
+
+              <li>
+                <a href="https://github.com/nobuto-m" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+              </li>
+
+              <li>
+                <a href="https://nobuto-murata.org/" target="_blank" rel="noopener"><i class="fas fa-globe"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="article-widget content-widget-hr">
+          <h3>Related</h3>
+
+          <ul>
+            <li>
+              <a href="/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/">No, you can&#39;t downgrade T14 Gen 3 AMD&#39;s UEFI BIOS even when Secure Rollback Prevention is turned off</a>
+            </li>
+
+            <li>
+              <a href="/post/2023/ubuntu-server-autoinstall-with-a-physical-machine/">Ubuntu Server autoinstall with a physical machine</a>
+            </li>
+
+            <li>
+              <a href="/post/2020/shortcut-key-to-mute-unmute-yourself-in-zoom-or-google-meet/">Shortcut key to mute/unmute yourself in Zoom, Google Meet, or Teams</a>
+            </li>
+
+            <li>
+              <a href="/post/2018/minimal-dynamic-dns-configuration-for-no-ip.com-with-ddclient/">Minimal Dynamic DNS configuration for No-IP.com with ddclient</a>
+            </li>
+
+            <li>
+              <a href="/post/2017/knowing-what-services-need-restart-with-needrestart/">Knowing what services need restart with “needrestart”</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="page-footer">
+    <div class="container">
+      <footer class="site-footer">
+        <p class="powered-by copyright-license-text">© 2017-2025 Nobuto Murata</p>
+
+        <p class="powered-by">Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.</p>
+      </footer>
+    </div>
+  </div>
+  <script src="/js/vendor-bundle.min.391d344a129df56f7ad674c2c2ed04e8.js"></script> 
+  <script id="search-hit-fuse-template" type="text/x-template">
+
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script> 
+  <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script> 
+  <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script> 
+  <script id="page-data" type="application/json">
+  {"use_headroom":true}
+  </script> 
+  <script src="/js/wowchemy-headroom.db4755770454eb63685f8de785c0a172.js" type="module"></script> 
+  <script src="/en/js/wowchemy.min.7f5ebaff62ae468cff8bb3dd1337bb9b.js"></script>
+</body>
+</html>

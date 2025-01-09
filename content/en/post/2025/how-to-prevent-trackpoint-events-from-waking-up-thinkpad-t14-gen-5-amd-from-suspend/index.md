@@ -20,7 +20,7 @@ date: 2025-01-09T23:50:38+09:00
 lastmod: 2025-01-09T23:50:38+09:00
 
 featured: false
-draft: true
+draft: false
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.

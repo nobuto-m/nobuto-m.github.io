@@ -1,0 +1,38 @@
+[95mDebugging script for s2idle on AMD systems[0m
+💻 [94mLENOVO 21CF21CFT1 (ThinkPad T14 Gen 3) running BIOS 1.56 (R23ET80W (1.56 )) released 10/28/2024 and EC 1.32[0m
+🐧 [94mUbuntu 24.04.1 LTS[0m
+🐧 [94mKernel 6.11.0-12-generic[0m
+🔋 [94mBattery BAT0 (Sunwoda ) is operating at 90.91% of design[0m
+[95mChecking prerequisites for s2idle[0m
+✅ [94mLogs are provided via systemd[0m
+✅ [94mAMD Ryzen 7 PRO 6850U with Radeon Graphics (family 19 model 44)[0m
+✅ [94mASPM policy set to 'default'[0m
+✅ [94mSMT enabled[0m
+✅ [94mLPS0 _DSM enabled[0m
+✅ [94mACPI FADT supports Low-power S0 idle[0m
+✅ [94mHSMP driver `amd_hsmp` not detected (blocked: False)[0m
+✅ [94mPMC driver `amd_pmc` loaded (Program 4 Firmware 69.63.0)[0m
+✅ [94mGPU driver `amdgpu` bound to 0000:04:00.0[0m
+✅ [94mSystem is configured for s2idle[0m
+✅ [94mNVME SK hynix Gold P31/BC711/PC711 NVMe Solid State Drive is configured for s2idle in BIOS[0m
+✅ [94mGPIO driver `pinctrl_amd` available[0m
+[32mPlatform may have low hardware sleep residency with Wake-on-lan disabled. Run `ethtool -s enp1s0f0 wol g` to enable it if necessary.[0m
+✅ [94mWCN6855 WLAN (fw build id WLAN.HSP.1.1-03125-QCAHSPSWPL_V1_V2_SILICONZ_LITE-3.6510.37)[0m
+Suspending system in 0:00:02Suspending system in 0:00:01                            [95mStarted at 2025-01-04 00:46:53.063495 (cycle finish expected @ 2025-01-04 00:47:27.063532)[0m
+Collecting data in 0:00:02Collecting data in 0:00:01                          [95mResults from last s2idle cycle[0m
+💤 [94mSuspend count: 1[0m
+💤 [94mHardware sleep cycle count: 1[0m
+○ [94mGPIOs active: ['0'][0m
+🥱 [94mWakeup triggered from IRQ 9: ACPI SCI[0m
+🥱 [94mWakeup triggered from IRQ 7: GPIO Controller[0m
+🥱 [94mWoke up from IRQ 7: GPIO Controller[0m
+❌ [91mUserspace suspended for 0:00:14.031448 (< minimum expected 0:00:27)[0m
+💤 [94mIn a hardware sleep state for 0:00:10.566894 (75.31%)[0m
+🔋 [94mBattery BAT0 lost 10000 µWh (0.02%) [Average rate 2.57W][0m
+[95mExplanations for your system[0m
+🚦 [32mUserspace wasn't asleep at least 0:00:30[0m
+	The system was programmed to sleep for 0:00:30, but woke up prematurely.
+	This typically happens when the system was woken up from a non-timer based source.
+
+	If you didn't intentionally wake it up, then there may be a kernel or firmware bug
+

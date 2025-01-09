@@ -33,7 +33,7 @@
   <meta property="og:description" content="">
   <meta property="og:image" content="https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png">
   <meta property="og:locale" content="en-US">
-  <meta property="og:updated_time" content="2024-05-03T12:20:51&#43;09:00">
+  <meta property="og:updated_time" content="2025-01-09T23:50:38&#43;09:00">
   <link rel="alternate" href="/tag/thinkpad-t14-gen-3-amd/index.xml" type="application/rss+xml" title="Nobuto Murata">
   <title>ThinkPad T14 Gen 3 AMD | Nobuto Murata</title>
 </head>
@@ -111,6 +111,27 @@
     </div>
 
     <div class="universal-wrapper">
+      <div class="media stream-item view-compact">
+        <div class="media-body">
+          <div class="section-subheading article-title mb-0 mt-0">
+            <a href="/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/">How to prevent TrackPoint or touchpad events from waking up ThinkPad T14 Gen 5 AMD from suspend</a>
+          </div>
+          <a href="/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/" class="summary-link">
+          <div class="article-style">
+            TL;DR Try the following lines in your custom udev rules, e.g. /etc/udev/rules.d/99-local-disable-wakeup-events.rules KERNEL==&#34;i2c-ELAN0676:00&#34;, SUBSYSTEM==&#34;i2c&#34;, DRIVERS==&#34;i2c_hid_acpi&#34;, ATTR{power/wakeup}=&#34;disabled&#34; KERNEL==&#34;PNP0C0E:00&#34;, SUBSYSTEM==&#34;acpi&#34;, DRIVERS==&#34;button&#34;, ATTRS{path}==&#34;\_SB_.SLPB&#34;, ATTR{power/wakeup}=&#34;disabled&#34; Table of Contents TL;DR The motivation Disabling touchpad as a wakeup source on T14 Gen 5 AMD Disabling TrackPoint as a wakeup source on T14 Gen 5 AMD In the case of ThinkPad T14 Gen 3 AMD References The motivation Whenever something touches the red cap, the system wakes up from suspend/s2idle.
+          </div></a>
+          <div class="stream-meta article-metadata">
+            <div class="article-metadata">
+              <span class="article-date">Jan 9, 2025</span> <span class="middot-divider"></span> <span class="article-categories"><i class="fas fa-folder mr-1"></i><a href="/category/ubuntu/">Ubuntu</a></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ml-3">
+          <a href="/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/"><img src="/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/featured_hu236477c92f30afd096faecc971ed105b_216203_5896eed7b46cc11e546e0e0f11fb904a.webp" height="84" width="150" alt="How to prevent TrackPoint or touchpad events from waking up ThinkPad T14 Gen 5 AMD from suspend" loading="lazy"></a>
+        </div>
+      </div>
+
       <div class="media stream-item view-compact">
         <div class="media-body">
           <div class="section-subheading article-title mb-0 mt-0">
