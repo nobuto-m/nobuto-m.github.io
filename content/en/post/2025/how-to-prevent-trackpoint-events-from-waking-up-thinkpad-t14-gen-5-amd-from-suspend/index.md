@@ -44,7 +44,7 @@ KERNEL=="PNP0C0E:00", SUBSYSTEM=="acpi", DRIVERS=="button", ATTRS{path}=="\_SB_.
 
 {{< figure src="featured.jpg" caption="Whenever something touched this red cap, the system woke up from suspend." >}}
 
-I've used ThinkPad T14 Gen 3 AMD for 2 years, and I recently purchased T14 **Gen 5** AMD. The previous system as Gen 3 annoyed me so much because the laptop randomly woke up from suspend even inside a backpack on its own, heated up the confined air in it, and drained the battery pretty fast as a consequense. Basically Gen 3 was too sensitive to any events. Whenever a USB Type-C cable is plugged in as a power source or whenever something touches the TrackPoint **even if a display on a closed lid slightly makes contact with the red cap, the system wakes up from suspend**. It was uncontrollable.
+I've used ThinkPad T14 Gen 3 AMD for 2 years, and I recently purchased T14 **Gen 5** AMD. The previous system as Gen 3 annoyed me so much because the laptop randomly woke up from suspend even inside a backpack on its own, heated up the confined air in it, and drained the battery pretty fast as a consequence. Basically Gen 3 was too sensitive to any events. Whenever a USB Type-C cable is plugged in as a power source or whenever something touches the TrackPoint **even if a display on a closed lid slightly makes contact with the red cap, the system wakes up from suspend**. It was uncontrollable.
 
 I was hoping that Gen 5 would make a difference and it did when it comes to the power source event. However, frequent wakeup due to the TrackPoint event remained the same so I started to dig in.
 
@@ -218,7 +218,7 @@ And somehow, disabling `SLPB` "ACPI Sleep Button" stopped undesired wakeups by T
     ATTRS{power/wakeup}=="enabled"
 ```
 
-The final udev rule is the following. It also disables wakeup events from the keyboard as a side effect, but the lid open event or pressing the power botton can still wake up the system so it works for me.
+The final udev rule is the following. It also disables wakeup events from the keyboard as a side effect, but the lid open event or pressing the power button can still wake up the system so it works for me.
 
 ```shell
 KERNEL=="PNP0C0E:00", SUBSYSTEM=="acpi", DRIVERS=="button", ATTRS{path}=="\_SB_.SLPB", ATTR{power/wakeup}="disabled"
@@ -297,7 +297,7 @@ Explanations for your system
         If you didn't intentionally wake it up, then there may be a kernel or firmware bug
 ```
 
-I compared all logs between the power button, power source, TrackPoint, and touchpad event. But except for the touchpad event, everything else was coming from GPIO Pin #0 and there was no information to distinguish those wakeup triggers. And I ended up with a drastic approch of ignoring wakeup triggers from the GPIO Pin #0 completely with the following kernel option.
+I compared all logs between the power button, power source, TrackPoint, and touchpad event. But except for the touchpad event, everything else was coming from GPIO pin #0 and there was no information to distinguish those wakeup triggers. And I ended up with a drastic approach of ignoring wakeup triggers from the GPIO pin #0 completely with the following kernel option.
 
 ```shell
 gpiolib_acpi.ignore_wake=AMDI0030:00@0
@@ -307,7 +307,7 @@ gpiolib_acpi.ignore_wake=AMDI0030:00@0
 kernel: amd_gpio AMDI0030:00: Ignoring wakeup on pin 0
 ```
 
-That comes with obvious downsides. The system doesn't wake up frequently any longer. However, nothing can wake up after getting into suspend mode. Opening the lid, pressing the power button or any key is simply ignored since all are going to GPIO Pin #0. In the end, I had to enable the touchpad back as a wakeup source explicitly so the system can wakeup by tapping the touchpad. It's far from ideal, but the touchpad is far less sensible than the TrackPoint so I will keep it as is.
+That comes with obvious downsides. The system doesn't wake up frequently any longer. However, nothing can wake up after getting into suspend mode. Opening the lid, pressing the power button or any key is simply ignored since all are going to GPIO pin #0. In the end, I had to enable the touchpad back as a wakeup source explicitly so the system can wakeup by tapping the touchpad. It's far from ideal, but the touchpad is far less sensible than the TrackPoint so I will keep it as is.
 
 ```shell
 KERNEL=="i2c-ELAN0678:00", SUBSYSTEM=="i2c", DRIVERS=="i2c_hid_acpi", ATTR{power/wakeup}="enabled"
