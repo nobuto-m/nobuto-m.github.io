@@ -282,8 +282,10 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://gitlab.freedesktop.org/drm/amd/-/blob/master/scripts/amd_s2idle.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;scripts/amd_s2idle.py · master · drm / amd · GitLab&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://gitlab.freedesktop.org/drm/amd/-/issues/2405&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cannot disable wakeup sources on Yellow Carp / Rembrandt 6850U w/ kernels 6.0 and 6.1 (#2405) · Issues · drm / amd · GitLab&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/torvalds/linux/blob/v6.11/drivers/gpio/gpiolib-acpi.c#L31-L41&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;linux/drivers/gpio/gpiolib-acpi.c at v6.11 · torvalds/linux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/torvalds/linux/blob/v6.11/drivers/gpio/gpiolib-acpi.c#L31-L41&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ignore_wake, ignore_interrupt linux/drivers/gpio/gpiolib-acpi.c at v6.11 · torvalds/linux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/torvalds/linux/blob/v6.11/drivers/gpio/gpiolib-acpi.c#L1518-L1700&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gpiolib_acpi_quirks linux/drivers/gpio/gpiolib-acpi.c at v6.11 · torvalds/linux&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://wiki.archlinux.org/title/Lenovo_ThinkPad_T14_%28AMD%29_Gen_3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lenovo ThinkPad T14 (AMD) Gen 3 - ArchWiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/systemd/systemd/issues/27077&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Introduce concept of suspend/resume with dark screen on wakeup · Issue #27077 · systemd/systemd&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

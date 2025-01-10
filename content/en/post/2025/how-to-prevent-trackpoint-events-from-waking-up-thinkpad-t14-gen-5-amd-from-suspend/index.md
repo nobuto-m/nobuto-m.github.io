@@ -322,5 +322,7 @@ I guess the limitation is coming from a firmware more or less, but at the same t
 
 - [scripts/amd_s2idle.py · master · drm / amd · GitLab](https://gitlab.freedesktop.org/drm/amd/-/blob/master/scripts/amd_s2idle.py)
 - [Cannot disable wakeup sources on Yellow Carp / Rembrandt 6850U w/ kernels 6.0 and 6.1 (#2405) · Issues · drm / amd · GitLab](https://gitlab.freedesktop.org/drm/amd/-/issues/2405)
-- [linux/drivers/gpio/gpiolib-acpi.c at v6.11 · torvalds/linux](https://github.com/torvalds/linux/blob/v6.11/drivers/gpio/gpiolib-acpi.c#L31-L41)
+- [ignore_wake, ignore_interrupt linux/drivers/gpio/gpiolib-acpi.c at v6.11 · torvalds/linux](https://github.com/torvalds/linux/blob/v6.11/drivers/gpio/gpiolib-acpi.c#L31-L41)
+- [gpiolib_acpi_quirks linux/drivers/gpio/gpiolib-acpi.c at v6.11 · torvalds/linux](https://github.com/torvalds/linux/blob/v6.11/drivers/gpio/gpiolib-acpi.c#L1518-L1700)
 - [Lenovo ThinkPad T14 (AMD) Gen 3 - ArchWiki](https://wiki.archlinux.org/title/Lenovo_ThinkPad_T14_(AMD)_Gen_3)
+- [Introduce concept of suspend/resume with dark screen on wakeup · Issue #27077 · systemd/systemd](https://github.com/systemd/systemd/issues/27077)
