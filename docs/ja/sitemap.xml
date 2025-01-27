@@ -2,6 +2,56 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://nobuto-m.github.io/ja/post/2025/zenketsu/</loc>
+    <lastmod>2025-01-27T18:12:33+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://nobuto-m.github.io/ja/post/2025/</loc>
+    <lastmod>2025-01-27T18:12:33+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://nobuto-m.github.io/post/2025/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/post/2025/"
+                />
+  </url><url>
+    <loc>https://nobuto-m.github.io/ja/</loc>
+    <lastmod>2025-01-27T18:12:33+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://nobuto-m.github.io/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/"
+                />
+  </url><url>
+    <loc>https://nobuto-m.github.io/ja/year/</loc>
+    <lastmod>2025-01-27T18:12:33+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://nobuto-m.github.io/ja/post/</loc>
+    <lastmod>2025-01-27T18:12:33+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://nobuto-m.github.io/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/post/"
+                />
+  </url><url>
     <loc>https://nobuto-m.github.io/ja/post/2024/</loc>
     <lastmod>2024-05-02T12:45:39+09:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -16,20 +66,6 @@
                 href="https://nobuto-m.github.io/ja/post/2024/"
                 />
   </url><url>
-    <loc>https://nobuto-m.github.io/ja/</loc>
-    <lastmod>2024-12-26T23:37:52+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://nobuto-m.github.io/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://nobuto-m.github.io/ja/"
-                />
-  </url><url>
     <loc>https://nobuto-m.github.io/ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/</loc>
     <lastmod>2024-05-02T12:45:39+09:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -42,24 +78,6 @@
                 rel="alternate"
                 hreflang="ja"
                 href="https://nobuto-m.github.io/ja/post/2024/no-you-can-t-downgrade-t14-gen-3-amd-s-uefi-bios-even-when-secure-rollback-prevention-is-turned-off/"
-                />
-  </url><url>
-    <loc>https://nobuto-m.github.io/ja/year/</loc>
-    <lastmod>2024-12-26T23:37:52+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://nobuto-m.github.io/ja/post/</loc>
-    <lastmod>2024-12-26T23:37:52+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://nobuto-m.github.io/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://nobuto-m.github.io/ja/post/"
                 />
   </url><url>
     <loc>https://nobuto-m.github.io/ja/post/2024/migration-from-slideshare-to-speakerdeck/</loc>

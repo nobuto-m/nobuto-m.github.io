@@ -5,12 +5,26 @@
     <link>https://nobuto-m.github.io/ja/post/</link>
       <atom:link href="https://nobuto-m.github.io/ja/post/index.xml" rel="self" type="application/rss+xml" />
     <description>投稿</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Thu, 02 May 2024 12:45:39 +0900</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Mon, 27 Jan 2025 18:12:33 +0200</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>投稿</title>
       <link>https://nobuto-m.github.io/ja/post/</link>
     </image>
+    
+    <item>
+      <title>『全領域異常解決室』を見た</title>
+      <link>https://nobuto-m.github.io/ja/post/2025/zenketsu/</link>
+      <pubDate>Mon, 27 Jan 2025 18:12:33 +0200</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2025/zenketsu/</guid>
+      <description>&lt;p&gt;2024年10-12月期のドラマで話題になってたのは知ってたけど、幸い何もストーリーを知らず、ネタバレにも接しなかったのがよかった。飛行機の中で一気に見てなかったらおそらく3話で脱落していた。騙されたと思って1.25倍速ぐらいでもいいから見進めてほしい。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.netflix.com/jp/title/81932411&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;全領域異常解決室 | Netflix&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;警察官の雨野小夢はある日突然、内閣官房直轄の機関・全領域異常解決室、通称&amp;quot;全決&amp;quot;への出向を命じられる。本部を訪れた小夢は、室長代理の興玉雅から捜査中の神隠し事件について説明を受ける。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;この数行以外あらすじを読まないのがおすすめ。冒頭で出てくる謎の女はSPECのサトリっぽさがあるし、なんかオカルトについて触れてるけど結局はよくある刑事モノっぽいし、なにがそんなに人気なのかしらと思うぐらい脱落ポイントがある。起承転結を10話でここまで高いレベルでまとめたドラマはそうそうないのでは。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>T14 Gen 3 AMDではSecure Rollback Preventionを無効化してもUEFI BIOSはダウングレードできない</title>
