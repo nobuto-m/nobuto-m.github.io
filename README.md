@@ -1,1 +1,1 @@
-[![pages-build-deployment](https://github.com/nobuto-m/nobuto-m.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/nobuto-m/nobuto-m.github.io/actions/workflows/pages/pages-build-deployment)
+[![Deploy static content to Pages](https://github.com/nobuto-m/nobuto-m.github.io/actions/workflows/static.yml/badge.svg)](https://github.com/nobuto-m/nobuto-m.github.io/actions/workflows/static.yml)
