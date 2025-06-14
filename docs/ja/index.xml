@@ -5,12 +5,100 @@
     <link>https://nobuto-m.github.io/ja/</link>
       <atom:link href="https://nobuto-m.github.io/ja/index.xml" rel="self" type="application/rss+xml" />
     <description>Nobuto Murata</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Mon, 27 Jan 2025 18:12:33 +0200</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Sat, 14 Jun 2025 21:37:52 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>Nobuto Murata</title>
       <link>https://nobuto-m.github.io/ja/</link>
     </image>
+    
+    <item>
+      <title>Ubuntu上でeLTAX発行の住民税特別徴収税額通知書ZIPファイルを解凍する</title>
+      <link>https://nobuto-m.github.io/ja/post/2025/extract-eltax-aes-256-zip-on-ubuntu/</link>
+      <pubDate>Sat, 14 Jun 2025 21:37:52 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2025/extract-eltax-aes-256-zip-on-ubuntu/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;結論: ダブルクリックするだけ&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;なのだけど、こういった作業は年に一回しか発生しなくて、今回もエラーメッセージで検索するはめになったのでメモ。&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-勤め先から送られてくるパスワード確認方法のご案内&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;勤め先から送られてくるパスワード確認方法のご案内&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2025/extract-eltax-aes-256-zip-on-ubuntu/featured.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      勤め先から送られてくるパスワード確認方法のご案内
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;住民税決定通知書がいつからか電子化されていて（2024年から？）、&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;パスワード確認方法の通知書を受け取る&lt;/li&gt;
+&lt;li&gt;そこに記載されているeLTAX特徴税通パスワード確認サイトURLにアクセス（&lt;code&gt;https://www.psw.eltax.lta.go.jp/tzspwd.&amp;lt;TOKEN&amp;gt;&lt;/code&gt;の形式）&lt;/li&gt;
+&lt;li&gt;パスワードを表示させる&lt;/li&gt;
+&lt;li&gt;そのパスワードを使って別途送られたZIPファイルを解凍&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;というPPAP方式の進化版みたいな感じ。&lt;/p&gt;
+&lt;p&gt;説明サイトにも書かれているように、このZIPファイルがOS標準では開けない場合がある。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.kakunin.eltax.lta.go.jp/first&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.kakunin.eltax.lta.go.jp/first&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本通知書には機微な情報が含まれているため、情報セキュリティの観点から暗号化方式にはAES-256を採用しております。
+ZIP解凍ソフトはAES-256に対応している必要があります。
+動作確認済のソフトウェアはマニュアルをご確認ください。&lt;/p&gt;
+&lt;p&gt;※Windows標準のエクスプローラーでは解凍できません。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ubuntu上でも例えば&lt;code&gt;unzip&lt;/code&gt;では対応していないので開けない。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ file &lt;span class=&#34;s1&#34;&gt;&amp;#39;[...]特徴税額通知(通知書)[...].zip&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;...&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;特徴税額通知&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;通知書&lt;span class=&#34;o&#34;&gt;)[&lt;/span&gt;...&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;.zip: Zip archive data,
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;at least v5.1 to extract, compression &lt;span class=&#34;nv&#34;&gt;method&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;AES Encrypted
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ unzip &lt;span class=&#34;s1&#34;&gt;&amp;#39;[...]特徴税額通知(通知書)[...].zip&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Archive:  &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;...&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;特徴税額通知&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;通知書&lt;span class=&#34;o&#34;&gt;)[&lt;/span&gt;...&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;.zip
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   skipping: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;...&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;特徴税額通知&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;通知書&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;.pdf  need PK compat. v5.1 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;can &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt; v4.6&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;標準インストールでは入っていない&lt;code&gt;7zip&lt;/code&gt;パッケージ内の&lt;code&gt;7z&lt;/code&gt;とか、&lt;code&gt;libarchive-tools&lt;/code&gt;パッケージ内の&lt;code&gt;bsdtar&lt;/code&gt;/&lt;code&gt;bsdunzip&lt;/code&gt;とかであれば問題ない。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ 7z e &lt;span class=&#34;s1&#34;&gt;&amp;#39;[...]特徴税額通知[...].zip&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;7-Zip 24.08 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;x64&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; : Copyright &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;c&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; 1999-2024 Igor Pavlov : 2024-08-11
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 64-bit &lt;span class=&#34;nv&#34;&gt;locale&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;en_US.UTF-8 Threads:16 OPEN_MAX:1024
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Scanning the drive &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; archives:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; file, &lt;span class=&#34;m&#34;&gt;292259&lt;/span&gt; bytes &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;286&lt;/span&gt; KiB&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Extracting archive: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;...&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;特徴税額通知&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;通知書&lt;span class=&#34;o&#34;&gt;)[&lt;/span&gt;...&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;.zip
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;--
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;Path&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;...&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;特徴税額通知&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;通知書&lt;span class=&#34;o&#34;&gt;)[&lt;/span&gt;...&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;.zip
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;Type&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; zip
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Physical &lt;span class=&#34;nv&#34;&gt;Size&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;292259&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Enter password &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;will not be echoed&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Everything is Ok
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Size:       &lt;span class=&#34;m&#34;&gt;295082&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Compressed: &lt;span class=&#34;m&#34;&gt;292259&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ bsdunzip &lt;span class=&#34;s1&#34;&gt;&amp;#39;[...]特徴税額通知(通知書)[...].zip&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Archive:  &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;...&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;特徴税額通知&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;通知書&lt;span class=&#34;o&#34;&gt;)[&lt;/span&gt;...&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;.zip
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; extracting: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;...&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;特徴税額通知&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;通知書&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;.pdf &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Enter password: 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;とここまで書いて、いや&lt;code&gt;libarchive&lt;/code&gt;は標準でインストールされていてデフォルトのNautilusファイルマネージャで使われているはずでは、とZIPファイルをダブルクリックしたら問題なく解凍できた。いったいなぜこんな遠回りを。ファイル名の文字コードはUTF-8と明記されているので、文字コードが指定できなくて文字化けする心配もない。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>『全領域異常解決室』を見た</title>
