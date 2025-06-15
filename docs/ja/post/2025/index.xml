@@ -96,7 +96,7 @@ ZIP解凍ソフトはAES-256に対応している必要があります。
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Archive:  &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;...&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;特徴税額通知&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;通知書&lt;span class=&#34;o&#34;&gt;)[&lt;/span&gt;...&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;.zip
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; extracting: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;...&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;特徴税額通知&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;通知書&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;.pdf &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Enter password: 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;とここまで書いて、いや&lt;code&gt;libarchive&lt;/code&gt;は標準でインストールされていてデフォルトのNautilusファイルマネージャで使われているはずでは、とZIPファイルをダブルクリックしたら問題なく解凍できた。いったいなぜこんな遠回りを。ファイル名の文字コードはUTF-8と明記されているので、文字コードが指定できなくて文字化けする心配もない。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;とここまで書いて、いや&lt;code&gt;libarchive&lt;/code&gt;は標準でインストールされていてデフォルトのNautilusファイルマネージャで使われているはずでは、とZIPファイルをダブルクリックしたら問題なく解凍できた。いったいなぜ私はこんな遠回りを。ファイル名の文字コードはUTF-8と明記されているので、文字コードが指定できなくて文字化けする心配もない。&lt;/p&gt;
 </description>
     </item>
     
