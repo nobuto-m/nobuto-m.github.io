@@ -5,12 +5,181 @@
     <link>https://nobuto-m.github.io/ja/post/</link>
       <atom:link href="https://nobuto-m.github.io/ja/post/index.xml" rel="self" type="application/rss+xml" />
     <description>投稿</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Sun, 15 Jun 2025 16:26:36 +0900</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Sun, 15 Jun 2025 23:36:47 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>投稿</title>
       <link>https://nobuto-m.github.io/ja/post/</link>
     </image>
+    
+    <item>
+      <title>128GiBメモリにアップグレードしたのにOSから3.3GiBしか認識されなくて肝が冷えた話</title>
+      <link>https://nobuto-m.github.io/ja/post/2025/a-chilling-moment-when-the-os-only-recognizes-3gib-of-memory-out-of-128gib/</link>
+      <pubDate>Sun, 15 Jun 2025 23:36:47 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2025/a-chilling-moment-when-the-os-only-recognizes-3gib-of-memory-out-of-128gib/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;結論: BIOSのアップデートで解決した&lt;/strong&gt;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-biosでは最初から合計128gib4x-32gibが認識されていたのに&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;BIOSでは最初から合計128GiB(4x 32GiB)が認識されていたのに&#34; srcset=&#34;
+               /ja/post/2025/a-chilling-moment-when-the-os-only-recognizes-3gib-of-memory-out-of-128gib/featured_hu861a9b9cd56274f407e3093f7aa9ffe8_235985_53ac165ef0487c8fcf2c7ad90dc02326.webp 400w,
+               /ja/post/2025/a-chilling-moment-when-the-os-only-recognizes-3gib-of-memory-out-of-128gib/featured_hu861a9b9cd56274f407e3093f7aa9ffe8_235985_dba9bc16871e02a961d0dcf697983b06.webp 760w,
+               /ja/post/2025/a-chilling-moment-when-the-os-only-recognizes-3gib-of-memory-out-of-128gib/featured_hu861a9b9cd56274f407e3093f7aa9ffe8_235985_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2025/a-chilling-moment-when-the-os-only-recognizes-3gib-of-memory-out-of-128gib/featured_hu861a9b9cd56274f407e3093f7aa9ffe8_235985_53ac165ef0487c8fcf2c7ad90dc02326.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;428&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      BIOSでは最初から合計128GiB(4x 32GiB)が認識されていたのに
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;昨今のノートPCは、8コア/16スレッドのCPUと32GiBのメモリであれば標準から少しアップグレードするだけでそこまで無理しなくても手に入る。対して自分が2018年から使っている検証用据え置きPCは8コア/16スレッドと64GiBメモリの組み合わせのままで物足りなさがあった。全体を買い替えるか悩んだ上でひとまずはメモリを増量して延命することにした。&lt;/p&gt;
+&lt;p&gt;DDR4の4スロットに、今までは16+16+16+16GiBの合計64GiBを取り付けていたが、これを32+32+32+32GiBの合計128GiBにする計画とした。CPU(&lt;a href=&#34;https://www.amd.com/ja/support/downloads/drivers.html/processors/ryzen/ryzen-2000-series/amd-ryzen-7-2700.html#amd_support_product_spec&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AMD Ryzen 7 2700&lt;/a&gt;)と、マザーボード(&lt;a href=&#34;https://www.asrock.com/mb/AMD/B450M%20Pro4/index.jp.asp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;B450M Pro4&lt;/a&gt;)の部分では128GiB対応をうたっていたので、まずは32GiBモジュールを先に2つ購入して、96GiB(32+32+16+16GiB)の構成へ。ここはまったく問題なく通過したので、安心して残りの2モジュールを注文。次の日到着してウキウキで128GiB(32+32+32+32GiB)の構成にしたら、OSからは3.3GiBしか利用できないトラブルが発生。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ free -h
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;               total        used        free      shared  buff/cache   available
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Mem:           3.3Gi       948Mi       1.0Gi       2.0Mi       1.4Gi       2.2Gi
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Swap:           31Gi          0B        31Gi
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ free -b
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;               total        used        free      shared  buff/cache   available
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Mem:      &lt;span class=&#34;m&#34;&gt;3580448768&lt;/span&gt;   &lt;span class=&#34;m&#34;&gt;994852864&lt;/span&gt;  &lt;span class=&#34;m&#34;&gt;1056645120&lt;/span&gt;     &lt;span class=&#34;m&#34;&gt;2134016&lt;/span&gt;  &lt;span class=&#34;m&#34;&gt;1528950784&lt;/span&gt;  &lt;span class=&#34;m&#34;&gt;2404077568&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Swap:    &lt;span class=&#34;m&#34;&gt;34359734272&lt;/span&gt;           &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;34359734272&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;不思議だったのは、3.3GiBしか使えない状態だけどBIOS画面と&lt;code&gt;dmidecode&lt;/code&gt;ではしっかりと32GiBモジュールが4つ見えていたこと。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo dmidecode --type memory
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# dmidecode 3.3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Getting SMBIOS data from sysfs.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;SMBIOS 3.0.0 present.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Handle 0x000C, DMI &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; 16, &lt;span class=&#34;m&#34;&gt;23&lt;/span&gt; bytes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Physical Memory Array
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Location: System Board Or Motherboard
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Use: System Memory
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Error Correction Type: None
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Maximum Capacity: &lt;span class=&#34;m&#34;&gt;256&lt;/span&gt; GB
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Error Information Handle: 0x000B
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Number Of Devices: &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Handle 0x0013, DMI &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; 17, &lt;span class=&#34;m&#34;&gt;40&lt;/span&gt; bytes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Memory Device
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Array Handle: 0x000C
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Error Information Handle: 0x0012
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Total Width: &lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; bits
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Data Width: &lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; bits
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Size: &lt;span class=&#34;m&#34;&gt;32&lt;/span&gt; GB
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Form Factor: DIMM
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Set: None
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Locator: DIMM &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Bank Locator: P0 CHANNEL A
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Type: DDR4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Type Detail: Synchronous Unbuffered &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;Unregistered&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Speed: &lt;span class=&#34;m&#34;&gt;2666&lt;/span&gt; MT/s
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Manufacturer: Micron Technology
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        ...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Handle 0x0016, DMI &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; 17, &lt;span class=&#34;m&#34;&gt;40&lt;/span&gt; bytes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Memory Device
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Array Handle: 0x000C
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Error Information Handle: 0x0015
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Total Width: &lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; bits
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Data Width: &lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; bits
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Size: &lt;span class=&#34;m&#34;&gt;32&lt;/span&gt; GB
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        ...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Handle 0x0019, DMI &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; 17, &lt;span class=&#34;m&#34;&gt;40&lt;/span&gt; bytes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Memory Device
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Array Handle: 0x000C
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Error Information Handle: 0x0018
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Total Width: &lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; bits
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Data Width: &lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; bits
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Size: &lt;span class=&#34;m&#34;&gt;32&lt;/span&gt; GB
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        ...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Handle 0x001C, DMI &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; 17, &lt;span class=&#34;m&#34;&gt;40&lt;/span&gt; bytes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Memory Device
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Array Handle: 0x000C
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Error Information Handle: 0x001B
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Total Width: &lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; bits
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Data Width: &lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; bits
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Size: &lt;span class=&#34;m&#34;&gt;32&lt;/span&gt; GB
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        ...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;BIOSでは認識できているのにOSからは使えないということで、この時点ではBIOSアップデートをしたところで解消される自信はまったくなく、ただそれぐらいしか試せることがないのでBIOSアップデートの道に進んだ。&lt;a href=&#34;https://www.asrock.com/mb/AMD/B450M%20Pro4/index.jp.asp#BIOS&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BIOSバージョン&lt;/a&gt;も少し事情が入り組んでいて、3.60以降は、&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ASRock do NOT recommend updating this BIOS if Pinnacle, Raven or Summit Ridge CPU is being used on your system.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;という注意書きがあり、Ryzen 7 2700(Pinnacle Ridge)では3.60以降を使うのはやめた方がよさそう。さらに、特定のバージョンに上げたら以前のバージョンには戻れないとの注意書きもあるので、現状の1.60から順番に上げていくものの、3.x系の3.10になっても128GiBが使えずこの時点で絶望。面倒になってきたので、間を飛ばしてPinnacle Ridgeがサポートされる最後のバージョンである3.50に一気に上げたらなぜか128GiBが使えるようになった。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.60 - 3.3GiB&lt;/li&gt;
+&lt;li&gt;2.00 - 3.3GiB&lt;/li&gt;
+&lt;li&gt;3.10 - 3.3GiB&lt;/li&gt;
+&lt;li&gt;3.30 - ?&lt;/li&gt;
+&lt;li&gt;3.40 - ?&lt;/li&gt;
+&lt;li&gt;3.50 - 128GiB&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;具体的にどのバージョンで直ったかはわからないけども、それはそれでよしとする。BIOSアップデートで直る問題だとわかってしまった後であれば、冷静に起動時のログの差分を取ってBIOS-e820から133,667,749,887 Bytes分(&lt;code&gt;0x000000201f37ffff - 0x0000000100000000&lt;/code&gt;)のメモリ情報が渡されていなかったとピンポイントでわかるけれども、BIOSアップデートの試行錯誤している間は肝が冷えました。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-diff&#34; data-lang=&#34;diff&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; kernel: BIOS-e820: [mem 0x00000000df000000-0x00000000dfffffff] reserved
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; kernel: BIOS-e820: [mem 0x00000000f8000000-0x00000000fbffffff] reserved
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; kernel: BIOS-e820: [mem 0x00000000fd000000-0x00000000ffffffff] reserved
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gi&#34;&gt;+kernel: BIOS-e820: [mem 0x0000000100000000-0x000000201f37ffff] usable
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gi&#34;&gt;&lt;/span&gt; kernel: NX (Execute Disable) protection: active
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; kernel: APIC: Static calls initialized
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; kernel: SMBIOS 3.2.1 present.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;-kernel: DMI: To Be Filled By O.E.M. To Be Filled By O.E.M./B450M Pro4, BIOS P3.10 03/07/2019
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gi&#34;&gt;+kernel: DMI: To Be Filled By O.E.M. To Be Filled By O.E.M./B450M Pro4, BIOS P3.50 07/18/2019
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gi&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;-kernel: Memory: 3225936K/3611148K available (22528K kernel code, 4435K rwdata, 13952K rodata, 4988K init, 4728K bss, 384952K reserved, 0K cma-reserved)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gi&#34;&gt;+kernel: Memory: 131601868K/134146048K available (22528K kernel code, 4435K rwdata, 13952K rodata, 4988K init, 4728K bss, 2543920K reserved, 0K cma-reserved)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-64gibから96gibへは順調に行ったのに128gibになると思いきや33gibに落ち込んでしまって生きた心地がしなかった数時間&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;64GiBから96GiBへは順調に行ったのに、128GiBになると思いきや3.3GiBに落ち込んでしまって生きた心地がしなかった数時間&#34;
+           src=&#34;https://nobuto-m.github.io/ja/post/2025/a-chilling-moment-when-the-os-only-recognizes-3gib-of-memory-out-of-128gib/memory.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      64GiBから96GiBへは順調に行ったのに、128GiBになると思いきや3.3GiBに落ち込んでしまって生きた心地がしなかった数時間
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+</description>
+    </item>
     
     <item>
       <title>Ubuntu上でeLTAX発行の住民税特別徴収税額通知書ZIPファイルを解凍する</title>
