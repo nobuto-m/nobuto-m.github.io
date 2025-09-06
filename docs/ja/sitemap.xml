@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://nobuto-m.github.io/ja/</loc>
+    <lastmod>2025-09-02T22:26:40+10:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://nobuto-m.github.io/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/"
+                />
+  </url><url>
+    <loc>https://nobuto-m.github.io/ja/post/</loc>
+    <lastmod>2025-09-02T22:26:40+10:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://nobuto-m.github.io/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/post/"
+                />
+  </url><url>
     <loc>https://nobuto-m.github.io/ja/post/2025/a-chilling-moment-when-the-os-only-recognizes-3gib-of-memory-out-of-128gib/</loc>
     <lastmod>2025-06-15T23:36:47+09:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -20,37 +48,9 @@
                 href="https://nobuto-m.github.io/ja/post/2025/"
                 />
   </url><url>
-    <loc>https://nobuto-m.github.io/ja/</loc>
-    <lastmod>2025-06-15T23:36:47+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://nobuto-m.github.io/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://nobuto-m.github.io/ja/"
-                />
-  </url><url>
     <loc>https://nobuto-m.github.io/ja/year/</loc>
     <lastmod>2025-06-15T23:36:47+09:00</lastmod>
     <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://nobuto-m.github.io/ja/post/</loc>
-    <lastmod>2025-06-15T23:36:47+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://nobuto-m.github.io/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://nobuto-m.github.io/ja/post/"
-                />
   </url><url>
     <loc>https://nobuto-m.github.io/ja/post/2025/extract-eltax-aes-256-zip-on-ubuntu/</loc>
     <lastmod>2025-06-14T21:37:52+09:00</lastmod>
