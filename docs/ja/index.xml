@@ -5,12 +5,85 @@
     <link>https://nobuto-m.github.io/ja/</link>
       <atom:link href="https://nobuto-m.github.io/ja/index.xml" rel="self" type="application/rss+xml" />
     <description>Nobuto Murata</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Sat, 06 Sep 2025 16:48:11 +0900</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Sat, 06 Sep 2025 18:29:11 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>Nobuto Murata</title>
       <link>https://nobuto-m.github.io/ja/</link>
     </image>
+    
+    <item>
+      <title>プレゼンテーション用リモコン TechnologicレーザーポインターNEOを買った</title>
+      <link>https://nobuto-m.github.io/ja/post/2025/purchased-presentation-remote-technologic-laserpointer-neo/</link>
+      <pubDate>Sat, 06 Sep 2025 18:29:11 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2025/purchased-presentation-remote-technologic-laserpointer-neo/</guid>
+      <description>&lt;p&gt;購入価格2,533円。一番安そうな価格帯で技適シールがありそうなものとして選んだ。バッテリー充電用にUSB Type-Cポートがあるが、付属のUSB-A-to-Cケーブルでないと充電できない。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;公式サイト: &lt;a href=&#34;https://technologic.jp/laserpointer_neo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://technologic.jp/laserpointer_neo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Amazonリンク: &lt;a href=&#34;https://www.amazon.co.jp/dp/B0CZHRM842&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.amazon.co.jp/dp/B0CZHRM842&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;USBドングルを挿したときの出力は以下の通り。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Sep 06 18:27:29 t14g5a kernel: usb 1-1: new full-speed USB device number 6 using xhci_hcd
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Sep 06 18:27:29 t14g5a kernel: usb 1-1: New USB device found, idVendor=2312, idProduct=863d, bcdDevice= 0.02
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Sep 06 18:27:29 t14g5a kernel: usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Sep 06 18:27:29 t14g5a kernel: usb 1-1: Product: Wireless Device
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Sep 06 18:27:29 t14g5a kernel: usb 1-1: Manufacturer: Smart
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Sep 06 18:27:29 t14g5a kernel: usb 1-1: SerialNumber: b120300001
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Sep 06 18:27:29 t14g5a kernel: input: Smart Wireless Device as /devices/pci0000:00/0000:00:08.1/0000:c4:00.3/usb1/1-1/1-1:1.0/0003:2312:863D.0005/input/input23
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Sep 06 18:27:29 t14g5a kernel: hid-generic 0003:2312:863D.0005: input,hidraw1: USB HID v2.00 Keyboard [Smart Wireless Device] on usb-0000:c4:00.3-1/input0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Sep 06 18:27:29 t14g5a kernel: input: Smart Wireless Device Mouse as /devices/pci0000:00/0000:00:08.1/0000:c4:00.3/usb1/1-1/1-1:1.1/0003:2312:863D.0006/input/input24
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Sep 06 18:27:29 t14g5a kernel: input: Smart Wireless Device System Control as /devices/pci0000:00/0000:00:08.1/0000:c4:00.3/usb1/1-1/1-1:1.1/0003:2312:863D.0006/input/input25
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Sep 06 18:27:29 t14g5a kernel: input: Smart Wireless Device Consumer Control as /devices/pci0000:00/0000:00:08.1/0000:c4:00.3/usb1/1-1/1-1:1.1/0003:2312:863D.0006/input/input26
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Sep 06 18:27:29 t14g5a kernel: hid-generic 0003:2312:863D.0006: input,hiddev0,hidraw2: USB HID v2.00 Mouse [Smart Wireless Device] on usb-0000:c4:00.3-1/input1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;技適マークがあるのと、ただのUSB入力デバイスとして動くのでOS側でキーの入れ替えとかもできて遊べそう。キーの割り当ては下記の表の通りで、それなりの数のイベントを出せるのでこの表がないと覚えられない。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;本体キー&lt;/th&gt;
+&lt;th&gt;説明書記載の動作&lt;/th&gt;
+&lt;th&gt;実際のキーイベント&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;四角ボタン&lt;/td&gt;
+&lt;td&gt;ハイパーリンク&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Tab&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;四角ボタン長押し&lt;/td&gt;
+&lt;td&gt;ウィンドウ切り替え&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Alt+Tab&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;四角ボタンダブルクリック&lt;/td&gt;
+&lt;td&gt;[記載なし]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Enter&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;上ボタン&lt;/td&gt;
+&lt;td&gt;ページ戻し&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;PageUp&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;上ボタン長押し&lt;/td&gt;
+&lt;td&gt;スライドショーまたはEsc&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Shift+F5&lt;/code&gt;と&lt;code&gt;Esc&lt;/code&gt;のトグル&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;下ボタン&lt;/td&gt;
+&lt;td&gt;ページ送り&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;PageDown&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;下ボタン長押し&lt;/td&gt;
+&lt;td&gt;[記載なし]&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;B&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
     
     <item>
       <title>YubiKey 4のCCIDを無効化してGDM3でSmartcardと認識されないようにする</title>
