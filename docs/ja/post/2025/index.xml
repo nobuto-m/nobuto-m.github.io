@@ -5,12 +5,55 @@
     <link>https://nobuto-m.github.io/ja/post/2025/</link>
       <atom:link href="https://nobuto-m.github.io/ja/post/2025/index.xml" rel="self" type="application/rss+xml" />
     <description>2025</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Sun, 15 Jun 2025 23:36:47 +0900</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Sat, 06 Sep 2025 16:48:11 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>2025</title>
       <link>https://nobuto-m.github.io/ja/post/2025/</link>
     </image>
+    
+    <item>
+      <title>YubiKey 4のCCIDを無効化してGDM3でSmartcardと認識されないようにする</title>
+      <link>https://nobuto-m.github.io/ja/post/2025/disable-ccid-smartcard-interface-on-yubikey-4/</link>
+      <pubDate>Sat, 06 Sep 2025 16:48:11 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2025/disable-ccid-smartcard-interface-on-yubikey-4/</guid>
+      <description>&lt;p&gt;家で使ってるYubiKey 4を挿したままUbuntuを起動するとログイン画面（GDM3）でユーザー名を選択する画面が出ずにスマートカードログイン専用のインターフェースに切り替わってしまって、パスワード認証や指紋認証が使えなくなる。YubiKey挿しっぱなしだったわと気づいてUSBポートから抜けばいつものユーザーリストの画面に戻るけどもやや不便な状態だった。ただ初期インストール状態ではそういう風な動きにはならないっぽかったのでちょっと調べて対策した。&lt;/p&gt;
+&lt;p&gt;そもそもスマートカードをきちんとデスクトップログイン時の認証に使うには、ユーザーとの紐づけだったりそれなりのステップを踏む必要があって（&lt;a href=&#34;https://ubuntu.com/tutorials/how-to-use-smart-card-authentication-in-ubuntu-desktop&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;チュートリアル例&lt;/a&gt;）、なぜスマートカードモードに行くのかよくわからなかった。ただ&lt;a href=&#34;https://bugs.launchpad.net/ubuntu/&amp;#43;source/gdm3/&amp;#43;bug/1933027&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;バグ報告は存在して&lt;/a&gt;、いろいろ見てみると&lt;code&gt;pcscd&lt;/code&gt;パッケージの有無でスマートカードモードに行くかどうかの違いがあったので、なんでこのパッケージがインストールされたかを見ると一目瞭然。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo apt autoremove --purge pcscd
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;REMOVING:                       
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  libccid*  libyubikey-udev*  pcscd*  python3-fido2*  python3-pyscard*  python3-ykman*  yubikey-manager*
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Summary:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Upgrading: 0, Installing: 0, Removing: 7, Not Upgrading: &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Freed space: 2,940 kB
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Continue? &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Y/n&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;YubiKeyを設定するために入れているパッケージのせいでスマートカード用のサービスも入る、と。ちなみに以前は&lt;a href=&#34;https://launchpad.net/ubuntu/&amp;#43;source/yubikey-personalization-gui&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;yubikey-personalization-gui&lt;/a&gt;を使ってたけどnobleにはなかったので、&lt;a href=&#34;https://launchpad.net/ubuntu/&amp;#43;source/yubikey-manager-qt&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;yubikey-manager-qt&lt;/a&gt;の方に移行したけど、これも&lt;a href=&#34;https://www.yubico.com/support/download/yubikey-manager/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;upstream的には2026年2月でEOL&lt;/a&gt;みたい。&lt;a href=&#34;https://www.yubico.com/support/terms-conditions/yubico-end-of-life-policy/eol-products/#h-software-products-includes-mobile-applications-client-software-and-client-libraries&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;結構バシバシEOLにして次はこれ使ってくださいね&lt;/a&gt;、みたいな方針らしい。&lt;/p&gt;
+&lt;p&gt;で、どうするのがいいかなと考えたけども、一番手っ取り早いのはそもそもYubiKey 4をスマートカードとして使っていないので機能自体を無効化した。&lt;/p&gt;
+&lt;p&gt;デフォルトで&lt;code&gt;OTP+FIDO+CCID&lt;/code&gt;となっているのを、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ ykman list
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;YubiKey &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;4.3.5&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;OTP+FIDO+CCID&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Serial: NNNNNNN
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;CCID(Chip Card Interface Device)を除いてあげる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ ykman config mode OTP+FIDO
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Set mode of YubiKey to OTP+FIDO? &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;y/N&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;: y
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Mode set! You must remove and re-insert your YubiKey &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; this change to take effect.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ ykman info
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Device type: YubiKey &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Serial number: NNNNNNN
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Firmware version: 4.3.5
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Enabled USB interfaces: OTP, FIDO
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Applications
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Yubico OTP  	Enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;FIDO U2F    	Enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;FIDO2       	Not available
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;OATH        	Disabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PIV         	Disabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;OpenPGP     	Disabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;YubiHSM Auth	Not available
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで&lt;code&gt;ykman&lt;/code&gt;（&lt;code&gt;yubikey-manager&lt;/code&gt;パッケージ）の依存関係として&lt;code&gt;pcscd&lt;/code&gt;がインストールされていて、さらにYubiKey 4が挿さっていたとしてもGDM3はユーザー名のリストを出すようになった。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>128GiBメモリにアップグレードしたのにOSから3.3GiBしか認識されなくて肝が冷えた話</title>
@@ -39,10 +82,10 @@
 &lt;figure  id=&#34;figure-biosでは最初から合計128gib4x-32gibが認識されていたのに&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;BIOSでは最初から合計128GiB(4x 32GiB)が認識されていたのに&#34; srcset=&#34;
-               /ja/post/2025/a-chilling-moment-when-the-os-only-recognizes-3gib-of-memory-out-of-128gib/featured_hu861a9b9cd56274f407e3093f7aa9ffe8_235985_d68f30b6cc05812746642f305d51f3cf.webp 400w,
-               /ja/post/2025/a-chilling-moment-when-the-os-only-recognizes-3gib-of-memory-out-of-128gib/featured_hu861a9b9cd56274f407e3093f7aa9ffe8_235985_08fe8a0e00674fc696db74505920349f.webp 760w,
+               /ja/post/2025/a-chilling-moment-when-the-os-only-recognizes-3gib-of-memory-out-of-128gib/featured_hu861a9b9cd56274f407e3093f7aa9ffe8_235985_53ac165ef0487c8fcf2c7ad90dc02326.webp 400w,
+               /ja/post/2025/a-chilling-moment-when-the-os-only-recognizes-3gib-of-memory-out-of-128gib/featured_hu861a9b9cd56274f407e3093f7aa9ffe8_235985_dba9bc16871e02a961d0dcf697983b06.webp 760w,
                /ja/post/2025/a-chilling-moment-when-the-os-only-recognizes-3gib-of-memory-out-of-128gib/featured_hu861a9b9cd56274f407e3093f7aa9ffe8_235985_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
-               src=&#34;https://nobuto-m.github.io/ja/post/2025/a-chilling-moment-when-the-os-only-recognizes-3gib-of-memory-out-of-128gib/featured_hu861a9b9cd56274f407e3093f7aa9ffe8_235985_d68f30b6cc05812746642f305d51f3cf.webp&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2025/a-chilling-moment-when-the-os-only-recognizes-3gib-of-memory-out-of-128gib/featured_hu861a9b9cd56274f407e3093f7aa9ffe8_235985_53ac165ef0487c8fcf2c7ad90dc02326.webp&#34;
                width=&#34;760&#34;
                height=&#34;428&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
