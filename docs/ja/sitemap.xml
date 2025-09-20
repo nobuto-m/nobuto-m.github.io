@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://nobuto-m.github.io/ja/post/2025/</loc>
+    <lastmod>2025-09-20T16:32:04+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://nobuto-m.github.io/post/2025/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/post/2025/"
+                />
+  </url><url>
     <loc>https://nobuto-m.github.io/ja/</loc>
     <lastmod>2025-09-20T16:32:04+09:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -16,6 +30,14 @@
                 href="https://nobuto-m.github.io/ja/"
                 />
   </url><url>
+    <loc>https://nobuto-m.github.io/ja/year/</loc>
+    <lastmod>2025-09-20T16:32:04+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://nobuto-m.github.io/ja/post/2025/how-to-disable-shutdown-by-pressing-the-power-button/</loc>
+    <lastmod>2025-09-20T16:32:04+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>https://nobuto-m.github.io/ja/post/</loc>
     <lastmod>2025-09-20T16:32:04+09:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -29,24 +51,6 @@
                 hreflang="ja"
                 href="https://nobuto-m.github.io/ja/post/"
                 />
-  </url><url>
-    <loc>https://nobuto-m.github.io/ja/post/2025/</loc>
-    <lastmod>2025-09-06T18:29:11+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://nobuto-m.github.io/post/2025/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://nobuto-m.github.io/ja/post/2025/"
-                />
-  </url><url>
-    <loc>https://nobuto-m.github.io/ja/year/</loc>
-    <lastmod>2025-09-06T18:29:11+09:00</lastmod>
-    <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://nobuto-m.github.io/ja/post/2025/purchased-presentation-remote-technologic-laserpointer-neo/</loc>
     <lastmod>2025-09-06T18:29:11+09:00</lastmod>

@@ -5,12 +5,81 @@
     <link>https://nobuto-m.github.io/ja/post/2025/</link>
       <atom:link href="https://nobuto-m.github.io/ja/post/2025/index.xml" rel="self" type="application/rss+xml" />
     <description>2025</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Sat, 06 Sep 2025 18:29:11 +0900</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>ja</language><lastBuildDate>Sat, 20 Sep 2025 16:32:04 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>2025</title>
       <link>https://nobuto-m.github.io/ja/post/2025/</link>
     </image>
+    
+    <item>
+      <title>電源ボタンを押したときのシャットダウンを無効化する</title>
+      <link>https://nobuto-m.github.io/ja/post/2025/how-to-disable-shutdown-by-pressing-the-power-button/</link>
+      <pubDate>Sat, 20 Sep 2025 16:32:04 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/ja/post/2025/how-to-disable-shutdown-by-pressing-the-power-button/</guid>
+      <description>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-電源ボタンが天板の押しやすい位置にある&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;電源ボタンが天板の押しやすい位置にある&#34; srcset=&#34;
+               /ja/post/2025/how-to-disable-shutdown-by-pressing-the-power-button/featured_hu56b1edf63cdd35bd8536eb63f47a82cf_70419_ba3d66fb045ed1b29f3ac9544cb510c5.webp 400w,
+               /ja/post/2025/how-to-disable-shutdown-by-pressing-the-power-button/featured_hu56b1edf63cdd35bd8536eb63f47a82cf_70419_c0de9561fe1e2474ba9c135d7277bbeb.webp 760w,
+               /ja/post/2025/how-to-disable-shutdown-by-pressing-the-power-button/featured_hu56b1edf63cdd35bd8536eb63f47a82cf_70419_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/ja/post/2025/how-to-disable-shutdown-by-pressing-the-power-button/featured_hu56b1edf63cdd35bd8536eb63f47a82cf_70419_ba3d66fb045ed1b29f3ac9544cb510c5.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;428&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      電源ボタンが天板の押しやすい位置にある
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;PCケースを買い替えた結果、電源ボタンが子どもが押したくなるような絶妙な位置にある。もし押されたとしてもシャットダウンしないようにする。&lt;/p&gt;
+&lt;p&gt;ヘッドレス（デスクトップ環境無し）で使っている場合のデフォルトでは、電源ボタンが押されると&lt;code&gt;systemctl poweroff&lt;/code&gt;相当のシャットダウン処理が走ってしまう。&lt;code&gt;systemd-logind&lt;/code&gt;の設定ファイルで&lt;code&gt;HandlePowerKey&lt;/code&gt;をデフォルトの&lt;code&gt;poweroff&lt;/code&gt;から&lt;code&gt;ignore&lt;/code&gt;（何もしない）に変えるだけ。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-diff&#34; data-lang=&#34;diff&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;diff --git a/systemd/logind.conf b/systemd/logind.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;index 53d7563..d624b33 100644
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gd&#34;&gt;--- a/systemd/logind.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gi&#34;&gt;+++ b/systemd/logind.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gi&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;@@ -19,17 +19,17 @@
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;&lt;/span&gt; [Login]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; #NAutoVTs=6
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; #ReserveVT=6
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; #KillUserProcesses=no
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; #KillOnlyUsers=
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; #KillExcludeUsers=root
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; #InhibitDelayMaxSec=5
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; #UserStopDelaySec=10
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;-#HandlePowerKey=poweroff
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gi&#34;&gt;+HandlePowerKey=ignore
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gi&#34;&gt;&lt;/span&gt; #HandlePowerKeyLongPress=ignore
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; #HandleRebootKey=reboot
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; #HandleRebootKeyLongPress=poweroff
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; #HandleSuspendKey=suspend
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; #HandleSuspendKeyLongPress=hibernate
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; #HandleHibernateKey=hibernate
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; #HandleHibernateKeyLongPress=ignore
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; #HandleLidSwitch=suspend
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;再起動を待たずに即時反映するために設定を読み込み直す。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl reload systemd-logind.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;すると、電源ボタンが押されたよってログに残るだけでシステムはそのまま動き続けるようになる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Sep 20 01:32:40 darkbox systemd-logind[1227]: Power key pressed short.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
     
     <item>
       <title>プレゼンテーション用リモコン TechnologicレーザーポインターNEOを買った</title>
