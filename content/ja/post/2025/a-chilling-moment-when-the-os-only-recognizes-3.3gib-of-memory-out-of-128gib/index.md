@@ -9,7 +9,7 @@ authors: []
 
 tags: []
 categories: []
-keywords: []
+keywords: ["B450M Pro4"]
 
 reading_time: false
 show_related: true

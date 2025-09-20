@@ -12,7 +12,7 @@ aliases:
 
 tags: []
 categories: []
-keywords: []
+keywords: ["Ubuntu"]
 
 reading_time: false
 show_related: true
