@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: September 20, 2025 -->
+<!-- Last Published: May 5, 2026 -->
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
@@ -118,11 +118,11 @@
           </div>
           <a href="/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/" class="summary-link">
           <div class="article-style">
-            TL;DR Try the following lines in your custom udev rules, e.g. /etc/udev/rules.d/99-local-disable-wakeup-events.rules KERNEL==&#34;i2c-ELAN0676:00&#34;, SUBSYSTEM==&#34;i2c&#34;, DRIVERS==&#34;i2c_hid_acpi&#34;, ATTR{power/wakeup}=&#34;disabled&#34; KERNEL==&#34;PNP0C0E:00&#34;, SUBSYSTEM==&#34;acpi&#34;, DRIVERS==&#34;button&#34;, ATTRS{path}==&#34;\_SB_.SLPB&#34;, ATTR{power/wakeup}=&#34;disabled&#34; Table of Contents TL;DR The motivation Disabling touchpad as a wakeup source on T14 Gen 5 AMD Disabling TrackPoint as a wakeup source on T14 Gen 5 AMD In the case of ThinkPad T14 Gen 3 AMD References The motivation Whenever something touches the red cap, the system wakes up from suspend/s2idle.
+            TL;DR Try the following lines in your custom udev rules, e.g. /etc/udev/rules.d/99-local-disable-wakeup-events.rules KERNEL==&#34;i2c-ELAN0676:00&#34;, SUBSYSTEM==&#34;i2c&#34;, DRIVERS==&#34;i2c_hid_acpi&#34;, ATTR{power/wakeup}=&#34;disabled&#34; KERNEL==&#34;PNP0C0E:00&#34;, SUBSYSTEM==&#34;acpi&#34;, DRIVERS==&#34;button&#34;, ATTRS{path}==&#34;\_SB_.SLPB&#34;, ATTR{power/wakeup}=&#34;disabled&#34; EDIT: As of May 2026, I&rsquo;m using the following lines instead.
           </div></a>
           <div class="stream-meta article-metadata">
             <div class="article-metadata">
-              <span class="article-date">Jan 9, 2025</span> <span class="middot-divider"></span> <span class="article-categories"><i class="fas fa-folder mr-1"></i><a href="/category/ubuntu/">Ubuntu</a></span>
+              <span class="article-date">Jan 9, 2025 &middot; Last updated on May 5, 2026</span> <span class="middot-divider"></span> <span class="article-categories"><i class="fas fa-folder mr-1"></i><a href="/category/ubuntu/">Ubuntu</a></span>
             </div>
           </div>
         </div>
@@ -221,7 +221,7 @@
   <div class="page-footer">
     <div class="container">
       <footer class="site-footer">
-        <p class="powered-by copyright-license-text">© 2017-2025 Nobuto Murata</p>
+        <p class="powered-by copyright-license-text">© 2017-2026 Nobuto Murata</p>
 
         <p class="powered-by">Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.</p>
       </footer>
