@@ -17,7 +17,7 @@ share: true
 
 year: 2025
 date: 2025-01-09T23:50:38+09:00
-lastmod: 2026-05-05T17:45:07+00:00
+lastmod: 2026-05-08T19:33:12+00:00
 
 featured: false
 draft: false
@@ -35,13 +35,7 @@ Try the following lines in your custom udev rules, e.g.
 
 ```shell
 KERNEL=="i2c-ELAN0676:00", SUBSYSTEM=="i2c", DRIVERS=="i2c_hid_acpi", ATTR{power/wakeup}="disabled"
-KERNEL=="PNP0C0E:00", SUBSYSTEM=="acpi", DRIVERS=="button", ATTRS{path}=="\_SB_.SLPB", ATTR{power/wakeup}="disabled"
-```
-
-EDIT: As of May 2026, I'm using the following lines instead.
-```shell
-KERNEL=="i2c-ELAN0676:00", SUBSYSTEM=="i2c", DRIVERS=="i2c_hid_acpi", ATTR{power/wakeup}="disabled"
-KERNEL=="PNP0C0E:00", SUBSYSTEM=="platform", DRIVERS=="acpi-button", ATTR{power/wakeup}="disabled"
+KERNEL=="PNP0C0E:00", ATTR{power/wakeup}="disabled"
 ```
 
 {{< toc >}}
@@ -227,7 +221,7 @@ Somehow, disabling `SLPB` "ACPI Sleep Button" stopped undesired wakeups by the T
 The final udev rule is the following. It also disables wakeup events from the keyboard as a side effect, but opening the lid or pressing the power button can still wake up the system so it works for me.
 
 ```shell
-KERNEL=="PNP0C0E:00", SUBSYSTEM=="acpi", DRIVERS=="button", ATTRS{path}=="\_SB_.SLPB", ATTR{power/wakeup}="disabled"
+KERNEL=="PNP0C0E:00", ATTR{power/wakeup}="disabled"
 ```
 
 ## In the case of ThinkPad T14 Gen 3 AMD

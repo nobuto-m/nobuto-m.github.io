@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: May 5, 2026 -->
+<!-- Last Published: May 8, 2026 -->
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
   <meta name="google-site-verification" content="x-WRee-yVqnJs0JQZzIhmu43FqdyIrIKokjOAFhdL4I">
   <meta name="author" content="Nobuto Murata">
-  <meta name="description" content="TL;DR Try the following lines in your custom udev rules, e.g. /etc/udev/rules.d/99-local-disable-wakeup-events.rules KERNEL==&#34;i2c-ELAN0676:00&#34;, SUBSYSTEM==&#34;i2c&#34;, DRIVERS==&#34;i2c_hid_acpi&#34;, ATTR{power/wakeup}=&#34;disabled&#34; KERNEL==&#34;PNP0C0E:00&#34;, SUBSYSTEM==&#34;acpi&#34;, DRIVERS==&#34;button&#34;, ATTRS{path}==&#34;\_SB_.SLPB&#34;, ATTR{power/wakeup}=&#34;disabled&#34; EDIT: As of May 2026, I&rsquo;m using the following lines instead.">
+  <meta name="description" content="TL;DR Try the following lines in your custom udev rules, e.g. /etc/udev/rules.d/99-local-disable-wakeup-events.rules KERNEL==&#34;i2c-ELAN0676:00&#34;, SUBSYSTEM==&#34;i2c&#34;, DRIVERS==&#34;i2c_hid_acpi&#34;, ATTR{power/wakeup}=&#34;disabled&#34; KERNEL==&#34;PNP0C0E:00&#34;, ATTR{power/wakeup}=&#34;disabled&#34; Table of Contents TL;DR The motivation Disabling touchpad as a wakeup source on T14 Gen 5 AMD Disabling TrackPoint as a wakeup source on T14 Gen 5 AMD In the case of ThinkPad T14 Gen 3 AMD References The motivation Whenever something touches the red cap, the system wakes up from suspend/s2idle.">
   <link rel="alternate" hreflang="en-US" href="https://nobuto-m.github.io/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/">
   <link rel="canonical" href="https://nobuto-m.github.io/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/">
   <link rel="icon" type="image/png" href="/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_32x32_fill_lanczos_center_3.png">
@@ -30,11 +30,11 @@
   <meta property="og:site_name" content="Nobuto Murata">
   <meta property="og:url" content="https://nobuto-m.github.io/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/">
   <meta property="og:title" content="How to prevent TrackPoint or touchpad events from waking up ThinkPad T14 Gen 5 AMD from suspend | Nobuto Murata">
-  <meta property="og:description" content="TL;DR Try the following lines in your custom udev rules, e.g. /etc/udev/rules.d/99-local-disable-wakeup-events.rules KERNEL==&#34;i2c-ELAN0676:00&#34;, SUBSYSTEM==&#34;i2c&#34;, DRIVERS==&#34;i2c_hid_acpi&#34;, ATTR{power/wakeup}=&#34;disabled&#34; KERNEL==&#34;PNP0C0E:00&#34;, SUBSYSTEM==&#34;acpi&#34;, DRIVERS==&#34;button&#34;, ATTRS{path}==&#34;\_SB_.SLPB&#34;, ATTR{power/wakeup}=&#34;disabled&#34; EDIT: As of May 2026, I&rsquo;m using the following lines instead.">
+  <meta property="og:description" content="TL;DR Try the following lines in your custom udev rules, e.g. /etc/udev/rules.d/99-local-disable-wakeup-events.rules KERNEL==&#34;i2c-ELAN0676:00&#34;, SUBSYSTEM==&#34;i2c&#34;, DRIVERS==&#34;i2c_hid_acpi&#34;, ATTR{power/wakeup}=&#34;disabled&#34; KERNEL==&#34;PNP0C0E:00&#34;, ATTR{power/wakeup}=&#34;disabled&#34; Table of Contents TL;DR The motivation Disabling touchpad as a wakeup source on T14 Gen 5 AMD Disabling TrackPoint as a wakeup source on T14 Gen 5 AMD In the case of ThinkPad T14 Gen 3 AMD References The motivation Whenever something touches the red cap, the system wakes up from suspend/s2idle.">
   <meta property="og:image" content="https://nobuto-m.github.io/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/featured.jpg">
   <meta property="og:locale" content="en-US">
   <meta property="article:published_time" content="2025-01-09T23:50:38&#43;09:00">
-  <meta property="article:modified_time" content="2026-05-05T17:45:07&#43;00:00">
+  <meta property="article:modified_time" content="2026-05-08T19:33:12&#43;00:00">
   <script type="application/ld+json">
   {
   "@context": "https://schema.org",
@@ -50,7 +50,7 @@
   ],
 
   "datePublished": "2025-01-09T23:50:38+09:00",
-  "dateModified": "2026-05-05T17:45:07Z",
+  "dateModified": "2026-05-08T19:33:12Z",
 
   "author": {
     "@type": "Person",
@@ -65,7 +65,7 @@
       "url": "https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "TL;DR Try the following lines in your custom udev rules, e.g.\n/etc/udev/rules.d/99-local-disable-wakeup-events.rules\nKERNEL==\u0026#34;i2c-ELAN0676:00\u0026#34;, SUBSYSTEM==\u0026#34;i2c\u0026#34;, DRIVERS==\u0026#34;i2c_hid_acpi\u0026#34;, ATTR{power/wakeup}=\u0026#34;disabled\u0026#34; KERNEL==\u0026#34;PNP0C0E:00\u0026#34;, SUBSYSTEM==\u0026#34;acpi\u0026#34;, DRIVERS==\u0026#34;button\u0026#34;, ATTRS{path}==\u0026#34;\\_SB_.SLPB\u0026#34;, ATTR{power/wakeup}=\u0026#34;disabled\u0026#34; EDIT: As of May 2026, I\u0026rsquo;m using the following lines instead."
+  "description": "TL;DR Try the following lines in your custom udev rules, e.g.\n/etc/udev/rules.d/99-local-disable-wakeup-events.rules\nKERNEL==\u0026#34;i2c-ELAN0676:00\u0026#34;, SUBSYSTEM==\u0026#34;i2c\u0026#34;, DRIVERS==\u0026#34;i2c_hid_acpi\u0026#34;, ATTR{power/wakeup}=\u0026#34;disabled\u0026#34; KERNEL==\u0026#34;PNP0C0E:00\u0026#34;, ATTR{power/wakeup}=\u0026#34;disabled\u0026#34; Table of Contents TL;DR The motivation Disabling touchpad as a wakeup source on T14 Gen 5 AMD Disabling TrackPoint as a wakeup source on T14 Gen 5 AMD In the case of ThinkPad T14 Gen 3 AMD References The motivation Whenever something touches the red cap, the system wakes up from suspend/s2idle."
   }
   </script>
   <title>How to prevent TrackPoint or touchpad events from waking up ThinkPad T14 Gen 5 AMD from suspend | Nobuto Murata</title>
@@ -144,7 +144,7 @@
         <h1>How to prevent TrackPoint or touchpad events from waking up ThinkPad T14 Gen 5 AMD from suspend</h1>
 
         <div class="article-metadata">
-          <span class="article-date">Jan 9, 2025 &middot; Last updated on May 5, 2026</span> <span class="middot-divider"></span> <span class="article-categories"><i class="fas fa-folder mr-1"></i><a href="/category/ubuntu/">Ubuntu</a></span>
+          <span class="article-date">Jan 9, 2025 &middot; Last updated on May 8, 2026</span> <span class="middot-divider"></span> <span class="article-categories"><i class="fas fa-folder mr-1"></i><a href="/category/ubuntu/">Ubuntu</a></span>
         </div>
       </div>
 
@@ -157,15 +157,7 @@
 
           <div class="highlight">
             <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;i2c-ELAN0676:00&#34;</span>, <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;i2c&#34;</span>, <span class="nv">DRIVERS</span><span class="o">==</span><span class="s2">&#34;i2c_hid_acpi&#34;</span>, ATTR<span class="o">{</span>power/wakeup<span class="o">}=</span><span class="s2">&#34;disabled&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;PNP0C0E:00&#34;</span>, <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;acpi&#34;</span>, <span class="nv">DRIVERS</span><span class="o">==</span><span class="s2">&#34;button&#34;</span>, ATTRS<span class="o">{</span>path<span class="o">}==</span><span class="s2">&#34;\_SB_.SLPB&#34;</span>, ATTR<span class="o">{</span>power/wakeup<span class="o">}=</span><span class="s2">&#34;disabled&#34;</span>
-</span></span></code></pre>
-          </div>
-
-          <p>EDIT: As of May 2026, I&rsquo;m using the following lines instead.</p>
-
-          <div class="highlight">
-            <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;i2c-ELAN0676:00&#34;</span>, <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;i2c&#34;</span>, <span class="nv">DRIVERS</span><span class="o">==</span><span class="s2">&#34;i2c_hid_acpi&#34;</span>, ATTR<span class="o">{</span>power/wakeup<span class="o">}=</span><span class="s2">&#34;disabled&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;PNP0C0E:00&#34;</span>, <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;platform&#34;</span>, <span class="nv">DRIVERS</span><span class="o">==</span><span class="s2">&#34;acpi-button&#34;</span>, ATTR<span class="o">{</span>power/wakeup<span class="o">}=</span><span class="s2">&#34;disabled&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;PNP0C0E:00&#34;</span>, ATTR<span class="o">{</span>power/wakeup<span class="o">}=</span><span class="s2">&#34;disabled&#34;</span>
 </span></span></code></pre>
           </div>
 
@@ -407,7 +399,7 @@
           <p>The final udev rule is the following. It also disables wakeup events from the keyboard as a side effect, but opening the lid or pressing the power button can still wake up the system so it works for me.</p>
 
           <div class="highlight">
-            <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;PNP0C0E:00&#34;</span>, <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;acpi&#34;</span>, <span class="nv">DRIVERS</span><span class="o">==</span><span class="s2">&#34;button&#34;</span>, ATTRS<span class="o">{</span>path<span class="o">}==</span><span class="s2">&#34;\_SB_.SLPB&#34;</span>, ATTR<span class="o">{</span>power/wakeup<span class="o">}=</span><span class="s2">&#34;disabled&#34;</span>
+            <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;PNP0C0E:00&#34;</span>, ATTR<span class="o">{</span>power/wakeup<span class="o">}=</span><span class="s2">&#34;disabled&#34;</span>
 </span></span></code></pre>
           </div>
 
