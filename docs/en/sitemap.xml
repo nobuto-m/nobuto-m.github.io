@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://nobuto-m.github.io/post/2026/</loc>
-    <lastmod>2026-09-28T22:54:41+09:00</lastmod>
+    <lastmod>2026-11-18T19:01:03+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
@@ -17,7 +17,7 @@
                 />
   </url><url>
     <loc>https://nobuto-m.github.io/categories/</loc>
-    <lastmod>2026-09-28T22:54:41+09:00</lastmod>
+    <lastmod>2026-11-18T19:01:03+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <xhtml:link
                 rel="alternate"
@@ -29,6 +29,60 @@
                 hreflang="en-US"
                 href="https://nobuto-m.github.io/categories/"
                 />
+  </url><url>
+    <loc>https://nobuto-m.github.io/post/2026/google-meet-call-control-webhid-works-with-chromium-snap/</loc>
+    <lastmod>2026-11-18T19:01:03+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://nobuto-m.github.io/</loc>
+    <lastmod>2026-11-18T19:01:03+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://nobuto-m.github.io/"
+                />
+  </url><url>
+    <loc>https://nobuto-m.github.io/tag/planet-ubuntu/</loc>
+    <lastmod>2026-11-18T19:01:03+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://nobuto-m.github.io/post/</loc>
+    <lastmod>2026-11-18T19:01:03+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://nobuto-m.github.io/post/"
+                />
+  </url><url>
+    <loc>https://nobuto-m.github.io/tags/</loc>
+    <lastmod>2026-11-18T19:01:03+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nobuto-m.github.io/ja/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://nobuto-m.github.io/tags/"
+                />
+  </url><url>
+    <loc>https://nobuto-m.github.io/category/ubuntu/</loc>
+    <lastmod>2026-11-18T19:01:03+09:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://nobuto-m.github.io/post/2026/create-a-plain-qr-code-quickly-on-desktop/</loc>
     <lastmod>2026-09-28T22:54:41+09:00</lastmod>
@@ -43,38 +97,6 @@
                 hreflang="en-US"
                 href="https://nobuto-m.github.io/post/2026/create-a-plain-qr-code-quickly-on-desktop/"
                 />
-  </url><url>
-    <loc>https://nobuto-m.github.io/</loc>
-    <lastmod>2026-09-28T22:54:41+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://nobuto-m.github.io/ja/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://nobuto-m.github.io/"
-                />
-  </url><url>
-    <loc>https://nobuto-m.github.io/post/</loc>
-    <lastmod>2026-09-28T22:54:41+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://nobuto-m.github.io/ja/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://nobuto-m.github.io/post/"
-                />
-  </url><url>
-    <loc>https://nobuto-m.github.io/category/ubuntu/</loc>
-    <lastmod>2026-09-28T22:54:41+09:00</lastmod>
-    <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://nobuto-m.github.io/post/2025/</loc>
     <lastmod>2026-05-08T19:33:12+00:00</lastmod>
@@ -93,24 +115,6 @@
     <loc>https://nobuto-m.github.io/post/2025/how-to-prevent-trackpoint-events-from-waking-up-thinkpad-t14-gen-5-amd-from-suspend/</loc>
     <lastmod>2026-05-08T19:33:12+00:00</lastmod>
     <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://nobuto-m.github.io/tag/planet-ubuntu/</loc>
-    <lastmod>2026-05-08T19:33:12+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://nobuto-m.github.io/tags/</loc>
-    <lastmod>2026-05-08T19:33:12+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://nobuto-m.github.io/ja/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://nobuto-m.github.io/tags/"
-                />
   </url><url>
     <loc>https://nobuto-m.github.io/tag/thinkpad-t14-gen-3-amd/</loc>
     <lastmod>2026-05-08T19:33:12+00:00</lastmod>

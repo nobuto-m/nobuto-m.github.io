@@ -5,12 +5,137 @@
     <link>https://nobuto-m.github.io/tag/planet-ubuntu/</link>
       <atom:link href="https://nobuto-m.github.io/tag/planet-ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <description>Planet-Ubuntu</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-US</language><lastBuildDate>Thu, 09 Jan 2025 23:50:38 +0900</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-US</language><lastBuildDate>Wed, 18 Nov 2026 19:01:03 +0900</lastBuildDate>
     <image>
       <url>https://nobuto-m.github.io/media/icon_hu1576a685d49928373d27b4c079446fa6_3195_512x512_fill_lanczos_center_3.png</url>
       <title>Planet-Ubuntu</title>
       <link>https://nobuto-m.github.io/tag/planet-ubuntu/</link>
     </image>
+    
+    <item>
+      <title>Google Meet&#39;s call control (WebHID) works with Chromium snap</title>
+      <link>https://nobuto-m.github.io/post/2026/google-meet-call-control-webhid-works-with-chromium-snap/</link>
+      <pubDate>Wed, 18 Nov 2026 19:01:03 +0900</pubDate>
+      <guid>https://nobuto-m.github.io/post/2026/google-meet-call-control-webhid-works-with-chromium-snap/</guid>
+      <description>&lt;p&gt;Google Meet’s &lt;a href=&#34;https://support.google.com/meet/answer/12562325?hl=en&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;“Call control” feature&lt;/a&gt; synchronizes the physical mute status and LED indicator on supported devices (e.g. headsets and conference speakerphones) with your mute status inside a Meet call. Other platforms including web-based Zoom clients offer equivalent functionality.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-call-control-synchronizes-the-hardware-mute-led-and-mute-status-in-google-meet&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Call control synchronizes the hardware mute LED and mute status in Google Meet&#34; srcset=&#34;
+               /post/2026/google-meet-call-control-webhid-works-with-chromium-snap/featured_hu1e17e7d5b3a11e8407448c8cd9b036a1_171498_5be6106fedee7b55b594697e2b05dbf3.webp 400w,
+               /post/2026/google-meet-call-control-webhid-works-with-chromium-snap/featured_hu1e17e7d5b3a11e8407448c8cd9b036a1_171498_c67e1683e4c2992a8d2a366955d47bfe.webp 760w,
+               /post/2026/google-meet-call-control-webhid-works-with-chromium-snap/featured_hu1e17e7d5b3a11e8407448c8cd9b036a1_171498_1200x1200_fit_q75_h2_lanczos.webp 1200w&#34;
+               src=&#34;https://nobuto-m.github.io/post/2026/google-meet-call-control-webhid-works-with-chromium-snap/featured_hu1e17e7d5b3a11e8407448c8cd9b036a1_171498_5be6106fedee7b55b594697e2b05dbf3.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;570&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Call control synchronizes the hardware mute LED and mute status in Google Meet
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;This relies on &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/API/WebHID_API&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;WebHID&lt;/a&gt; to let web pages communicate directly with Human Interface Devices (HID). Because &lt;a href=&#34;https://mozilla.github.io/standards-positions/#webhid&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Firefox does not support WebHID as a conscious decision&lt;/a&gt;, I tested it with the Chromium snap first. Mute synchronization didn’t work initially, even though Chromium detected the speakerphone. I suspected snap confinement issues, but testing it with the .deb package of Google Chrome didn’t work either.&lt;/p&gt;
+&lt;p&gt;Chrome’s documentation notes that WebHID on Linux requires configuration, but it does not specify what exact udev rules are needed.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://support.google.com/chrome/answer/12576972?hl=en&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://support.google.com/chrome/answer/12576972?hl=en&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tip: To access the connected device on the Linux system, the udev rule needs to be configured appropriately.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;By default and &lt;a href=&#34;https://github.com/systemd/systemd/issues/38991&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;by design&lt;/a&gt;, &lt;code&gt;hidraw&lt;/code&gt; devices used by WebHID are accessible only by the root user. However, certain devices (e.g. Yubikeys classified under &lt;code&gt;ID_SECURITY_TOKEN&lt;/code&gt;) receive udev rules that grant access to the logged-in user via &lt;code&gt;uaccess&lt;/code&gt; tagging.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ ls -alF /dev/hidraw*
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;crw-rw----+ &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; root root 240, &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; Nov &lt;span class=&#34;m&#34;&gt;17&lt;/span&gt; 21:14 /dev/hidraw0  &lt;span class=&#34;c1&#34;&gt;## &amp;lt;- Yubikey&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;crw-------  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; root root 240, &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; Nov &lt;span class=&#34;m&#34;&gt;17&lt;/span&gt; 21:13 /dev/hidraw1  &lt;span class=&#34;c1&#34;&gt;## &amp;lt;- conference speakerphone&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ getfacl -t /dev/hidraw0  &lt;span class=&#34;c1&#34;&gt;## &amp;lt;- Yubikey&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;getfacl: Removing leading &lt;span class=&#34;s1&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt; from absolute path names
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# file: dev/hidraw0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;USER   root      rw-     
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;user   sssd      rw-     
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;user   nobuto    rw-  &lt;span class=&#34;c1&#34;&gt;## &amp;lt;- access granted for the logged-in user&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;GROUP  root      ---     
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mask             rw-     
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;other            ---     
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once I know how ACL works, an explicit udev rule for a specific device can be configured as follows:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Make Anker PowerConf available for WebHID&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Change the vendor and product ID to fit your hardware&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;SUBSYSTEM&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;hidraw&amp;#34;&lt;/span&gt;, &lt;span class=&#34;nv&#34;&gt;KERNEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;hidraw*&amp;#34;&lt;/span&gt;, ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;idVendor&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;291a&amp;#34;&lt;/span&gt;, ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;idProduct&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3301&amp;#34;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;TAG&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;uaccess&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The Chromium snap requires additional setup. The snap’s AppArmor confinement does not block access to &lt;code&gt;/dev/hidraw*&lt;/code&gt; thanks to the auto-connection of the &lt;code&gt;u2f-devices&lt;/code&gt; interface. The remaining step is to tag specific devices so the snap can access them. The final udev rules are saved as follows in &lt;code&gt;/etc/udev/rules.d/69-snap.chromium_custom.rules&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Make Anker PowerConf available for WebHID&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Change the vendor and product ID to fit your hardware&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;SUBSYSTEM&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;hidraw&amp;#34;&lt;/span&gt;, &lt;span class=&#34;nv&#34;&gt;KERNEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;hidraw*&amp;#34;&lt;/span&gt;, ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;idVendor&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;291a&amp;#34;&lt;/span&gt;, ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;idProduct&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3301&amp;#34;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;TAG&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;uaccess&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Tagging for the Chromium snap to be run before 70-snap.chromium.rules&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Change the vendor and product ID to fit your hardware&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;SUBSYSTEM&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;hidraw&amp;#34;&lt;/span&gt;, &lt;span class=&#34;nv&#34;&gt;KERNEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;hidraw*&amp;#34;&lt;/span&gt;, ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;idVendor&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;291a&amp;#34;&lt;/span&gt;, ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;idProduct&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3301&amp;#34;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;TAG&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;snap_chromium_chromedriver&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;SUBSYSTEM&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;hidraw&amp;#34;&lt;/span&gt;, &lt;span class=&#34;nv&#34;&gt;KERNEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;hidraw*&amp;#34;&lt;/span&gt;, ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;idVendor&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;291a&amp;#34;&lt;/span&gt;, ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;idProduct&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3301&amp;#34;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;TAG&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;snap_chromium_chromium&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;SUBSYSTEM&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;hidraw&amp;#34;&lt;/span&gt;, &lt;span class=&#34;nv&#34;&gt;KERNEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;hidraw*&amp;#34;&lt;/span&gt;, ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;idVendor&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;291a&amp;#34;&lt;/span&gt;, ATTRS&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;idProduct&lt;span class=&#34;o&#34;&gt;}==&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3301&amp;#34;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;TAG&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;snap_chromium_daemon&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After completing those prerequisites and enrolling the device in the Google Meet configuration, we are good to go.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-enroll-a-new-device-with--connect-device-button&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Enroll a new device with **&amp;#43; Connect device** button&#34;
+           src=&#34;https://nobuto-m.github.io/post/2026/google-meet-call-control-webhid-works-with-chromium-snap/enroll-call-control-device.png&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Enroll a new device with &lt;strong&gt;+ Connect device&lt;/strong&gt; button
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;Bidirectional mute status synchronization over WebHID now works seamlessly with the Chromium snap! It works with web-based Zoom calls too.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+&lt;video controls  &gt;
+  &lt;source src=&#34;https://nobuto-m.github.io/post/2026/google-meet-call-control-webhid-works-with-chromium-snap/google-meet-call-control-snap-chromium.mp4&#34; type=&#34;video/mp4&#34;&gt;
+&lt;/video&gt;
+
+</description>
+    </item>
     
     <item>
       <title>How to prevent TrackPoint or touchpad events from waking up ThinkPad T14 Gen 5 AMD from suspend</title>
