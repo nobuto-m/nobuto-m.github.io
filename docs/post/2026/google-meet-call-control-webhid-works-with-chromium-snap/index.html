@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: November 18, 2026 -->
+<!-- Last Published: November 21, 2026 -->
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
@@ -207,13 +207,11 @@
           <div class="highlight">
             <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Make Anker PowerConf available for WebHID</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Change the vendor and product ID to fit your hardware</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;hidraw&#34;</span>, <span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;hidraw*&#34;</span>, ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">&#34;291a&#34;</span>, ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">&#34;3301&#34;</span> <span class="nv">TAG</span><span class="o">+=</span><span class="s2">&#34;uaccess&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;hidraw&#34;</span>, <span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;hidraw*&#34;</span>, ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">&#34;291a&#34;</span>, ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">&#34;3301&#34;</span>, <span class="nv">TAG</span><span class="o">+=</span><span class="s2">&#34;uaccess&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Tagging for the Chromium snap to be run before 70-snap.chromium.rules</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Change the vendor and product ID to fit your hardware</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;hidraw&#34;</span>, <span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;hidraw*&#34;</span>, ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">&#34;291a&#34;</span>, ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">&#34;3301&#34;</span> <span class="nv">TAG</span><span class="o">+=</span><span class="s2">&#34;snap_chromium_chromedriver&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;hidraw&#34;</span>, <span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;hidraw*&#34;</span>, ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">&#34;291a&#34;</span>, ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">&#34;3301&#34;</span> <span class="nv">TAG</span><span class="o">+=</span><span class="s2">&#34;snap_chromium_chromium&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;hidraw&#34;</span>, <span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;hidraw*&#34;</span>, ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">&#34;291a&#34;</span>, ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">&#34;3301&#34;</span> <span class="nv">TAG</span><span class="o">+=</span><span class="s2">&#34;snap_chromium_daemon&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&#34;hidraw&#34;</span>, <span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&#34;hidraw*&#34;</span>, ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">&#34;291a&#34;</span>, ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">&#34;3301&#34;</span>, <span class="nv">TAG</span><span class="o">+=</span><span class="s2">&#34;snap_chromium_chromedriver&#34;</span>, <span class="nv">TAG</span><span class="o">+=</span><span class="s2">&#34;snap_chromium_chromium&#34;</span>, <span class="nv">TAG</span><span class="o">+=</span><span class="s2">&#34;snap_chromium_daemon&#34;</span>
 </span></span></code></pre>
           </div>
 
