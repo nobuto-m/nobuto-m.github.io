@@ -70,13 +70,11 @@ The Chromium snap requires additional setup. The snap’s AppArmor confinement d
 ```bash
 # Make Anker PowerConf available for WebHID
 # Change the vendor and product ID to fit your hardware
-SUBSYSTEM=="hidraw", KERNEL=="hidraw*", ATTRS{idVendor}=="291a", ATTRS{idProduct}=="3301" TAG+="uaccess"
+SUBSYSTEM=="hidraw", KERNEL=="hidraw*", ATTRS{idVendor}=="291a", ATTRS{idProduct}=="3301", TAG+="uaccess"
 
 # Tagging for the Chromium snap to be run before 70-snap.chromium.rules
 # Change the vendor and product ID to fit your hardware
-SUBSYSTEM=="hidraw", KERNEL=="hidraw*", ATTRS{idVendor}=="291a", ATTRS{idProduct}=="3301" TAG+="snap_chromium_chromedriver"
-SUBSYSTEM=="hidraw", KERNEL=="hidraw*", ATTRS{idVendor}=="291a", ATTRS{idProduct}=="3301" TAG+="snap_chromium_chromium"
-SUBSYSTEM=="hidraw", KERNEL=="hidraw*", ATTRS{idVendor}=="291a", ATTRS{idProduct}=="3301" TAG+="snap_chromium_daemon"
+SUBSYSTEM=="hidraw", KERNEL=="hidraw*", ATTRS{idVendor}=="291a", ATTRS{idProduct}=="3301", TAG+="snap_chromium_chromedriver", TAG+="snap_chromium_chromium", TAG+="snap_chromium_daemon"
 ```
 
 After completing those prerequisites and enrolling the device in the Google Meet configuration, we are good to go.
